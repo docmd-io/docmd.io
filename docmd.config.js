@@ -1,6 +1,6 @@
 // docmd.config.js
 module.exports = {
-  siteTitle: 'The Universal Documentation Engine : docmd',
+  siteTitle: 'docmd',
   siteUrl: 'https://docmd.io',
   
   srcDir: 'docs',
