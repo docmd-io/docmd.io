@@ -40,6 +40,7 @@ seo:
       priceCurrency: "USD"
 customHead: |
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -50,7 +51,7 @@ customHead: |
 
 <nav class="navbar">
     <div class="container nav-inner">
-        <a href="/" class="logo" aria-label="docmd home">
+        <a href="/" class="logo" aria-label="docmd home" alt="docmd">
             <svg width="24" height="24" id="icon-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
             docmd
         </a>
@@ -223,7 +224,7 @@ customHead: |
     <div class="container footer-grid">
         <!-- Col 1 (2fr): Brand & Copyright -->
         <div class="f-col eis-div-17">
-            <a href="/" class="logo eis-a-18">
+            <a href="/" class="logo eis-a-18" aria-label="docmd footer" alt="docmd">
                 <svg width="24" height="24" id="icon-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
             </a>
             <p class="eis-p-19">
