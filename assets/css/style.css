@@ -805,12 +805,23 @@ height: 5em;
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 3.5rem;
+    .hero{
+        padding-bottom:50px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .cta-row{
+        display: grid;
     }
 
     .bento-grid {
         grid-template-columns: 1fr;
+        grid-auto-rows:auto;
+    }
+
+    .vis-theme-preview{
+        padding: 50px 0;
     }
 
     .span-2, .span-3 {
@@ -838,6 +849,8 @@ height: 5em;
     .navbar .logo{
         width: 100%;
         height: 60px;
+        justify-content: center;
+        margin: 5px 0;
     }
 
     .f-col-brand {
