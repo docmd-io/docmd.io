@@ -1,5 +1,5 @@
 ---
-title: "The Universal Documentation Engine : docmd"
+title: "The Universal Documentation Engine"
 description: "Generate beautiful, lightweight static documentation sites directly from your Markdown files. Zero config, zero clutter."
 noStyle: true
 keywords: 
