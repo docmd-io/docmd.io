@@ -70,6 +70,9 @@ customHead: |
 
 <header class="hero">
     <div class="container">
+        <a href="https://www.npmjs.com/package/@mgks/docmd" target="_blank" rel="noopener" class="hero-badge">
+            <span class="badge-dot"></span> <span id="npm-version">v0.3.8</span> Now Available
+        </a>
         <h1>
             <span class="text-flow">Beautiful Documentation.</span><br>
             <span class="text-fade">Zero Clutter. Just Content.</span>
