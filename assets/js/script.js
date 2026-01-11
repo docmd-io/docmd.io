@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     loadScript('/assets/js/examples.js', initTypingEngine);
     loadSponsors();
+    fetchLatestVersion();
 });
 
 function loadScript(src, callback) {
@@ -170,6 +171,7 @@ function loadSponsors() {
     grid.innerHTML += `<a href="https://github.com/sponsors/mgks" target="_blank" class="sp-img" style="display:flex;align-items:center;justify-content:center;background:var(--bg-surface);color:var(--text-muted);border:1px dashed var(--border-default)" title="Become a Sponsor"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg></a>`;
 }
 
+/* --- Copy Command --- */
 window.copyCmd = function () {
   navigator.clipboard.writeText('npm install -g @mgks/docmd');
 
@@ -195,3 +197,24 @@ window.copyCmd = function () {
     `;
   }, 2000);
 };
+
+/* --- Version Fetcher --- */
+async function fetchLatestVersion() {
+    const badge = document.getElementById('npm-version');
+    if (!badge) return;
+
+    try {
+        // Fetch abbreviated metadata for speed
+        const res = await fetch('https://registry.npmjs.org/@mgks/docmd/latest');
+        if (res.ok) {
+            const data = await res.json();
+            // Update the text content
+            if (data.version) {
+                badge.innerText = 'v' + data.version;
+            }
+        }
+    } catch (e) {
+        // Silently fail and keep the hardcoded version in HTML
+        console.warn('Failed to fetch version', e);
+    }
+}
