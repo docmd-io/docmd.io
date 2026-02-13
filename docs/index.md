@@ -33,7 +33,7 @@ seo:
     codeRepository: "https://github.com/docmd-io/docmd"
     releaseNotes: "https://github.com/docmd-io/docmd/releases"
     programmingLanguage: "Node.js"
-    installUrl: "https://www.npmjs.com/package/@docmd/cli"
+    installUrl: "https://www.npmjs.com/package/@docmd/core"
     offers:
       "@type": "Offer"
       price: "0"
@@ -70,8 +70,8 @@ customHead: |
 
 <header class="hero">
     <div class="container">
-        <a href="https://www.npmjs.com/package/@mgks/docmd" target="_blank" rel="noopener" class="hero-badge">
-            <span class="badge-dot"></span> <span id="npm-version">v0.3.8</span> Now Available
+        <a href="https://www.npmjs.com/package/@docmd/core" target="_blank" rel="noopener" class="hero-badge">
+            <span class="badge-dot"></span> <span id="npm-version">v0.4.x</span> Now Available
         </a>
         <h1>
             <span class="text-flow">Beautiful Documentation.</span><br>
@@ -82,7 +82,7 @@ customHead: |
             <a href="https://docs.docmd.io/getting-started/installation" class="btn btn-primary">Get Started</a>
             <button class="btn btn-secondary" onclick="copyCmd()">
                 <span class="eis-span-1">$</span>
-                npm i -g @mgks/docmd
+                npm i -g @docmd/core
                 <span class="cmd-icon eis-span-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
                 </span>
@@ -234,7 +234,7 @@ customHead: |
                 The universal documentation engine for modern developers. 
                 <br><br>
                 Open Source under MIT License. <br>
-                © 2025 docmd.io
+                © 2026 docmd.io
             </p>
         </div>
 
