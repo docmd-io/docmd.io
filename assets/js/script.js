@@ -173,7 +173,7 @@ function loadSponsors() {
 
 /* --- Copy Command --- */
 window.copyCmd = function () {
-  navigator.clipboard.writeText('npm install -g @mgks/docmd');
+  navigator.clipboard.writeText('npm install -g @docmd/core');
 
   const icon = document.querySelector('.cmd-icon');
   if (!icon) return;
@@ -205,7 +205,7 @@ async function fetchLatestVersion() {
 
     try {
         // Fetch abbreviated metadata for speed
-        const res = await fetch('https://registry.npmjs.org/@mgks/docmd/latest');
+        const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
         if (res.ok) {
             const data = await res.json();
             // Update the text content
