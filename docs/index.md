@@ -71,13 +71,12 @@ customHead: |
 <header class="hero">
     <div class="container">
         <a href="https://www.npmjs.com/package/@docmd/core" target="_blank" rel="noopener" class="hero-badge">
-            <span class="badge-dot"></span> <span id="npm-version">v0.4.x</span> Now Available
+            <span class="badge-dot"></span> <span id="npm-version">v0.5.x</span> Now Available
         </a>
         <h1>
             <span class="text-flow">Beautiful Documentation.</span><br>
-            <span class="text-fade">Zero Clutter. Just Content.</span>
+            <span class="text-fade">Zero Clutter.</span>
         </h1>
-        <p class="subtitle">Instant docs from Markdown. No React. No bloat.</p>
         <div class="cta-row">
             <a href="https://docs.docmd.io/getting-started/installation" class="btn btn-primary">Get Started</a>
             <button class="btn btn-secondary" onclick="copyCmd()">
@@ -88,8 +87,19 @@ customHead: |
                 </span>
             </button>
         </div>
+        <p class="subtitle">The blazing-fast, zero-config static site generator for Markdown. <br>No React, no heavy bundles < just your content.</p>
     </div>
 </header>
+
+<!--
+<section class="hero-image-section">
+    <div class="container">
+        <div class="hero-image-wrapper">
+            <img src="https://github.com/user-attachments/assets/58c0f85d-8bdc-41e8-af06-01427beb32e8" alt="docmd preview" class="hero-screenshot"> 
+        </div>
+    </div>
+</section>
+-->
 
 <section class="perspective-wrap">
     <div class="container">
@@ -107,14 +117,12 @@ customHead: |
         </div>
     </div>
 </section>
-
 <section class="container eis-section-3">
     <div class="section-header">
         <h2 class="section-title">All You Need</h2>
         <p class="section-desc">Batteries included. We handled the complex parts so you can focus on writing.</p>
     </div>
     <div class="bento-grid">
-        <!-- (Span 2) Rich Containers -->
         <div class="b-card span-2">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box-icon lucide-box"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></div>
@@ -137,13 +145,9 @@ customHead: |
                 </div>
                 <div class="eis-div-13">
                     <strong class="eis-strong-14">Card Containers</strong>They can feature overviews, summaries, or linking to other sections.
-                </div>
-                
+                </div>  
             </div>
-
         </div>
-
-        <!-- Themes -->
         <div class="b-card theme-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette-icon lucide-palette"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle></svg></div>
@@ -155,8 +159,6 @@ customHead: |
                 <div class="theme-swatch sw-dark"></div>
             </div>
         </div>
-
-        <!-- Instant Search -->
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></div>
@@ -173,8 +175,6 @@ customHead: |
                 </div>
             </div>
         </div>
-
-        <!-- Changelogs -->
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history-icon lucide-history"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg></div>
@@ -198,8 +198,6 @@ customHead: |
                 </div>
             </div>
         </div>
-
-        <!-- Plugins -->
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path></svg></div>
@@ -217,6 +215,38 @@ customHead: |
     </div>
 </section>
 
+<section class="metrics-banner">
+    <div class="container metrics-grid">
+        <div class="metric-item">
+            <div class="metric-value">~15<span class="metric-unit">kb</span></div>
+            <div class="metric-label">Client JS Payload</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">0<span class="metric-unit">ms</span></div>
+            <div class="metric-label">SPA Transition Delay</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">100<span class="metric-unit">%</span></div>
+            <div class="metric-label">Offline Search Ready</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">Zero</div>
+            <div class="metric-label">Config Required</div>
+        </div>
+    </div>
+</section>
+
+<section class="bottom-cta">
+    <div class="container text-center">
+        <h2 class="section-title">Ready to write better docs?</h2>
+        <p class="section-desc" style="margin-bottom: 30px;">Join the developers building fast, beautiful documentation with docmd.</p>
+        <div class="cta-row">
+            <a href="https://docs.docmd.io" class="btn btn-primary">Read the Documentation</a>
+            <a href="https://github.com/docmd-io/docmd" class="btn btn-secondary">Star on GitHub</a>
+        </div>
+    </div>
+</section>
+
 <section class="container eis-section-15">
     <h3 class="eis-h3-16">Community Sponsors</h3>
     <div id="sponsors-grid" class="sponsors-grid"></div>
@@ -225,10 +255,9 @@ customHead: |
 <footer class="footer">
     <div class="watermark">docmd</div>
     <div class="container footer-grid">
-        <!-- Col 1 (2fr): Brand & Copyright -->
         <div class="f-col eis-div-17">
             <a href="/" class="logo eis-a-18" aria-label="docmd footer" alt="docmd">
-                <svg width="24" height="24" id="icon-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
             </a>
             <p class="eis-p-19">
                 The universal documentation engine for modern developers. 
@@ -237,24 +266,25 @@ customHead: |
                 © 2026 docmd.io
             </p>
         </div>
-
-        <!-- Links (Right Side) -->
         <div class="f-col">
-            <div class="f-head">Explore</div>
+            <div class="f-head">Product</div>
             <a href="https://docs.docmd.io/getting-started/installation" class="f-link">Installation</a>
+            <a href="https://docs.docmd.io/configuration/general" class="f-link">Configuration</a>
+            <a href="https://docs.docmd.io/cli-commands" class="f-link">CLI Reference</a>
+            <a href="https://docs.docmd.io/comparison" class="f-link">Comparisons</a>
+        </div>
+        <div class="f-col">
+            <div class="f-head">Features</div>
+            <a href="https://docs.docmd.io/content/containers/" class="f-link">UI Containers</a>
             <a href="https://docs.docmd.io/theming" class="f-link">Theming</a>
-            <a href="https://docs.docmd.io/plugins" class="f-link">Plugins</a>
+            <a href="https://docs.docmd.io/plugins/usage" class="f-link">Plugins</a>
+            <a href="https://docs.docmd.io/content/advanced/browser-api" class="f-link">Browser API</a>
         </div>
         <div class="f-col">
-            <div class="f-head">Resources</div>
-            <a href="https://docs.docmd.io" class="f-link">Documentation</a>
-            <a href="https://live.docmd.io" class="f-link">Live Editor</a>
-            <a href="https://github.com/docmd-io/docmd/releases" class="f-link">Changelog</a>
-        </div>
-        <div class="f-col">
-            <div class="f-head">Community</div>
+            <div class="f-head">Ecosystem</div>
             <a href="https://github.com/docmd-io/docmd" class="f-link">GitHub</a>
-            <a href="https://github.com/docmd-io/docmd/issues" class="f-link">Report Issue</a>
+            <a href="https://live.docmd.io" class="f-link">Live Editor</a>
+            <a href="https://github.com/docmd-io/docmd/releases" class="f-link">Releases</a>
             <a href="https://github.com/sponsors/mgks" class="f-link">Sponsor</a>
         </div>
     </div>
