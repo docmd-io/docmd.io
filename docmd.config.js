@@ -22,7 +22,7 @@ module.exports = {
       }
     },
     footer: {
-      style: "complete"
+      style: "minimal"
     }
   },
   theme: {
