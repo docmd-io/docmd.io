@@ -155,20 +155,39 @@ function initTypingEngine() {
 function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 /* --- Sponsors --- */
-function loadSponsors() {
+async function loadSponsors() {
     const grid = document.getElementById('sponsors-grid');
     if(!grid) return;
     
-    // Manual list for now
-    const sponsors = [
-        { login: 'mgks', img: 'https://github.com/mgks.png' }
-    ];
-    
-    sponsors.forEach(s => {
-        grid.innerHTML += `<a href="https://github.com/${s.login}" target="_blank" class="sp-img" style="background-image:url(${s.img})" title="${s.login}"></a>`;
-    });
-    
-    grid.innerHTML += `<a href="https://github.com/sponsors/mgks" target="_blank" class="sp-img" style="display:flex;align-items:center;justify-content:center;background:var(--bg-surface);color:var(--text-muted);border:1px dashed var(--border-default)" title="Become a Sponsor"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg></a>`;
+    const githubUsername = 'mgks';
+
+    const addSponsorBtn = `
+        <a href="https://github.com/sponsors/${githubUsername}" target="_blank" class="sp-img" 
+           style="display:flex;align-items:center;justify-content:center;background:var(--bg-surface);color:var(--text-muted);border:1px dashed var(--border-default)" 
+           title="Become a Sponsor">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        </a>`;
+
+    try {
+        const res = await fetch(`https://api.github.com/users/${githubUsername}`);
+        if (!res.ok) throw new Error('Failed to fetch');
+        
+        const data = await res.json();
+        
+        // Render
+        grid.innerHTML = `
+            <a href="${data.html_url}" target="_blank" class="sp-img" style="background-image:url(${data.avatar_url})" title="${data.login}"></a>
+            ${addSponsorBtn}
+        `;
+
+    } catch (e) {
+        console.warn('Could not fetch sponsors, falling back to default UI', e);
+        // Fallback UI
+        grid.innerHTML = `
+            <a href="https://github.com/${githubUsername}" target="_blank" class="sp-img" style="background-image:url(https://github.com/${githubUsername}.png)" title="${githubUsername}"></a>
+            ${addSponsorBtn}
+        `;
+    }
 }
 
 /* --- Copy Command --- */

@@ -1,4 +1,4 @@
-/*! Source file from the docmd project — https://github.com/docmd-io/docmd */
+/*! Source file from the docmd project - https://github.com/docmd-io/docmd */
 
 :root {
     --bg-canvas: #ffffff;
@@ -8,8 +8,9 @@
     --text-main: #0f172a;
     --text-muted: #64748b;
     --text-inverse: #ffffff;
-    --brand-primary: #2563eb;
-    --brand-glow: rgba(37, 99, 235, 0.1);
+    --brand-primary: #068ad5;
+    --brand-glow: #068ad545;
+    --brand-glow-faded: #068ad50a;
     --sh-kw: #d73a49;
     --sh-str: #0a3069;
     --sh-fn: #6f42c1;
@@ -46,6 +47,7 @@
 
 html {
     scroll-behavior: smooth;
+    position: relative;
 }
 
 body {
@@ -727,11 +729,10 @@ h1 {
 }
 
 .footer {
-    padding: 80px 0px 25%;
+    padding: 2rem 0 25%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(var(--bg-canvas), var(--brand-primary) 100%) 0% 0% / 100% 750%;
-
+    background: linear-gradient(var(--bg-canvas), var(--brand-glow) 100%);
 }
 
 .footer-grid {
@@ -745,6 +746,7 @@ h1 {
 .footer-grid .logo svg {
     width: 5em;
     height: 5em;
+    color: var(--brand-primary);
 }
 
 .f-head {
@@ -1025,7 +1027,7 @@ h1 {
     gap: 8px;
     letter-spacing: -0.1px;
     padding: 5px 16px;
-    background: var(--brand-glow);
+    background: var(--bg-surface);
     border-radius: 100px;
     font-size: 0.85rem;
     font-weight: 500;
@@ -1065,6 +1067,117 @@ h1 {
     border-radius: 50%;
     opacity: 0.4;
     animation: pulse 2s infinite;
+}
+/* --- Fading Hero Image --- */
+.hero-image-section {
+    position: relative;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* This creates the beautiful fade-to-background effect at the bottom */
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+
+.hero-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+    border: 1px solid var(--border-default);
+    border-bottom: none;
+    box-shadow: var(--shadow-float);
+    display: block;
+    /* Optional: slightly dim the image in dark mode if it's too bright */
+    transition: filter 0.3s;
+}
+
+[data-theme="dark"] .hero-screenshot {
+    /* If you have a separate dark mode image, you can swap it via JS or use CSS content/background tricks. 
+       If using the same image, slightly dimming it looks great: */
+    filter: brightness(0.8) contrast(1.1);
+    border-color: #333;
+}
+
+/* --- Floating Code Box (Optional flair) --- */
+.floating-code-box {
+    position: absolute;
+    bottom: 20%;
+    right: -40px;
+    width: 350px;
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transform: rotateX(5deg) rotateY(-10deg) rotateZ(2deg);
+    transition: transform 0.3s;
+}
+.floating-code-box:hover {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+}
+
+/* --- Updated Metrics Grid (4 items) --- */
+.metrics-banner {
+    padding: 60px 0;
+    background: var(--brand-glow-faded);
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 3;
+}
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+    .floating-code-box {
+        display: none;
+    }
+    .hero-image-wrapper {
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+}
+.metric-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+.metric-unit {
+    font-size: 1.5rem;
+    color: var(--brand-primary);
+}
+.metric-label {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    padding: 12% 5em;
+    background: radial-gradient(circle at center, var(--brand-glow) 5%, transparent 40%);
+    position: relative;
+}
+.text-center {
+    text-align: center;
 }
 
 @keyframes pulse {
