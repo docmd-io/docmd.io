@@ -495,7 +495,7 @@ h1 {
     font-size: 0.9rem;
     color: var(--text-muted);
     z-index: 2;
-    margin-bottom: 24px;
+    margin: 0;
     line-height: 1.5;
 }
 
