@@ -87,11 +87,12 @@ button {
     width: 75%;
     height: 600px;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.8;
+    filter: blur(80px);
+    opacity: 0.6;
     z-index: 0;
     pointer-events: none;
-
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
 .flare-1 {
@@ -449,11 +450,14 @@ h1 {
     border: 1px solid var(--border-default);
     border-radius: var(--radius-lg);
     padding: 24px;
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: 0.3s;
+    gap: 16px;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, border-color;
 }
 
 .b-card:hover {
@@ -542,12 +546,15 @@ h1 {
             #7c3aed 120deg,
             #db2777 240deg,
             #2563eb 360deg);
-    opacity: 0.25;
+    opacity: 0.2;
     /* Subtle liquid overlay */
-    filter: blur(60px);
-    animation: liquidSpin 20s linear infinite;
+    filter: blur(40px);
+    animation: liquidSpin 25s linear infinite;
     z-index: 0;
     pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 /* Ensure content sits above the liquid background */
@@ -631,19 +638,20 @@ h1 {
     flex: 1 1 0%;
     padding-left: 16px;
     border-left: 2px solid var(--border-default);
-    padding-bottom: 4px;
+
 }
 
 .cl-ver {
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: block;
-    margin-bottom: 4px;
+
 }
 
 .cl-txt {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
+
 }
 
 .vis-search {
