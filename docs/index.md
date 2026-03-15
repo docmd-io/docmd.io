@@ -81,13 +81,13 @@ customHead: |
             <a href="https://docs.docmd.io/getting-started/installation" class="btn btn-primary">Get Started</a>
             <button class="btn btn-secondary" onclick="copyCmd()">
                 <span class="eis-span-1">$</span>
-                npm i -g @docmd/core
+                npm i @docmd/core
                 <span class="cmd-icon eis-span-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
                 </span>
             </button>
         </div>
-        <p class="subtitle">The blazing-fast, zero-config static site generator for Markdown. <br>No React, no heavy bundles < just your content.</p>
+        <p class="subtitle">The minimalist, zero-config engine for professional documentation. <br>No React, no heavy frameworks.</p>
     </div>
 </header>
 
@@ -119,8 +119,8 @@ customHead: |
 </section>
 <section class="container eis-section-3">
     <div class="section-header">
-        <h2 class="section-title">All You Need</h2>
-        <p class="section-desc">Batteries included. We handled the complex parts so you can focus on writing.</p>
+        <h2 class="section-title">Engineered for Maturity</h2>
+        <p class="section-desc">More than just a generator. A comprehensive documentation system that bridges the gap between human readers and AI agents.</p>
     </div>
     <div class="bento-grid">
         <div class="b-card span-2">
@@ -177,6 +177,57 @@ customHead: |
         </div>
         <div class="b-card">
             <div class="b-header">
+                <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path></svg></div>
+                <h3 class="b-title">Plugins</h3>
+            </div>
+            <p class="b-desc">Extend functionality with SEO, Analytics, and Sitemap plugins.</p>
+            <div class="vis-container vis-plugins">
+                <div class="plug-item">SEO</div>
+                <div class="plug-item">Sitemap</div>
+                <div class="plug-item">GA4</div>
+                <div class="plug-item">Robots</div>
+            </div>
+        </div>
+        <div class="b-card">
+            <div class="b-header">
+                <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch-icon lucide-git-branch"><path d="M15 6a9 9 0 0 0-9 9V3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg></div>
+                <h3 class="b-title">Versioning</h3>
+            </div>
+            <p class="b-desc">Native multi-version support. Switch between legacy, stable, and experimental docs seamlessly.</p>
+            <div class="vis-container" style="margin-top: auto; border-color: rgba(255,255,255,0.1); padding: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.2); margin-bottom: 10px;">
+                    <span style="font-size: 0.8rem; font-weight: 600; color: #3b82f6;">v0.7.0 (Stable)</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #3b82f6;"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <div style="padding: 10px 12px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px;">v0.6.3 (Legacy)</div>
+                <div style="padding: 10px 12px; font-size: 0.75rem;">v0.5.11 (Archived)</div>
+            </div>
+        </div>
+        <div class="b-card">
+            <div class="b-header">
+                <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-icon lucide-cpu"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
+                <h3 class="b-title">AI-Ready Pipeline</h3>
+            </div>
+            <p class="b-desc">Our Semantic Containers act as high-fidelity signals for AI agents. Every site ships with a native `llms-full.txt` context stream.</p>
+            <div class="vis-container vis-search" style="height:auto; padding:15px; background:var(--bg-canvas);">
+                <code style="font-size:0.75rem; opacity:0.8; line-height:1.75;">
+                    {<br/>&nbsp;&nbsp;&nbsp;ai-ready: true,<br/>&nbsp;&nbsp;&nbsp;semantic-context: "developer-guide"<br/>}
+                </code>
+            </div>
+        </div>
+        <div class="b-card">
+            <div class="b-header">
+                <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+                <h3 class="b-title">Micro-SPA Core</h3>
+            </div>
+            <p class="b-desc">Zero-reload navigation with standalone HTML files. Ultra-light &lt; 20kb reachability layer.</p>
+            <div class="vis-container vis-changelog" style="align-items:center; justify-content:center; text-align:center; height: 80px; flex-direction: column; gap: 4px;">
+                <div style="font-size:1.8rem; font-weight:800; color:var(--accent-success);">100</div>
+                <div style="font-size:0.6rem; opacity:0.6; letter-spacing:1px; text-transform:uppercase; font-weight:600;">Performance Score</div>
+            </div>
+        </div>
+        <div class="b-card">
+            <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history-icon lucide-history"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg></div>
                 <h3 class="b-title">Changelogs</h3>
             </div>
@@ -198,27 +249,13 @@ customHead: |
                 </div>
             </div>
         </div>
-        <div class="b-card">
-            <div class="b-header">
-                <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path></svg></div>
-                <h3 class="b-title">Plugins</h3>
-            </div>
-            <p class="b-desc">Extend functionality with SEO, Analytics, and Sitemap plugins.</p>
-            <div class="vis-container vis-plugins">
-                <div class="plug-item">SEO</div>
-                <div class="plug-item">Sitemap</div>
-                <div class="plug-item">GA4</div>
-                <div class="plug-item">Robots</div>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <section class="metrics-banner">
     <div class="container metrics-grid">
         <div class="metric-item">
-            <div class="metric-value">~15<span class="metric-unit">kb</span></div>
+            <div class="metric-value">~20<span class="metric-unit">kb</span></div>
             <div class="metric-label">Client JS Payload</div>
         </div>
         <div class="metric-item">
