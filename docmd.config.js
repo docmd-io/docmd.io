@@ -17,8 +17,8 @@ module.exports = {
       position: "header",
       components: {
         search: true,
-        themeSwitch: false,
-        sponsor: null
+        themeSwitch: true,
+        sponsor: "mgks"
       }
     },
     footer: {
@@ -33,7 +33,8 @@ module.exports = {
   },
   plugins: {
     seo: {
-      defaultDescription: "The zero-config static site generator for documentation. Transform Markdown into fast, SEO-friendly websites. No React required. Open Source.",
+      defaultDescription: "The high-performance, minimalist documentation engine. SPA speed, < 20kb payload, and built-in AI structural integrity. No React required.",
+      aiBots: true,
       openGraph: {
         siteName: "docmd",
         defaultImage: "assets/images/preview.png",
