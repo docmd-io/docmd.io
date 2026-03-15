@@ -709,10 +709,11 @@ h1 {
     border: 1px solid var(--border-default);
     border-radius: 8px;
     padding: 12px;
-    display: flex;
+    text-align: center;
     align-items: center;
+    align-content: center;
     gap: 10px;
-    font-size: 0.85rem;
+    font-size: .85rem;
     font-weight: 600;
 }
 
