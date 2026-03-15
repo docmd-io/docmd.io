@@ -315,7 +315,7 @@ customHead: |
             <a href="https://docs.docmd.io/content/containers/" class="f-link">UI Containers</a>
             <a href="https://docs.docmd.io/theming/available-themes/" class="f-link">Theming</a>
             <a href="https://docs.docmd.io/plugins/usage/" class="f-link">Plugins</a>
-            <a href="https://docs.docmd.io/advanced/browser-api/" class="f-link">Browser API</a>
+            <a href="https://docs.docmd.io/api/node-api/" class="f-link">API Resources</a>
         </div>
         <div class="f-col">
             <div class="f-head">Ecosystem</div>
