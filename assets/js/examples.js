@@ -98,46 +98,50 @@ window.DOCMD_EXAMPLES = [
         name: 'Steps',
         code: [
             { t: '::: steps', c: 'kw' },
-            { t: '1. Install CLI', c: 'cl' },
-            { t: '   Install the command line tool.', c: 'cl' },
-            { t: '2. Run Init', c: 'cl' },
-            { t: '3. Test Dev', c: 'cl' },
-            { t: '4. Build App', c: 'cl' },
-            { t: '5. Launch Live', c: 'cl' },
-            { t: '6. Deploy App', c: 'cl' },
+            { t: '1. Prepare Schema', c: 'cl' },
+            { t: '   Define your technical structural model.', c: 'cm' },
+            { t: '2. Run Build', c: 'cl' },
+            { t: '   The engine handles I/O streams.', c: 'cm' },
+            { t: '3. Deploy Site', c: 'cl' },
             { t: ':::', c: 'kw' }
         ],
         html: `
-            <h3 class="doc-h1" style="margin-top:0">Steps</h3>
             <div style="margin-top:24px; padding-left:12px; border-left:2px solid var(--border-default);">
                 <div style="position:relative; padding-left:24px; margin-bottom:24px;">
                     <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:#2563eb; border:2px solid var(--bg-canvas);"></div>
-                    <span style="display:block; font-size:0.9rem;">
-                        <strong>Install CLI</strong>
-                        <br/>
-                        Install the command line tool.
-                    </span>
+                    <strong>Prepare Schema</strong>
+                    <p style="margin:4px 0 0; font-size:0.8rem; opacity:0.6;">Define your technical structural model.</p>
+                </div>
+                <div style="position:relative; padding-left:24px; margin-bottom:24px;">
+                    <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
+                    <strong>Run Build</strong>
                 </div>
                 <div style="position:relative; padding-left:24px;">
                     <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
-                    <strong style="display:block; font-size:0.9rem;">Run Init</strong>
+                    <strong>Deploy Site</strong>
                 </div>
-                <div style="position:relative; padding-left:24px;">
-                    <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
-                    <strong style="display:block; font-size:0.9rem;">Test Dev</strong>
-                </div>
-                <div style="position:relative; padding-left:24px;">
-                    <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
-                    <strong style="display:block; font-size:0.9rem;">Build App</strong>
-                </div>
-                <div style="position:relative; padding-left:24px;">
-                    <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
-                    <strong style="display:block; font-size:0.9rem;">Launch Live</strong>
-                </div>
-                <div style="position:relative; padding-left:24px;">
-                    <div style="position:absolute; left:-19px; top:0; width:12px; height:12px; border-radius:50%; background:var(--bg-surface); border:2px solid var(--text-muted);"></div>
-                    <strong style="display:block; font-size:0.9rem;">Deploy App</strong>
-                </div>
+            </div>
+        `
+    },
+    {
+        name: 'AI Context',
+        code: [
+            { t: '---', c: 'kw' },
+            { t: 'title: "Modern API Reference"', c: 'str' },
+            { t: 'ai-ready: true', c: 'str' },
+            { t: '---', c: 'kw' },
+            { t: '', c: 'cl' },
+            { t: '::: callout tip "LLM Alignment"', c: 'kw' },
+            { t: 'Semantic signals optimized for RAG.', c: 'cl' },
+            { t: ':::', c: 'kw' }
+        ],
+        html: `
+            <div style="font-family:monospace; font-size:0.7rem; color:var(--text-muted); padding-bottom:10px; border-bottom:1px solid var(--border-default);">
+                &lt;meta property="docmd:ai-ready" content="true"&gt;
+            </div>
+            <div style="background:rgba(16, 185, 129, 0.1); border-left:4px solid #10b981; padding:12px; border-radius:4px; margin-top:15px; font-size:0.85rem;">
+                <strong style="color:#10b981; display:flex; align-items:center; gap:6px; margin-bottom:4px">💡 LLM Alignment</strong>
+                Semantic signals optimized for RAG.
             </div>
         `
     }

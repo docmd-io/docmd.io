@@ -10,7 +10,9 @@
     --text-inverse: #ffffff;
     --brand-primary: #068ad5;
     --brand-glow: #068ad545;
-    --brand-glow-faded: #068ad50a;
+    --brand-glow-faded: #0582ca0a;
+    --accent-success: #10b981;
+    --accent-warning: #f59e0b;
     --sh-kw: #d73a49;
     --sh-str: #0a3069;
     --sh-fn: #6f42c1;
@@ -537,10 +539,10 @@ h1 {
     height: 200%;
     background: conic-gradient(from 0deg at 50% 50%,
             #2563eb 0deg,
-            #9333ea 120deg,
+            #7c3aed 120deg,
             #db2777 240deg,
             #2563eb 360deg);
-    opacity: 0.15;
+    opacity: 0.25;
     /* Subtle liquid overlay */
     filter: blur(60px);
     animation: liquidSpin 20s linear infinite;
