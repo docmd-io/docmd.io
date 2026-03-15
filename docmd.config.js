@@ -4,6 +4,7 @@ module.exports = {
   favicon: "assets/favicon.ico",
   srcDir: "docs",
   outputDir: "site",
+  minify: true,
   layout: {
     spa: false,
     header: {
