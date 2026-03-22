@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "docmd dev",
+    "prebuild": "node scripts/fetch-sponsors.js",
     "build": "docmd build",
     "preview": "npx serve site"
   },
