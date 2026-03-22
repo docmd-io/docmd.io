@@ -38,6 +38,8 @@ jobs:
         run: npm ci
 
       - name: Build website
+        env:
+          SPONSORS_TOKEN: ${{ secrets.SPONSORS_TOKEN || secrets.GITHUB_TOKEN }}
         run: npm run build
 
       - name: Upload artifact
