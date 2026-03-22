@@ -169,16 +169,20 @@ async function loadSponsors() {
         </a>`;
 
     try {
-        const res = await fetch(`https://api.github.com/users/${githubUsername}`);
-        if (!res.ok) throw new Error('Failed to fetch');
+        const res = await fetch('/assets/sponsors.json');
+        if (!res.ok) throw new Error('Failed to fetch local sponsors.json');
         
-        const data = await res.json();
+        const sponsors = await res.json();
+        
+        let html = '';
+        if (sponsors && sponsors.length > 0) {
+            sponsors.forEach(s => {
+                html += `<a href="${s.url}" target="_blank" class="sp-img" style="background-image:url(${s.avatarUrl})" title="${s.login}"></a>\n`;
+            });
+        }
         
         // Render
-        grid.innerHTML = `
-            <a href="${data.html_url}" target="_blank" class="sp-img" style="background-image:url(${data.avatar_url})" title="${data.login}"></a>
-            ${addSponsorBtn}
-        `;
+        grid.innerHTML = html + addSponsorBtn;
 
     } catch (e) {
         console.warn('Could not fetch sponsors, falling back to default UI', e);
