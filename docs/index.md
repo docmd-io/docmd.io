@@ -259,7 +259,7 @@ customHead: |
             <div class="metric-label">Client JS Payload</div>
         </div>
         <div class="metric-item">
-            <div class="metric-value">~0<span class="metric-unit">s</span></div>
+            <div class="metric-value">~0<span class="metric-unit">ms</span></div>
             <div class="metric-label">SPA Transition Delay</div>
         </div>
         <div class="metric-item">
