@@ -9,6 +9,6 @@
     "preview": "npx serve site"
   },
   "dependencies": {
-    "@docmd/core": "^0.6.6"
+    "@docmd/core": "^0.6.7"
   }
 }
