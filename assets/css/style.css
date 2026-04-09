@@ -815,7 +815,7 @@ h1 {
 
 /* --- Plugins Showcase --- */
 .plugins-showcase {
-    padding: 120px 24px 60px;
+    padding: 120px 24px;
 }
 
 .plugins-grid {
@@ -1044,10 +1044,6 @@ h1 {
     margin-left: 8px;
     display: flex;
     color: var(--text-muted);
-}
-
-.eis-section-3 {
-    margin-bottom: 100px;
 }
 
 .eis-div-4 {
