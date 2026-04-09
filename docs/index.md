@@ -294,7 +294,7 @@ customHead: |
             <p class="plugin-desc">Native interactive diagrams with dark/light theme support.</p>
         </div>
         <div class="plugin-card plugin-optional">
-            <div class="plugin-status"><span class="status-badge">Optional</span></div>
+            <div class="plugin-status"><span class="status-badge">Additional</span></div>
             <h4 class="plugin-name">Threads</h4>
             <p class="plugin-desc">Inline discussion comments stored in your markdown files.</p>
             <button class="plugin-install-btn" onclick="copyPluginCmd(this, 'docmd add threads')">
