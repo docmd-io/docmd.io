@@ -221,6 +221,19 @@ window.copyCmd = function () {
   }, 2000);
 };
 
+/* --- Copy Plugin Command --- */
+window.copyPluginCmd = function (btn, cmd) {
+  navigator.clipboard.writeText(cmd);
+  const textEl = btn.querySelector('.install-text');
+  const original = textEl.textContent;
+  textEl.textContent = '✓ Copied!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    textEl.textContent = original;
+    btn.classList.remove('copied');
+  }, 2000);
+};
+
 /* --- Version Fetcher --- */
 async function fetchLatestVersion() {
     const badge = document.getElementById('npm-version');

@@ -813,6 +813,121 @@ h1 {
     border-color: var(--brand-primary);
 }
 
+/* --- Plugins Showcase --- */
+.plugins-showcase {
+    padding: 120px 24px 60px;
+}
+
+.plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.plugin-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.plugin-card:hover {
+    border-color: var(--text-muted);
+    transform: translateY(-3px);
+}
+
+.plugin-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-success);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.plugin-required .plugin-status {
+    color: var(--accent-success);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 50px;
+    background: var(--brand-glow);
+    color: var(--brand-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.plugin-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 4px 0 0;
+}
+
+.plugin-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.plugin-install-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    width: 100%;
+}
+
+.plugin-install-btn:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+.plugin-install-btn.copied {
+    border-color: var(--accent-success);
+    color: var(--accent-success);
+}
+
+.plugin-optional {
+    border-style: dashed;
+}
+
+.plugin-optional:hover {
+    border-style: solid;
+    border-color: var(--brand-primary);
+}
+
 @media (max-width: 1024px) {
     .bento-grid {
         grid-template-columns: 1fr 1fr;
@@ -834,6 +949,10 @@ h1 {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .plugins-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -868,6 +987,10 @@ h1 {
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .plugins-grid {
+        grid-template-columns: 1fr;
     }
 
     .navbar {

@@ -252,6 +252,59 @@ customHead: |
     </div>
 </section>
 
+<section class="container plugins-showcase" id="plugins">
+    <div class="section-header">
+        <h2 class="section-title">Plugin Ecosystem</h2>
+        <p class="section-desc">Everything you need, built in. Optional add-ons when you want more.</p>
+    </div>
+    <div class="plugins-grid">
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">Search</h4>
+            <p class="plugin-desc">Offline full-text fuzzy search. Zero API keys, 100% private.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">SEO</h4>
+            <p class="plugin-desc">Meta tags, Open Graph, Twitter cards, and AI bot controls.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">Sitemap</h4>
+            <p class="plugin-desc">Automatic sitemap.xml generation with priority and frequency.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">Analytics</h4>
+            <p class="plugin-desc">Google Analytics v4 with zero-config injection.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">PWA</h4>
+            <p class="plugin-desc">Progressive Web App support with offline caching.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">LLMs</h4>
+            <p class="plugin-desc">Auto-generate llms.txt and llms-full.txt for AI context.</p>
+        </div>
+        <div class="plugin-card plugin-required">
+            <div class="plugin-status"><span class="status-check">✓</span> Included</div>
+            <h4 class="plugin-name">Mermaid</h4>
+            <p class="plugin-desc">Native interactive diagrams with dark/light theme support.</p>
+        </div>
+        <div class="plugin-card plugin-optional">
+            <div class="plugin-status"><span class="status-badge">Optional</span></div>
+            <h4 class="plugin-name">Threads</h4>
+            <p class="plugin-desc">Inline discussion comments stored in your markdown files.</p>
+            <button class="plugin-install-btn" onclick="copyPluginCmd(this, 'docmd add threads')">
+                <span class="install-text">$ docmd add threads</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
 <section class="metrics-banner">
     <div class="container metrics-grid">
         <div class="metric-item">
