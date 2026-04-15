@@ -1,6 +1,6 @@
 ---
-title: "The Universal Documentation Engine"
-description: "Generate beautiful, lightweight static documentation sites directly from your Markdown files. Zero config, zero clutter."
+title: "Markdown to Production Docs in One Command"
+description: "The zero-config documentation engine. Static HTML for SEO. SPA for speed. AI-ready by default. No framework required."
 noStyle: true
 keywords: 
   - "static site generator"
@@ -23,7 +23,7 @@ seo:
     operatingSystem: "Any"
     applicationCategory: "DeveloperApplication"
     url: "https://docmd.io"
-    description: "docmd is a Node.js-powered static site generator for Markdown documentation. It features custom containers, multiple themes, and zero client-side bloat."
+    description: "docmd is the zero-config documentation engine. Markdown to production docs in one command. Static HTML for SEO. SPA for speed. AI-ready by default."
     creator:
       "@type": "Person"
       name: "Ghazi"
@@ -71,11 +71,11 @@ customHead: |
 <header class="hero">
     <div class="container">
         <a href="https://www.npmjs.com/package/@docmd/core" target="_blank" rel="noopener" class="hero-badge">
-            <span class="badge-dot"></span> <span id="npm-version">v0.5.x</span> Now Available
+            <span class="badge-dot"></span> <span id="npm-version">v0.7.0</span> Now Available
         </a>
         <h1>
-            <span class="text-flow">Beautiful Documentation.</span><br>
-            <span class="text-fade">Zero Clutter.</span>
+            <span class="text-flow">Markdown → Production Docs</span><br>
+            <span class="text-fade">in One Command.</span>
         </h1>
         <div class="cta-row">
             <a href="https://docs.docmd.io/getting-started/installation" class="btn btn-primary">Get Started</a>
@@ -87,7 +87,7 @@ customHead: |
                 </span>
             </button>
         </div>
-        <p class="subtitle">The minimalist, zero-config engine for professional documentation. <br>No React, no heavy frameworks.</p>
+        <p class="subtitle">Static HTML for SEO. SPA for speed. AI-ready by default. <br>No React. No config files. No learning curve.</p>
     </div>
 </header>
 
@@ -119,16 +119,16 @@ customHead: |
 </section>
 <section class="container eis-section-3">
     <div class="section-header">
-        <h2 class="section-title">Engineered for Maturity</h2>
-        <p class="section-desc">More than just a generator. A comprehensive documentation system that bridges the gap between human readers and AI agents.</p>
+        <h2 class="section-title">Why docmd?</h2>
+        <p class="section-desc">Production-grade documentation infrastructure. Comprehensive features with clean developer experience.</p>
     </div>
     <div class="bento-grid">
         <div class="b-card span-2">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box-icon lucide-box"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></div>
-                <h3 class="b-title">Rich Containers</h3>
+                <h3 class="b-title">Write Complex Layouts in Markdown</h3>
             </div>
-            <p class="b-desc">Callouts, cards, tabs, and more. Use our custom markdown syntax to create complex layouts.</p>
+            <p class="b-desc">Callouts, cards, tabs, and more. Native container syntax for complex layouts — no HTML required.</p>
             <div class="eis-div-4">
                 <div class="hide-768 eis-div-5">
                     <code class="eis-code-6">Callouts</code> are perfect for drawing the user’s attention to a specific piece of information.
@@ -138,7 +138,7 @@ customHead: |
                     <code class="eis-code-12">
                         func (){
                             <br>
-                            &nbsp;&nbsp; echo "Organize content into multiple tabbed sections."
+                            &nbsp;&nbsp; echo "Organise content into multiple tabbed sections."
                             <br>
                         }
                     </code></p>
@@ -162,9 +162,9 @@ customHead: |
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></div>
-                <h3 class="b-title">Offline Search</h3>
+                <h3 class="b-title">Search That Works Everywhere</h3>
             </div>
-            <p class="b-desc">Instant fuzzy search with zero API keys. 100% private.</p>
+            <p class="b-desc">Instant fuzzy search with zero API keys. No cloud. Works offline. 100% private.</p>
             <div class="vis-container vis-search">
                 <div class="fake-search-bar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg> Search...
@@ -206,9 +206,9 @@ customHead: |
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-icon lucide-cpu"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
-                <h3 class="b-title">AI-Ready Pipeline</h3>
+                <h3 class="b-title">Built for the AI Era</h3>
             </div>
-            <p class="b-desc">Our Semantic Containers act as high-fidelity signals for AI agents. Every site ships with a native `llms-full.txt` context stream.</p>
+            <p class="b-desc">Semantic containers provide high-fidelity signals for AI agents. Every site ships with `llms.txt` and `llms-full.txt` context streams.</p>
             <div class="vis-container vis-search" style="height:auto; padding:15px; background:var(--bg-canvas);">
                 <code style="font-size:0.75rem; opacity:0.8; line-height:1.75;">
                     {<br/>&nbsp;&nbsp;&nbsp;ai-ready: true,<br/>&nbsp;&nbsp;&nbsp;semantic-context: "developer-guide"<br/>}
@@ -218,9 +218,9 @@ customHead: |
         <div class="b-card">
             <div class="b-header">
                 <div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
-                <h3 class="b-title">Micro-SPA Core</h3>
+                <h3 class="b-title">Fast Without the Framework Tax</h3>
             </div>
-            <p class="b-desc">Zero-reload navigation with standalone HTML files. Ultra-light &lt; 20kb reachability layer.</p>
+            <p class="b-desc">Zero-reload navigation with standalone HTML files. &lt; 20kb client JS. Lighthouse 100.</p>
             <div class="vis-container vis-changelog" style="align-items:center; justify-content:center; text-align:center; height: 80px; flex-direction: column; gap: 4px;">
                 <div style="font-size:1.8rem; font-weight:800; color:var(--accent-success);">100</div>
                 <div style="font-size:0.6rem; opacity:0.6; letter-spacing:1px; text-transform:uppercase; font-weight:600;">Performance Score</div>
@@ -350,7 +350,7 @@ customHead: |
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
             </a>
             <p class="eis-p-19">
-                The universal documentation engine for modern developers. 
+                The zero-config documentation engine. 
                 <br><br>
                 Open Source under MIT License. <br>
                 © 2026 docmd.io
