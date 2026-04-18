@@ -70,10 +70,18 @@ function initLangSwitcher() {
   const dropdown = document.getElementById('lang-dropdown');
   if (!toggle || !dropdown) return;
 
-  // Detect current locale
+  // Detect current locale from URL path
+  const pathSegment = window.location.pathname.split('/')[1];
+  const isKnownLocale = Array.from(dropdown.querySelectorAll('.lang-option'))
+    .some(btn => btn.dataset.lang === pathSegment);
+
   const currentLocale = (window.DOCMD_I18N_STRINGS && window.DOCMD_I18N_STRINGS.locale)
-    || localStorage.getItem('docmd-locale')
-    || 'en';
+    || (isKnownLocale ? pathSegment : 'en');
+
+  // Try to sync localStorage if someone landed directly
+  if (currentLocale !== localStorage.getItem('docmd-locale')) {
+      localStorage.setItem('docmd-locale', currentLocale);
+  }
 
   // Mark the active option
   dropdown.querySelectorAll('.lang-option').forEach(btn => {
