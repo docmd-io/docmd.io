@@ -69,18 +69,12 @@ function initLangSwitcher() {
   const dropdown = document.getElementById('lang-dropdown');
   if (!toggle || !dropdown) return;
 
-  // Detect current locale from URL path
-  const pathSegment = window.location.pathname.split('/')[1];
-  const isKnownLocale = Array.from(dropdown.querySelectorAll('.lang-option'))
-    .some(btn => btn.dataset.lang === pathSegment);
-
-  const currentLocale = (window.DOCMD_I18N_STRINGS && window.DOCMD_I18N_STRINGS.locale)
-    || (isKnownLocale ? pathSegment : 'en');
-
-  // Try to sync localStorage if someone landed directly
-  if (currentLocale !== localStorage.getItem('docmd-locale')) {
-      localStorage.setItem('docmd-locale', currentLocale);
-  }
+  // Detect current locale purely from URL path
+  const pathSegment = window.location.pathname.split('/').filter(Boolean)[0] || '';
+  const langOptions = Array.from(dropdown.querySelectorAll('.lang-option'));
+  const currentLocale = langOptions.some(btn => btn.dataset.lang === pathSegment)
+    ? pathSegment
+    : 'en';
 
   // Mark the active option
   dropdown.querySelectorAll('.lang-option').forEach(btn => {
