@@ -1,9 +1,9 @@
 module.exports = {
-  siteTitle: "docmd",
-  siteUrl: "https://docmd.io",
+  title: "docmd",
+  url: "https://docmd.io",
   favicon: "assets/favicon.ico",
-  srcDir: "docs",
-  outputDir: "site",
+  src: "docs",
+  out: "site",
   minify: true,
   layout: {
     spa: false,
@@ -50,10 +50,14 @@ module.exports = {
         measurementId: "G-W8BCN0W4RF"
       }
     },
-    sitemap: {
-      defaultChangefreq: "weekly",
-      defaultPriority: 0.9
-    }
+  },
+  i18n: {
+    default: "en",
+    stringMode: true,
+    locales: [
+      { id: "en", label: "English" },
+      { id: "zh", label: "中文" }
+    ]
   },
   navigation: []
 };
