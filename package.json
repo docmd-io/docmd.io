@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "docmd dev",
     "prebuild": "node scripts/fetch-sponsors.js",
-    "build": "docmd build",
+    "build": "docmd build && node scripts/rewrite-links.js",
     "preview": "npx serve site"
   },
   "dependencies": {
