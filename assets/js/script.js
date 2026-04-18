@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initLangSwitcher();
-    initLangSwitcher();
     loadScript('/assets/js/examples.js', initTypingEngine);
     loadSponsors();
     fetchLatestVersion();
