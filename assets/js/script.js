@@ -101,7 +101,9 @@ function initLangSwitcher() {
 
 /* --- Internal I18n Attribute Applicator --- */
 function applyI18nAttributes() {
-    if (window.DOCMD_I18N_STRINGS) {
+    if (window.DOCMD_I18N_STRINGS && window.DOCMD_I18N_STRINGS.locale) {
+        const currentLocale = window.DOCMD_I18N_STRINGS.locale;
+        
         document.querySelectorAll('[data-i18n-src]').forEach(el => {
             const key = el.getAttribute('data-i18n-src');
             if (window.DOCMD_I18N_STRINGS[key]) {
@@ -114,6 +116,20 @@ function applyI18nAttributes() {
                 el.alt = window.DOCMD_I18N_STRINGS[key];
             }
         });
+
+        // Rewrite docs.docmd.io links to append locale
+        if (currentLocale !== 'en') {
+            document.querySelectorAll('a[href^="https://docs.docmd.io"]').forEach(el => {
+                try {
+                    const docUrl = new URL(el.href);
+                    if (!docUrl.pathname.startsWith(`/${currentLocale}/`) && docUrl.pathname !== `/${currentLocale}`) {
+                        const originalPath = docUrl.pathname === '/' ? '' : docUrl.pathname;
+                        docUrl.pathname = `/${currentLocale}${originalPath}`;
+                        el.href = docUrl.toString();
+                    }
+                } catch (e) {}
+            });
+        }
     }
 }
 
