@@ -170,7 +170,18 @@ button {
     width: 36px;
     height: 36px;
     color: var(--text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+}
 
+.icon-btn .theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
 }
 
 .icon-btn:hover {
@@ -178,10 +189,64 @@ button {
 
 }
 
+/* Language Switcher */
+.lang-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-default);
+    border-radius: 10px;
+    padding: 6px;
+    min-width: 120px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    z-index: 1000;
+}
+.lang-dropdown.active {
+    display: block;
+}
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 8px 14px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+}
+.lang-option:hover {
+    background: var(--bg-accent);
+    color: var(--text-main);
+}
+.lang-option.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 .hero {
+    position: relative;
     padding-top: 200px;
     padding-bottom: 100px;
     text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
@@ -442,7 +507,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    grid-auto-rows: 360px;
+    grid-auto-rows: minmax(320px, auto);
 }
 
 .b-card {
@@ -820,8 +885,10 @@ h1 {
 
 .plugins-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 .plugin-card {
@@ -934,7 +1001,7 @@ h1 {
     }
 
     .span-3 {
-        grid-column-start: span 2;
+        grid-column-start: span 1;
         grid-column-end: auto;
     }
 
@@ -1200,38 +1267,48 @@ h1 {
 }
 /* --- Fading Hero Image --- */
 .hero-image-section {
-    position: relative;
-    margin-top: -20px;
-    margin-bottom: 40px;
-    z-index: 2;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140vw;
+    max-width: 2500px;
+    z-index: 0;
+    opacity: 0.3;
+    filter: blur(8px) saturate(140%);
+    pointer-events: none;
+    transition: opacity 0.5s ease, filter 0.5s ease, top 0.5s ease;
+}
+
+[data-theme="dark"] .hero-image-section {
+    opacity: 0.35;
+    filter: blur(8px) saturate(200%) brightness(1.2);
 }
 
 .hero-image-wrapper {
     position: relative;
-    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
+    border-radius: 16px;
     /* This creates the beautiful fade-to-background effect at the bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
-    mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 98%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 98%);
 }
 
 .hero-screenshot {
     width: 100%;
     height: auto;
-    border-radius: 12px 12px 0 0;
+    border-radius: 16px;
     border: 1px solid var(--border-default);
-    border-bottom: none;
-    box-shadow: var(--shadow-float);
+    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3), 0 0 40px -10px rgba(59, 130, 246, 0.1);
     display: block;
-    /* Optional: slightly dim the image in dark mode if it's too bright */
-    transition: filter 0.3s;
+    transition: filter 0.3s, box-shadow 0.3s;
 }
 
 [data-theme="dark"] .hero-screenshot {
-    /* If you have a separate dark mode image, you can swap it via JS or use CSS content/background tricks. 
-       If using the same image, slightly dimming it looks great: */
-    filter: brightness(0.8) contrast(1.1);
+    filter: brightness(0.85) contrast(1.05);
     border-color: #333;
+    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px -10px rgba(59, 130, 246, 0.15);
 }
 
 /* --- Floating Code Box (Optional flair) --- */
@@ -1256,7 +1333,7 @@ h1 {
 .metrics-banner {
     padding: 60px 0;
     background: var(--brand-glow-faded);
-    margin-bottom: 80px;
+    margin: 5rem 0;
     position: relative;
     z-index: 3;
 }

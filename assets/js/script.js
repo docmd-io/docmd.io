@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initLangSwitcher();
+    applyI18nAttributes();
     loadScript('/assets/js/examples.js', initTypingEngine);
     loadSponsors();
     fetchLatestVersion();
@@ -61,6 +63,60 @@ function initTheme() {
     setTheme(current === 'dark' ? 'light' : 'dark');
   });
 }
+
+/* --- Language Switcher --- */
+function initLangSwitcher() {
+  const toggle = document.getElementById('lang-toggle');
+  const dropdown = document.getElementById('lang-dropdown');
+  if (!toggle || !dropdown) return;
+
+  // Detect current locale
+  const currentLocale = (window.DOCMD_I18N_STRINGS && window.DOCMD_I18N_STRINGS.locale)
+    || localStorage.getItem('docmd-locale')
+    || 'en';
+
+  // Mark the active option
+  dropdown.querySelectorAll('.lang-option').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLocale);
+  });
+
+  // Toggle dropdown
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+  });
+
+  // Handle language selection — navigate to locale URL
+  dropdown.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-option');
+    if (!btn || btn.classList.contains('active')) return;
+    // Navigation handled by <a> href — no JS needed
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('active');
+  });
+}
+
+/* --- Internal I18n Attribute Applicator --- */
+function applyI18nAttributes() {
+    if (window.DOCMD_I18N_STRINGS) {
+        document.querySelectorAll('[data-i18n-src]').forEach(el => {
+            const key = el.getAttribute('data-i18n-src');
+            if (window.DOCMD_I18N_STRINGS[key]) {
+                el.src = window.DOCMD_I18N_STRINGS[key];
+            }
+        });
+        document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+            const key = el.getAttribute('data-i18n-alt');
+            if (window.DOCMD_I18N_STRINGS[key]) {
+                el.alt = window.DOCMD_I18N_STRINGS[key];
+            }
+        });
+    }
+}
+
 
 /* --- Typing Engine --- */
 function initTypingEngine() {
