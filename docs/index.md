@@ -1,6 +1,7 @@
 ---
-title: "Markdown to Production Docs in One Command"
+title: "Build production-ready docs from Markdown in seconds"
 description: "The zero-config documentation engine. Static HTML for SEO. SPA for speed. AI-ready by default. No framework required."
+titleAppend: false
 noStyle: true
 keywords: 
   - "static site generator"
