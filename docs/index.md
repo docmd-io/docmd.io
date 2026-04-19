@@ -1,6 +1,6 @@
 ---
 title: "Build production-ready docs from Markdown in seconds"
-description: "The zero-config documentation engine. Static HTML for SEO. SPA for speed. AI-ready by default. No framework required."
+description: "The zero-config documentation engine that starts instantly and scales with you, fast, SEO-friendly, and AI-ready by default."
 titleAppend: false
 noStyle: true
 keywords: 
