@@ -34,7 +34,7 @@ module.exports = {
   },
   plugins: {
     seo: {
-      defaultDescription: "The high-performance, minimalist documentation engine. SPA speed, < 20kb payload, and built-in AI structural integrity. No React required.",
+      defaultDescription: "The zero-config documentation engine that starts instantly and scales with you, fast, SEO-friendly, and AI-ready by default.",
       aiBots: true,
       openGraph: {
         siteName: "docmd",
