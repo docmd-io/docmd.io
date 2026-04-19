@@ -38,7 +38,7 @@ module.exports = {
       aiBots: true,
       openGraph: {
         siteName: "docmd",
-        defaultImage: "assets/images/preview.png",
+        defaultImage: "assets/images/preview.webp",
         type: "website"
       },
       twitter: {
