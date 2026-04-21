@@ -31,6 +31,8 @@
   "bento.changelog.desc": "Beautiful timeline component for your release notes.",
   "bento.i18n.title": "Native i18n",
   "bento.i18n.desc": "First-class multi-language support with locale-first URLs, per-locale search, and translated UI strings.",
+  "bento.deploy.title": "One-Command Deploy",
+  "bento.deploy.desc": "Generate production-ready Docker, Nginx, and Caddy configs tailored to your project. Config-aware — no generic templates.",
 
   "plugins.title": "Plugin Ecosystem",
   "plugins.desc": "Everything you need, built in. Optional add-ons when you want more.",

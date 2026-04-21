@@ -31,6 +31,8 @@
   "bento.changelog.desc": "为版本发布说明打造的精美时间线组件。",
   "bento.i18n.title": "原生国际化",
   "bento.i18n.desc": "一流的多语言支持，语言优先 URL、各语言独立搜索与翻译 UI 字符串。",
+  "bento.deploy.title": "一键部署",
+  "bento.deploy.desc": "生成针对项目定制的生产级 Docker、Nginx 和 Caddy 配置。配置感知 — 不再使用通用模板。",
 
   "plugins.title": "插件生态",
   "plugins.desc": "开箱即用。需要更多功能时，按需添加。",

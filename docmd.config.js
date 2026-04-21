@@ -56,6 +56,7 @@ module.exports = {
     stringMode: true,
     locales: [
       { id: "en", label: "English" },
+      { id: "de", label: "Deutsch" },
       { id: "zh", label: "中文" }
     ]
   },
