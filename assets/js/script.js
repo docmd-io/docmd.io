@@ -1,17 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initLangSwitcher();
-    loadScript('/assets/js/examples.js', initTypingEngine);
-    loadSponsors();
-    fetchLatestVersion();
+  initTheme();
+  initLangSwitcher();
+  loadSponsors();
+  fetchLatestVersion();
+  initLazyVideos();
 });
-
-function loadScript(src, callback) {
-    const script = document.createElement('script');
-    script.src = src;
-    script.onload = callback;
-    document.body.appendChild(script);
-}
 
 /* --- Theme Logic --- */
 function initTheme() {
@@ -27,14 +20,14 @@ function initTheme() {
     icon.innerHTML =
       mode === 'dark'
         ? `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
         </svg>
         `
         : `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="4"/>
@@ -69,7 +62,7 @@ function initLangSwitcher() {
   const dropdown = document.getElementById('lang-dropdown');
   if (!toggle || !dropdown) return;
 
-  // Detect current locale purely from URL path
+  // Detect current locale from URL path
   const pathSegment = window.location.pathname.split('/').filter(Boolean)[0] || '';
   const langOptions = Array.from(dropdown.querySelectorAll('.lang-option'));
   const currentLocale = langOptions.some(btn => btn.dataset.lang === pathSegment)
@@ -87,164 +80,60 @@ function initLangSwitcher() {
     dropdown.classList.toggle('active');
   });
 
-  // Handle language selection — navigate to locale URL
-  dropdown.addEventListener('click', (e) => {
-    const btn = e.target.closest('.lang-option');
-    if (!btn || btn.classList.contains('active')) return;
-    // Navigation handled by <a> href — no JS needed
-  });
-
   // Close dropdown on outside click
   document.addEventListener('click', () => {
     dropdown.classList.remove('active');
   });
 }
 
-
-
-
-/* --- Typing Engine --- */
-function initTypingEngine() {
-    const codeContainer = document.getElementById('typing-code');
-    const previewContent = document.getElementById('preview-content');
-    
-    // Safety check if external file loaded
-    const scenarios = window.DOCMD_EXAMPLES || [];
-    if (!codeContainer || !previewContent || scenarios.length === 0) return;
-
-    let scenarioIdx = 0;
-    
-    async function playScenario() {
-        const scenario = scenarios[scenarioIdx];
-        
-        // 1. Reset
-        codeContainer.innerHTML = '';
-        previewContent.innerHTML = '';
-        previewContent.className = 'preview-content'; 
-        
-        // 2. Type Lines
-        for (let i = 0; i < scenario.code.length; i++) {
-            const lineData = scenario.code[i];
-            const lineDiv = document.createElement('div');
-            lineDiv.className = 'line';
-            lineDiv.innerHTML = `<div class="ln">${i+1}</div><div class="${lineData.c}"></div>`;
-            codeContainer.appendChild(lineDiv);
-            
-            const textContainer = lineDiv.lastChild;
-            
-            // Type Characters
-            for (let char of lineData.t) {
-                textContainer.innerHTML += char;
-                // Human-like speed: base 10ms + random variance
-                await wait(Math.random() * 50 + 10); 
-            }
-            
-            // Cursor management
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor';
-            textContainer.appendChild(cursor);
-            
-            const prevCursor = codeContainer.querySelectorAll('.cursor');
-            if (prevCursor.length > 1) prevCursor[0].remove();
-            
-            await wait(150); // Pause at end of line
-        }
-
-        // 3. Reveal Preview
-        previewContent.innerHTML = scenario.html;
-        // Small delay to simulate render time
-        await wait(200);
-        previewContent.className = 'preview-content visible';
-
-        // 4. Hold for reading (longer delay)
-        await wait(2500);
-
-        // 5. Wipe (Backspace Effect)
-        const lines = Array.from(codeContainer.children);
-        for (let i = lines.length - 1; i >= 0; i--) {
-            const textDiv = lines[i].lastChild;
-            const cursor = textDiv.querySelector('.cursor');
-            if(cursor) cursor.remove();
-            
-            let text = textDiv.innerText;
-            // Speed up backspace
-            while(text.length > 0) {
-                text = text.slice(0, -1);
-                textDiv.innerHTML = text + '<span class="cursor"></span>';
-                await wait(15); 
-            }
-            lines[i].remove();
-        }
-        
-        previewContent.className = 'preview-content'; // Hide preview
-
-        // 6. Next
-        scenarioIdx = (scenarioIdx + 1) % scenarios.length;
-        setTimeout(playScenario, 500);
-    }
-
-    // Start on View
-    const observer = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting) {
-            playScenario();
-            observer.disconnect();
-        }
-    });
-    observer.observe(document.querySelector('.browser-mockup'));
-}
-
-function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
-
 /* --- Sponsors --- */
 async function loadSponsors() {
-    const grid = document.getElementById('sponsors-grid');
-    if(!grid) return;
-    
-    const githubUsername = 'mgks';
+  const grid = document.getElementById('sponsors-grid');
+  if (!grid) return;
 
-    const addSponsorBtn = `
+  const githubUsername = 'mgks';
+
+  const addSponsorBtn = `
         <a href="https://github.com/sponsors/${githubUsername}" target="_blank" class="sp-img" 
-           style="display:flex;align-items:center;justify-content:center;background:var(--bg-surface);color:var(--text-muted);border:1px dashed var(--border-default)" 
+           style="display:flex;align-items:center;justify-content:center;background:var(--surface);color:var(--text-3);border:1px dashed var(--border)" 
            title="Become a Sponsor">
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
         </a>`;
 
-    try {
-        const res = await fetch('/assets/sponsors.json');
-        if (!res.ok) throw new Error('Failed to fetch local sponsors.json');
-        
-        const sponsors = await res.json();
-        
-        let html = '';
-        if (sponsors && sponsors.length > 0) {
-            sponsors.forEach(s => {
-                html += `<a href="${s.url}" target="_blank" class="sp-img" style="background-image:url(${s.avatarUrl})" title="${s.login}"></a>\n`;
-            });
-        }
-        
-        // Render
-        grid.innerHTML = html + addSponsorBtn;
+  try {
+    const res = await fetch('/assets/sponsors.json');
+    if (!res.ok) throw new Error('Failed to fetch sponsors.json');
 
-    } catch (e) {
-        console.warn('Could not fetch sponsors, falling back to default UI', e);
-        // Fallback UI
-        grid.innerHTML = `
+    const sponsors = await res.json();
+
+    let html = '';
+    if (sponsors && sponsors.length > 0) {
+      sponsors.forEach(s => {
+        html += `<a href="${s.url}" target="_blank" class="sp-img" style="background-image:url(${s.avatarUrl})" title="${s.login}"></a>\n`;
+      });
+    }
+
+    grid.innerHTML = html + addSponsorBtn;
+
+  } catch (e) {
+    console.warn('Could not fetch sponsors', e);
+    grid.innerHTML = `
             <a href="https://github.com/${githubUsername}" target="_blank" class="sp-img" style="background-image:url(https://github.com/${githubUsername}.png)" title="${githubUsername}"></a>
             ${addSponsorBtn}
         `;
-    }
+  }
 }
 
 /* --- Copy Command --- */
 window.copyCmd = function () {
-  navigator.clipboard.writeText('npm install -g @docmd/core');
+  navigator.clipboard.writeText('npm i @docmd/core');
 
-  const icon = document.querySelector('.cmd-icon');
+  const icon = document.querySelector('.copy-icon');
   if (!icon) return;
 
   icon.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-      viewBox="0 0 24 24" fill="none" stroke="#00d500"
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+      viewBox="0 0 24 24" fill="none" stroke="#16a34a"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 6 9 17l-5-5"/>
     </svg>
@@ -252,7 +141,7 @@ window.copyCmd = function () {
 
   setTimeout(() => {
     icon.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
         viewBox="0 0 24 24" fill="none" stroke="currentColor"
         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
@@ -262,36 +151,56 @@ window.copyCmd = function () {
   }, 2000);
 };
 
-/* --- Copy Plugin Command --- */
-window.copyPluginCmd = function (btn, cmd) {
-  navigator.clipboard.writeText(cmd);
-  const textEl = btn.querySelector('.install-text');
-  const original = textEl.textContent;
-  textEl.textContent = '✓ Copied!';
-  btn.classList.add('copied');
-  setTimeout(() => {
-    textEl.textContent = original;
-    btn.classList.remove('copied');
-  }, 2000);
-};
-
 /* --- Version Fetcher --- */
 async function fetchLatestVersion() {
-    const badge = document.getElementById('npm-version');
-    if (!badge) return;
+  const badge = document.getElementById('npm-version');
+  if (!badge) return;
 
-    try {
-        // Fetch abbreviated metadata for speed
-        const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
-        if (res.ok) {
-            const data = await res.json();
-            // Update the text content
-            if (data.version) {
-                badge.innerText = 'v' + data.version;
-            }
-        }
-    } catch (e) {
-        // Silently fail and keep the hardcoded version in HTML
-        console.warn('Failed to fetch version', e);
+  try {
+    const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.version) {
+        badge.innerText = 'v' + data.version;
+      }
     }
+  } catch (e) {
+    console.warn('Failed to fetch version', e);
+  }
+}
+
+/* --- Lazy Video Loader --- */
+function initLazyVideos() {
+  const videos = document.querySelectorAll('video[data-src]');
+  
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          video.src = video.dataset.src;
+          video.load();
+          video.removeAttribute('data-src');
+          
+          // Play when ready
+          video.play().catch(e => {
+            console.warn("Autoplay prevented:", e);
+          });
+          
+          observer.unobserve(video);
+        }
+      });
+    }, { rootMargin: '0px 0px 200px 0px' });
+
+    videos.forEach(video => {
+      observer.observe(video);
+    });
+  } else {
+    // Fallback for browsers that don't support IntersectionObserver
+    videos.forEach(video => {
+      video.src = video.dataset.src;
+      video.load();
+      video.play().catch(e => {});
+    });
+  }
 }
