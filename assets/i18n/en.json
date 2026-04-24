@@ -1,8 +1,8 @@
 {
-  "nav.docs": "Docs",
+  "nav.docs": "Documentation",
   "nav.plugins": "Plugins",
-  "nav.compare": "Compare",
-  "nav.editor": "Editor",
+  "nav.compare": "Comparison",
+  "nav.editor": "Live Editor",
 
   "hero.badge": "Now Available",
   "hero.title": "Markdown to production docs.<br>One command. Zero config.",
