@@ -3,7 +3,6 @@
   "nav.plugins": "Plugins",
   "nav.compare": "Vergleiche",
   "nav.editor": "Live-Editor",
-
   "hero.badge": "Jetzt verfügbar",
   "hero.title": "Markdown zu Produktionsdoku.<br>Ein Befehl. Null Konfiguration.",
   "hero.sub": "Statisches HTML für SEO. SPA-Geschwindigkeit. KI-bereit ab Werk.<br>Kein React. Kein Framework-Lock-in. Keine Lernkurve.",
@@ -12,15 +11,13 @@
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "Null Konfiguration",
   "hero.metric.search": "Offline-Suche",
-
   "feature.zeroconfig.label": "Erste Schritte",
   "feature.zeroconfig.title": "Null Konfiguration zum Start. Volle Kontrolle bei Bedarf.",
   "feature.zeroconfig.desc": "Ein Befehl ausführen. Produktionsdoku erhalten. Später mit einer einfachen Konfigurationsdatei anpassen — kein Boilerplate, kein Framework-Lock-in.",
-  "feature.zeroconfig.li1": "Einrichtung mit einem Befehl: npx docmd init",
+  "feature.zeroconfig.li1": "Einrichtung mit einem Befehl: npx @docmd/core init",
   "feature.zeroconfig.li2": "Optionale docmd.config.js für volle Anpassung",
   "feature.zeroconfig.li3": "Funktioniert mit jeder bestehenden Markdown-Struktur",
   "feature.zeroconfig.link": "Installationsanleitung →",
-
   "feature.containers.label": "Inhalt",
   "feature.containers.title": "Reiche Layouts ohne HTML.",
   "feature.containers.desc": "Callouts, Tabs, Karten und mehr mit nativer Markdown-Container-Syntax schreiben. Komplexe Layouts, null HTML erforderlich.",
@@ -29,7 +26,6 @@
   "feature.containers.li3": "Karten-Grids und Layout-Container",
   "feature.containers.li4": "Icon-Unterstützung in allen Container-Typen",
   "feature.containers.link": "Container-Dokumentation →",
-
   "feature.search.label": "Suche",
   "feature.search.title": "Sofortsuche. Keine API-Schlüssel. 100% offline.",
   "feature.search.desc": "Volltextsuche mit Fuzzy-Matching in jeder Site. Keine Cloud-Abhängigkeiten, keine API-Kosten. Funktioniert komplett offline mit sprachspezifischen Indizes.",
@@ -37,7 +33,6 @@
   "feature.search.li2": "Tastenkürzel ⌘K zum Öffnen",
   "feature.search.li3": "Sprachspezifische Suchindizes für i18n",
   "feature.search.link": "Such-Plugin-Doku →",
-
   "feature.ai.label": "KI-nativ",
   "feature.ai.title": "Für das KI-Zeitalter gebaut.",
   "feature.ai.desc": "Jede docmd-Site enthält llms.txt und llms-full.txt Kontextströme. Semantische Container liefern KI-Agenten hochwertige Signale über Ihre Dokumentationsstruktur.",
@@ -45,7 +40,6 @@
   "feature.ai.li2": "Semantische HTML-Container für besseres Parsing",
   "feature.ai.li3": "KI-Bot-Crawl-Steuerung via SEO-Plugin",
   "feature.ai.link": "LLMs-Plugin-Doku →",
-
   "feature.extras.label": "Produktionsbereit",
   "feature.extras.title": "i18n, Themes, Versionierung und Ein-Befehl-Deployment.",
   "feature.extras.desc": "Alles für Produktionsdokumentation — Mehrsprachunterstützung, helle und dunkle Themes, Versionswechsel und Deployment-Konfigurationen für Docker, Nginx und Caddy.",
@@ -54,7 +48,6 @@
   "feature.extras.li3": "Multi-Versions-Dokumentationsunterstützung",
   "feature.extras.li4": "docmd deploy generiert Produktionskonfigurationen",
   "feature.extras.link": "Konfigurations-Doku →",
-
   "plugins.title": "Alles enthalten.",
   "plugins.desc": "Core-Plugins werden standardmäßig mitgeliefert. Optionale bei Bedarf hinzufügen.",
   "plugins.search": "Suche",
@@ -63,10 +56,8 @@
   "plugins.analytics": "Analytics",
   "plugins.llms": "LLMs",
   "plugins.mermaid": "Mermaid",
-
   "built.title": "Für jeden Dokumentationsbedarf gebaut.",
   "built.desc": "Von Open-Source-READMEs bis zu Unternehmens-Wissensdatenbanken.",
-
   "faq.title": "Häufig gestellte Fragen",
   "faq.sub": "Schnelle Antworten auf häufige Fragen zu docmd.",
   "faq.q1": "Was ist docmd?",
@@ -83,17 +74,13 @@
   "faq.a6": "Ja. Zeigen Sie docmd auf ein beliebiges Verzeichnis mit Markdown-Dateien. <a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown-Syntax-Referenz →</a>",
   "faq.q7": "Unterstützt docmd mehrere Sprachen?",
   "faq.a7": "Ja. Native i18n mit Locale-first URLs und übersetzten UI-Strings. <a href=\"https://docs.docmd.io/configuration/general\">i18n-Konfiguration →</a>",
-
   "ask.title": "Noch unentschlossen?",
   "ask.sub": "Fragen Sie Ihre bevorzugte KI über docmd oder lesen Sie die Doku.",
-
   "cta.title": "Bereit für bessere Dokumentation?",
   "cta.desc": "Schließen Sie sich den Entwicklern an, die mit docmd schnelle, schöne Dokumentation erstellen.",
   "cta.docs": "Dokumentation lesen",
   "cta.github": "Stern auf GitHub",
-
   "sponsors.title": "Community-Sponsoren",
-
   "footer.tagline": "Die Zero-Config-Dokumentations-Engine.<br>Open Source unter MIT-Lizenz.",
   "footer.product": "Produkt",
   "footer.installation": "Installation",

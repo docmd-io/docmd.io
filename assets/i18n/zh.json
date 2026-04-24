@@ -3,7 +3,6 @@
   "nav.plugins": "插件",
   "nav.compare": "对比",
   "nav.editor": "在线编辑器",
-
   "hero.badge": "现已推出",
   "hero.title": "Markdown 到生产文档。<br>一条命令。零配置。",
   "hero.sub": "静态 HTML 优化 SEO。SPA 速度导航。默认 AI 就绪。<br>无需 React。无框架锁定。无学习成本。",
@@ -12,15 +11,13 @@
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "零配置",
   "hero.metric.search": "离线搜索",
-
   "feature.zeroconfig.label": "快速入门",
   "feature.zeroconfig.title": "零配置启动。需要时完全掌控。",
   "feature.zeroconfig.desc": "运行一条命令。获得生产文档站点。之后用简单的配置文件自定义 — 无模板代码，无框架锁定。",
-  "feature.zeroconfig.li1": "一条命令完成设置：npx docmd init",
+  "feature.zeroconfig.li1": "一条命令完成设置：npx @docmd/core init",
   "feature.zeroconfig.li2": "可选的 docmd.config.js 实现完全自定义",
   "feature.zeroconfig.li3": "兼容任何现有 Markdown 结构",
   "feature.zeroconfig.link": "安装指南 →",
-
   "feature.containers.label": "内容",
   "feature.containers.title": "无需 HTML 的富布局。",
   "feature.containers.desc": "使用原生 Markdown 容器语法编写提示框、标签页、卡片等。复杂布局，零 HTML。",
@@ -29,7 +26,6 @@
   "feature.containers.li3": "卡片网格和布局容器",
   "feature.containers.li4": "所有容器类型支持图标",
   "feature.containers.link": "容器文档 →",
-
   "feature.search.label": "搜索",
   "feature.search.title": "即时搜索。无需 API 密钥。100% 离线。",
   "feature.search.desc": "每个站点内置全文模糊搜索。无云依赖，无 API 费用。完全离线运行，支持多语言索引。",
@@ -37,7 +33,6 @@
   "feature.search.li2": "快捷键 ⌘K 打开",
   "feature.search.li3": "按语言独立搜索索引",
   "feature.search.link": "搜索插件文档 →",
-
   "feature.ai.label": "AI 原生",
   "feature.ai.title": "为 AI 时代而生。",
   "feature.ai.desc": "每个 docmd 站点都包含 llms.txt 和 llms-full.txt 上下文流。语义容器为 AI 代理提供关于文档结构的高保真信号。",
@@ -45,7 +40,6 @@
   "feature.ai.li2": "语义 HTML 容器改善解析效果",
   "feature.ai.li3": "通过 SEO 插件控制 AI 爬虫",
   "feature.ai.link": "LLMs 插件文档 →",
-
   "feature.extras.label": "生产就绪",
   "feature.extras.title": "i18n、主题、版本管理和一键部署。",
   "feature.extras.desc": "生产文档所需的一切 — 多语言支持、明暗主题、版本切换，以及 Docker、Nginx 和 Caddy 的部署配置。",
@@ -54,7 +48,6 @@
   "feature.extras.li3": "多版本文档支持",
   "feature.extras.li4": "docmd deploy 生成生产配置",
   "feature.extras.link": "配置文档 →",
-
   "plugins.title": "一切内置。",
   "plugins.desc": "核心插件默认包含。按需添加可选插件。",
   "plugins.search": "搜索",
@@ -63,10 +56,8 @@
   "plugins.analytics": "分析",
   "plugins.llms": "LLMs",
   "plugins.mermaid": "Mermaid",
-
   "built.title": "满足每种文档需求。",
   "built.desc": "从开源 README 到企业知识库。",
-
   "faq.title": "常见问题",
   "faq.sub": "关于 docmd 常见问题的快速解答。",
   "faq.q1": "什么是 docmd？",
@@ -83,17 +74,13 @@
   "faq.a6": "可以。将 docmd 指向任何 Markdown 文件目录即可。<a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown 语法参考 →</a>",
   "faq.q7": "docmd 支持多语言吗？",
   "faq.a7": "支持。原生 i18n，语言优先 URL，按语言搜索索引。<a href=\"https://docs.docmd.io/configuration/general\">i18n 配置 →</a>",
-
   "ask.title": "还在犹豫？",
   "ask.sub": "向您喜欢的 AI 询问 docmd，或自己阅读文档。",
-
   "cta.title": "准备好写更好的文档了吗？",
   "cta.desc": "加入使用 docmd 构建快速、精美文档的开发者行列。",
   "cta.docs": "阅读文档",
   "cta.github": "在 GitHub 上加星",
-
   "sponsors.title": "社区赞助商",
-
   "footer.tagline": "零配置文档引擎。<br>MIT 许可证开源。",
   "footer.product": "产品",
   "footer.installation": "安装",

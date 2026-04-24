@@ -3,7 +3,6 @@
   "nav.plugins": "Plugins",
   "nav.compare": "Comparison",
   "nav.editor": "Live Editor",
-
   "hero.badge": "Now Available",
   "hero.title": "Markdown to production docs.<br>One command. Zero config.",
   "hero.sub": "Static HTML for SEO. SPA-speed navigation. AI-ready by default.<br>No React. No framework lock-in. No learning curve.",
@@ -12,15 +11,13 @@
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "Zero config",
   "hero.metric.search": "Offline search",
-
   "feature.zeroconfig.label": "Getting Started",
   "feature.zeroconfig.title": "Zero config to start. Full control when you need it.",
   "feature.zeroconfig.desc": "Run one command. Get a production docs site. Customize later with a simple config file — no boilerplate, no framework lock-in.",
-  "feature.zeroconfig.li1": "Single command setup with npx docmd init",
+  "feature.zeroconfig.li1": "Single command setup with npx @docmd/core init",
   "feature.zeroconfig.li2": "Optional docmd.config.js for full customization",
   "feature.zeroconfig.li3": "Works with any existing markdown structure",
   "feature.zeroconfig.link": "Installation guide →",
-
   "feature.containers.label": "Content",
   "feature.containers.title": "Rich layouts without HTML.",
   "feature.containers.desc": "Write callouts, tabs, cards, and more using native Markdown container syntax. Complex layouts, zero HTML required.",
@@ -29,7 +26,6 @@
   "feature.containers.li3": "Card grids and layout containers",
   "feature.containers.li4": "Icon support in all container types",
   "feature.containers.link": "Container docs →",
-
   "feature.search.label": "Search",
   "feature.search.title": "Instant search. Zero API keys. 100% offline.",
   "feature.search.desc": "Full-text fuzzy search built into every site. No cloud dependencies, no API costs. Works completely offline with per-locale indexes for multilingual docs.",
@@ -37,7 +33,6 @@
   "feature.search.li2": "Keyboard shortcut ⌘K to open",
   "feature.search.li3": "Per-locale search indexes for i18n",
   "feature.search.link": "Search plugin docs →",
-
   "feature.ai.label": "AI Native",
   "feature.ai.title": "Built for the AI era.",
   "feature.ai.desc": "Every docmd site ships with llms.txt and llms-full.txt context streams. Semantic containers give AI agents high-fidelity signals about your documentation structure.",
@@ -45,7 +40,6 @@
   "feature.ai.li2": "Semantic HTML containers for better parsing",
   "feature.ai.li3": "AI bot crawl controls via SEO plugin",
   "feature.ai.link": "LLMs plugin docs →",
-
   "feature.extras.label": "Production Ready",
   "feature.extras.title": "i18n, themes, versioning, and one-command deploy.",
   "feature.extras.desc": "Everything you need for production documentation — multi-language support, light and dark themes, version switching, and deployment configs for Docker, Nginx, and Caddy.",
@@ -54,7 +48,6 @@
   "feature.extras.li3": "Multi-version documentation support",
   "feature.extras.li4": "docmd deploy generates production configs",
   "feature.extras.link": "Configuration docs →",
-
   "plugins.title": "Everything included.",
   "plugins.desc": "Core plugins ship by default. Add optional ones when you need them.",
   "plugins.search": "Search",
@@ -63,10 +56,8 @@
   "plugins.analytics": "Analytics",
   "plugins.llms": "LLMs",
   "plugins.mermaid": "Mermaid",
-
   "built.title": "Built for every documentation need.",
   "built.desc": "From open-source READMEs to enterprise knowledge bases.",
-
   "faq.title": "Frequently asked questions",
   "faq.sub": "Quick answers to common questions about docmd.",
   "faq.q1": "What is docmd?",
@@ -83,17 +74,13 @@
   "faq.a6": "Yes. Point docmd at any directory of Markdown files. It supports standard Markdown, frontmatter, and adds container syntax (callouts, tabs, cards) on top. <a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown syntax reference →</a>",
   "faq.q7": "Does docmd support multiple languages?",
   "faq.a7": "Yes. Native i18n with locale-first URLs, per-locale search indexes, and translated UI strings. Configure with a simple locales array. <a href=\"https://docs.docmd.io/configuration/general\">i18n configuration →</a>",
-
   "ask.title": "Still deciding?",
   "ask.sub": "Ask your favorite AI about docmd, or read the docs yourself.",
-
   "cta.title": "Ready to write better docs?",
   "cta.desc": "Join the developers building fast, beautiful documentation with docmd.",
   "cta.docs": "Read the Documentation",
   "cta.github": "Star on GitHub",
-
   "sponsors.title": "Community Sponsors",
-
   "footer.tagline": "The zero-config documentation engine.<br>Open source under MIT License.",
   "footer.product": "Product",
   "footer.installation": "Installation",
