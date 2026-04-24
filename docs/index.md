@@ -117,7 +117,7 @@ customHead: |
         <span class="window-title">docs.docmd.io</span>
       </div>
       <div class="window-body">
-        <video class="preview-video" muted loop playsinline preload="none" poster="/assets/images/preview.webp" data-src="/assets/videos/preview.webm">
+        <video class="preview-video" muted loop playsinline preload="none" poster="/assets/images/web-preview.webp" data-src="/assets/videos/preview.webm">
         </video>
       </div>
     </div>
