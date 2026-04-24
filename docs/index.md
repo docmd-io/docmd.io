@@ -53,10 +53,10 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
-      <a href="https://docs.docmd.io" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
-      <a href="https://docs.docmd.io/comparison" class="nav-link" data-i18n="nav.compare">Compare</a>
-      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Editor</a>
+      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
     </div>
     <div class="nav-right">
       <a href="https://github.com/docmd-io/docmd" class="icon-btn" aria-label="GitHub">
@@ -89,10 +89,10 @@ customHead: |
     <h1 data-i18n="hero.title">Markdown to production docs.<br>One command. Zero config.</h1>
     <p class="hero-sub" data-i18n="hero.sub">Static HTML for SEO. SPA-speed navigation. AI-ready by default.<br>No React. No framework lock-in. No learning curve.</p>
     <div class="hero-actions">
-      <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta">Get Started</a>
+      <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket-icon lucide-rocket"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg> Get Started</a>
       <button class="btn-code" onclick="copyCmd()">
         <span class="dollar">$</span>
-        npm i @docmd/core
+        npx @docmd/core dev
         <span class="copy-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
         </span>
@@ -133,11 +133,11 @@ customHead: |
         <h2 data-i18n="feature.zeroconfig.title">Zero config to start. Full control when you need it.</h2>
         <p class="feature-desc" data-i18n="feature.zeroconfig.desc">Run one command. Get a production docs site. Customize later with a simple config file — no boilerplate, no framework lock-in.</p>
         <ul class="feature-list">
-          <li data-i18n="feature.zeroconfig.li1">Single command setup with npx docmd init</li>
+          <li data-i18n="feature.zeroconfig.li1">Single command setup with docmd init</li>
           <li data-i18n="feature.zeroconfig.li2">Optional docmd.config.js for full customization</li>
           <li data-i18n="feature.zeroconfig.li3">Works with any existing markdown structure</li>
         </ul>
-        <a href="https://docs.docmd.io/getting-started/installation" class="feature-link" data-i18n="feature.zeroconfig.link">Installation guide →</a>
+        <a href="https://docs.docmd.io/getting-started/installation/" class="feature-link" data-i18n="feature.zeroconfig.link">Installation guide →</a>
       </div>
       <div class="feature-visual">
         <div class="window">
@@ -147,7 +147,7 @@ customHead: |
             <span class="window-dot green"></span>
             <span class="window-title">Terminal</span>
           </div>
-          <div class="window-body"><pre><span class="cmd">$</span> npx docmd dev
+          <div class="window-body"><pre><span class="cmd">$</span> npx @docmd/core dev
 <span class="success">✓</span> Found 12 markdown files
 <span class="success">✓</span> Built in 340ms
 <span class="success">✓</span> Search index ready
@@ -214,7 +214,7 @@ customHead: |
           <li data-i18n="feature.search.li2">Keyboard shortcut ⌘K to open</li>
           <li data-i18n="feature.search.li3">Per-locale search indexes for i18n</li>
         </ul>
-        <a href="https://docs.docmd.io/plugins/search/" class="feature-link" data-i18n="feature.search.link">Search plugin docs →</a>
+        <a href="https://docs.docmd.io/plugins/search/" class="feature-link" data-i18n="feature.search.link">Search docs →</a>
       </div>
       <div class="feature-visual">
         <div class="demo-search">
@@ -252,7 +252,7 @@ customHead: |
           <li data-i18n="feature.extras.li3">Multi-version documentation support</li>
           <li data-i18n="feature.extras.li4">docmd deploy generates production configs</li>
         </ul>
-        <a href="https://docs.docmd.io/configuration/general" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
+        <a href="https://docs.docmd.io/configuration/general/" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
       </div>
       <div class="feature-visual">
         <div class="feature-visual-stack">
@@ -279,7 +279,7 @@ customHead: |
               <span class="window-dot green"></span>
               <span class="window-title">Terminal</span>
             </div>
-            <div class="window-body"><pre><span class="cmd">$</span> docmd deploy docker
+            <div class="window-body"><pre><span class="cmd">$</span> docmd deploy --docker
 <span class="success">✓</span> Generated Dockerfile
 <span class="success">✓</span> Generated nginx.conf
   <span class="highlight">→ docker build -t docs .</span></pre></div>
@@ -357,11 +357,11 @@ customHead: |
     <p class="section-sub" data-i18n="faq.sub">Quick answers to common questions about docmd.</p>
     <details class="faq-item">
       <summary data-i18n="faq.q1">What is docmd?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source, zero-config documentation engine that converts Markdown files into production-ready documentation sites. It generates static HTML for SEO while providing SPA-like navigation for speed. <a href="https://docs.docmd.io/getting-started/quick-start">Read the quick start guide →</a></div>
+      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source, zero-config documentation engine that converts Markdown files into production-ready documentation sites. It generates static HTML for SEO while providing SPA-like navigation for speed.<br/><br/><a href="https://docs.docmd.io/getting-started/quick-start/">Read the quick start guide →</a></div>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q2">How is it different from Docusaurus or VitePress?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires zero configuration — no React, no Vue, no framework knowledge. It produces standalone HTML with &lt;20kb client JS, scores Lighthouse 100, and includes search, SEO, AI context (llms.txt), and i18n without setup. <a href="https://docs.docmd.io/comparison">See the full comparison →</a></div>
+      <summary data-i18n="faq.q2">How is it different from Docusaurus, MkDocs or VitePress?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, no framework knowledge. It produces standalone HTML with less than 20kb client JS, scores Lighthouse 100, and includes search, SEO, and AI context (llms.txt) without any setup.<br/><br/><a href="https://docs.docmd.io/comparison/">See the full comparison →</a></div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q3">Do I need React or any framework?</summary>
@@ -369,19 +369,19 @@ customHead: |
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q4">How does the AI-ready feature work?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a4">docmd auto-generates llms.txt and llms-full.txt files that give AI models structured context about your docs. Combined with semantic HTML containers, AI agents navigate your documentation with high fidelity. <a href="https://docs.docmd.io/plugins/usage/">Learn about the LLMs plugin →</a></div>
+      <div class="faq-answer" data-i18n-html="faq.a4">docmd auto-generates llms.txt and llms-full.txt files that give AI models structured context about your docs. Combined with semantic HTML containers, AI agents navigate your documentation with high fidelity.<br/><br/><a href="https://docs.docmd.io/plugins/llms/">Learn about the LLMs feature →</a></div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q5">Is docmd free?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a5">Yes. Completely free and open source under MIT License. All core plugins are included by default. <a href="https://github.com/docmd-io/docmd">View on GitHub →</a></div>
+      <div class="faq-answer" data-i18n-html="faq.a5">Yes. Completely free and open source under MIT License. All core features and plugins are included by default.<br/><br/><a href="https://github.com/docmd-io/docmd">View on GitHub →</a></div>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q6">Can I use it with my existing Markdown files?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a6">Yes. Point docmd at any directory of Markdown files. It supports standard Markdown, frontmatter, and adds container syntax (callouts, tabs, cards) on top. <a href="https://docs.docmd.io/content/markdown-syntax/">Markdown syntax reference →</a></div>
+      <summary data-i18n="faq.q6">Can I use it with my existing documentation files?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a6">Yes. Point docmd at any directory of Markdown files. It supports standard Markdown, frontmatter, and adds container syntax (callouts, tabs, cards) on top.<br/><br/><a href="https://docs.docmd.io/content/syntax/">Markdown syntax reference →</a></div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q7">Does docmd support multiple languages?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a7">Yes. Native i18n with locale-first URLs, per-locale search indexes, and translated UI strings. Configure with a simple locales array. <a href="https://docs.docmd.io/configuration/general">i18n configuration →</a></div>
+      <div class="faq-answer" data-i18n-html="faq.a7">Yes. Native i18n with locale-first URLs, per-locale search indexes, and translated UI strings. Start with a simple locales array or build custom configurations.<br/><br/><a href="https://docs.docmd.io/configuration/localisation/">Localisation configuration →</a></div>
     </details>
   </div>
 </section>
@@ -392,10 +392,10 @@ customHead: |
     <h2 data-i18n="ask.title">Still deciding?</h2>
     <p class="section-sub" data-i18n="ask.sub">Ask your favorite AI about docmd, or read the docs yourself.</p>
     <div class="ask-links">
-      <a href="https://chatgpt.com/?q=How%20does%20docmd%20(docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask ChatGPT</a>
-      <a href="https://claude.ai/new?q=How%20does%20docmd%20(docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Claude</a>
-      <a href="https://www.google.com/search?q=docmd.io+documentation+generator+vs+Docusaurus+VitePress+MkDocs+Mintlify" target="_blank" rel="noopener" class="ask-link">Ask Gemini</a>
-      <a href="https://perplexity.ai/?q=How%20does%20docmd%20(docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Perplexity</a>
+      <a href="https://chatgpt.com/?q=How%20does%20docmd%20(https://docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask ChatGPT</a>
+      <a href="https://claude.ai/new?q=How%20does%20docmd%20(https://docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Claude</a>
+      <a href="https://www.google.com/search?q=docmd+(docmd.io)+documentation+generator+vs+Docusaurus+VitePress+MkDocs+Mintlify" target="_blank" rel="noopener" class="ask-link">Ask Gemini</a>
+      <a href="https://perplexity.ai/?q=How%20does%20docmd%20(https://docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Perplexity</a>
       <a href="https://docs.docmd.io/llms.txt" target="_blank" rel="noopener" class="ask-link">Read llms.txt</a>
     </div>
   </div>
@@ -425,18 +425,18 @@ customHead: |
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="/" class="nav-logo" aria-label="docmd">
+      <span class="nav-logo" aria-label="docmd">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
         docmd
-      </a>
+      </span>
       <p data-i18n-html="footer.tagline">The zero-config documentation engine.<br>Open source under MIT License.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.product">Product</h4>
-      <a href="https://docs.docmd.io/getting-started/installation" data-i18n="footer.installation">Installation</a>
-      <a href="https://docs.docmd.io/configuration/general" data-i18n="footer.configuration">Configuration</a>
-      <a href="https://docs.docmd.io/cli-commands" data-i18n="footer.cli">CLI Reference</a>
-      <a href="https://docs.docmd.io/comparison" data-i18n="footer.comparisons">Comparisons</a>
+      <a href="https://docs.docmd.io/getting-started/installation/" data-i18n="footer.installation">Installation</a>
+      <a href="https://docs.docmd.io/configuration/general/" data-i18n="footer.configuration">Configuration</a>
+      <a href="https://docs.docmd.io/api/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
+      <a href="https://docs.docmd.io/comparison/" data-i18n="footer.comparisons">Comparisons</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.features">Features</h4>
