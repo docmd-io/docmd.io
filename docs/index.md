@@ -67,9 +67,30 @@ customHead: |
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
         </button>
         <div class="lang-dropdown" id="lang-dropdown">
-          <a class="lang-option active" href="/" data-lang="en">English</a>
-          <a class="lang-option" href="/de/" data-lang="de">Deutsch</a>
-          <a class="lang-option" href="/zh/" data-lang="zh">中文</a>
+          <a class="lang-option active" href="/" data-lang="en">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30"/><path stroke="#C8102E" stroke-width="4" d="m0 0 60 30m0-30L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>
+            English
+          </a>
+          <a class="lang-option" href="/de/" data-lang="de">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 5 3"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
+            Deutsch
+          </a>
+          <a class="lang-option" href="/zh/" data-lang="zh">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 30 20"><path fill="#de2910" d="M0 0h30v20H0z"/><path fill="#ffde00" d="M6 2 4.4 6.8 8.6 3.8H3.4l4.2 3L6 2zm6 1-1.3 2 .8-2.3h1.1L12 4.3l.6-1.3zm3 2-1.3 2 .8-2.3h1.1L15 6.3l.6-1.3zm1 4-1.3 2 .8-2.3h1.1L16 10.3l.6-1.3zm-2 3-1.3 2 .8-2.3h1.1L14 13.3l.6-1.3z"/></svg>
+            中文
+          </a>
+          <a class="lang-option" href="/es/" data-lang="es">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 750 500"><rect width="750" height="500" fill="#c60b1e"/><rect width="750" height="250" y="125" fill="#ffc400"/></svg>
+            Español
+          </a>
+          <a class="lang-option" href="/ja/" data-lang="ja">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 900 600"><rect width="900" height="600" fill="#fff"/><circle cx="450" cy="300" r="180" fill="#bc002d"/></svg>
+            日本語
+          </a>
+          <a class="lang-option" href="/fr/" data-lang="fr">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#ed2939"/></svg>
+            Français
+          </a>
         </div>
       </div>
       <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
@@ -83,7 +104,7 @@ customHead: |
   <div class="container">
     <a href="https://www.npmjs.com/package/@docmd/core" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span id="npm-version">v0.7.0</span>
+      <span id="npm-version">v0.8.0</span>
       <span data-i18n="hero.badge">Now Available</span>
     </a>
     <h1 data-i18n="hero.title">Markdown to production docs.<br>One command. Zero config.</h1>
@@ -297,33 +318,33 @@ customHead: |
     <div class="built-for-grid">
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></div>
-        <h3>Developer Docs</h3>
-        <p>API references, guides, and tutorials for your open-source project or product.</p>
+        <h3 data-i18n="built.devDocs.title">Developer Docs</h3>
+        <p data-i18n="built.devDocs.desc">API references, guides, and tutorials for your open-source project or product.</p>
       </div>
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg></div>
-        <h3>Knowledge Bases</h3>
-        <p>Internal wikis, team documentation, and onboarding guides with search and versioning.</p>
+        <h3 data-i18n="built.kb.title">Knowledge Bases</h3>
+        <p data-i18n="built.kb.desc">Internal wikis, team documentation, and onboarding guides with search and versioning.</p>
       </div>
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
-        <h3>API References</h3>
-        <p>Structured endpoint documentation with code examples, tabs, and syntax highlighting.</p>
+        <h3 data-i18n="built.api.title">API References</h3>
+        <p data-i18n="built.api.desc">Native OpenAPI support, structured endpoint documentation with code examples, tabs, and syntax highlighting.</p>
       </div>
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
-        <h3>Technical Guides</h3>
-        <p>Step-by-step tutorials with callouts, warnings, and multi-language code examples.</p>
+        <h3 data-i18n="built.guides.title">Technical Guides</h3>
+        <p data-i18n="built.guides.desc">Step-by-step tutorials with callouts, warnings, and multi-language code examples.</p>
       </div>
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></div>
-        <h3>Multilingual Sites</h3>
-        <p>Documentation in every language with locale-first URLs and per-locale search.</p>
+        <h3 data-i18n="built.i18n.title">Multilingual Sites</h3>
+        <p data-i18n="built.i18n.desc">Documentation in every language with locale-first URLs and per-locale search.</p>
       </div>
       <div class="built-for-card">
         <div class="built-for-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg></div>
-        <h3>Changelogs</h3>
-        <p>Beautiful release timelines with version history and structured release notes.</p>
+        <h3 data-i18n="built.changelogs.title">Changelogs</h3>
+        <p data-i18n="built.changelogs.desc">Beautiful release timelines with version history and structured release notes.</p>
       </div>
     </div>
   </div>
@@ -341,6 +362,8 @@ customHead: |
       <a href="https://docs.docmd.io/plugins/analytics/" class="plugin-tag included" data-i18n="plugins.analytics">Analytics</a>
       <a href="https://docs.docmd.io/plugins/llms/" class="plugin-tag included" data-i18n="plugins.llms">LLMs</a>
       <a href="https://docs.docmd.io/plugins/mermaid/" class="plugin-tag included" data-i18n="plugins.mermaid">Mermaid</a>
+      <a href="https://docs.docmd.io/plugins/git/" class="plugin-tag included" data-i18n="plugins.git">Git</a>
+      <a href="https://docs.docmd.io/plugins/openapi/" class="plugin-tag included" data-i18n="plugins.openapi">OpenAPI</a>
     </div>
     <div class="plugins-row">
       <a href="https://docs.docmd.io/plugins/pwa/" class="plugin-tag optional">+ PWA</a>
@@ -396,7 +419,7 @@ customHead: |
       <a href="https://claude.ai/new?q=How%20does%20docmd%20(https://docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Claude</a>
       <a href="https://www.google.com/search?q=docmd+(docmd.io)+documentation+generator+vs+Docusaurus+VitePress+MkDocs+Mintlify" target="_blank" rel="noopener" class="ask-link">Ask Gemini</a>
       <a href="https://perplexity.ai/?q=How%20does%20docmd%20(https://docmd.io)%20compare%20to%20Docusaurus%2C%20VitePress%2C%20MkDocs%2C%20and%20Mintlify%3F%20Zero-config%20Markdown-to-docs%20with%20%3C20kb%20JS%2C%20Lighthouse%20100%2C%20built-in%20search%2C%20SEO%2C%20i18n.%20Context%3A%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt" target="_blank" rel="noopener" class="ask-link">Ask Perplexity</a>
-      <a href="https://docs.docmd.io/llms.txt" target="_blank" rel="noopener" class="ask-link">Read llms.txt</a>
+      <a href="https://docs.docmd.io/llms.txt" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.readLlms">Read llms.txt</a>
     </div>
   </div>
 </section>
@@ -455,7 +478,7 @@ customHead: |
   </div>
   <div class="footer-bottom">
     <span>2026 © docmd.io</span>
-    <span>MIT License</span>
+    <span data-i18n="footer.license">MIT License</span>
   </div>
 </footer>
 <script src="/assets/js/script.js"></script>
