@@ -171,12 +171,21 @@ img { max-width: 100%; height: auto; display: block; }
 .lang-dropdown.active { display: block; }
 
 .lang-option {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 12px;
     color: var(--text-3);
     font-size: 0.8125rem;
     border-radius: 6px;
     transition: background 0.15s, color 0.15s;
+}
+
+.lang-flag {
+    flex-shrink: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .lang-option:hover { background: var(--surface-hover); color: var(--text); }
