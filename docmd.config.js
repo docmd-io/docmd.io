@@ -57,7 +57,10 @@ module.exports = {
     locales: [
       { id: "en", label: "English" },
       { id: "de", label: "Deutsch" },
-      { id: "zh", label: "中文" }
+      { id: "zh", label: "中文" },
+      { id: "es", label: "Español" },
+      { id: "ja", label: "日本語" },
+      { id: "fr", label: "Français" }
     ]
   },
   navigation: []
