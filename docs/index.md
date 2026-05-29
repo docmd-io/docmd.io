@@ -152,7 +152,7 @@ customHead: |
       <div class="feature-text">
         <div class="feature-label" data-i18n="feature.zeroconfig.label">Getting Started</div>
         <h2 data-i18n="feature.zeroconfig.title">Zero config to start. Full control when you need it.</h2>
-        <p class="feature-desc" data-i18n="feature.zeroconfig.desc">Run one command. Get a production docs site. Customize later with a simple config file — no boilerplate, no framework lock-in.</p>
+        <p class="feature-desc" data-i18n="feature.zeroconfig.desc">Run one command. Get a production docs site. Customize later with a simple config file - no boilerplate, no framework lock-in.</p>
         <ul class="feature-list">
           <li data-i18n="feature.zeroconfig.li1">Single command setup with docmd init</li>
           <li data-i18n="feature.zeroconfig.li2">Optional docmd.config.js for full customization</li>
@@ -176,7 +176,7 @@ customHead: |
         </div>
       </div>
     </div>
-    <!-- Feature 2: Markdown Containers — rendered mockups -->
+    <!-- Feature 2: Markdown Containers - rendered mockups -->
     <div class="feature reverse">
       <div class="feature-text">
         <div class="feature-label" data-i18n="feature.containers.label">Content</div>
@@ -224,7 +224,7 @@ customHead: |
         </div>
       </div>
     </div>
-    <!-- Feature 3: Search — search dialog mockup -->
+    <!-- Feature 3: Search - search dialog mockup -->
     <div class="feature">
       <div class="feature-text">
         <div class="feature-label" data-i18n="feature.search.label">Search</div>
@@ -261,12 +261,12 @@ customHead: |
         </div>
       </div>
     </div>
-    <!-- Feature 4: Themes + i18n — visual preview -->
+    <!-- Feature 4: Themes + i18n - visual preview -->
     <div class="feature reverse">
       <div class="feature-text">
         <div class="feature-label" data-i18n="feature.extras.label">Production Ready</div>
         <h2 data-i18n="feature.extras.title">Themes, i18n, versioning, and one-command deploy.</h2>
-        <p class="feature-desc" data-i18n="feature.extras.desc">Everything you need for production — light and dark themes, multi-language support, version switching, and deployment configs for Docker, Nginx, and Caddy.</p>
+        <p class="feature-desc" data-i18n="feature.extras.desc">Everything you need for production - light and dark themes, multi-language support, version switching, and deployment configs for Docker, Nginx, and Caddy.</p>
         <ul class="feature-list">
           <li data-i18n="feature.extras.li1">Native i18n with locale-first URLs</li>
           <li data-i18n="feature.extras.li2">Light &amp; dark themes with custom CSS</li>
