@@ -51,8 +51,8 @@ function rewriteDocsLinks(html, locale) {
 function rewriteLocalLinks(html, locale) {
     if (locale === 'en') return html;
     return html
-        .replace(/href="\/search\/"/g, `href="/${locale}/search/"`)
-        .replace(/href="\/"/g, `href="/${locale}/"`);
+        .replace(/href="\/search\/" class="nav-link"/g, `href="/${locale}/search/" class="nav-link"`)
+        .replace(/href="\/" class="nav-logo"/g, `href="/${locale}/" class="nav-logo"`);
 }
 
 // --- Helper to recursively find all HTML files ---
