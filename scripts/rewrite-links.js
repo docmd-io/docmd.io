@@ -43,6 +43,18 @@ function rewriteDocsLinks(html, locale) {
     });
 }
 
+/**
+ * Rewrite local site links to keep navigation localized on non-default locale pages.
+ * e.g. href="/search/" -> href="/zh/search/"
+ *      href="/" -> href="/zh/"
+ */
+function rewriteLocalLinks(html, locale) {
+    if (locale === 'en') return html;
+    return html
+        .replace(/href="\/search\/"/g, `href="/${locale}/search/"`)
+        .replace(/href="\/"/g, `href="/${locale}/"`);
+}
+
 // --- Helper to recursively find all HTML files ---
 function getAllHtmlFiles(dir) {
     let results = [];
@@ -72,6 +84,7 @@ htmlFiles.forEach(filePath => {
     html = stripI18nClientScript(html);
     if (isLocale) {
         html = rewriteDocsLinks(html, fileLocale);
+        html = rewriteLocalLinks(html, fileLocale);
     }
     fs.writeFileSync(filePath, html, 'utf-8');
     console.log(`[rewrite-links] ${relativePath} → stripped i18n client runtime${isLocale ? `, rewrote docs links for locale: ${fileLocale}` : ''}`);

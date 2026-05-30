@@ -1,6 +1,7 @@
 {
   "nav.docs": "ドキュメント",
   "nav.plugins": "プラグイン",
+  "nav.search": "検索 CLI",
   "nav.compare": "比較",
   "nav.editor": "ライブエディタ",
   "hero.badge": "利用可能になりました",

@@ -1,6 +1,6 @@
 ---
-title: "docmd-search - Local Semantic Search CLI"
-description: "Bring the power of local vector search to your documentation with zero APIs, zero cost, and 100% privacy."
+title: "docmd search - Offline Semantic Search"
+description: "Offline semantic search engine for documentation. Local embeddings, browser-ready indexes."
 titleAppend: false
 noStyle: true
 keywords: 
@@ -206,6 +206,7 @@ customHead: |
     <div class="nav-center">
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Search CLI</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
     </div>
@@ -357,6 +358,64 @@ customHead: |
         </div>
         <h3 data-i18n="search.feature.sandbox.title">Interactive CLI Sandbox</h3>
         <p data-i18n="search.feature.sandbox.desc">Run the CLI with the --ui flag to test embeddings, adjust text chunking size, and visually inspect search scores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Model Selection Section ─── -->
+<section class="built-for" style="border-top: 1px solid var(--border); border-bottom: none; padding: 60px 0 20px;">
+  <div class="container">
+    <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;">Supported Embedding Models</h2>
+    <p class="section-sub" style="margin-bottom: 32px;">Select the perfect embedding model tailored for your documentation size and languages.</p>
+    
+    <div style="max-width: 800px; margin: 0 auto; text-align: left; overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.875rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border); color: var(--text-3); font-weight: 600;">
+            <th style="padding: 12px 8px; text-align: left;">Model</th>
+            <th style="padding: 12px 8px; text-align: center;">Dimensions</th>
+            <th style="padding: 12px 8px; text-align: center;">Size</th>
+            <th style="padding: 12px 8px; text-align: left;">Languages</th>
+            <th style="padding: 12px 8px; text-align: left;">Best For</th>
+          </tr>
+        </thead>
+        <tbody style="color: var(--text-2);">
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">MiniLM L6 v2 ★</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~23 MB</td>
+            <td style="padding: 12px 8px;">English only</td>
+            <td style="padding: 12px 8px;">Fast, general English docs</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual MiniLM L12</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~118 MB</td>
+            <td style="padding: 12px 8px;">50+ languages</td>
+            <td style="padding: 12px 8px; font-weight: 500; color: var(--accent);">i18n documentation</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual E5 Small</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~118 MB</td>
+            <td style="padding: 12px 8px;">100+ languages</td>
+            <td style="padding: 12px 8px;">Wide language coverage</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual MPNet Base</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">768</td>
+            <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~270 MB</td>
+            <td style="padding: 12px 8px;">50+ languages</td>
+            <td style="padding: 12px 8px;">Best multilingual quality</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--r-sm); padding: 14px 16px; background: var(--surface);">
+        <p style="margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--text-2);">
+          <strong>💡 Multilingual documentation:</strong> If your documentation website contains multiple languages (such as English, Chinese, German, Spanish, etc.), select a multilingual model using <code>docmd-search --settings</code>. The default model is English-only and will produce poor search relevance for other languages.
+        </p>
       </div>
     </div>
   </div>

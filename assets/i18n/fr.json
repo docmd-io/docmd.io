@@ -1,6 +1,7 @@
 {
   "nav.docs": "Documentation",
   "nav.plugins": "Plugins",
+  "nav.search": "Recherche CLI",
   "nav.compare": "Comparaison",
   "nav.editor": "Éditeur en direct",
   "hero.badge": "Maintenant disponible",

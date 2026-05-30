@@ -55,6 +55,7 @@ customHead: |
     <div class="nav-center">
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Search CLI</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
     </div>
