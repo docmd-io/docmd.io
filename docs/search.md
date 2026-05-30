@@ -261,9 +261,8 @@ customHead: |
     </a>
     <h1 data-i18n="search.hero.title">Local Semantic Search.<br>Zero API keys. 100% Private.</h1>
     <p class="hero-sub" data-i18n="search.hero.sub">Enable context-aware search results powered by local embeddings in the browser. Zero network dependencies, zero costs, instant client-side retrieval.</p>
-    
     <div class="hero-actions">
-      <a href="https://docs.docmd.io/plugins/search/#semantic-search-alpha-preview" class="btn-primary" data-i18n="search.hero.cta">Get Started</a>
+      <a href="https://docs.docmd.io/search/" class="btn-primary" data-i18n="search.hero.cta">Get Started</a>
       <button class="btn-code" onclick="navigator.clipboard.writeText('npx docmd-search --ui')">
         <span class="dollar">$</span>
         npx docmd-search --ui
@@ -272,14 +271,12 @@ customHead: |
         </span>
       </button>
     </div>
-    
     <div class="hero-metrics">
       <span class="metric-badge" data-i18n="search.hero.metric.local">Local Embeddings</span>
       <span class="metric-badge" data-i18n="search.hero.metric.private">100% Private</span>
       <span class="metric-badge" data-i18n="search.hero.metric.vector">Vector Embeddings</span>
       <span class="metric-badge" data-i18n="search.hero.metric.cost">Zero Cost</span>
     </div>
-
     <!-- Stunning Search Sandbox Mockup -->
     <div class="demo-sandbox">
       <div class="sandbox-header">
@@ -334,7 +331,6 @@ customHead: |
   <div class="container">
     <h2 data-i18n="search.features.title">Private Semantic Search</h2>
     <p class="section-sub" data-i18n="search.features.sub">Bring modern vector search directly to your static docs without third-party services.</p>
-    
     <div class="built-for-grid">
       <div class="built-for-card">
         <div class="built-for-icon">
@@ -343,7 +339,6 @@ customHead: |
         <h3 data-i18n="search.feature.local.title">Local Vector Models</h3>
         <p data-i18n="search.feature.local.desc">Uses lightweight ONNX models executing directly on the client side. No data ever leaves the user's browser.</p>
       </div>
-      
       <div class="built-for-card">
         <div class="built-for-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
@@ -351,7 +346,6 @@ customHead: |
         <h3 data-i18n="search.feature.semantic.title">Semantic Intent</h3>
         <p data-i18n="search.feature.semantic.desc">Understands queries conceptually. Searching 'authentication' yields results for 'sign-in' and 'login' automatically.</p>
       </div>
-      
       <div class="built-for-card">
         <div class="built-for-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -368,7 +362,6 @@ customHead: |
   <div class="container">
     <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;">Supported Embedding Models</h2>
     <p class="section-sub" style="margin-bottom: 32px;">Select the perfect embedding model tailored for your documentation size and languages.</p>
-    
     <div style="max-width: 800px; margin: 0 auto; text-align: left; overflow-x: auto;">
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.875rem;">
         <thead>
@@ -411,7 +404,6 @@ customHead: |
           </tr>
         </tbody>
       </table>
-      
       <div style="border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--r-sm); padding: 14px 16px; background: var(--surface);">
         <p style="margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--text-2);">
           <strong>💡 Multilingual documentation:</strong> If your documentation website contains multiple languages (such as English, Chinese, German, Spanish, etc.), select a multilingual model using <code>docmd-search --settings</code>. The default model is English-only and will produce poor search relevance for other languages.
@@ -426,7 +418,6 @@ customHead: |
   <div class="container">
     <h2 style="text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;">Easy Command Line Integration</h2>
     <p style="text-align: center; font-size: 0.9375rem; color: var(--text-3); margin-bottom: 32px;">Build your local index and preview the search relevance in seconds.</p>
-    
     <div class="window">
       <div class="window-bar">
         <span class="window-dot red"></span>
