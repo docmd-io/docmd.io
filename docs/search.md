@@ -275,7 +275,7 @@ customHead: |
     <div class="hero-metrics">
       <span class="metric-badge" data-i18n="search.hero.metric.local">Local Embeddings</span>
       <span class="metric-badge" data-i18n="search.hero.metric.private">100% Private</span>
-      <span class="metric-badge" data-i18n="search.hero.metric.ai">AI-Powered</span>
+      <span class="metric-badge" data-i18n="search.hero.metric.vector">Vector Embeddings</span>
       <span class="metric-badge" data-i18n="search.hero.metric.cost">Zero Cost</span>
     </div>
 
@@ -331,7 +331,7 @@ customHead: |
 <!-- ─── Capabilities Section ─── -->
 <section class="built-for" style="border-bottom: none;">
   <div class="container">
-    <h2 data-i18n="search.features.title">Private AI-Powered Search</h2>
+    <h2 data-i18n="search.features.title">Private Semantic Search</h2>
     <p class="section-sub" data-i18n="search.features.sub">Bring modern vector search directly to your static docs without third-party services.</p>
     
     <div class="built-for-grid">
