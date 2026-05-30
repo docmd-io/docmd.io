@@ -272,7 +272,7 @@ customHead: |
       </button>
     </div>
     <div class="hero-metrics">
-      <span class="metric-badge" data-i18n="search.hero.metric.local">Local Embeddings</span>
+      <span class="metric-badge" data-i18n="search.hero.metric.local">Local Models</span>
       <span class="metric-badge" data-i18n="search.hero.metric.private">100% Private</span>
       <span class="metric-badge" data-i18n="search.hero.metric.vector">Vector Embeddings</span>
       <span class="metric-badge" data-i18n="search.hero.metric.cost">Zero Cost</span>
@@ -360,17 +360,17 @@ customHead: |
 <!-- ─── Model Selection Section ─── -->
 <section class="built-for" style="border-top: 1px solid var(--border); border-bottom: none; padding: 60px 0 20px;">
   <div class="container">
-    <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;">Supported Embedding Models</h2>
-    <p class="section-sub" style="margin-bottom: 32px;">Select the perfect embedding model tailored for your documentation size and languages.</p>
+    <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;" data-i18n="search.models.title">Supported Embedding Models</h2>
+    <p class="section-sub" style="margin-bottom: 32px;" data-i18n="search.models.sub">Select the perfect embedding model tailored for your documentation size and languages.</p>
     <div style="max-width: 800px; margin: 0 auto; text-align: left; overflow-x: auto;">
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.875rem;">
         <thead>
           <tr style="border-bottom: 2px solid var(--border); color: var(--text-3); font-weight: 600;">
-            <th style="padding: 12px 8px; text-align: left;">Model</th>
-            <th style="padding: 12px 8px; text-align: center;">Dimensions</th>
-            <th style="padding: 12px 8px; text-align: center;">Size</th>
-            <th style="padding: 12px 8px; text-align: left;">Languages</th>
-            <th style="padding: 12px 8px; text-align: left;">Best For</th>
+            <th style="padding: 12px 8px; text-align: left;" data-i18n="search.models.th.model">Model</th>
+            <th style="padding: 12px 8px; text-align: center;" data-i18n="search.models.th.dimensions">Dimensions</th>
+            <th style="padding: 12px 8px; text-align: center;" data-i18n="search.models.th.size">Size</th>
+            <th style="padding: 12px 8px; text-align: left;" data-i18n="search.models.th.languages">Languages</th>
+            <th style="padding: 12px 8px; text-align: left;" data-i18n="search.models.th.bestfor">Best For</th>
           </tr>
         </thead>
         <tbody style="color: var(--text-2);">
@@ -378,34 +378,34 @@ customHead: |
             <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">MiniLM L6 v2 ★</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~23 MB</td>
-            <td style="padding: 12px 8px;">English only</td>
-            <td style="padding: 12px 8px;">Fast, general English docs</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row1.lang">English only</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row1.best">Fast, general English docs</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--border);">
             <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual MiniLM L12</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~118 MB</td>
-            <td style="padding: 12px 8px;">50+ languages</td>
-            <td style="padding: 12px 8px; font-weight: 500; color: var(--accent);">i18n documentation</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row2.lang">50+ languages</td>
+            <td style="padding: 12px 8px; font-weight: 500; color: var(--accent);" data-i18n="search.models.row2.best">i18n documentation</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--border);">
             <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual E5 Small</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">384</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~118 MB</td>
-            <td style="padding: 12px 8px;">100+ languages</td>
-            <td style="padding: 12px 8px;">Wide language coverage</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row3.lang">100+ languages</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row3.best">Wide language coverage</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--border);">
             <td style="padding: 12px 8px; font-weight: 600; color: var(--text);">Multilingual MPNet Base</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">768</td>
             <td style="padding: 12px 8px; text-align: center; font-family: var(--mono); font-size: 0.75rem;">~270 MB</td>
-            <td style="padding: 12px 8px;">50+ languages</td>
-            <td style="padding: 12px 8px;">Best multilingual quality</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row4.lang">50+ languages</td>
+            <td style="padding: 12px 8px;" data-i18n="search.models.row4.best">Best multilingual quality</td>
           </tr>
         </tbody>
       </table>
       <div style="border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--r-sm); padding: 14px 16px; background: var(--surface);">
-        <p style="margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--text-2);">
+        <p style="margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--text-2);" data-i18n="search.models.alert">
           <strong>💡 Multilingual documentation:</strong> If your documentation website contains multiple languages (such as English, Chinese, German, Spanish, etc.), select a multilingual model using <code>docmd-search --settings</code>. The default model is English-only and will produce poor search relevance for other languages.
         </p>
       </div>
@@ -416,14 +416,14 @@ customHead: |
 <!-- ─── Interactive CLI Section ─── -->
 <section class="cli-demo">
   <div class="container">
-    <h2 style="text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;">Easy Command Line Integration</h2>
-    <p style="text-align: center; font-size: 0.9375rem; color: var(--text-3); margin-bottom: 32px;">Build your local index and preview the search relevance in seconds.</p>
+    <h2 style="text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;" data-i18n="search.cli.title">Easy Command Line Integration</h2>
+    <p style="text-align: center; font-size: 0.9375rem; color: var(--text-3); margin-bottom: 32px;" data-i18n="search.cli.sub">Build your local index and preview the search relevance in seconds.</p>
     <div class="window">
       <div class="window-bar">
         <span class="window-dot red"></span>
         <span class="window-dot yellow"></span>
         <span class="window-dot green"></span>
-        <span class="window-title">Terminal</span>
+        <span class="window-title" data-i18n="search.cli.terminal">Terminal</span>
       </div>
       <div class="window-body">
         <pre><span class="cmd">$</span> npm install -g docmd-search
