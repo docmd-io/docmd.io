@@ -111,5 +111,21 @@
   "footer.liveEditor": "在线编辑器",
   "footer.releases": "版本发布",
   "footer.sponsor": "赞助",
-  "footer.license": "MIT 许可证"
+  "footer.license": "MIT 许可证",
+  "search.hero.badge": "docmd-search alpha",
+  "search.hero.title": "本地语义搜索。<br>无需 API 密钥。100% 隐私安全。",
+  "search.hero.sub": "在浏览器中启用基于本地嵌入（embeddings）的上下文感知搜索。零网络依赖，零成本，即时客户端检索。",
+  "search.hero.cta": "开始使用",
+  "search.hero.metric.local": "本地向量模型",
+  "search.hero.metric.private": "100% 隐私安全",
+  "search.hero.metric.ai": "AI 驱动",
+  "search.hero.metric.cost": "零额外成本",
+  "search.features.title": "私有 AI 驱动搜索",
+  "search.features.sub": "无需任何第三方服务，将现代向量搜索直接带入您的静态文档中。",
+  "search.feature.local.title": "本地向量模型",
+  "search.feature.local.desc": "使用轻量级 ONNX 模型直接在客户端运行。任何数据都不会离开用户的浏览器。",
+  "search.feature.semantic.title": "语义意图识别",
+  "search.feature.semantic.desc": "概念性地理解查询意图。例如搜索“authentication”时，能自动匹配“sign-in”和“login”的结果。",
+  "search.feature.sandbox.title": "交互式 CLI 沙盒",
+  "search.feature.sandbox.desc": "使用 --ui 参数运行 CLI，即可可视化测试向量匹配分数并实时微调分块大小。"
 }

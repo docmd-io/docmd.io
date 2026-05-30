@@ -111,5 +111,21 @@
   "footer.liveEditor": "Live Editor",
   "footer.releases": "Releases",
   "footer.sponsor": "Sponsor",
-  "footer.license": "MIT License"
+  "footer.license": "MIT License",
+  "search.hero.badge": "docmd-search alpha",
+  "search.hero.title": "Local Semantic Search.<br>Zero API keys. 100% Private.",
+  "search.hero.sub": "Enable context-aware search results powered by local embeddings in the browser. Zero network dependencies, zero costs, instant client-side retrieval.",
+  "search.hero.cta": "Get Started",
+  "search.hero.metric.local": "Local Embeddings",
+  "search.hero.metric.private": "100% Private",
+  "search.hero.metric.ai": "AI-Powered",
+  "search.hero.metric.cost": "Zero Cost",
+  "search.features.title": "Private AI-Powered Search",
+  "search.features.sub": "Bring modern vector search directly to your static docs without third-party services.",
+  "search.feature.local.title": "Local Vector Models",
+  "search.feature.local.desc": "Uses lightweight ONNX models executing directly on the client side. No data ever leaves the user's browser.",
+  "search.feature.semantic.title": "Semantic Intent",
+  "search.feature.semantic.desc": "Understands queries conceptually. Searching 'authentication' yields results for 'sign-in' and 'login' automatically.",
+  "search.feature.sandbox.title": "Interactive CLI Sandbox",
+  "search.feature.sandbox.desc": "Run the CLI with the --ui flag to test embeddings, adjust text chunking size, and visually inspect search scores."
 }

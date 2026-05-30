@@ -43,26 +43,39 @@ function rewriteDocsLinks(html, locale) {
     });
 }
 
-// --- Process non-default locale pages ---
-nonDefaultLocales.forEach(locale => {
-    const filePath = path.join(siteDir, locale, 'index.html');
-    if (!fs.existsSync(filePath)) return;
+// --- Helper to recursively find all HTML files ---
+function getAllHtmlFiles(dir) {
+    let results = [];
+    if (!fs.existsSync(dir)) return results;
+    const list = fs.readdirSync(dir);
+    list.forEach(file => {
+        const filePath = path.join(dir, file);
+        const stat = fs.statSync(filePath);
+        if (stat && stat.isDirectory()) {
+            results = results.concat(getAllHtmlFiles(filePath));
+        } else if (file.endsWith('.html')) {
+            results.push(filePath);
+        }
+    });
+    return results;
+}
+
+// --- Process all HTML files recursively ---
+const htmlFiles = getAllHtmlFiles(siteDir);
+htmlFiles.forEach(filePath => {
+    const relativePath = path.relative(siteDir, filePath);
+    const firstSegment = relativePath.split(path.sep)[0];
+    const isLocale = nonDefaultLocales.includes(firstSegment);
+    const fileLocale = isLocale ? firstSegment : defaultLocale;
 
     let html = fs.readFileSync(filePath, 'utf-8');
     html = stripI18nClientScript(html);
-    html = rewriteDocsLinks(html, locale);
+    if (isLocale) {
+        html = rewriteDocsLinks(html, fileLocale);
+    }
     fs.writeFileSync(filePath, html, 'utf-8');
-    console.log(`[rewrite-links] ${locale}/index.html → rewrote docs links, stripped i18n client runtime`);
+    console.log(`[rewrite-links] ${relativePath} → stripped i18n client runtime${isLocale ? `, rewrote docs links for locale: ${fileLocale}` : ''}`);
 });
-
-// --- Process default locale page ---
-const defaultPath = path.join(siteDir, 'index.html');
-if (fs.existsSync(defaultPath)) {
-    let html = fs.readFileSync(defaultPath, 'utf-8');
-    html = stripI18nClientScript(html);
-    fs.writeFileSync(defaultPath, html, 'utf-8');
-    console.log(`[rewrite-links] index.html → stripped i18n client runtime`);
-}
 
 // --- Clean up the runtime file itself (optional, saves bytes) ---
 const runtimeFile = path.join(siteDir, 'assets/js/docmd-i18n-strings.js');
