@@ -1125,3 +1125,195 @@ img { max-width: 100%; height: auto; display: block; }
     .deploy-badges { flex-direction: column; align-items: center; gap: 8px; }
     .feature-visual-row { grid-template-columns: 1fr; }
 }
+
+/* ─── Semantic Search Page (search.md) ─── */
+.search-hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at top, rgba(147, 51, 234, 0.05) 0%, rgba(59, 130, 246, 0.03) 30%, transparent 70%);
+}
+
+.search-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.04) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 100%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+[data-theme="dark"] .search-hero {
+    background: radial-gradient(circle at top, rgba(168, 85, 247, 0.07) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 80%);
+}
+
+[data-theme="dark"] .search-hero::before {
+    background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.06) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%);
+}
+
+.demo-sandbox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  max-width: 680px;
+  margin: 40px auto 0;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.06);
+  text-align: left;
+}
+
+[data-theme="dark"] .demo-sandbox {
+  box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+}
+
+.sandbox-header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sandbox-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.sandbox-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.sandbox-title {
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sandbox-search-bar {
+  padding: 16px 20px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sandbox-search-icon {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+}
+
+.sandbox-input-simulate {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+  position: relative;
+}
+
+.sandbox-input-simulate::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background: var(--accent);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { background-color: transparent }
+  50% { background-color: var(--accent) }
+}
+
+.sandbox-results {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sandbox-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 16px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.sandbox-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sandbox-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.sandbox-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sandbox-card-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sandbox-card-path {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--text-3);
+}
+
+.sandbox-score {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sandbox-score.high {
+  background: rgba(22, 163, 74, 0.08);
+  color: var(--green);
+}
+
+.sandbox-card-body {
+  font-size: 0.8125rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.sandbox-card-highlight {
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 2px;
+  padding: 0 2px;
+  color: var(--text);
+}
+
+.cli-demo {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.cli-demo .window {
+  max-width: 680px;
+  margin: 32px auto 0;
+}

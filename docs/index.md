@@ -54,8 +54,8 @@ customHead: |
     </div>
     <div class="nav-center">
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
-      <a href="/search/" class="nav-link" data-i18n="nav.search">Search CLI</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
     </div>
@@ -105,8 +105,7 @@ customHead: |
   <div class="container">
     <a href="https://www.npmjs.com/package/@docmd/core" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span id="npm-version">v0.8.0</span>
-      <span data-i18n="hero.badge">Now Available</span>
+      <span id="npm-version">v0.8.5</span>–<span data-i18n="hero.badge">Now Available</span>
     </a>
     <h1 data-i18n="hero.title">Markdown to production docs.<br>One command. Zero config.</h1>
     <p class="hero-sub" data-i18n="hero.sub">Static HTML for SEO. SPA-speed navigation. AI-ready by default.<br>No React. No framework lock-in. No learning curve.</p>

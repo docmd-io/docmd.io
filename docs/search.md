@@ -22,176 +22,6 @@ customHead: |
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-  <style>
-    /* Custom CSS elements to give the search page an independent, premium look */
-    .search-hero {
-      background: radial-gradient(circle at top, var(--accent-soft) 0%, transparent 70%);
-    }
-    
-    .demo-sandbox {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      max-width: 680px;
-      margin: 40px auto 0;
-      overflow: hidden;
-      box-shadow: 0 20px 48px rgba(0,0,0,0.06);
-    }
-    
-    [data-theme="dark"] .demo-sandbox {
-      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
-    }
-    
-    .sandbox-header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .sandbox-dots {
-      display: flex;
-      gap: 6px;
-    }
-    
-    .sandbox-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    
-    .sandbox-title {
-      font-size: 0.75rem;
-      font-family: var(--mono);
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .sandbox-search-bar {
-      padding: 16px 20px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .sandbox-search-icon {
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-    }
-    
-    .sandbox-input-simulate {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text);
-      flex: 1;
-      position: relative;
-    }
-    
-    .sandbox-input-simulate::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 18px;
-      background: var(--accent);
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-    }
-    
-    @keyframes blink {
-      from, to { background-color: transparent }
-      50% { background-color: var(--accent) }
-    }
-    
-    .sandbox-results {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .sandbox-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      padding: 16px;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
-    }
-    
-    .sandbox-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-    
-    .sandbox-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 6px;
-    }
-    
-    .sandbox-card-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .sandbox-card-title {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    
-    .sandbox-card-path {
-      font-family: var(--mono);
-      font-size: 0.6875rem;
-      color: var(--text-3);
-    }
-    
-    .sandbox-score {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 100px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-    
-    .sandbox-score.high {
-      background: rgba(22, 163, 74, 0.08);
-      color: var(--green);
-    }
-    
-    .sandbox-card-body {
-      font-size: 0.8125rem;
-      color: var(--text-2);
-      line-height: 1.5;
-    }
-    
-    .sandbox-card-highlight {
-      background: rgba(245, 158, 11, 0.15);
-      border-radius: 2px;
-      padding: 0 2px;
-      color: var(--text);
-    }
-    
-    /* Interactive CLI Section */
-    .cli-demo {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    
-    .cli-demo .window {
-      max-width: 680px;
-      margin: 32px auto 0;
-    }
-  </style>
 ---
 
 <!-- ─── Navigation ─── -->
@@ -205,8 +35,8 @@ customHead: |
     </div>
     <div class="nav-center">
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
-      <a href="/search/" class="nav-link" data-i18n="nav.search">Search CLI</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
     </div>
@@ -257,7 +87,7 @@ customHead: |
   <div class="container">
     <a href="https://www.npmjs.com/package/docmd-search" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span data-i18n="search.hero.badge">docmd-search alpha</span>
+      <span id="npm-version-search">v0.1.0-alpha.0</span>–<span data-i18n="hero.badge">Preview</span>
     </a>
     <h1 data-i18n="search.hero.title">Local Semantic Search.<br>Zero API keys. 100% Private.</h1>
     <p class="hero-sub" data-i18n="search.hero.sub">Enable context-aware search results powered by local embeddings in the browser. Zero network dependencies, zero costs, instant client-side retrieval.</p>
@@ -348,10 +178,10 @@ customHead: |
       </div>
       <div class="built-for-card">
         <div class="built-for-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l6 6"/></svg>
         </div>
-        <h3 data-i18n="search.feature.sandbox.title">Interactive CLI Sandbox</h3>
-        <p data-i18n="search.feature.sandbox.desc">Run the CLI with the --ui flag to test embeddings, adjust text chunking size, and visually inspect search scores.</p>
+        <h3 data-i18n="search.feature.hybrid.title">Hybrid Re-ranking</h3>
+        <p data-i18n="search.feature.hybrid.desc">Combines fast BM25 keyword matching with vector similarity for the absolute best search relevance and speed.</p>
       </div>
     </div>
   </div>
@@ -413,12 +243,37 @@ customHead: |
   </div>
 </section>
 
-<!-- ─── Interactive CLI Section ─── -->
-<section class="cli-demo">
-  <div class="container">
-    <h2 style="text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;" data-i18n="search.cli.title">Easy Command Line Integration</h2>
-    <p style="text-align: center; font-size: 0.9375rem; color: var(--text-3); margin-bottom: 32px;" data-i18n="search.cli.sub">Build your local index and preview the search relevance in seconds.</p>
-    <div class="window">
+<!-- ─── Developer API Section ─── -->
+<section class="built-for" style="border-top: 1px solid var(--border); border-bottom: none; padding: 60px 0 20px;">
+  <div class="container" style="max-width: 800px; text-align: left;">
+    <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; text-align: center;" data-i18n="search.api.title">Pure-Client API: Build Custom UIs</h2>
+    <p class="section-sub" style="margin-bottom: 32px; text-align: center;" data-i18n="search.api.desc1">An ultra-lightweight client runtime (&lt;5KB minified) that executes entirely in the browser using hybrid BM25 and vector cosine similarity scoring.</p>
+    <!-- Beautiful Code Sandbox -->
+    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; overflow-x: auto; margin-bottom: 24px;">
+<pre style="margin: 0; font-family: var(--mono); font-size: 0.8125rem; line-height: 2.25; color: var(--text);"><span style="color: var(--accent);">import</span> * <span style="color: var(--accent);">as</span> Search <span style="color: var(--accent);">from</span> <span style="color: var(--green);">'docmd-search/client'</span>;
+<span style="color: var(--text-3);">// 1. Initialise and load index folder.
+// Batch 0 is loaded instantly for sub-millisecond search startup,
+// while remaining chunk batches load progressively in background.</span>
+<span style="color: var(--accent);">await</span> Search.<span style="color: #6366f1;">load</span>(<span style="color: var(--green);">'/.docmd-search'</span>, (loaded, total) => {
+  console.log(<span style="color: var(--green);">`Loaded batch ${loaded}/${total}`</span>);
+});
+<span style="color: var(--text-3);">// 2. Query search using hybrid vector + keyword matching.</span>
+<span style="color: var(--accent);">const</span> results = Search.<span style="color: #6366f1;">search</span>(<span style="color: var(--green);">'authentication secure routes'</span>, <span style="color: #f59e0b;">10</span>);
+results.forEach(({ score, chunk }) => {
+  console.log(<span style="color: var(--green);">`[${(score * 100).toFixed(0)}%] ${chunk.file}#${chunk.heading || ''}`</span>);
+  console.log(chunk.text);
+});
+</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Build Index CLI Section ─── -->
+<section class="cli-demo" style="border-top: 1px solid var(--border); border-bottom: none; padding: 60px 0 20px;">
+  <div class="container" style="max-width: 600px; text-align: center;">
+    <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;" data-i18n="search.cli.title">Build Index in One Command</h2>
+    <p class="section-sub" style="margin-bottom: 32px;" data-i18n="search.cli.sub">Run the indexing engine to generate static search chunks for your site.</p>
+    <div class="window" style="text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 24px;">
       <div class="window-bar">
         <span class="window-dot red"></span>
         <span class="window-dot yellow"></span>
@@ -426,19 +281,35 @@ customHead: |
         <span class="window-title" data-i18n="search.cli.terminal">Terminal</span>
       </div>
       <div class="window-body">
-        <pre><span class="cmd">$</span> npm install -g docmd-search
-<span class="success">✓</span> Installed docmd-search CLI
-
-<span class="cmd">$</span> docmd-search --build
-<span class="success">✓</span> Parsed 24 markdown files
-<span class="success">✓</span> Loaded local MiniLM-L6 vector model
-<span class="success">✓</span> Chunked 142 sections with overlap
-<span class="success">✓</span> Built semantic vector index: .docmd-search/index.json (1.2 MB)
-
-<span class="cmd">$</span> docmd-search --ui
-<span class="success">✓</span> Started interactive search sandbox at: <span class="highlight">http://localhost:8080</span></pre>
+        <pre><span class="cmd">$</span> npx docmd-search --build
+<span class="success">✓</span> Loaded local vector model
+<span class="success">✓</span> Generated static index: .docmd-search/index.json</pre>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─── FAQ Section ─── -->
+<section class="faq-section" style="border-top: 1px solid var(--border); border-bottom: none; padding: 60px 0 20px;">
+  <div class="container" style="max-width: 800px; text-align: left;">
+    <h2 style="text-align: center;" data-i18n="search.faq.title">Search Frequently Asked Questions</h2>
+    <p class="section-sub" style="text-align: center; margin-bottom: 40px;" data-i18n="search.faq.sub">Everything you need to know about docmd offline semantic search.</p>
+    <details class="faq-item">
+      <summary data-i18n="search.faq.q1">Does docmd search run entirely client-side?</summary>
+      <div class="faq-answer" data-i18n-html="search.faq.a1">Yes. The search runtime performs all vector similarity calculations and keyword indexing directly in the user's browser. It requires zero cloud infrastructure or search APIs.<br/><br/><a href="https://docs.docmd.io/search/">Read docmd-search documentation →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="search.faq.q2">Are ONNX model weights downloaded on every visit?</summary>
+      <div class="faq-answer" data-i18n-html="search.faq.a2">No. Model weights are only loaded during compilation/build time using Node.js to generate static search vector indices. The client-side runtime only downloads the pre-built indices, which are compressed JSON chunks.<br/><br/><a href="https://docs.docmd.io/search/how-it-works/">Learn how offline search works →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="search.faq.q3">Can I use the search plugin with multiple languages?</summary>
+      <div class="faq-answer" data-i18n-html="search.faq.a3">Yes. If your documentation is multilingual, you should choose a multilingual embedding model like <code>paraphrase-multilingual-MiniLM-L12-v2</code> which supports over 50 languages.<br/><br/><a href="https://docs.docmd.io/search/configuration/">Learn about multi-language search models →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="search.faq.q4">What is showConfidence and how does it work?</summary>
+      <div class="faq-answer" data-i18n-html="search.faq.a4">The <code>showConfidence</code> flag, when enabled, displays the exact similarity matching percentage badge next to each semantic result, helping users visually understand search relevance.<br/><br/><a href="https://docs.docmd.io/search/browser-client/">Read about browser-client settings →</a></div>
+    </details>
   </div>
 </section>
 

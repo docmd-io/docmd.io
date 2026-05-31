@@ -154,18 +154,33 @@ window.copyCmd = function () {
 /* --- Version Fetcher --- */
 async function fetchLatestVersion() {
   const badge = document.getElementById('npm-version');
-  if (!badge) return;
-
-  try {
-    const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
-    if (res.ok) {
-      const data = await res.json();
-      if (data.version) {
-        badge.innerText = 'v' + data.version;
+  if (badge) {
+    try {
+      const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.version) {
+          badge.innerText = 'v' + data.version;
+        }
       }
+    } catch (e) {
+      console.warn('Failed to fetch docmd version', e);
     }
-  } catch (e) {
-    console.warn('Failed to fetch version', e);
+  }
+
+  const searchBadge = document.getElementById('npm-version-search');
+  if (searchBadge) {
+    try {
+      const res = await fetch('https://registry.npmjs.org/docmd-search/latest');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.version) {
+          searchBadge.innerText = 'v' + data.version;
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to fetch docmd-search version', e);
+    }
   }
 }
 
