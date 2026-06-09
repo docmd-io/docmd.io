@@ -707,7 +707,7 @@ img { max-width: 100%; height: auto; display: block; }
 .deploy-badge-blue  { background: #dbeafe; color: #1e40af; }
 
 .deploy-code {
-    background: var(--code-bg, #f4f4f5);
+    background: var(--surface);
     border-radius: 6px;
     padding: 8px 12px;
     font-family: 'JetBrains Mono', monospace;
