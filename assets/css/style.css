@@ -636,6 +636,106 @@ img { max-width: 100%; height: auto; display: block; }
     background: var(--accent-soft);
 }
 
+/* ─── Deploy Section ─── */
+.deploy-section {
+    padding: 72px 0 80px;
+    text-align: center;
+}
+
+.deploy-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.deploy-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+}
+
+.deploy-sub {
+    font-size: 0.9375rem;
+    color: var(--text-3);
+    margin: 0 0 32px;
+}
+
+.deploy-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.deploy-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.deploy-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.deploy-card p {
+    font-size: 0.875rem;
+    color: var(--text-3);
+    margin: 0;
+}
+
+.deploy-card-body {
+    flex: 1;
+}
+
+.deploy-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 3px 10px;
+    border-radius: 99px;
+    width: fit-content;
+}
+
+.deploy-badge-green { background: #dcfce7; color: #166534; }
+.deploy-badge-blue  { background: #dbeafe; color: #1e40af; }
+
+.deploy-code {
+    background: var(--code-bg, #f4f4f5);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.deploy-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    width: fit-content;
+    transition: opacity 0.15s;
+}
+
+.deploy-btn:hover { opacity: 0.85; }
+.deploy-btn-green { background: #16a34a; color: #fff; }
+.deploy-btn-blue  { background: #2563eb; color: #fff; }
+
+@media (max-width: 600px) {
+    .deploy-cards { grid-template-columns: 1fr; }
+}
+
 /* ─── Bottom CTA ─── */
 .cta-section {
     padding: 80px 0;

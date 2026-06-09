@@ -127,6 +127,34 @@ customHead: |
     </div>
   </div>
 </header>
+
+<!-- ─── Deploy ─── -->
+<section class="deploy-section">
+  <div class="deploy-inner">
+    <h2 class="deploy-title">Deploy to GitHub Pages</h2>
+    <p class="deploy-sub">Get your docs live in seconds — no backend, no server, completely free.</p>
+    <div class="deploy-cards">
+      <div class="deploy-card">
+        <span class="deploy-badge deploy-badge-green">Easiest — new repo</span>
+        <div class="deploy-card-body">
+          <h3>🗂 Template</h3>
+          <p>Start a new docs repo with everything pre-configured. One click to create, push to deploy.</p>
+        </div>
+        <a href="https://github.com/docmd-io/docmd-template/generate" class="deploy-btn deploy-btn-green" target="_blank">Use template →</a>
+      </div>
+      <div class="deploy-card">
+        <span class="deploy-badge deploy-badge-blue">Flexible — existing repo</span>
+        <div class="deploy-card-body">
+          <h3>⚡ GitHub Action</h3>
+          <p>Add one step to your workflow. Works with any project structure, including monorepos.</p>
+          <div class="deploy-code">- uses: docmd-io/deploy@v1.1</div>
+        </div>
+        <a href="https://github.com/marketplace/actions/build-and-deploy-documentation-with-docmd" class="deploy-btn deploy-btn-blue" target="_blank">View on Marketplace →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── Preview ─── -->
 <section class="preview-section">
   <div class="container">
