@@ -111,7 +111,7 @@ customHead: |
     <p class="hero-sub" data-i18n="hero.sub">Static HTML for SEO. SPA-speed navigation. AI-first by design.<br>Native MCP server. Agent skills. Zero config. No framework.</p>
     <div class="hero-actions">
       <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket-icon lucide-rocket"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg> Get Started</a>
-      <button class="btn-code" onclick="copyCmd()">
+      <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx @docmd/core dev">
         <span class="dollar">$</span>
         npx @docmd/core dev
         <span class="copy-icon">
@@ -441,23 +441,16 @@ customHead: |
   <div class="container">
     <h2 data-i18n="ask.title">Write docs with your favourite AI</h2>
     <p class="section-sub" data-i18n="ask.sub">Tell your AI about docmd, then ask it to help you write. Pick the best context source for your tool.</p>
-
     <div class="ask-install">
-      <p class="ask-install-label" data-i18n="ask.installLabel">For coding agents (Claude Code, Cursor, Windsurf, Cline), install the skill directly:</p>
-      <div class="window ask-install-window">
-        <div class="window-bar">
-          <span class="window-dot red"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">terminal</span>
-        </div>
-        <div class="window-body">
-          <pre><span class="cmd">$</span> npx docmd-skills install</pre>
-        </div>
-      </div>
-      <p class="ask-install-hint" data-i18n="ask.installHint">Drops <code>SKILL.md</code> + <code>references/</code> into <code>./docmd-skills/</code> (or pass a target: <code>npx docmd-skills install ~/.claude/skills/docmd</code>).</p>
+      <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx docmd-skills install [output-dir]">
+        <span class="dollar">$</span>
+        npx docmd-skills install [output-dir]
+        <span class="copy-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></path></svg>
+        </span>
+      </button>
+      <p class="ask-install-hint" data-i18n="ask.installHint">omit <code>[output-dir]</code> to install in <code>./docmd-skills/</code></p>
     </div>
-
     <div class="ask-links">
       <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Claude</a>
       <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">ChatGPT</a>

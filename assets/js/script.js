@@ -125,10 +125,16 @@ async function loadSponsors() {
 }
 
 /* --- Copy Command --- */
-window.copyCmd = function () {
-  navigator.clipboard.writeText('npm i @docmd/core');
+window.copyCmd = function (btn) {
+  // Resolve target button (passed via onclick, or fall back to the first one)
+  const target = btn || document.querySelector('.btn-code');
+  if (!target) return;
 
-  const icon = document.querySelector('.copy-icon');
+  // Prefer explicit data-cmd; otherwise strip the leading '$' from the button text
+  const text = (target.dataset.cmd || target.textContent.trim().replace(/^\$\s*/, '')).trim();
+  navigator.clipboard.writeText(text);
+
+  const icon = target.querySelector('.copy-icon');
   if (!icon) return;
 
   icon.innerHTML = `
