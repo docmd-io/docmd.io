@@ -69,8 +69,6 @@
   "built.api.desc": "ネイティブOpenAPIサポート、コード例を含む構造化されたエンドポイントドキュメント。",
   "built.guides.title": "テクニカルガイド",
   "built.guides.desc": "コールアウト、警告、多言語コード例を含むステップバイステップのチュートリアル。",
-  "built.i18n.title": "多言語サイト",
-  "built.i18n.desc": "言語優先URLとローカライズされた検索を備えた、あらゆる言語のドキュメント。",
   "built.ai.title": "AIエージェントワークスペース",
   "built.ai.desc": "ネイティブMCPサーバー、SKILL.mdエージェント指示、llms-full.txtコンテキスト — AIエージェントがドキュメントを直接検索・読み取り・執筆できます。",
   "built.changelogs.title": "変更履歴",

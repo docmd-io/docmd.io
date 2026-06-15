@@ -69,8 +69,7 @@
   "built.api.desc": "Native OpenAPI-Unterstützung, strukturierte Endpunkt-Dokumentation mit Code-Beispielen, Tabs und Syntax-Highlighting.",
   "built.guides.title": "Technische Anleitungen",
   "built.guides.desc": "Schritt-für-Schritt-Tutorials mit Callouts, Warnungen und mehrsprachigen Code-Beispielen.",
-  "built.i18n.title": "Mehrsprachige Websites",
-  "built.i18n.desc": "Dokumentation in jeder Sprache mit Locale-first URLs und sprachspezifischer Suche.",
+
   "built.ai.title": "KI-Agent-Arbeitsbereiche",
   "built.ai.desc": "Nativer MCP-Server, SKILL.md-Agenten-Anweisungen und llms-full.txt-Kontext — damit KI-Agenten Ihre Docs direkt durchsuchen, lesen und schreiben können.",
   "built.changelogs.title": "Changelogs",
