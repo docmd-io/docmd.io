@@ -178,22 +178,16 @@ customHead: |
               <span class="window-dot red"></span>
               <span class="window-dot yellow"></span>
               <span class="window-dot green"></span>
-              <span class="window-title">docs.docmd.io</span>
-            </div>
-            <div class="window-body">
-              <video class="preview-video" muted loop playsinline preload="none" poster="/assets/images/preview.webp" data-src="/assets/videos/preview.webm"></video>
-            </div>
-          </div>
-          <div class="window">
-            <div class="window-bar">
-              <span class="window-dot red"></span>
-              <span class="window-dot yellow"></span>
-              <span class="window-dot green"></span>
               <span class="window-title">Terminal</span>
             </div>
             <div class="window-body"><pre><span class="cmd">$</span> npx @docmd/core dev
-<span class="success">✓</span> Built in 340ms — 12 pages
-  <span class="highlight">→ http://localhost:3000</span></pre></div>
+            <span class="success">✓</span> Built in 340ms — 12 pages
+            <span class="highlight">→ http://localhost:3000</span></pre></div>
+          </div>
+          <div class="window">
+            <div class="window-body">
+              <video class="preview-video" muted loop playsinline preload="none" poster="/assets/images/preview.webp" data-src="/assets/videos/preview.webm"></video>
+            </div>
           </div>
         </div>
       </div>
