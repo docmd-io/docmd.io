@@ -105,6 +105,7 @@
   "ask.sub": "为您的工具选择最佳上下文来源。",
   "ask.skills": "Agent Skills (SKILL.md)",
   "ask.readLlms": "llms-full.txt",
+  "ask.installHint": "省略 <code>[skill-dir]</code> 可安装到 <code>./docmd-skills/</code>（或传入其他目标路径，如 – <code>~/.claude/skills/docmd</code>）",
   "cta.title": "准备好写更好的文档了吗？",
   "cta.desc": "加入使用 docmd 构建快速、精美文档的开发者行列。",
   "cta.docs": "阅读文档",

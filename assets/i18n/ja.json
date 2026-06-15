@@ -105,6 +105,7 @@
   "ask.sub": "ツールに最適なコンテキストソースを選んでください。",
   "ask.skills": "Agent Skills (SKILL.md)",
   "ask.readLlms": "llms-full.txt",
+  "ask.installHint": "<code>[skill-dir]</code> を省略すると <code>./docmd-skills/</code> にインストールされます（または – <code>~/.claude/skills/docmd</code> のような他のターゲットを指定）",
   "cta.title": "より良いドキュメントを書く準備はできましたか？",
   "cta.desc": "docmdで高速かつ美しいドキュメントを構築している開発者の仲間入りをしましょう。",
   "cta.docs": "ドキュメントを読む",

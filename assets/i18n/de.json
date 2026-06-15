@@ -105,6 +105,7 @@
   "ask.sub": "Wählen Sie die beste Kontextquelle.",
   "ask.skills": "Agent Skills (SKILL.md)",
   "ask.readLlms": "llms-full.txt",
+  "ask.installHint": "<code>[skill-dir]</code> weglassen, um in <code>./docmd-skills/</code> zu installieren (oder andere Ziele wie – <code>~/.claude/skills/docmd</code> angeben)",
   "cta.title": "Bereit für bessere Dokumentation?",
   "cta.desc": "Schließen Sie sich den Entwicklern an, die mit docmd schnelle, schöne Dokumentation erstellen.",
   "cta.docs": "Dokumentation lesen",
