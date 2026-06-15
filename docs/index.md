@@ -436,6 +436,14 @@ customHead: |
   <div class="container">
     <h2 data-i18n="ask.title">Write docs with your favourite AI</h2>
     <p class="section-sub" data-i18n="ask.sub">Tell your AI about docmd, then ask it to help you write. Pick the best context source for your tool.</p>
+    <div class="ask-links">
+      <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Claude</a>
+      <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">ChatGPT</a>
+      <a href="https://gemini.google.com/app?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Gemini</a>
+      <a href="https://chat.deepseek.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">DeepSeek</a>
+      <a href="https://raw.githubusercontent.com/docmd-io/docmd-skills/main/SKILL.md" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.skills">Agent Skills (SKILL.md)</a>
+      <a href="https://docs.docmd.io/llms.txt" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.readLlms">LLMs Index (llms.txt)</a>
+    </div>
     <div class="ask-install">
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx docmd-skills install [skill-dir]">
         <span class="dollar">$</span>
@@ -445,14 +453,6 @@ customHead: |
         </span>
       </button>
       <p class="ask-install-hint" data-i18n="ask.installHint">omit <code>[skill-dir]</code> to install in <code>./docmd-skills/ (or pass other targets like – <code>~/.claude/skills/docmd</code>)</p>
-    </div>
-    <div class="ask-links">
-      <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Claude</a>
-      <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">ChatGPT</a>
-      <a href="https://gemini.google.com/app?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Gemini</a>
-      <a href="https://chat.deepseek.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">DeepSeek</a>
-      <a href="https://raw.githubusercontent.com/docmd-io/docmd-skills/main/SKILL.md" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.skills">Agent Skills (SKILL.md)</a>
-      <a href="https://docs.docmd.io/llms.txt" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.readLlms">LLMs Index (llms.txt)</a>
     </div>
   </div>
 </section>
