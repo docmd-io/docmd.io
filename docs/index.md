@@ -441,6 +441,23 @@ customHead: |
   <div class="container">
     <h2 data-i18n="ask.title">Write docs with your favourite AI</h2>
     <p class="section-sub" data-i18n="ask.sub">Tell your AI about docmd, then ask it to help you write. Pick the best context source for your tool.</p>
+
+    <div class="ask-install">
+      <p class="ask-install-label" data-i18n="ask.installLabel">For coding agents (Claude Code, Cursor, Windsurf, Cline), install the skill directly:</p>
+      <div class="window ask-install-window">
+        <div class="window-bar">
+          <span class="window-dot red"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">terminal</span>
+        </div>
+        <div class="window-body">
+          <pre><span class="cmd">$</span> npx docmd-skills install</pre>
+        </div>
+      </div>
+      <p class="ask-install-hint" data-i18n="ask.installHint">Drops <code>SKILL.md</code> + <code>references/</code> into <code>./docmd-skills/</code> (or pass a target: <code>npx docmd-skills install ~/.claude/skills/docmd</code>).</p>
+    </div>
+
     <div class="ask-links">
       <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Claude</a>
       <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">ChatGPT</a>
