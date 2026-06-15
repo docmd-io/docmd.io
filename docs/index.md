@@ -181,8 +181,8 @@ customHead: |
               <span class="window-title">Terminal</span>
             </div>
             <div class="window-body"><pre><span class="cmd">$</span> npx @docmd/core dev
-            <span class="success">✓</span> Built in 340ms — 12 pages
-            <span class="highlight">→ http://localhost:3000</span></pre></div>
+<span class="success">✓</span> Built in 340ms — 12 pages
+<span class="highlight">→ http://localhost:3000</span></pre></div>
           </div>
           <div class="window">
             <div class="window-body">
