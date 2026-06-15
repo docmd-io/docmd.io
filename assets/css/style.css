@@ -1417,3 +1417,9 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 680px;
   margin: 32px auto 0;
 }
+
+.ask-install-hint{
+  font-size: .8em;
+  color: var(--text-2);
+  margin-bottom: 3em;
+}
