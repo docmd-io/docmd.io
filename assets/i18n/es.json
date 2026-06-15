@@ -69,7 +69,6 @@
   "built.api.desc": "Soporte nativo de OpenAPI, documentación estructurada de endpoints con ejemplos de código.",
   "built.guides.title": "Guías técnicas",
   "built.guides.desc": "Tutoriales paso a paso con avisos, advertencias y ejemplos de código multiidioma.",
-
   "built.ai.title": "Espacios de trabajo para agentes IA",
   "built.ai.desc": "Servidor MCP nativo, instrucciones SKILL.md para agentes y contexto llms-full.txt — para que los agentes IA puedan buscar, leer y escribir tu documentación directamente.",
   "built.changelogs.title": "Registros de cambios",

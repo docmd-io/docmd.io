@@ -69,7 +69,6 @@
   "built.api.desc": "原生 OpenAPI 支持，结构化的端点文档，包含代码示例、选项卡和语法高亮。",
   "built.guides.title": "技术指南",
   "built.guides.desc": "带有标注、警告和多语言代码示例的分步教程。",
-
   "built.ai.title": "AI Agent 工作区",
   "built.ai.desc": "原生 MCP 服务器、SKILL.md Agent 指令和 llms-full.txt 上下文 — 让 AI Agent 可以直接搜索、读取和编写您的文档。",
   "built.changelogs.title": "更新日志",
