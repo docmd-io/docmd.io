@@ -408,7 +408,7 @@ customHead: |
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q4">How does the AI-first integration work?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a4">docmd ships a native MCP server (<code>docmd mcp</code>) so AI agents can search, read, and validate your docs live. It auto-generates <code>llms.txt</code> and <code>llms-full.txt</code> context files, and <code>docmd init</code> creates a <code>SKILL.md</code> instruction file for coding agents.<br/><br/><a href="https://docs.docmd.io/api/mcp-server/">MCP server docs →</a></div>
+      <div class="faq-answer" data-i18n-html="faq.a4">docmd ships a native MCP server (<code>docmd mcp</code>) so AI agents can search, read, and validate your docs live. It auto-generates <code>llms.txt</code> and <code>llms-full.txt</code> context files, and <code>docmd init</code> creates a <code>SKILL.md</code> instruction file for coding agents.<br/><br/><a href="https://docs.docmd.io/reference/mcp-server/">MCP server docs →</a></div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q5">Is docmd free?</summary>
