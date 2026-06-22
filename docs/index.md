@@ -289,7 +289,7 @@ customHead: |
           <li data-i18n="feature.extras.li3">Multi-version documentation support</li>
           <li data-i18n="feature.extras.li4">docmd deploy generates production configs</li>
         </ul>
-        <a href="https://docs.docmd.io/configuration/general/" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
+        <a href="https://docs.docmd.io/configuration/overview/" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
       </div>
       <div class="feature-visual">
         <div class="feature-visual-stack">
@@ -484,8 +484,8 @@ customHead: |
     <div class="footer-col">
       <h4 data-i18n="footer.product">Product</h4>
       <a href="https://docs.docmd.io/getting-started/installation/" data-i18n="footer.installation">Installation</a>
-      <a href="https://docs.docmd.io/configuration/general/" data-i18n="footer.configuration">Configuration</a>
-      <a href="https://docs.docmd.io/api/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
+      <a href="https://docs.docmd.io/configuration/overview/" data-i18n="footer.configuration">Configuration</a>
+      <a href="https://docs.docmd.io/reference/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
       <a href="https://docs.docmd.io/comparison/" data-i18n="footer.comparisons">Comparisons</a>
     </div>
     <div class="footer-col">
@@ -493,7 +493,7 @@ customHead: |
       <a href="https://docs.docmd.io/content/containers/" data-i18n="footer.containers">UI Containers</a>
       <a href="https://docs.docmd.io/theming/available-themes/" data-i18n="footer.theming">Theming</a>
       <a href="https://docs.docmd.io/plugins/usage/" data-i18n="footer.plugins">Plugins</a>
-      <a href="https://docs.docmd.io/api/node-api/" data-i18n="footer.api">API Resources</a>
+      <a href="https://docs.docmd.io/development/node-api-reference/" data-i18n="footer.api">API Resources</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
