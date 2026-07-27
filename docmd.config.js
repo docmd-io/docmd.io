@@ -5,6 +5,9 @@ module.exports = {
   src: "docs",
   out: "site",
   minify: true,
+  security: {
+    html: "allow"
+  },
   layout: {
     spa: false,
     header: {
