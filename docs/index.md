@@ -461,39 +461,6 @@ Zero config required. Just run `npx @docmd/core dev`!
         <div class="bento-code-box">$ docmd deploy --docker</div>
       </div>
     </div>
-=======
-    <h2 data-i18n="faq.title">Frequently asked questions</h2>
-    <p class="section-sub" data-i18n="faq.sub">Quick answers to common questions about docmd.</p>
-    <details class="faq-item">
-      <summary data-i18n="faq.q1">What is docmd?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source, zero-config documentation engine that converts Markdown files into production-ready documentation sites. It generates static HTML for SEO while providing SPA-like navigation for speed.<br/><br/><a href="https://docs.docmd.io/getting-started/quick-start/">Read the quick start guide →</a></div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q2">How is it different from Docusaurus, MkDocs or VitePress?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, no framework knowledge. It produces standalone HTML with less than 20kb client JS, scores Lighthouse 100, and includes search, SEO, and AI context (llms.txt) without any setup.<br/><br/><a href="https://docs.docmd.io/comparison/">See the full comparison →</a></div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q3">Do I need React or any framework?</summary>
-      <div class="faq-answer" data-i18n="faq.a3">No. docmd is framework-free. You write Markdown, run one command, and get a production site. Plain HTML + minimal vanilla JS. No bundlers, no framework lock-in.</div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q4">How does the AI-first integration work?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a4">docmd ships a native MCP server (<code>docmd mcp</code>) so AI agents can search, read, and validate your docs live. It auto-generates <code>llms.txt</code> and <code>llms-full.txt</code> context files, and <code>docmd init</code> creates a <code>SKILL.md</code> instruction file for coding agents.<br/><br/><a href="https://docs.docmd.io/reference/mcp-server/">MCP server docs →</a></div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q5">Is docmd free?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a5">Yes. Completely free and open source under MIT License. All core features and plugins are included by default.<br/><br/><a href="https://github.com/docmd-io/docmd">View on GitHub →</a></div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q6">Can I use it with my existing documentation files?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a6">Yes. Point docmd at any directory of Markdown files. It supports standard Markdown, frontmatter, and adds container syntax (callouts, tabs, cards) on top.<br/><br/><a href="https://docs.docmd.io/content/syntax/">Markdown syntax reference →</a></div>
-    </details>
-    <details class="faq-item">
-      <summary data-i18n="faq.q7">Does docmd support multiple languages?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a7">Yes. Native i18n with locale-first URLs, per-locale search indexes, and translated UI strings. Start with a simple locales array or build custom configurations.<br/><br/><a href="https://docs.docmd.io/configuration/localisation/">Localisation configuration →</a></div>
-    </details>
-  </div>
-</section>
 <section class="ask-section">
   <div class="container">
     <h2 class="section-title" data-i18n="ask.title">Write documentation with your favourite AI</h2>
