@@ -370,7 +370,6 @@ Zero config required. Just run `npx @docmd/core dev`!
 </section>
 <section class="comparison-section">
   <div class="container">
-<<<<<<< HEAD
     <div class="section-header">
       <div class="section-tag" data-i18n="benchmark.tag">Performance Benchmark</div>
       <h2 class="section-title" data-i18n="benchmark.title">Built for speed, not framework bloat</h2>
@@ -450,7 +449,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     <details class="faq-item">
       <summary data-i18n="faq.q8">What are docmd Agent Skills (SKILL.md) and how do I install them?</summary>
       <div class="faq-answer" data-i18n-html="faq.a8">docmd supports <code>SKILL.md</code> manifests so AI coding agents (Claude Desktop, Cursor, Windsurf) can read and execute documentation tasks automatically. Install official skills into your workspace using:
-      <br/><br/><b><code>npx docmd-skills [target-directory]</code></b></div>
+      <p><b><code>npx docmd-skills [target-directory]</code></b></p></div>
     </details>
   </div>
 </section>
