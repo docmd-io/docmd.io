@@ -259,57 +259,10 @@ Zero config required. Just run `npx @docmd/core dev`!
         </div>
         <div class="bento-code-box">docmd mcp — Ready for Claude &amp; Cursor</div>
       </div>
-<<<<<<< HEAD
       <div class="bento-card tint-pink">
         <div>
           <div class="bento-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-=======
-    </div>
-    <!-- Feature 4: Themes + i18n - visual preview -->
-    <div class="feature reverse">
-      <div class="feature-text">
-        <div class="feature-label" data-i18n="feature.extras.label">Production Ready</div>
-        <h2 data-i18n="feature.extras.title">Themes, i18n, versioning, and one-command deploy.</h2>
-        <p class="feature-desc" data-i18n="feature.extras.desc">Everything you need for production - light and dark themes, multi-language support, version switching, and deployment configs for Docker, Nginx, and Caddy.</p>
-        <ul class="feature-list">
-          <li data-i18n="feature.extras.li1">Native i18n with locale-first URLs</li>
-          <li data-i18n="feature.extras.li2">Light &amp; dark themes with custom CSS</li>
-          <li data-i18n="feature.extras.li3">Multi-version documentation support</li>
-          <li data-i18n="feature.extras.li4">docmd deploy generates production configs</li>
-        </ul>
-        <a href="https://docs.docmd.io/configuration/overview/" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
-      </div>
-      <div class="feature-visual">
-        <div class="feature-visual-stack">
-          <div class="demo-themes">
-            <div class="demo-theme-card light">
-              <div class="demo-theme-title">Light</div>
-              <div class="demo-theme-bar" style="width:80%"></div>
-              <div class="demo-theme-bar accent"></div>
-              <div class="demo-theme-bar" style="width:60%"></div>
-              <div class="demo-theme-bar" style="width:90%"></div>
-            </div>
-            <div class="demo-theme-card dark">
-              <div class="demo-theme-title">Dark</div>
-              <div class="demo-theme-bar" style="width:80%"></div>
-              <div class="demo-theme-bar accent"></div>
-              <div class="demo-theme-bar" style="width:60%"></div>
-              <div class="demo-theme-bar" style="width:90%"></div>
-            </div>
-          </div>
-          <div class="window">
-            <div class="window-bar">
-              <span class="window-dot red"></span>
-              <span class="window-dot yellow"></span>
-              <span class="window-dot green"></span>
-              <span class="window-title">Terminal</span>
-            </div>
-            <div class="window-body"><pre><span class="cmd">$</span> docmd deploy --docker
-<span class="success">✓</span> Generated Dockerfile
-<span class="success">✓</span> Generated nginx.conf
-  <span class="highlight">→ docker build -t docs .</span></pre></div>
->>>>>>> 4ea5947 (Fix broken link)
           </div>
           <h3 data-i18n="bento.card3.title">100% Offline Search</h3>
           <p data-i18n="bento.card3.desc">Full-text fuzzy &amp; vector search compiled into local index files. No cloud APIs, zero costs, works completely offline.</p>
