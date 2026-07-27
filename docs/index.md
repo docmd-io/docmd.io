@@ -259,10 +259,57 @@ Zero config required. Just run `npx @docmd/core dev`!
         </div>
         <div class="bento-code-box">docmd mcp — Ready for Claude &amp; Cursor</div>
       </div>
+<<<<<<< HEAD
       <div class="bento-card tint-pink">
         <div>
           <div class="bento-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+=======
+    </div>
+    <!-- Feature 4: Themes + i18n - visual preview -->
+    <div class="feature reverse">
+      <div class="feature-text">
+        <div class="feature-label" data-i18n="feature.extras.label">Production Ready</div>
+        <h2 data-i18n="feature.extras.title">Themes, i18n, versioning, and one-command deploy.</h2>
+        <p class="feature-desc" data-i18n="feature.extras.desc">Everything you need for production - light and dark themes, multi-language support, version switching, and deployment configs for Docker, Nginx, and Caddy.</p>
+        <ul class="feature-list">
+          <li data-i18n="feature.extras.li1">Native i18n with locale-first URLs</li>
+          <li data-i18n="feature.extras.li2">Light &amp; dark themes with custom CSS</li>
+          <li data-i18n="feature.extras.li3">Multi-version documentation support</li>
+          <li data-i18n="feature.extras.li4">docmd deploy generates production configs</li>
+        </ul>
+        <a href="https://docs.docmd.io/configuration/overview/" class="feature-link" data-i18n="feature.extras.link">Configuration docs →</a>
+      </div>
+      <div class="feature-visual">
+        <div class="feature-visual-stack">
+          <div class="demo-themes">
+            <div class="demo-theme-card light">
+              <div class="demo-theme-title">Light</div>
+              <div class="demo-theme-bar" style="width:80%"></div>
+              <div class="demo-theme-bar accent"></div>
+              <div class="demo-theme-bar" style="width:60%"></div>
+              <div class="demo-theme-bar" style="width:90%"></div>
+            </div>
+            <div class="demo-theme-card dark">
+              <div class="demo-theme-title">Dark</div>
+              <div class="demo-theme-bar" style="width:80%"></div>
+              <div class="demo-theme-bar accent"></div>
+              <div class="demo-theme-bar" style="width:60%"></div>
+              <div class="demo-theme-bar" style="width:90%"></div>
+            </div>
+          </div>
+          <div class="window">
+            <div class="window-bar">
+              <span class="window-dot red"></span>
+              <span class="window-dot yellow"></span>
+              <span class="window-dot green"></span>
+              <span class="window-title">Terminal</span>
+            </div>
+            <div class="window-body"><pre><span class="cmd">$</span> docmd deploy --docker
+<span class="success">✓</span> Generated Dockerfile
+<span class="success">✓</span> Generated nginx.conf
+  <span class="highlight">→ docker build -t docs .</span></pre></div>
+>>>>>>> 4ea5947 (Fix broken link)
           </div>
           <h3 data-i18n="bento.card3.title">100% Offline Search</h3>
           <p data-i18n="bento.card3.desc">Full-text fuzzy &amp; vector search compiled into local index files. No cloud APIs, zero costs, works completely offline.</p>
@@ -370,6 +417,7 @@ Zero config required. Just run `npx @docmd/core dev`!
 </section>
 <section class="comparison-section">
   <div class="container">
+<<<<<<< HEAD
     <div class="section-header">
       <div class="section-tag" data-i18n="benchmark.tag">Performance Benchmark</div>
       <h2 class="section-title" data-i18n="benchmark.title">Built for speed, not framework bloat</h2>
@@ -413,6 +461,37 @@ Zero config required. Just run `npx @docmd/core dev`!
         <div class="bento-code-box">$ docmd deploy --docker</div>
       </div>
     </div>
+=======
+    <h2 data-i18n="faq.title">Frequently asked questions</h2>
+    <p class="section-sub" data-i18n="faq.sub">Quick answers to common questions about docmd.</p>
+    <details class="faq-item">
+      <summary data-i18n="faq.q1">What is docmd?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source, zero-config documentation engine that converts Markdown files into production-ready documentation sites. It generates static HTML for SEO while providing SPA-like navigation for speed.<br/><br/><a href="https://docs.docmd.io/getting-started/quick-start/">Read the quick start guide →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q2">How is it different from Docusaurus, MkDocs or VitePress?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, no framework knowledge. It produces standalone HTML with less than 20kb client JS, scores Lighthouse 100, and includes search, SEO, and AI context (llms.txt) without any setup.<br/><br/><a href="https://docs.docmd.io/comparison/">See the full comparison →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q3">Do I need React or any framework?</summary>
+      <div class="faq-answer" data-i18n="faq.a3">No. docmd is framework-free. You write Markdown, run one command, and get a production site. Plain HTML + minimal vanilla JS. No bundlers, no framework lock-in.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q4">How does the AI-first integration work?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a4">docmd ships a native MCP server (<code>docmd mcp</code>) so AI agents can search, read, and validate your docs live. It auto-generates <code>llms.txt</code> and <code>llms-full.txt</code> context files, and <code>docmd init</code> creates a <code>SKILL.md</code> instruction file for coding agents.<br/><br/><a href="https://docs.docmd.io/reference/mcp-server/">MCP server docs →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q5">Is docmd free?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a5">Yes. Completely free and open source under MIT License. All core features and plugins are included by default.<br/><br/><a href="https://github.com/docmd-io/docmd">View on GitHub →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q6">Can I use it with my existing documentation files?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a6">Yes. Point docmd at any directory of Markdown files. It supports standard Markdown, frontmatter, and adds container syntax (callouts, tabs, cards) on top.<br/><br/><a href="https://docs.docmd.io/content/syntax/">Markdown syntax reference →</a></div>
+    </details>
+    <details class="faq-item">
+      <summary data-i18n="faq.q7">Does docmd support multiple languages?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a7">Yes. Native i18n with locale-first URLs, per-locale search indexes, and translated UI strings. Start with a simple locales array or build custom configurations.<br/><br/><a href="https://docs.docmd.io/configuration/localisation/">Localisation configuration →</a></div>
+    </details>
   </div>
 </section>
 <section class="ask-section">
