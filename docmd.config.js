@@ -60,7 +60,8 @@ module.exports = {
       { id: "zh", label: "中文" },
       { id: "es", label: "Español" },
       { id: "ja", label: "日本語" },
-      { id: "fr", label: "Français" }
+      { id: "fr", label: "Français" },
+      { id: "ru", label: "Русский" }
     ]
   },
   navigation: []
