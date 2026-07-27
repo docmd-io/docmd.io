@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const config = require('../docmd.config.js');
+const config = require('../docmd.config.json');
 
 const siteDir = path.join(__dirname, '../site');
 const defaultLocale = config.i18n.default;
