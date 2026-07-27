@@ -88,7 +88,7 @@
   "faq.q6": "Kann ich es mit meinen bestehenden Markdown-Dateien nutzen?",
   "faq.a6": "Ja. Zeigen Sie docmd auf ein beliebiges Verzeichnis mit Markdown-Dateien. <a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown-Syntax-Referenz →</a>",
   "faq.q7": "Unterstützt docmd mehrere Sprachen?",
-  "faq.a7": "Ja. Native i18n mit Locale-first URLs und übersetzten UI-Strings. <a href=\"https://docs.docmd.io/configuration/general\">i18n-Konfiguration →</a>",
+  "faq.a7": "Ja. Native i18n mit Locale-first URLs und übersetzten UI-Strings. <a href=\"https://docs.docmd.io/configuration/overview\">i18n-Konfiguration →</a>",
   "deploy.title": "Auf GitHub Pages deployen",
   "deploy.sub": "Ihre Docs in Sekunden live — kein Backend, kein Server, völlig kostenlos.",
   "deploy.card1.badge": "Einfachste — neues Repo",

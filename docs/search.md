@@ -75,6 +75,10 @@ customHead: |
             <svg class="lang-flag" width="16" height="12" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#ed2939"/></svg>
             Français
           </a>
+          <a class="lang-option" href="/ru/search/" data-lang="ru">
+            <svg class="lang-flag" width="16" height="12" viewBox="0 0 9 6"><rect width="9" height="6" fill="#fff"/><rect width="9" height="4" y="2" fill="#0039a6"/><rect width="9" height="2" y="4" fill="#d52b1e"/></svg>
+            Русский
+          </a>
         </div>
       </div>
       <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
@@ -326,8 +330,8 @@ results.forEach(({ score, chunk }) => {
     <div class="footer-col">
       <h4 data-i18n="footer.product">Product</h4>
       <a href="https://docs.docmd.io/getting-started/installation/" data-i18n="footer.installation">Installation</a>
-      <a href="https://docs.docmd.io/configuration/general/" data-i18n="footer.configuration">Configuration</a>
-      <a href="https://docs.docmd.io/api/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
+      <a href="https://docs.docmd.io/configuration/overview/" data-i18n="footer.configuration">Configuration</a>
+      <a href="https://docs.docmd.io/reference/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.features">Features</h4>

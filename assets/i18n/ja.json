@@ -88,7 +88,7 @@
   "faq.q6": "既存のMarkdownファイルで使用できますか？",
   "faq.a6": "はい。Markdownファイルのあるディレクトリをdocmdで指定するだけです。<a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown構文リファレンス →</a>",
   "faq.q7": "docmdは多言語をサポートしていますか？",
-  "faq.a7": "はい。言語優先URLと言語別検索インデックスによるネイティブi18nをサポートしています。<a href=\"https://docs.docmd.io/configuration/general\">i18n設定 →</a>",
+  "faq.a7": "はい。言語優先URLと言語別検索インデックスによるネイティブi18nをサポートしています。<a href=\"https://docs.docmd.io/configuration/overview\">i18n設定 →</a>",
   "deploy.title": "GitHub Pages にデプロイ",
   "deploy.sub": "数秒でドキュメントを公開 — バックエンド不要、サーバー不要、完全無料。",
   "deploy.card1.badge": "最も簡単 — 新しいリポジトリ",

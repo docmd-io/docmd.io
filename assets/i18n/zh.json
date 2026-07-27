@@ -88,7 +88,7 @@
   "faq.q6": "可以使用现有的 Markdown 文件吗？",
   "faq.a6": "可以。将 docmd 指向任何 Markdown 文件目录即可。<a href=\"https://docs.docmd.io/content/markdown-syntax/\">Markdown 语法参考 →</a>",
   "faq.q7": "docmd 支持多语言吗？",
-  "faq.a7": "支持。原生 i18n，语言优先 URL，按语言搜索索引。<a href=\"https://docs.docmd.io/configuration/general\">i18n 配置 →</a>",
+  "faq.a7": "支持。原生 i18n，语言优先 URL，按语言搜索索引。<a href=\"https://docs.docmd.io/configuration/overview\">i18n 配置 →</a>",
   "deploy.title": "部署到 GitHub Pages",
   "deploy.sub": "几秒内让您的文档上线 — 无需后端、无需服务器、完全免费。",
   "deploy.card1.badge": "最简单 — 新仓库",
