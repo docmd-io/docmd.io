@@ -124,6 +124,8 @@
   "footer.liveEditor": "Live Editor",
   "footer.releases": "Releases",
   "footer.sponsor": "Sponsor",
+  "footer.terms": "Terms of Service",
+  "footer.privacy": "Privacy Policy",
   "footer.license": "MIT License",
   "search.hero.badge": "docmd search alpha",
   "search.hero.title": "Local Semantic Search.<br>Zero API keys. 100% Private.",

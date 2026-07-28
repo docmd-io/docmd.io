@@ -124,6 +124,8 @@
   "footer.liveEditor": "Éditeur en direct",
   "footer.releases": "Versions",
   "footer.sponsor": "Sponsoriser",
+  "footer.terms": "Conditions d'utilisation",
+  "footer.privacy": "Politique de confidentialité",
   "footer.license": "Licence MIT",
   "search.hero.badge": "docmd search alpha",
   "search.hero.title": "Recherche sémantique locale.<br>Sans clés API. 100% privée.",

@@ -124,6 +124,8 @@
   "footer.liveEditor": "Live Editor",
   "footer.releases": "Релизы",
   "footer.sponsor": "Спонсорство",
+  "footer.terms": "Условия использования",
+  "footer.privacy": "Политика конфиденциальности",
   "footer.license": "Лицензия MIT",
   "search.hero.badge": "docmd search alpha",
   "search.hero.title": "Локальный семантический поиск.<br>Без ключей API. Полностью приватный.",

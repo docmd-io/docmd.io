@@ -497,6 +497,8 @@ Zero config required. Just run `npx @docmd/core dev`!
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
+      <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>
+      <a href="/privacy/" data-i18n="footer.privacy">Privacy Policy</a>
     </div>
   </div>
   <div class="footer-bottom">
