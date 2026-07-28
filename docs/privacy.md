@@ -37,18 +37,23 @@ customHead: |
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="https://docs.docmd.io/plugins/usage/" data-i18n="nav.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
     </div>
     <div class="nav-right">
-      <a href="https://github.com/docmd-io/docmd" class="nav-github" target="_blank" rel="noopener" aria-label="GitHub Repository">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      <a href="https://github.com/docmd-io/docmd" class="icon-btn" aria-label="GitHub" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
       </a>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></span>
+      </button>
     </div>
   </div>
 </nav>
 
 <div class="legal-page container" style="max-width:800px; margin:120px auto 80px; padding:0 24px; color:var(--color-text-main, #0f172a); font-family:var(--font-sans, sans-serif); line-height:1.7;">
   <h1 style="font-size: 2.25rem; font-weight:700; letter-spacing:-0.025em; margin-bottom: 8px;">Privacy Policy</h1>
-  <p style="color:#64748b; font-size:0.95rem; margin-bottom: 40px;">Last updated: July 28, 2026</p>
+  <p style="color:var(--color-text-muted, #64748b); font-size:0.95rem; margin-bottom: 40px;">Last updated: July 28, 2026</p>
 
   <section style="margin-bottom: 32px;">
     <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">1. Zero Telemetry in Core Tools</h2>
@@ -57,26 +62,26 @@ customHead: |
 
   <section style="margin-bottom: 32px;">
     <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">2. docmd cloud & Account Authentication</h2>
-    <p>When you register for a docmd cloud dashboard account via GitHub or Google OAuth, we collect minimal profile metadata necessary to maintain your session:</p>
+    <p>When you register for a docmd cloud dashboard account via OAuth, we collect minimal profile metadata necessary to maintain your session:</p>
     <ul style="padding-left:20px; margin-top:8px;">
-      <li>Account ID, Name, and Email address provided by your OAuth identity provider.</li>
+      <li>Account ID, Name, and Email address provided by your chosen identity provider.</li>
       <li>Session tokens stored securely in HTTP-only browser cookies.</li>
     </ul>
   </section>
 
   <section style="margin-bottom: 32px;">
-    <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">3. BYOK API Key Security & Encryption</h2>
+    <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">3. BYOK Key Encryption & Relay Security</h2>
     <p>When you configure Bring Your Own Key (BYOK) AI provider keys in your docmd cloud dashboard:</p>
     <ul style="padding-left:20px; margin-top:8px;">
-      <li>Keys are encrypted client-side and stored in AWS DynamoDB encrypted with dedicated hardware keys managed by AWS KMS (Key Management Service).</li>
-      <li>Relay requests decrypt keys temporarily in serverless Lambda memory solely for forwarding authorized API calls to your configured provider (OpenAI, Anthropic, Gemini).</li>
+      <li>Keys are encrypted client-side and stored in cloud data stores encrypted at rest with envelope encryption and hardware security module (HSM) key management systems.</li>
+      <li>Relay requests decrypt keys temporarily in serverless memory solely for forwarding authorized API calls to your configured model endpoints.</li>
       <li>We <strong>never log, store, or sell</strong> your API keys or completion prompts.</li>
     </ul>
   </section>
 
   <section style="margin-bottom: 32px;">
     <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">4. Analytics & Web Privacy</h2>
-    <p>On docmd.io static marketing pages, we utilize Google Analytics 4 (GA4) with IP anonymization enabled to aggregate page view metrics and optimize site navigation. No personal data or search queries are stored or shared.</p>
+    <p>On docmd.io static marketing pages, we utilize standard website analytics with IP anonymization enabled to aggregate page view metrics and optimize site navigation. No personal data or search queries are stored or shared.</p>
   </section>
 
   <section style="margin-bottom: 32px;">
