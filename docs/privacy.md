@@ -37,8 +37,6 @@ customHead: |
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
-      <a href="https://docs.docmd.io/plugins/usage/" data-i18n="nav.plugins">Plugins</a>
-      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
     </div>
     <div class="nav-right">
       <a href="https://github.com/docmd-io/docmd" class="icon-btn" aria-label="GitHub" target="_blank" rel="noopener">
