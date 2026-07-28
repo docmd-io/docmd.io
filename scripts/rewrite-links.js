@@ -55,6 +55,17 @@ function rewriteLocalLinks(html, locale) {
         .replace(/href="\/" class="nav-logo"/g, `href="/${locale}/" class="nav-logo"`);
 }
 
+/**
+ * Ensure language switcher links use root-absolute paths (e.g. href="/ru/" instead of href="./ru/").
+ * In subdirectories like /de/, relative paths like ./ru/ resolve incorrectly to /de/ru/.
+ */
+function fixLangSwitcherLinks(html) {
+    return html.replace(/<a class="lang-option\b([^"]*)" href="[^"]*" data-lang="([^"]+)"/g, (match, classes, lang) => {
+        const targetHref = lang === defaultLocale ? '/' : `/${lang}/`;
+        return `<a class="lang-option${classes}" href="${targetHref}" data-lang="${lang}"`;
+    });
+}
+
 // --- Helper to recursively find all HTML files ---
 function getAllHtmlFiles(dir) {
     let results = [];
@@ -121,6 +132,7 @@ htmlFiles.forEach(filePath => {
     let html = fs.readFileSync(filePath, 'utf-8');
     html = stripI18nClientScript(html);
     html = cleanI18nTranslations(html, fileLocale);
+    html = fixLangSwitcherLinks(html);
     if (isLocale) {
         html = rewriteDocsLinks(html, fileLocale);
         html = rewriteLocalLinks(html, fileLocale);
