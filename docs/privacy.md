@@ -51,9 +51,9 @@ customHead: |
   </div>
 </nav>
 
-<div class="legal-page container" style="max-width:800px; margin:120px auto 80px; padding:0 24px; color:var(--color-text-main, #0f172a); font-family:var(--font-sans, sans-serif); line-height:1.7;">
+<div class="legal-page container" style="max-width:800px; margin:120px auto 80px; padding:0 24px; color:var(--text); font-family:var(--font); line-height:1.7;">
   <h1 style="font-size: 2.25rem; font-weight:700; letter-spacing:-0.025em; margin-bottom: 8px;">Privacy Policy</h1>
-  <p style="color:var(--color-text-muted, #64748b); font-size:0.95rem; margin-bottom: 40px;">Last updated: July 28, 2026</p>
+  <p style="color:var(--text-3); font-size:0.95rem; margin-bottom: 40px;">Last updated: July 28, 2026</p>
 
   <section style="margin-bottom: 32px;">
     <h2 style="font-size:1.35rem; font-weight:600; margin-bottom:12px;">1. Zero Telemetry in Core Tools</h2>
