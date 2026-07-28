@@ -221,7 +221,7 @@
   "benchmark.card1.val": "340 毫秒",
   "benchmark.card1.lbl": "构建时间",
   "benchmark.card1.desc": "使用 docmd 二进制引擎即时编译静态网站。",
-  "benchmark.card2.val": "< 18 KB",
+  "benchmark.card2.val": "< 25 KB",
   "benchmark.card2.lbl": "客户端体积",
   "benchmark.card2.desc": "超轻量原生 JS 脚本运行时，提供极速体验。",
   "benchmark.card3.val": "0 MB",

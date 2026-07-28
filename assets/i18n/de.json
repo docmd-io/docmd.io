@@ -221,7 +221,7 @@
   "benchmark.card1.val": "340 ms",
   "benchmark.card1.lbl": "Build-Zeit",
   "benchmark.card1.desc": "Sofortige statische Website-Kompilierung mit der docmd Binary Engine.",
-  "benchmark.card2.val": "< 18 KB",
+  "benchmark.card2.val": "< 25 KB",
   "benchmark.card2.lbl": "Client-Größe",
   "benchmark.card2.desc": "Ultra-leichtes Vanilla JS Skript für maximale Geschwindigkeit.",
   "benchmark.card3.val": "0 MB",

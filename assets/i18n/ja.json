@@ -221,7 +221,7 @@
   "benchmark.card1.val": "340 ms",
   "benchmark.card1.lbl": "ビルド時間",
   "benchmark.card1.desc": "docmdバイナリエンジンの即時静的サイトコンパイル。",
-  "benchmark.card2.val": "< 18 KB",
+  "benchmark.card2.val": "< 25 KB",
   "benchmark.card2.lbl": "クライアントサイズ",
   "benchmark.card2.desc": "最大速度のための超軽量Vanilla JSスクリプトランタイム。",
   "benchmark.card3.val": "0 MB",

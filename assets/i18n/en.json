@@ -221,7 +221,7 @@
   "benchmark.card1.val": "340 ms",
   "benchmark.card1.lbl": "Build Time",
   "benchmark.card1.desc": "Instant static site compilation with docmd binary engine.",
-  "benchmark.card2.val": "< 18 KB",
+  "benchmark.card2.val": "< 25 KB",
   "benchmark.card2.lbl": "Client Footprint",
   "benchmark.card2.desc": "Ultra-lightweight vanilla JS script runtime for max speed.",
   "benchmark.card3.val": "0 MB",

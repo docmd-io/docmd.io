@@ -221,7 +221,7 @@
   "benchmark.card1.val": "340 ms",
   "benchmark.card1.lbl": "Tiempo de Compilación",
   "benchmark.card1.desc": "Compilación instantánea de sitios estáticos con el motor binario de docmd.",
-  "benchmark.card2.val": "< 18 KB",
+  "benchmark.card2.val": "< 25 KB",
   "benchmark.card2.lbl": "Huella del Cliente",
   "benchmark.card2.desc": "Runtime de script Vanilla JS ultraligero para máxima velocidad.",
   "benchmark.card3.val": "0 MB",

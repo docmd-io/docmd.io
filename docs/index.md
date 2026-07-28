@@ -149,7 +149,7 @@ customHead: |
         <div class="metric-lbl" data-i18n="hero.metric.perf">Lighthouse Score</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">&lt; 20 KB</div>
+        <div class="metric-val">&lt; 25 KB</div>
         <div class="metric-lbl" data-i18n="hero.metric.js">Main Client JS</div>
       </div>
       <div class="metric-item">
@@ -382,7 +382,7 @@ Zero config required. Just run `npx @docmd/core dev`!
         <div class="comp-desc" data-i18n="benchmark.card1.desc">Instant static site compilation with docmd binary engine.</div>
       </div>
       <div class="comp-card">
-        <div class="comp-val" data-i18n-html="benchmark.card2.val">&lt; 18 KB</div>
+        <div class="comp-val" data-i18n-html="benchmark.card2.val">&lt; 25 KB</div>
         <div class="comp-lbl" data-i18n="benchmark.card2.lbl">Client Footprint</div>
         <div class="comp-desc" data-i18n="benchmark.card2.desc">Ultra-lightweight vanilla JS script runtime for max speed.</div>
       </div>
