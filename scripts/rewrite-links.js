@@ -27,18 +27,26 @@ function stripI18nClientScript(html) {
     return html;
 }
 
+// Locales currently supported on docs.docmd.io
+const supportedDocsLocales = ['de', 'zh'];
+
 /**
- * Rewrite docs.docmd.io links to include the locale prefix.
- * e.g. href="https://docs.docmd.io/getting-started/installation"
- *   → href="https://docs.docmd.io/zh/getting-started/installation"
+ * Rewrite docs.docmd.io links to include the locale prefix ONLY if supported by docs.docmd.io.
+ * Supported: 'de', 'zh'. Unsupported locales ('es', 'ja', 'fr', 'ru') fall back to English docs.
  */
 function rewriteDocsLinks(html, locale) {
+    if (!supportedDocsLocales.includes(locale)) {
+        // For unsupported locales on docs.docmd.io, strip any locale prefix so links point to default English docs
+        return html.replace(/href="https:\/\/docs\.docmd\.io\/(de|zh|es|ja|fr|ru)(\/|$)/g, 'href="https://docs.docmd.io/');
+    }
     return html.replace(/href="https:\/\/docs\.docmd\.io([^"]*)"/g, (match, pathname) => {
-        // Already has locale prefix
+        // Already has current locale prefix
         if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
             return match;
         }
-        const cleanPath = pathname === '' || pathname === '/' ? '' : pathname;
+        // Strip any other locale prefix if present
+        let cleanPath = pathname.replace(/^\/(de|zh|es|ja|fr|ru)(\/|$)/, '$2');
+        cleanPath = (cleanPath === '' || cleanPath === '/') ? '' : cleanPath;
         return `href="https://docs.docmd.io/${locale}${cleanPath}"`;
     });
 }
