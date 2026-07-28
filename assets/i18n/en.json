@@ -8,7 +8,7 @@
   "hero.title": "Markdown to production docs.<br>One command. Zero config.",
   "hero.sub": "Static HTML for SEO. SPA-speed navigation. AI-first by design.<br>Native MCP server. Agent skills. Zero config. No framework.",
   "hero.cta": "Get Started",
-  "hero.metric.js": "< 20kb JS",
+  "hero.metric.js": "Main Client JS",
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "Zero config",
   "hero.metric.search": "Offline search",

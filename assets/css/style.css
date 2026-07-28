@@ -144,8 +144,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    width: calc(100% - 24px);
-    max-width: 860px;
+    width: max-content;
 }
 
 .nav-pill {
@@ -160,6 +159,7 @@ button {
     border: 1px solid var(--border-subtle);
     border-radius: var(--r-full);
     box-shadow: var(--shadow-sm);
+    gap:2rem
 }
 
 [data-theme="dark"] .nav-pill {

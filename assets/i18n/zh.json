@@ -8,7 +8,7 @@
   "hero.title": "Markdown 到生产文档。<br>一条命令。零配置。",
   "hero.sub": "静态 HTML 优化 SEO。SPA 速度导航。默认 AI 就绪。<br>无需 React。无框架锁定。无学习成本。",
   "hero.cta": "开始使用",
-  "hero.metric.js": "< 20kb JS",
+  "hero.metric.js": "主客户端 JS",
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "零配置",
   "hero.metric.search": "离线搜索",

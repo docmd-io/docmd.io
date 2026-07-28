@@ -8,7 +8,7 @@
   "hero.title": "De Markdown a documentos de producción.<br>Un comando. Cero configuración.",
   "hero.sub": "HTML estático para SEO. Navegación rápida tipo SPA. Listo para IA por defecto.<br>Sin React. Sin dependencia de frameworks. Sin curva de aprendizaje.",
   "hero.cta": "Empezar",
-  "hero.metric.js": "< 20kb JS",
+  "hero.metric.js": "JS principal del cliente",
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "Cero configuración",
   "hero.metric.search": "Búsqueda offline",

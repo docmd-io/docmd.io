@@ -8,7 +8,7 @@
   "hero.title": "Markdown zu Produktionsdoku.<br>Ein Befehl. Null Konfiguration.",
   "hero.sub": "Statisches HTML für SEO. SPA-Geschwindigkeit. KI-bereit ab Werk.<br>Kein React. Kein Framework-Lock-in. Keine Lernkurve.",
   "hero.cta": "Loslegen",
-  "hero.metric.js": "< 20kb JS",
+  "hero.metric.js": "Haupt-Client-JS",
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "Null Konfiguration",
   "hero.metric.search": "Offline-Suche",

@@ -8,7 +8,7 @@
   "hero.title": "Markdownを本番用ドキュメントに。<br>コマンド1つ。設定不要。",
   "hero.sub": "SEOに強い静的HTML。SPAのような高速ナビゲーション。デフォルトでAI対応。<br>React不要。フレームワークへの依存なし。学習コストゼロ。",
   "hero.cta": "始める",
-  "hero.metric.js": "20kb以下のJS",
+  "hero.metric.js": "メインクライアントJS",
   "hero.metric.perf": "Lighthouse 100",
   "hero.metric.config": "設定不要",
   "hero.metric.search": "オフライン検索",

@@ -149,7 +149,7 @@ customHead: |
         <div class="metric-lbl" data-i18n="hero.metric.perf">Lighthouse Score</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">&lt; 18 KB</div>
+        <div class="metric-val">&lt; 20 KB</div>
         <div class="metric-lbl" data-i18n="hero.metric.js">Main Client JS</div>
       </div>
       <div class="metric-item">
@@ -170,7 +170,7 @@ customHead: |
             <span class="window-dot green"></span>
           </div>
           <div class="window-tabs">
-            <button class="hero-tab-btn active" data-tab="tab-terminal">Terminal</button>
+            <button class="hero-tab-btn active" data-tab="tab-terminal">terminal</button>
             <button class="hero-tab-btn" data-tab="tab-config">docmd.config.json</button>
             <button class="hero-tab-btn" data-tab="tab-markdown">docs/index.md</button>
           </div>
