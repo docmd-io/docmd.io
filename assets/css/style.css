@@ -31,6 +31,16 @@
     --search-soft: rgba(139, 92, 246, 0.08);
     --search-border: rgba(139, 92, 246, 0.22);
 
+    /* Assistant Page Cyber Teal / Emerald AI Palette - Calmer Contrast */
+    --assistant-accent: #0f766e;
+    --assistant-accent-hover: #115e59;
+    --assistant-accent-light: #14b8a6;
+    --assistant-cyan: #0891b2;
+    --assistant-emerald: #059669;
+    --assistant-soft: rgba(15, 118, 110, 0.07);
+    --assistant-border: rgba(15, 118, 110, 0.2);
+    --assistant-glow: rgba(15, 118, 110, 0.14);
+
     --indigo: #6366f1;
     --purple: #8b5cf6;
     --emerald: #10b981;
@@ -59,7 +69,7 @@
     --surface-hover: #141b29;
     --surface-card: #0e131d;
     --border: #1a2232;
-    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-subtle: rgba(255, 255, 255, 0.08);
     --border-hover: #29364e;
     --text: #f8fafc;
     --text-2: #cbd5e1;
@@ -76,6 +86,12 @@
     --search-accent-hover: #d8b4fe;
     --search-soft: rgba(192, 132, 252, 0.12);
     --search-border: rgba(192, 132, 252, 0.28);
+
+    --assistant-accent: #14b8a6;
+    --assistant-accent-hover: #2dd4bf;
+    --assistant-soft: rgba(20, 184, 166, 0.1);
+    --assistant-border: rgba(20, 184, 166, 0.24);
+    --assistant-glow: rgba(20, 184, 166, 0.16);
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
@@ -132,6 +148,20 @@ button {
 
 .gradient-text-search {
     background: linear-gradient(135deg, var(--text) 20%, #a855f7 65%, #6366f1 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-assistant {
+    background: linear-gradient(135deg, var(--text) 15%, #0d9488 55%, #06b6d4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .gradient-text-assistant {
+    background: linear-gradient(135deg, var(--text) 15%, #2dd4bf 55%, #38bdf8 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -403,21 +433,34 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 14px;
-    background: var(--surface-card);
-    border: 1px solid var(--border-subtle);
+    height: 32px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
     border-radius: var(--r-full);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 500;
+    line-height: 30px;
     color: var(--text-2);
     margin-bottom: 18px;
     box-shadow: var(--shadow-sm);
-    transition: border-color 0.15s ease, background 0.15s ease;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.hero-badge.search-badge {
+    background: var(--search-soft);
+    border-color: var(--search-border);
+}
+
+.hero-badge.assistant-badge {
+    background: var(--assistant-soft);
+    border-color: var(--assistant-border);
 }
 
 .hero-badge:hover {
-    border-color: var(--accent-border);
-    background: var(--accent-soft);
+    opacity: 0.9;
 }
 
 .badge-dot {
@@ -472,44 +515,59 @@ button {
     flex-wrap: wrap;
 }
 
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 16px;
-    background: var(--text);
-    color: var(--bg);
-    border-radius: var(--r-btn);
-    font-weight: 500;
-    font-size: 0.8125rem;
-    transition: opacity 0.15s ease;
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
+.btn-primary,
 .btn-code {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
+    justify-content: center;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 20px;
     border-radius: var(--r-btn);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 42px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 0;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    opacity: 0.92;
+}
+
+.btn-code {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
     font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--text-2);
+    cursor: pointer;
 }
 
 .btn-code:hover {
-    border-color: var(--accent-border);
-    color: var(--text);
+    border-color: var(--border-hover);
+    background: var(--surface-hover);
+}
+
+.btn-code.copied {
+    border-color: #10b981 !important;
+    color: #10b981 !important;
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.25) !important;
 }
 
 .btn-code .dollar {
     color: var(--accent);
     font-weight: 600;
+    margin-right: 8px;
+    user-select: none;
 }
 
 /* ─── Metrics Strip ─── */
@@ -924,6 +982,44 @@ button {
     100% { transform: translateY(-6px) scale(1.25); opacity: 1; }
 }
 
+/* ─── Assistant Page Neural Beam Stream & Wave Identity ─── */
+.assistant-hero {
+    position: relative;
+    padding: 96px 0 48px;
+    text-align: center;
+}
+
+.assistant-bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 780px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55;
+    mask-image: radial-gradient(ellipse 90% 85% at 50% 35%, black 45%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 35%, black 45%, transparent 95%);
+}
+
+.ai-stream-beam {
+    stroke-dasharray: 14 22;
+    filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.3));
+    animation: aiBeamFlow 7s linear infinite;
+}
+
+.ai-p-1 { animation-delay: 0s; }
+.ai-p-2 { animation-delay: 2.3s; }
+.ai-p-3 { animation-delay: 4.6s; }
+
+@keyframes aiBeamFlow {
+    0% { stroke-dashoffset: 72; opacity: 0.3; }
+    50% { opacity: 0.75; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
 .hero-metrics {
     display: flex;
     justify-content: center;
@@ -1253,7 +1349,28 @@ button {
 .cta-actions {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cta-actions .btn-primary,
+.cta-actions .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--r-btn);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 42px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 0;
+    transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 /* ─── Sponsors ─── */
