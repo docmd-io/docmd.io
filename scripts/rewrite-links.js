@@ -59,18 +59,48 @@ function rewriteDocsLinks(html, locale) {
 function rewriteLocalLinks(html, locale) {
     if (locale === 'en') return html;
     return html
+        .replace(/href="\/assistant\/" class="nav-link"/g, `href="/${locale}/assistant/" class="nav-link"`)
         .replace(/href="\/search\/" class="nav-link"/g, `href="/${locale}/search/" class="nav-link"`)
         .replace(/href="\/" class="nav-logo"/g, `href="/${locale}/" class="nav-logo"`);
 }
 
 /**
- * Ensure language switcher links use root-absolute paths (e.g. href="/ru/" instead of href="./ru/").
- * In subdirectories like /de/, relative paths like ./ru/ resolve incorrectly to /de/ru/.
+ * Extract clean page route (un-localized path) from relative file path.
+ * e.g. "index.html" -> "/"
+ *      "assistant/index.html" -> "/assistant/"
+ *      "de/index.html" -> "/"
+ *      "de/assistant/index.html" -> "/assistant/"
+ *      "zh/search/index.html" -> "/search/"
  */
-function fixLangSwitcherLinks(html) {
+function getCleanPagePath(relativePath) {
+    let norm = relativePath.replace(/\\/g, '/');
+    const parts = norm.split('/');
+    if (nonDefaultLocales.includes(parts[0])) {
+        parts.shift();
+        norm = parts.join('/');
+    }
+    if (norm === 'index.html' || norm === '404.html' || norm === '') {
+        return '/';
+    }
+    if (norm.endsWith('/index.html')) {
+        return '/' + norm.slice(0, -'index.html'.length);
+    }
+    return '/' + norm;
+}
+
+/**
+ * Ensure language switcher links preserve current page route (e.g. href="/de/assistant/" instead of href="/de/").
+ * Also dynamically sets the 'active' class for currentLocale.
+ */
+function fixLangSwitcherLinks(html, cleanPagePath, currentLocale) {
     return html.replace(/<a class="lang-option\b([^"]*)" href="[^"]*" data-lang="([^"]+)"/g, (match, classes, lang) => {
-        const targetHref = lang === defaultLocale ? '/' : `/${lang}/`;
-        return `<a class="lang-option${classes}" href="${targetHref}" data-lang="${lang}"`;
+        let classList = classes.replace(/\bactive\b/g, '').replace(/\s+/g, ' ').trim();
+        if (lang === currentLocale) {
+            classList = classList ? `${classList} active` : 'active';
+        }
+        const classAttr = classList ? `class="lang-option ${classList}"` : 'class="lang-option"';
+        const targetHref = lang === defaultLocale ? cleanPagePath : `/${lang}${cleanPagePath}`;
+        return `<a ${classAttr} href="${targetHref}" data-lang="${lang}"`;
     });
 }
 
@@ -136,11 +166,12 @@ htmlFiles.forEach(filePath => {
     const firstSegment = relativePath.split(path.sep)[0];
     const isLocale = nonDefaultLocales.includes(firstSegment);
     const fileLocale = isLocale ? firstSegment : defaultLocale;
+    const cleanPagePath = getCleanPagePath(relativePath);
 
     let html = fs.readFileSync(filePath, 'utf-8');
     html = stripI18nClientScript(html);
     html = cleanI18nTranslations(html, fileLocale);
-    html = fixLangSwitcherLinks(html);
+    html = fixLangSwitcherLinks(html, cleanPagePath, fileLocale);
     if (isLocale) {
         html = rewriteDocsLinks(html, fileLocale);
         html = rewriteLocalLinks(html, fileLocale);
