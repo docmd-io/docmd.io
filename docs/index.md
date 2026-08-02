@@ -1,15 +1,17 @@
 ---
-title: "Turn Markdown into documentation — open-source, zero-config, AI-ready"
-description: "docmd is an open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready documentation site."
+title: "docmd — The Open-Source Documentation Engine"
+description: "Open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready docs site. No framework, no config."
 titleAppend: false
 noStyle: true
 keywords: 
-  - "static site generator"
   - "documentation generator"
   - "markdown to html"
-  - "nodejs ssg"
+  - "static site generator"
+  - "open source docs"
   - "docmd"
-  - "open source documentation"
+  - "documentation engine"
+  - "markdown documentation tool"
+  - "zero config docs"
 components:
   meta: true
   favicon: true
@@ -38,12 +40,28 @@ seo:
 customHead: |
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta property="og:site_name" content="docmd">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "docmd",
+    "url": "https://docmd.io",
+    "description": "Open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready docs site.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "docmd",
+      "url": "https://docmd.io"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 ---
 
-<nav class="nav">
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-pill">
     <div class="nav-left">
       <a href="/" class="nav-logo" aria-label="docmd home">
@@ -54,6 +72,20 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
+      <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
+      <span class="nav-divider"></span>
+      <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+    </div>
+    <button class="nav-dropdown-toggle" aria-label="Toggle menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
@@ -107,7 +139,8 @@ customHead: |
     </div>
   </div>
 </nav>
-<header class="hero">
+<main>
+<header class="hero" role="banner">
   <div class="hero-bg-grid">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -136,7 +169,7 @@ customHead: |
       <span id="npm-version">docmd v0.9.0</span> <span data-i18n="hero.badge">is now available →</span>
     </a>
     <h1 data-i18n="hero.title">Turn Markdown into documentation.<br>One command. <span class="gradient-text">No framework.</span></h1>
-    <p class="hero-sub" data-i18n="hero.sub">An open-source engine that turns Markdown files into fast, searchable documentation sites.<br>Write your content, run one command, and ship. No React, no config files, no build pipeline.</p>
+    <p class="hero-sub" data-i18n="hero.sub">Open source, MIT licensed. Point it at a folder of Markdown and get a complete docs site with search, SEO, and AI tooling built in.</p>
     <div class="hero-actions">
       <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta">Get Started</a>
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx @docmd/core dev">
@@ -187,7 +220,6 @@ customHead: |
 → Server running at http://localhost:3000</pre>
           </div>
           <div class="hero-pane" id="tab-config">
-            <pre>
 
 ```json
 {
@@ -204,12 +236,10 @@ customHead: |
 }
 ```
 
-</pre>
-          </div>
-          <div class="hero-pane" id="tab-markdown">
-            <pre>
+</div>
+<div class="hero-pane" id="tab-markdown">
 
-```
+```markdown
 ---
 title: Quick Start
 description: Get your documentation live in 2 minutes.
@@ -222,14 +252,13 @@ Zero config required. Just run `npx @docmd/core dev`!
 :::
 ```
 
-</pre>
-          </div>
+</div>
         </div>
       </div>
     </div>
   </div>
 </header>
-<section class="bento-section">
+<section class="bento-section" aria-label="Features">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="bento.tag">Why docmd</div>
@@ -283,7 +312,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="ai-section">
+<section class="ai-section" aria-label="AI integrations">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="ai.tag">AI &amp; Open Ecosystem</div>
@@ -318,7 +347,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="plugins-section">
+<section class="plugins-section" aria-label="Plugin ecosystem">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="plugins.tag">Modular Ecosystem</div>
@@ -369,7 +398,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="comparison-section">
+<section class="comparison-section" aria-label="Framework comparison">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="benchmark.tag">Performance Benchmark</div>
@@ -414,6 +443,8 @@ Zero config required. Just run `npx @docmd/core dev`!
         <div class="bento-code-box">$ docmd deploy --docker</div>
       </div>
     </div>
+  </div>
+</section>
 <section class="ask-section">
   <div class="container">
     <h2 class="section-title" data-i18n="ask.title">Write documentation with your favourite AI</h2>
@@ -427,7 +458,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="faq-section">
+<section class="faq-section" aria-label="Frequently asked questions">
   <div class="container">
     <h2 class="section-title" data-i18n="faq.title">Frequently asked questions</h2>
     <p class="section-sub" style="margin-bottom:28px; text-align:center;" data-i18n="faq.sub">Everything you need to know about docmd.</p>
@@ -454,7 +485,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </details>
   </div>
 </section>
-<section class="cta-section">
+<section class="cta-section" aria-label="Get started">
   <div class="container">
     <h2 data-i18n="cta.title">Start building in minutes</h2>
     <p class="section-sub" style="margin-bottom:20px;" data-i18n="cta.desc">Open source, MIT licensed. One command to your first documentation site.</p>
@@ -464,12 +495,13 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="sponsors-section">
+<section class="sponsors-section" aria-label="Community sponsors">
   <div class="container">
     <h3 data-i18n="sponsors.title">Community Sponsors</h3>
     <div id="sponsors-grid" class="sponsors-grid"></div>
   </div>
 </section>
+</main>
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -496,6 +528,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
+      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

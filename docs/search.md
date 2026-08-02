@@ -1,15 +1,16 @@
 ---
-title: "docmd-search — Offline Semantic Search for Any Documentation"
-description: "An offline search engine that understands meaning. Runs entirely in the browser, works with any documentation site, and never sends data to the cloud."
+title: "docmd-search — Offline Semantic Search for Documentation"
+description: "Offline semantic search for any documentation site. Understands meaning, runs entirely in the browser, and never sends data to the cloud."
 titleAppend: false
 noStyle: true
 keywords: 
-  - "semantic search"
-  - "vector search"
-  - "local embeddings"
-  - "docmd"
-  - "docmd-search"
   - "offline search"
+  - "semantic search"
+  - "documentation search"
+  - "browser search engine"
+  - "docmd-search"
+  - "private search"
+  - "vector search docs"
 components:
   meta: true
   favicon: true
@@ -19,12 +20,14 @@ components:
 customHead: |
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta property="og:site_name" content="docmd">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 ---
 
-<nav class="nav">
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-pill">
     <div class="nav-left">
       <a href="/" class="nav-logo" aria-label="docmd home">
@@ -35,6 +38,20 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
+      <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
+      <a href="/search/" class="nav-link" style="color:var(--search-accent); font-weight:600;" data-i18n="nav.search">Semantic Search</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
+      <span class="nav-divider"></span>
+      <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+    </div>
+    <button class="nav-dropdown-toggle" aria-label="Toggle menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" style="color:var(--search-accent); font-weight:600;" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
@@ -88,6 +105,7 @@ customHead: |
     </div>
   </div>
 </nav>
+<main>
 <header class="hero search-hero">
   <div class="search-bg-grid">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +122,7 @@ customHead: |
       <span id="npm-version-search">docmd-search v0.1.1</span> <span data-i18n="hero.badge">is now available →</span>
     </a>
     <h1 data-i18n="search.hero.title">Search that understands meaning.<br>Runs in the browser. <span class="gradient-text-search">Completely private.</span></h1>
-    <p class="hero-sub" data-i18n="search.hero.sub">docmd-search is an offline search engine for documentation. It finds results by meaning — not just keywords — without sending a single request to the cloud. Works with any website.</p>
+    <p class="hero-sub" data-i18n="search.hero.sub">Offline semantic search for any documentation site. Understands meaning, runs entirely in the browser, and never sends data to the cloud.</p>
     <div class="hero-actions">
       <a href="https://docs.docmd.io/search/" class="btn-primary" style="background:var(--search-accent); color:#fff;" data-i18n="search.hero.cta">Get Started</a>
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npm install docmd-search">
@@ -175,7 +193,7 @@ customHead: |
     </div>
   </div>
 </header>
-<section class="bento-section">
+<section class="bento-section" aria-label="Features">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.tag.architecture">Architecture</div>
@@ -216,7 +234,7 @@ customHead: |
     </div>
   </div>
 </section>
-<section class="built-for" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
+<section class="built-for" style="padding: 56px 0 30px;">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.tag.embeddings">Embeddings</div>
@@ -273,7 +291,7 @@ customHead: |
     </div>
   </div>
 </section>
-<section class="built-for" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
+<section class="built-for" style="padding: 56px 0 30px;">
   <div class="container" style="max-width: 860px; text-align: left;">
     <div class="section-header">
       <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.tag.api">Developer API</div>
@@ -281,14 +299,19 @@ customHead: |
       <p class="section-sub" data-i18n="search.api.desc1">A lightweight client runtime (under 5 KB) that runs entirely in the browser. Build custom search UIs for any website or application.</p>
     </div>
     <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; overflow-x: auto; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
-      <pre style="margin: 0; font-family: var(--mono); font-size: 0.82rem; line-height: 1.9; color: var(--text);"><span style="color: var(--search-accent);">import</span> * <span style="color: var(--search-accent);">as</span> Search <span style="color: var(--search-accent);">from</span> <span style="color: var(--search-accent-hover);">'@docmd/plugin-search/client'</span>;
-<span style="color: var(--text-4);">// 1. Initialise and load index folder.
+<pre style="margin: 0; font-family: var(--mono); font-size: 0.8rem; color: var(--text);">
+<span style="color: var(--search-accent);">import</span> * <span style="color: var(--search-accent);">as</span> Search <span style="color: var(--search-accent);">from</span> <span style="color: var(--search-accent-hover);">'@docmd/plugin-search/client'</span>;
+
+<span style="color: var(--text-4);">
+// 1. Initialise and load index folder.
 // Batch 0 is loaded instantly for sub-millisecond search startup,
 // while remaining chunk batches load progressively in background.</span>
 <span style="color: var(--search-accent);">await</span> Search.<span style="color: var(--indigo);">load</span>(<span style="color: var(--search-accent);">'/.docmd-search'</span>, (loaded, total) => {
   console.log(<span style="color: var(--search-accent);">`Loaded batch ${loaded}/${total}`</span>);
 });
-<span style="color: var(--text-4);">// 2. Query search using hybrid vector + keyword matching.</span>
+
+<span style="color: var(--text-4);">
+// 2. Query search using hybrid vector + keyword matching.</span>
 <span style="color: var(--search-accent);">const</span> results = Search.<span style="color: var(--indigo);">search</span>(<span style="color: var(--search-accent);">'authentication secure routes'</span>, <span style="color: #f59e0b;">10</span>);
 results.forEach(({ score, chunk }) => {
   console.log(<span style="color: var(--search-accent);">`[${(score * 100).toFixed(0)}%] ${chunk.file}#${chunk.heading || ''}`</span>);
@@ -297,10 +320,10 @@ results.forEach(({ score, chunk }) => {
     </div>
   </div>
 </section>
-<section class="faq-section" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
-  <div class="container" style="max-width: 800px; text-align: left;">
-    <h2 style="text-align: center;" data-i18n="search.faq.title">Frequently asked questions</h2>
-    <p class="section-sub" style="text-align: center; margin-bottom: 36px;" data-i18n="search.faq.sub">Common questions about docmd-search and offline semantic search.</p>
+<section class="faq-section" aria-label="Frequently asked questions">
+  <div class="container">
+    <h2 class="section-title" data-i18n="search.faq.title">Frequently asked questions</h2>
+    <p class="section-sub" style="margin-bottom:28px; text-align:center;" data-i18n="search.faq.sub">Common questions about docmd-search and offline semantic search.</p>
     <details class="faq-item">
       <summary data-i18n="search.faq.q1">Does it run entirely in the browser?</summary>
       <div class="faq-answer" data-i18n-html="search.faq.a1">Yes. All search happens directly in your users' browsers. No cloud infrastructure, no search API, and no data ever leaves the device.<br/><br/><a href="https://docs.docmd.io/search/">Read the full documentation →</a></div>
@@ -319,7 +342,7 @@ results.forEach(({ score, chunk }) => {
     </details>
   </div>
 </section>
-<section class="cta-section" style="border-top: 1px solid var(--border-subtle);">
+<section class="cta-section" aria-label="Get started">
   <div class="container">
     <h2 data-i18n="cta.title">Add smart search to your docs</h2>
     <p class="section-sub" style="margin-bottom:20px;" data-i18n="cta.desc">Open source, works with any documentation site. One install, zero cloud bills.</p>
@@ -329,6 +352,7 @@ results.forEach(({ score, chunk }) => {
     </div>
   </div>
 </section>
+</main>
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -355,6 +379,7 @@ results.forEach(({ score, chunk }) => {
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
+      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

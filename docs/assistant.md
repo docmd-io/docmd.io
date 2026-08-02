@@ -1,16 +1,16 @@
 ---
-title: "docmd-assistant — AI Assistant for Any Documentation"
-description: "A headless AI engine that answers questions using your documentation as context. Works with any LLM provider, any website. API keys never leave your server."
+title: "docmd-assistant — AI-Powered Docs Assistant, Any LLM"
+description: "AI assistant that reads your documentation and answers questions in context. Works with 100+ models, any website, and keeps your API keys secure."
 titleAppend: false
 noStyle: true
 keywords: 
-  - "ai assistant"
+  - "documentation ai assistant"
+  - "docs chatbot"
+  - "ai for documentation"
   - "docmd-assistant"
-  - "@docmd/plugin-ai"
-  - "rag search"
-  - "byok"
-  - "aiplug"
-  - "documentation ai"
+  - "byok ai"
+  - "rag documentation"
+  - "self-hosted ai assistant"
 components:
   meta: true
   favicon: true
@@ -20,12 +20,14 @@ components:
 customHead: |
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta property="og:site_name" content="docmd">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 ---
 
-<nav class="nav">
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-pill">
     <div class="nav-left">
       <a href="/" class="nav-logo" aria-label="docmd home">
@@ -36,6 +38,20 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
+      <a href="/assistant/" class="nav-link" style="color:var(--assistant-accent); font-weight:600;" data-i18n="nav.assistant">AI Assistant</a>
+      <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
+      <span class="nav-divider"></span>
+      <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
+      <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+    </div>
+    <button class="nav-dropdown-toggle" aria-label="Toggle menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
       <a href="/assistant/" class="nav-link" style="color:var(--assistant-accent); font-weight:600;" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
@@ -90,6 +106,7 @@ customHead: |
   </div>
 </nav>
 
+<main>
 <header class="hero assistant-hero">
   <div class="assistant-bg-grid">
     <svg width="100%" height="100%" viewBox="-100 0 1400 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +134,7 @@ customHead: |
       <span id="npm-version-assistant" data-i18n="assistant.hero.badge">docmd-assistant v0.1.0</span> <span data-i18n="assistant.hero.badgeCta">is now available →</span>
     </a>
     <h1 data-i18n-html="assistant.hero.title">AI assistant grounded in your docs.<br>Any LLM provider. <span class="gradient-text-assistant">Your keys never leave your server.</span></h1>
-    <p class="hero-sub" data-i18n="assistant.hero.sub">docmd-assistant is a headless AI engine that answers questions using your documentation as context. It works with 100+ language models and any website — not just docmd.</p>
+    <p class="hero-sub" data-i18n="assistant.hero.sub">Reads your documentation, answers questions in context. Works with 100+ models, any website, and keeps your API keys secure.</p>
     <div class="hero-actions">
       <a href="https://docs.docmd.io/assistant/" class="btn-primary" style="background:var(--assistant-accent); color:#fff;" data-i18n="assistant.hero.cta">Get Started</a>
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npm install docmd-assistant">
@@ -176,7 +193,7 @@ customHead: |
   </div>
 </header>
 
-<section class="bento-section">
+<section class="bento-section" aria-label="Features">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--assistant-accent);" data-i18n="assistant.tag.architecture">Architecture</div>
@@ -218,7 +235,7 @@ customHead: |
   </div>
 </section>
 
-<section class="built-for" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
+<section class="built-for" style="padding: 56px 0 30px;">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--assistant-accent);" data-i18n="assistant.tag.providers">LLM Providers</div>
@@ -272,7 +289,7 @@ customHead: |
   </div>
 </section>
 
-<section class="built-for" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
+<section class="built-for" style="padding: 56px 0 30px;">
   <div class="container" style="max-width: 860px; text-align: left;">
     <div class="section-header">
       <div class="section-tag" style="color:var(--assistant-accent);" data-i18n="assistant.tag.api">Developer Integration</div>
@@ -280,10 +297,12 @@ customHead: |
       <p class="section-sub" data-i18n="assistant.api.sub">Create an engine instance, connect your search index, and start answering questions. Supports streaming, custom tools, and full conversation history.</p>
     </div>
     <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; overflow-x: auto; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
-      <pre style="margin: 0; font-family: var(--mono); font-size: 0.82rem; line-height: 1.65; color: var(--text);"><span style="color: var(--assistant-accent);">import</span> { DocmdAssistantEngine } <span style="color: var(--assistant-accent);">from</span> <span style="color: var(--assistant-accent-hover);">'docmd-assistant'</span>;
+<pre style="margin: 0; font-family: var(--mono); font-size: 0.8rem; color: var(--text);">
+<span style="color: var(--assistant-accent);">import</span> { DocmdAssistantEngine } <span style="color: var(--assistant-accent);">from</span> <span style="color: var(--assistant-accent-hover);">'docmd-assistant'</span>;
 <span style="color: var(--assistant-accent);">import</span> * <span style="color: var(--assistant-accent);">as</span> Search <span style="color: var(--assistant-accent);">from</span> <span style="color: var(--assistant-accent-hover);">'@docmd/plugin-search/client'</span>;
 
-<span style="color: var(--text-4);">// 1. Initialise engine instance with provider configuration</span>
+<span style="color: var(--text-4);">
+// 1. Initialise engine instance with provider configuration</span>
 <span style="color: var(--assistant-accent);">const</span> engine = <span style="color: var(--assistant-accent);">new</span> <span style="color: var(--indigo);">DocmdAssistantEngine</span>({
   provider: <span style="color: var(--assistant-accent);">'openai'</span>,
   model: <span style="color: var(--assistant-accent);">'gpt-4o-mini'</span>,
@@ -294,7 +313,8 @@ customHead: |
   }
 });
 
-<span style="color: var(--text-4);">// 2. Register custom client-side execution tool</span>
+<span style="color: var(--text-4);">
+// 2. Register custom client-side execution tool</span>
 engine.<span style="color: var(--indigo);">registerTool</span>({
   name: <span style="color: var(--assistant-accent);">'fetch_user_workspace'</span>,
   description: <span style="color: var(--assistant-accent);">'Retrieve active workspace configuration'</span>,
@@ -302,17 +322,18 @@ engine.<span style="color: var(--indigo);">registerTool</span>({
   handler: <span style="color: var(--assistant-accent);">async</span> ({ workspaceId }) => ({ activeTheme: <span style="color: var(--assistant-accent);">'summer'</span>, mode: <span style="color: var(--assistant-accent);">'spa'</span> })
 });
 
-<span style="color: var(--text-4);">// 3. Listen to real-time stream events and execute query turn</span>
+<span style="color: var(--text-4);">
+// 3. Listen to real-time stream events and execute query turn</span>
 engine.<span style="color: var(--indigo);">on</span>(<span style="color: var(--assistant-accent);">'token'</span>, (chunk) => process.stdout.write(chunk));
 <span style="color: var(--assistant-accent);">await</span> engine.<span style="color: var(--indigo);">sendMessage</span>(<span style="color: var(--assistant-accent);">'How do I set up custom navigation in docmd?'</span>);</pre>
     </div>
   </div>
 </section>
 
-<section class="faq-section" style="border-top: 1px solid var(--border-subtle); padding: 56px 0 30px;">
-  <div class="container" style="max-width: 800px; text-align: left;">
-    <h2 style="text-align: center;" data-i18n="assistant.faq.title">Frequently asked questions</h2>
-    <p class="section-sub" style="text-align: center; margin-bottom: 36px;" data-i18n="assistant.faq.sub">Common questions about docmd-assistant and the AI plugin.</p>
+<section class="faq-section" aria-label="Frequently asked questions">
+  <div class="container">
+    <h2 class="section-title" data-i18n="assistant.faq.title">Frequently asked questions</h2>
+    <p class="section-sub" style="margin-bottom:28px; text-align:center;" data-i18n="assistant.faq.sub">Common questions about docmd-assistant and the AI plugin.</p>
     <details class="faq-item">
       <summary data-i18n="assistant.faq.q1">How does it know the right answer?</summary>
       <div class="faq-answer" data-i18n-html="assistant.faq.a1">Before querying the language model, the engine retrieves relevant passages from your documentation's search index and includes them in the prompt. This grounds every answer in your actual content.</div>
@@ -328,7 +349,7 @@ engine.<span style="color: var(--indigo);">on</span>(<span style="color: var(--a
   </div>
 </section>
 
-<section class="cta-section" style="border-top: 1px solid var(--border-subtle);">
+<section class="cta-section" aria-label="Get started">
   <div class="container">
     <h2 data-i18n="assistant.cta.title">Add an AI assistant to your docs</h2>
     <p class="section-sub" style="margin-bottom:20px;" data-i18n="assistant.cta.desc">Open source, works with any documentation site. Set up in minutes.</p>
@@ -339,6 +360,7 @@ engine.<span style="color: var(--indigo);">on</span>(<span style="color: var(--a
   </div>
 </section>
 
+</main>
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -365,6 +387,7 @@ engine.<span style="color: var(--indigo);">on</span>(<span style="color: var(--a
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
+      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>
