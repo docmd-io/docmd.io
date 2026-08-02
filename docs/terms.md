@@ -33,6 +33,7 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
       <span class="nav-divider"></span>
