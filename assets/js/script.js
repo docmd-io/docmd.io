@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initNavDropdown();
   initLangSwitcher();
   loadSponsors();
   fetchLatestVersion();
@@ -8,6 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initFeatureTabs();
   initSearchDemo();
 });
+
+/* --- Nav Dropdown (compact screens) --- */
+function initNavDropdown() {
+  const toggle = document.querySelector('.nav-dropdown-toggle');
+  const menu = document.querySelector('.nav-dropdown-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('active');
+    toggle.classList.toggle('active', isOpen);
+  });
+
+  document.addEventListener('click', () => {
+    menu.classList.remove('active');
+    toggle.classList.remove('active');
+  });
+
+  menu.addEventListener('click', (e) => e.stopPropagation());
+}
 
 /* --- Theme Logic --- */
 function initTheme() {
