@@ -17,6 +17,8 @@ components:
 customHead: |
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta property="og:site_name" content="docmd">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,6 +35,8 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
+      <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
       <span class="nav-divider"></span>
@@ -125,7 +129,9 @@ customHead: |
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
+      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
+      <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>
       <a href="/privacy/" data-i18n="footer.privacy">Privacy Policy</a>
     </div>

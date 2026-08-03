@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initNavDropdown();
   initLangSwitcher();
   loadSponsors();
   fetchLatestVersion();
@@ -8,6 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initFeatureTabs();
   initSearchDemo();
 });
+
+/* --- Nav Dropdown (compact screens) --- */
+function initNavDropdown() {
+  const toggle = document.querySelector('.nav-dropdown-toggle');
+  const menu = document.querySelector('.nav-dropdown-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('active');
+    toggle.classList.toggle('active', isOpen);
+  });
+
+  document.addEventListener('click', () => {
+    menu.classList.remove('active');
+    toggle.classList.remove('active');
+  });
+
+  menu.addEventListener('click', (e) => e.stopPropagation());
+}
 
 /* --- Theme Logic --- */
 function initTheme() {
@@ -190,17 +211,30 @@ window.copyCmd = function (btn) {
   const text = (target.dataset.cmd || target.textContent.trim().replace(/^\$\s*/, '')).trim();
   navigator.clipboard.writeText(text);
 
+  target.classList.add('copied');
   const icon = target.querySelector('.copy-icon');
-  if (!icon) return;
 
-  icon.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-  `;
+  if (icon) {
+    icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`;
+  } else {
+    let hint = target.querySelector('.copy-hint');
+    if (!hint) {
+      hint = document.createElement('span');
+      hint.className = 'copy-hint';
+      hint.style.cssText = 'display:inline-flex;align-items:center;margin-left:8px;color:#10b981;font-size:0.75rem;font-weight:600;letter-spacing:0.02em;animation:fadeIn 0.2s ease-in-out;';
+      hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;"><path d="M20 6 9 17l-5-5"/></svg>Copied!`;
+      target.appendChild(hint);
+    }
+  }
 
   setTimeout(() => {
-    icon.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-    `;
+    target.classList.remove('copied');
+    if (icon) {
+      icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>`;
+    } else {
+      const hint = target.querySelector('.copy-hint');
+      if (hint) hint.remove();
+    }
   }, 2000);
 };
 
@@ -213,7 +247,7 @@ async function fetchLatestVersion() {
       if (res.ok) {
         const data = await res.json();
         if (data.version) {
-          badge.innerText = 'v' + data.version;
+          badge.innerText = 'docmd v' + data.version;
         }
       }
     } catch (e) {}
@@ -226,7 +260,20 @@ async function fetchLatestVersion() {
       if (res.ok) {
         const data = await res.json();
         if (data.version) {
-          searchBadge.innerText = 'v' + data.version;
+          searchBadge.innerText = 'docmd-search v' + data.version;
+        }
+      }
+    } catch (e) {}
+  }
+
+  const assistantBadge = document.getElementById('npm-version-assistant');
+  if (assistantBadge) {
+    try {
+      const res = await fetch('https://registry.npmjs.org/docmd-assistant/latest');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.version) {
+          assistantBadge.innerText = 'docmd-assistant v' + data.version;
         }
       }
     } catch (e) {}
