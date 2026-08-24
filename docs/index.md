@@ -1,6 +1,6 @@
 ---
-title: "docmd — The Open-Source Documentation Engine"
-description: "Open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready docs site. No framework, no config."
+title: "docmd — Documentation for Humans and Machines"
+description: "Open-source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together."
 titleAppend: false
 noStyle: true
 keywords: 
@@ -26,7 +26,7 @@ seo:
     operatingSystem: "Any"
     applicationCategory: "DeveloperApplication"
     url: "https://docmd.io"
-    description: "docmd is an open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready documentation site."
+    description: "docmd is an open-source documentation compiler. One Markdown source, one command — generates website, search index, AI context, MCP agent endpoints, and knowledge formats together."
     creator:
       "@type": "Person"
       name: "Ghazi"
@@ -48,7 +48,7 @@ customHead: |
     "@type": "WebSite",
     "name": "docmd",
     "url": "https://docmd.io",
-    "description": "Open-source documentation engine. Write Markdown, run one command, and ship a fast, searchable, AI-ready docs site.",
+    "description": "Open-source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together.",
     "publisher": {
       "@type": "Organization",
       "name": "docmd",
@@ -168,8 +168,8 @@ customHead: |
       <span class="badge-dot"></span>
       <span id="npm-version">docmd v0.9.0</span> <span data-i18n="hero.badge">is now available →</span>
     </a>
-    <h1 data-i18n="hero.title">Turn Markdown into documentation.<br>One command. <span class="gradient-text">No framework.</span></h1>
-    <p class="hero-sub" data-i18n="hero.sub">Open source, MIT licensed. Point it at a folder of Markdown and get a complete docs site with search, SEO, and AI tooling built in.</p>
+    <h1 data-i18n="hero.title">Documentation for humans<br>and <span class="gradient-text">machines.</span></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Open source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats. All together.</p>
     <div class="hero-actions">
       <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta">Get Started</a>
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx @docmd/core dev">
@@ -179,20 +179,20 @@ customHead: |
     </div>
     <div class="metrics-strip">
       <div class="metric-item">
+        <div class="metric-val">8</div>
+        <div class="metric-lbl" data-i18n="hero.metric.outputs">Build Outputs</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">0</div>
+        <div class="metric-lbl" data-i18n="hero.metric.config">Configuration Needed</div>
+      </div>
+      <div class="metric-item">
         <div class="metric-val">100</div>
         <div class="metric-lbl" data-i18n="hero.metric.perf">Lighthouse Score</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">&lt; 25 KB</div>
-        <div class="metric-lbl" data-i18n="hero.metric.js">Main Client JS</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">0</div>
-        <div class="metric-lbl" data-i18n="hero.metric.config">Framework Lock-in</div>
-      </div>
-      <div class="metric-item">
         <div class="metric-val">100%</div>
-        <div class="metric-lbl" data-i18n="hero.metric.search">Offline &amp; AI-Ready</div>
+        <div class="metric-lbl" data-i18n="hero.metric.oss">Open Source (MIT)</div>
       </div>
     </div>
     <div class="hero-visual">
@@ -511,7 +511,7 @@ Zero config required. Just run `npx @docmd/core dev`!
         </span>
         docmd
       </a>
-      <p data-i18n-html="footer.tagline">The zero-config documentation engine.<br>Open source under MIT License.</p>
+      <p data-i18n-html="footer.tagline">Documentation for humans and machines.<br>Open source under MIT License.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.product">Product</h4>
