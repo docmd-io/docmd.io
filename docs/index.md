@@ -4,7 +4,7 @@ description: "Open-source documentation compiler. One Markdown source, one comma
 titleAppend: false
 noStyle: true
 keywords: 
-  - "documentation generator"
+  - "documentation compiler"
   - "markdown to html"
   - "static site generator"
   - "open source docs"
@@ -464,11 +464,11 @@ Zero config required. Just run `npx @docmd/core dev`!
     <p class="section-sub" style="margin-bottom:28px; text-align:center;" data-i18n="faq.sub">Everything you need to know about docmd.</p>
     <details class="faq-item">
       <summary data-i18n="faq.q1">What is docmd?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source documentation engine. You give it a folder of Markdown files, run one command, and it produces a complete documentation website with search, SEO, and navigation — no framework or configuration needed.</div>
+      <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source documentation compiler. You give it a folder of Markdown files, run one command, and it produces a website, search index, AI context, and knowledge formats — all together, no configuration needed.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q2">How is docmd different from Docusaurus, MkDocs, or VitePress?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, and no framework knowledge. It produces standalone HTML pages with under 25 KB of client JavaScript, achieves a Lighthouse score of 100, and includes search, SEO, and AI context generation out of the box.</div>
+      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, and no framework knowledge. One command produces 8 outputs — website, search index, llms.txt, OKF bundles, sitemap, SEO meta, MCP server, and Cloud Relay. No other tool does this.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q3">Do I need React or any front-end framework?</summary>

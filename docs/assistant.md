@@ -370,7 +370,7 @@ engine.<span style="color: var(--indigo);">on</span>(<span style="color: var(--a
         </span>
         docmd
       </a>
-      <p data-i18n-html="footer.tagline">The zero-config documentation engine.<br>Open source under MIT License.</p>
+      <p data-i18n-html="footer.tagline">Documentation for humans and machines.<br>Open source under MIT License.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.product">Product</h4>

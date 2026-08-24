@@ -1,7 +1,7 @@
 {
   "name": "docmd",
   "short_name": "docmd",
-  "description": "The zero-config documentation engine. Open source under MIT License.",
+  "description": "Documentation for humans and machines. Open source under MIT License.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
