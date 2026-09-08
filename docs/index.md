@@ -1,6 +1,6 @@
 ---
-title: "docmd — Documentation for Humans and Machines"
-description: "Open-source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together."
+title: "docmd - Documentation for Humans and Machines"
+description: "Open-source documentation compiler. One Markdown source, one command - generates website, search, AI context, agent protocols, and knowledge formats together."
 titleAppend: false
 noStyle: true
 keywords: 
@@ -85,13 +85,12 @@ customHead: |
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="nav-dropdown-menu">
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
-      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
-      <a href="https://docs.docmd.io/plugins/usage/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
     </div>
     <div class="nav-right">

@@ -35,10 +35,10 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud">Cloud</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
-      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor">Live Editor</a>
+      <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
+      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
     </div>
