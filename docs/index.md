@@ -75,7 +75,7 @@ customHead: |
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
@@ -87,7 +87,7 @@ customHead: |
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
@@ -341,6 +341,60 @@ Zero config required. Just run `npx @docmd/core dev`!
           <p data-i18n-html="ai.llms.desc">Automatically generate <code>llms.txt</code>, <code>llms-full.txt</code>, and <code>SKILL.md</code> files so any large language model can read and understand your documentation.</p>
         </div>
         <div class="bento-code-box">✓ Exported /site/llms.txt</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cloud-relay-section" aria-label="Docmd Cloud Relay">
+  <div class="container">
+    <div class="cloud-relay-card">
+      <div class="relay-card-left">
+        <div class="relay-badge-wrap">
+          <span class="relay-badge-pulse"></span>
+          <span>Free Platform Service</span>
+        </div>
+        <h2 class="relay-title">Power your docs with <span class="gradient-text">Docmd Cloud Relay</span></h2>
+        <p class="relay-desc">Connect your documentation to our free serverless cloud relay in seconds. Enjoy instant AI search proxies, secure API key management, and real-time query telemetry — with zero infrastructure to maintain.</p>
+        <ul class="relay-points">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>1-Click AI Assistant Proxy</strong> — Serve questions securely without exposing private API keys to clients</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>Real-time Telemetry &amp; Insights</strong> — Understand search volume, discover missing docs, and track engagement</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>100% Free &amp; Serverless</strong> — Sign in with GitHub, create your project ID, and connect immediately</span>
+          </li>
+        </ul>
+        <div class="relay-actions">
+          <a href="https://cloud.docmd.io" target="_blank" rel="noopener" class="btn-primary">Connect Free on Cloud Relay →</a>
+          <a href="https://docs.docmd.io/guides/ai/ai-assistant/" class="btn-secondary">Read Cloud Guide</a>
+        </div>
+      </div>
+      <div class="relay-card-right">
+        <div class="relay-code-box">
+          <div class="relay-code-header">
+            <span>docmd.config.json</span>
+            <span>json</span>
+          </div>
+          <pre class="relay-code-body"><code><span class="tok-comment">// 1-click cloud relay integration</span>
+{
+  <span class="tok-key">"plugins"</span>: {
+    <span class="tok-key">"ai"</span>: {
+      <span class="tok-key">"assistant"</span>: <span class="tok-bool">true</span>,
+      <span class="tok-key">"projectId"</span>: <span class="tok-str">"docmd_live_project"</span>,
+      <span class="tok-key">"relay"</span>: <span class="tok-str">"https://cloud.docmd.io"</span>
+    }
+  }
+}</code></pre>
+          <div class="relay-code-status">
+            <span class="relay-status-dot"></span>
+            <span>Cloud Relay Active · Serverless · 0ms Cold Start</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

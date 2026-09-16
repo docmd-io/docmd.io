@@ -1636,3 +1636,186 @@ main > .sponsors-section::before {
         text-align: center;
     }
 }
+
+/* ─── Cloud Relay Highlight Section ─── */
+.nav-link.nav-link--cloud {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-badge-free {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1px 5px;
+    border-radius: var(--r-full);
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(56, 189, 248, 0.12));
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    line-height: 1.2;
+}
+
+.cloud-relay-section {
+    padding: 56px 0;
+    position: relative;
+}
+
+.cloud-relay-card {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.06) 0%, rgba(56, 189, 248, 0.03) 50%, rgba(99, 102, 241, 0.05) 100%);
+    border: 1px solid rgba(2, 132, 199, 0.22);
+    border-radius: var(--r-xl);
+    padding: 38px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 32px;
+    align-items: center;
+    box-shadow: 0 8px 30px -6px rgba(2, 132, 199, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .cloud-relay-card {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0.02) 50%, rgba(99, 102, 241, 0.08) 100%);
+    border-color: rgba(14, 165, 233, 0.28);
+    box-shadow: 0 8px 32px -8px rgba(14, 165, 233, 0.18);
+}
+
+.relay-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: var(--mono);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    padding: 4px 10px;
+    border-radius: var(--r-full);
+    margin-bottom: 14px;
+}
+
+.relay-badge-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: relayPulse 2s infinite;
+}
+
+@keyframes relayPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.relay-title {
+    font-size: clamp(1.4rem, 2.8vw, 1.95rem);
+    font-weight: 700;
+    line-height: 1.22;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+}
+
+.relay-desc {
+    font-size: 0.9375rem;
+    color: var(--text-3);
+    line-height: 1.55;
+    margin: 0 0 20px;
+}
+
+.relay-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.relay-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.845rem;
+    color: var(--text-2);
+    line-height: 1.45;
+}
+
+.relay-points svg {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.relay-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.relay-code-box {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.relay-code-header {
+    background: var(--surface-hover);
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text-4);
+}
+
+.relay-code-body {
+    padding: 16px 18px;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    background: transparent;
+    color: var(--text);
+    overflow-x: auto;
+}
+
+.tok-comment { color: var(--text-4); font-style: italic; }
+.tok-key { color: var(--accent); }
+.tok-str { color: var(--emerald); }
+.tok-bool { color: var(--indigo); font-weight: 600; }
+
+.relay-code-status {
+    border-top: 1px solid var(--border-subtle);
+    padding: 8px 14px;
+    font-size: 0.72rem;
+    color: var(--emerald);
+    background: rgba(16, 185, 129, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.relay-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--emerald);
+}
+
+@media (max-width: 840px) {
+    .cloud-relay-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 22px;
+    }
+}
