@@ -9,6 +9,7 @@
     "html": "allow"
   },
   "layout": {
+    "titleSeparator": "-",
     "spa": false,
     "header": {
       "enabled": true
@@ -38,6 +39,16 @@
   "plugins": {
     "seo": {
       "defaultDescription": "Open-source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together.",
+      "breadcrumbs": true,
+      "organization": {
+        "name": "docmd",
+        "url": "https://docmd.io",
+        "logo": "assets/images/docmd-logo-dark.png",
+        "sameAs": [
+          "https://github.com/docmd-io/docmd",
+          "https://x.com/docmd_io"
+        ]
+      },
       "aiBots": true,
       "openGraph": {
         "siteName": "docmd",

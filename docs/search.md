@@ -1,5 +1,5 @@
 ---
-title: "docmd search - Offline Semantic Search for Documentation"
+title: "docmd Search — In-Browser Semantic Vector Search"
 description: "Offline semantic search for any documentation site. Understands meaning, runs entirely in the browser, and never sends data to the cloud."
 titleAppend: false
 noStyle: true

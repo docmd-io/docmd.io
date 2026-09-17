@@ -1,5 +1,5 @@
 ---
-title: "docmd assistant - Offline AI Assistant for Documentation"
+title: "docmd Assistant — Context-Aware AI Chat for Documentation"
 description: "AI assistant that reads your documentation and answers questions in context. Works with 100+ models, any website, and keeps your API keys secure."
 titleAppend: false
 noStyle: true
