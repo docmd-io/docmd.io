@@ -139,6 +139,7 @@ customHead: |
 </nav>
 <main>
 <header class="hero" role="banner">
+  <div class="hero-ambient-glow"></div>
   <div class="hero-bg-grid">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -164,12 +165,12 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd/releases" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span id="npm-version">docmd v0.9.0</span> <span data-i18n="hero.badge">is now available →</span>
+      <span id="npm-version">docmd v0.9.6</span> <span data-i18n="hero.badge">is now available →</span>
     </a>
     <h1 data-i18n="hero.title">Documentation for humans<br>and <span class="gradient-text">machines.</span></h1>
-    <p class="hero-sub" data-i18n="hero.sub">Open source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats. All together.</p>
+    <p class="hero-sub" data-i18n="hero.sub">The open source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together.</p>
     <div class="hero-actions">
-      <a href="https://docs.docmd.io/getting-started/installation" class="btn-primary" data-i18n="hero.cta">Get Started</a>
+      <a href="https://docs.docmd.io/getting-started/installation/" class="btn-primary" data-i18n="hero.cta">Get Started</a>
       <button class="btn-code" onclick="copyCmd(this)" data-cmd="npx @docmd/core dev">
         <span class="dollar">$</span>
         npx @docmd/core dev
@@ -177,15 +178,15 @@ customHead: |
     </div>
     <div class="metrics-strip">
       <div class="metric-item">
-        <div class="metric-val">8</div>
-        <div class="metric-lbl" data-i18n="hero.metric.outputs">Build Outputs</div>
+        <div class="metric-val">&lt; 300ms</div>
+        <div class="metric-lbl">Build Speed</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">0</div>
-        <div class="metric-lbl" data-i18n="hero.metric.config">Configuration Needed</div>
+        <div class="metric-val">0 MB</div>
+        <div class="metric-lbl">Framework Runtime</div>
       </div>
       <div class="metric-item">
-        <div class="metric-val">100</div>
+        <div class="metric-val">100/100</div>
         <div class="metric-lbl" data-i18n="hero.metric.perf">Lighthouse Score</div>
       </div>
       <div class="metric-item">
@@ -203,39 +204,22 @@ customHead: |
           </div>
           <div class="window-tabs">
             <button class="hero-tab-btn active" data-tab="tab-terminal">terminal</button>
-            <button class="hero-tab-btn" data-tab="tab-config">docmd.config.json</button>
             <button class="hero-tab-btn" data-tab="tab-markdown">docs/index.md</button>
+            <button class="hero-tab-btn" data-tab="tab-preview">rendered output</button>
           </div>
-          <span class="window-title">docmd v0.9.0</span>
+          <span class="window-title">docmd v0.9.6</span>
         </div>
         <div class="window-body">
           <div class="hero-pane active" id="tab-terminal">
             <pre><span class="cmd">$</span> npx @docmd/core dev
-<span class="comment"># Compiling markdown documentation...</span>
-<span class="success">✓</span> Loaded 12 markdown files in /docs
-<span class="success">✓</span> Generated static HTML + local vector index
-<span class="success">✓</span> Built site in 340ms — Lighthouse score 100
-→ Server running at http://localhost:3000</pre>
+<span class="comment"># Initializing docmd compiler in /docs...</span>
+<span class="success">✓</span> Discovered 16 Markdown source files
+<span class="success">✓</span> Generated static HTML + client-side vector search index
+<span class="success">✓</span> Exported llms.txt, llms-full.txt &amp; OKF graph bundles
+<span class="success">✓</span> Built production documentation in 240ms — Lighthouse 100/100
+→ Dev server running at <span style="color:var(--accent);">http://localhost:3000</span> <span class="term-cursor"></span></pre>
           </div>
-          <div class="hero-pane" id="tab-config">
-
-```json
-{
-  "title": "My Project Docs",
-  "src": "docs",
-  "out": "site",
-  "plugins": {
-    "search": {},
-    "seo": {},
-    "llms": {},
-    "mcp": {},
-    "openapi": {}
-  }
-}
-```
-
-</div>
-<div class="hero-pane" id="tab-markdown">
+          <div class="hero-pane" id="tab-markdown">
 
 ```markdown
 ---
@@ -246,101 +230,125 @@ description: Get your documentation live in 2 minutes.
 # Getting Started
 
 ::: callout info
-Zero config required. Just run `npx @docmd/core dev`!
+Zero config required. Point docmd at Markdown files and run `npx @docmd/core dev`!
 :::
+
+```bash
+npm install -g @docmd/core
+```
 ```
 
 </div>
+          <div class="hero-pane" id="tab-preview">
+            <div class="hero-rendered-preview">
+              <div class="preview-badge">DOCS PREVIEW</div>
+              <h3>Welcome to docmd</h3>
+              <div class="preview-callout">
+                <div class="preview-callout-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
+                <div><strong>Zero configuration required.</strong> Point docmd at Markdown files and run <code>npx @docmd/core dev</code>!</div>
+              </div>
+              <div class="preview-code-block">
+                <span>$ npm install -g @docmd/core</span>
+                <span class="preview-copy-pill">Copied ✓</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </header>
-<section class="bento-section" aria-label="Features">
+<section class="compiler-section" aria-label="Compiler Architecture">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="bento.tag">Why docmd</div>
-      <h2 class="section-title" data-i18n="bento.title">Everything works out of the box.</h2>
-      <p class="section-sub" data-i18n="bento.sub">Search, SEO, themes, and AI tooling built in. Add only what you need.</p>
+      <h2 class="section-title">The documentation engine built for speed.</h2>
+      <p class="section-sub">No bloated framework runtimes, no complex build scripts. Pure, ultra-fast static HTML.</p>
     </div>
-    <div class="bento-grid">
-      <div class="bento-card tint-blue col-span-2">
+    <div class="compiler-pillars">
+      <div class="pillar-card">
         <div>
-          <div class="bento-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <h3 data-i18n="bento.card1.title">Write Markdown, Get a Website</h3>
-          <p data-i18n="bento.card1.desc">Point docmd at any folder of Markdown files. It builds a complete documentation site instantly — with navigation, hot-reloading, and zero configuration needed.</p>
+          <h3>0 MB Framework Runtime</h3>
+          <p>No React, Vue, or heavy virtual DOM shipped to users. Pure static HTML and lightweight CSS. Under 25 KB total client JavaScript guarantees instant page loads and a permanent 100/100 Lighthouse score.</p>
         </div>
-        <div class="bento-code-box">
-          <span style="color:var(--accent);">$</span> docmd build --offline<br>
-          ✓ Generated 12 pages in 340ms (Lighthouse 100)
-        </div>
+        <div class="pillar-metric">Lighthouse 100/100 · 0 React Overhead</div>
       </div>
-      <div class="bento-card tint-purple">
+      <div class="pillar-card">
         <div>
-          <div class="bento-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2"/></svg>
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3 data-i18n="bento.card2.title">Native AI Agent Support</h3>
-          <p data-i18n="bento.card2.desc">Expose your docs to AI coding assistants like Claude, Cursor, and Windsurf through a built-in MCP server and auto-generated context files.</p>
+          <h3>Sub-300ms Build Speed</h3>
+          <p>Compiles complete documentation sites in milliseconds. Instant hot-reloading keeps your focus in the flow state while writing. Point docmd at any folder of Markdown files and you have a live website immediately.</p>
         </div>
-        <div class="bento-code-box">docmd mcp — Ready for Claude &amp; Cursor</div>
+        <div class="pillar-metric">&lt; 300ms Compile Time</div>
       </div>
-      <div class="bento-card tint-pink">
+      <div class="pillar-card">
         <div>
-          <div class="bento-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <h3 data-i18n="bento.card3.title">Built-in Search, Zero Cloud Costs</h3>
-          <p data-i18n="bento.card3.desc">Semantic and keyword search compiled at build time into local index files. Runs entirely in the browser — no cloud APIs, no hosting costs.</p>
+          <h3>100% Portable &amp; Offline</h3>
+          <p>Produces pure standard HTML files that deploy anywhere without a node server: GitHub Pages, Cloudflare Pages, Vercel, Netlify, Docker, or completely offline directly via <code>file://</code> protocol.</p>
         </div>
-        <div class="bento-code-box">Press <kbd style="background:var(--border); padding:2px 6px; border-radius:4px;">⌘K</kbd> to search docs</div>
-      </div>
-      <div class="bento-card tint-amber col-span-2">
-        <div>
-          <div class="bento-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
-          <h3 data-i18n="bento.card4.title">Rich Content from Plain Markdown</h3>
-          <p data-i18n="bento.card4.desc">Write callouts, tabbed code blocks, warning boxes, cards, and diagrams using simple Markdown syntax. No HTML or JSX needed.</p>
-        </div>
-        <div class="bento-code-box">::: callout info<br>Native Markdown callouts &amp; tabs!<br>:::</div>
+        <div class="pillar-metric">file:// Offline Ready</div>
       </div>
     </div>
   </div>
 </section>
-<section class="ai-section" aria-label="AI integrations">
+<section class="agent-stack-section" aria-label="AI & Agent Knowledge Stack">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" data-i18n="ai.tag">AI &amp; Open Ecosystem</div>
-      <h2 class="section-title" data-i18n="ai.title">First-class AI tooling. No lock-in.</h2>
-      <p class="section-sub" data-i18n="ai.sub">Expose your docs to AI agents, embed an AI assistant, and auto-generate context files — all using your own keys.</p>
+      <h2 class="section-title">Built for autonomous AI coding agents.</h2>
+      <p class="section-sub">Expose your documentation to Claude, Cursor, Windsurf, and custom LLMs through open machine-readable standards.</p>
     </div>
-    <div class="ai-grid">
-      <div class="ai-card">
+    <div class="agent-stack-grid">
+      <div class="agent-card">
         <div>
-          <span class="ai-card-tag" data-i18n="ai.byok.tag">BYOK Security</span>
-          <h3 data-i18n="ai.byok.title">Embedded AI Assistant</h3>
-          <p data-i18n-html="ai.byok.desc">Add a documentation-aware AI assistant to your site. It reads your content, answers user questions in context, and supports 100+ language models with secure server-side key management.</p>
+          <span class="agent-card-tag">Model Context Protocol</span>
+          <h3>Native MCP Server</h3>
+          <p>Let AI coding assistants like Claude Desktop, Cursor, and Windsurf search, read, and inspect your docs directly over stdio or SSE.</p>
         </div>
-        <div class="bento-code-box">plugin-ai: { provider: "byok" }</div>
+        <div class="agent-code-box">$ npx @docmd/plugin-mcp</div>
       </div>
-      <div class="ai-card">
+      <div class="agent-card">
         <div>
-          <span class="ai-card-tag" data-i18n="ai.mcp.tag">Model Context Protocol</span>
-          <h3 data-i18n="ai.mcp.title">MCP Server for AI Agents</h3>
-          <p data-i18n-html="ai.mcp.desc">Let AI coding tools like Claude, Cursor, and Windsurf search and read your documentation directly through the Model Context Protocol.</p>
+          <span class="agent-card-tag">Standard Feeds</span>
+          <h3>llms.txt &amp; llms-full.txt</h3>
+          <p>Automatically generates standard LLM feeds so any language model can ingest your full documentation in one request without scraping.</p>
         </div>
-        <div class="bento-code-box">$ npx @docmd/plugin-mcp</div>
+        <div class="agent-code-box">Exported /site/llms.txt</div>
       </div>
-      <div class="ai-card">
+      <div class="agent-card">
         <div>
-          <span class="ai-card-tag" data-i18n="ai.llms.tag">Machine-Readable Context</span>
-          <h3 data-i18n="ai.llms.title">Auto-Generated AI Context</h3>
-          <p data-i18n-html="ai.llms.desc">Automatically generate <code>llms.txt</code>, <code>llms-full.txt</code>, and <code>SKILL.md</code> files so any large language model can read and understand your documentation.</p>
+          <span class="agent-card-tag">Agent Actions</span>
+          <h3>Agent Skills (SKILL.md)</h3>
+          <p>Pack actionable CLI patterns, code examples, and domain workflows into discoverable skill files for coding assistants.</p>
         </div>
-        <div class="bento-code-box">✓ Exported /site/llms.txt</div>
+        <div class="agent-code-box">$ npx docmd-skills</div>
+      </div>
+      <div class="agent-card">
+        <div>
+          <span class="agent-card-tag">Knowledge Graph</span>
+          <h3>Open Knowledge (okf.yaml)</h3>
+          <p>Compiles documentation into machine-readable concept graphs, ontology tags, and semantic bundles for multi-agent workflows.</p>
+        </div>
+        <div class="agent-code-box">Exported okf.yaml bundle</div>
+      </div>
+    </div>
+    <div class="agent-prompts-bar">
+      <span class="agent-prompts-label">Write documentation with your favourite AI assistant:</span>
+      <div class="agent-prompts-links">
+        <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="agent-prompt-btn">Claude</a>
+        <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="agent-prompt-btn">ChatGPT</a>
+        <a href="https://gemini.google.com/app?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="agent-prompt-btn">Gemini</a>
+        <a href="https://chat.deepseek.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="agent-prompt-btn">DeepSeek</a>
       </div>
     </div>
   </div>
@@ -397,115 +405,166 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="plugins-section" aria-label="Plugin ecosystem">
+<section class="playground-section" aria-label="Live Editor Playground">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag" data-i18n="plugins.tag">Modular Ecosystem</div>
-      <h2 class="section-title" data-i18n="plugins.title">Modular plugin ecosystem</h2>
-      <p class="section-sub" data-i18n="plugins.sub">Each plugin works out of the box with zero configuration. Enable only what you need.</p>
-    </div>
-    <div class="plugins-grid">
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-search</span>
-        <h4 data-i18n="plugins.item.search.title">Offline Vector Search</h4>
-        <p data-i18n="plugins.item.search.desc">Semantic and keyword search that runs entirely in the browser.</p>
+    <div class="playground-card">
+      <div class="playground-card-left">
+        <div class="playground-badge-wrap">
+          <span>live.docmd.io</span>
+        </div>
+        <h2 class="playground-title">Test Markdown, containers &amp; themes live.</h2>
+        <p class="playground-desc">Jump into the in-browser live editor playground with zero setup required. Write Markdown on the left, watch your documentation render instantly on the right.</p>
+        <ul class="playground-features">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Real-time split-screen Markdown and UI container preview</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Test callouts, cards, tabs, math formulas, and code highlighting</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Export complete site zip or copy HTML with one click</span>
+          </li>
+        </ul>
+        <a href="https://live.docmd.io" target="_blank" rel="noopener" class="btn-primary">Launch Live Editor Playground →</a>
       </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-mcp</span>
-        <h4 data-i18n="plugins.item.mcp.title">MCP Server</h4>
-        <p data-i18n="plugins.item.mcp.desc">Let AI coding assistants search and read your docs directly.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-ai</span>
-        <h4 data-i18n="plugins.item.ai.title">AI Assistant</h4>
-        <p data-i18n="plugins.item.ai.desc">AI assistant that answers questions using your documentation as context.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-llms</span>
-        <h4 data-i18n="plugins.item.llms.title">AI Context Generator</h4>
-        <p data-i18n-html="plugins.item.llms.desc">Auto-generate <code>llms.txt</code>, <code>llms-full.txt</code>, and <code>SKILL.md</code> for AI tools.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-openapi</span>
-        <h4 data-i18n="plugins.item.openapi.title">OpenAPI &amp; Swagger Docs</h4>
-        <p data-i18n="plugins.item.openapi.desc">Generate interactive API reference pages from OpenAPI spec files.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-seo</span>
-        <h4 data-i18n="plugins.item.seo.title">SEO &amp; Schema JSON-LD</h4>
-        <p data-i18n="plugins.item.seo.desc">Sitemaps, meta tags, and structured data for search engine visibility.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-math</span>
-        <h4 data-i18n="plugins.item.math.title">KaTeX Maths</h4>
-        <p data-i18n="plugins.item.math.desc">Render LaTeX mathematical expressions with lightweight KaTeX.</p>
-      </div>
-      <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-mermaid</span>
-        <h4 data-i18n="plugins.item.mermaid.title">Mermaid Diagrams</h4>
-        <p data-i18n="plugins.item.mermaid.desc">Flowcharts, sequence diagrams, and architecture maps from Markdown.</p>
+      <div class="playground-card-right">
+        <div class="playground-preview-frame">
+          <div class="playground-frame-header">
+            <span>live.docmd.io — Playground</span>
+            <span>Dual View</span>
+          </div>
+          <div class="playground-frame-body">
+            <div class="playground-pane-editor">
+              <span style="color:var(--text-4);"># Quick Guide</span><br><br>
+              <span style="color:var(--accent);">::: callout info</span><br>
+              Live Markdown compiler<br>
+              <span style="color:var(--accent);">:::</span><br><br>
+              <span style="color:#10b981;">```js</span><br>
+              console.log('fast');<br>
+              <span style="color:#10b981;">```</span>
+            </div>
+            <div class="playground-pane-preview">
+              <strong style="font-size:0.9rem;">Quick Guide</strong>
+              <div style="background:var(--accent-soft); border-left:3px solid var(--accent); padding:6px 8px; border-radius:4px; font-size:0.75rem;">
+                Live Markdown compiler
+              </div>
+              <div style="background:var(--surface); border:1px solid var(--border); padding:6px 8px; border-radius:4px; font-family:var(--mono); font-size:0.72rem;">
+                console.log('fast');
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section class="comparison-section" aria-label="Framework comparison">
+<section class="philosophy-section" aria-label="Open Source Philosophy and Contributors">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag" data-i18n="benchmark.tag">Performance Benchmark</div>
-      <h2 class="section-title" data-i18n="benchmark.title">Lightweight by design</h2>
-      <p class="section-sub" data-i18n="benchmark.sub">No framework overhead. Pure static HTML output.</p>
+      <div class="section-tag">OPEN SOURCE SOVEREIGNTY</div>
+      <h2 class="section-title">Built in the open. Owned by developers.</h2>
+      <p class="section-sub">Documentation belongs in Git, not behind proprietary SaaS walled gardens.</p>
     </div>
-    <div class="comparison-grid">
-      <div class="comp-card highlight">
-        <div class="comp-val" data-i18n="benchmark.card1.val">340 ms</div>
-        <div class="comp-lbl" data-i18n="benchmark.card1.lbl">Build Time</div>
-        <div class="comp-desc" data-i18n="benchmark.card1.desc">Full site compilation from Markdown to static HTML.</div>
+    <div class="philosophy-manifesto">
+      <blockquote class="manifesto-quote">
+        “Your documentation is the intellectual heart of your project. It belongs as plain Markdown files in your Git repository — permanent, version-controlled, auditable, and free forever. docmd will always be 100% MIT licensed with zero paywalled compiler features.”
+      </blockquote>
+      <div class="manifesto-author">— Ghazi, Creator of docmd</div>
+    </div>
+    <div class="tenets-grid">
+      <div class="tenet-card">
+        <div class="tenet-num">01 / SOVEREIGNTY</div>
+        <h4>Data Sovereignty</h4>
+        <p>Your documentation is plain Markdown in your Git repo. No proprietary databases or schemas. If you ever switch, you take all your content with you cleanly.</p>
       </div>
-      <div class="comp-card">
-        <div class="comp-val" data-i18n-html="benchmark.card2.val">&lt; 25 KB</div>
-        <div class="comp-lbl" data-i18n="benchmark.card2.lbl">Client Footprint</div>
-        <div class="comp-desc" data-i18n="benchmark.card2.desc">Total JavaScript shipped to the browser. No framework runtime.</div>
+      <div class="tenet-card">
+        <div class="tenet-num">02 / INDEPENDENCE</div>
+        <h4>Zero Vendor Lock-in</h4>
+        <p>Compile to standard static HTML. Host on any static cloud or CDN for $0. Zero monthly fees, zero runtime dependencies, zero surprises.</p>
       </div>
-      <div class="comp-card">
-        <div class="comp-val" data-i18n="benchmark.card3.val">0 MB</div>
-        <div class="comp-lbl" data-i18n="benchmark.card3.lbl">Framework Overhead</div>
-        <div class="comp-desc" data-i18n="benchmark.card3.desc">No React, Vue, or any framework dependency in your output.</div>
+      <div class="tenet-card">
+        <div class="tenet-num">03 / OPENNESS</div>
+        <h4>Permissive MIT License</h4>
+        <p>Free for personal, open-source, and commercial use. Built by engineers who believe documentation infrastructure should be open to all.</p>
+      </div>
+    </div>
+    <div class="contributors-showcase">
+      <div class="contributors-header">
+        <h3>Community Contributors</h3>
+        <p>Thank you to the engineers who contribute code, report issues, and build the future of docmd.</p>
+      </div>
+      <div id="contributors-grid" class="contributors-grid">
+        <a href="https://github.com/mgks" target="_blank" rel="noopener" class="contributor-item" title="mgks · 2448 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/5517406?v=4)"></div>
+          <span class="contributor-name">mgks</span>
+          <span class="contributor-handle">@mgks</span>
+        </a>
+        <a href="https://github.com/svallory" target="_blank" rel="noopener" class="contributor-item" title="svallory · 16 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/117560?v=4)"></div>
+          <span class="contributor-name">svallory</span>
+          <span class="contributor-handle">@svallory</span>
+        </a>
+        <a href="https://github.com/sinsombat" target="_blank" rel="noopener" class="contributor-item" title="sinsombat · 10 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/32062005?v=4)"></div>
+          <span class="contributor-name">sinsombat</span>
+          <span class="contributor-handle">@sinsombat</span>
+        </a>
+        <a href="https://github.com/yuciferr" target="_blank" rel="noopener" class="contributor-item" title="yuciferr · 6 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/94411717?v=4)"></div>
+          <span class="contributor-name">yuciferr</span>
+          <span class="contributor-handle">@yuciferr</span>
+        </a>
+        <a href="https://github.com/tonidy" target="_blank" rel="noopener" class="contributor-item" title="tonidy · 4 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/823034?v=4)"></div>
+          <span class="contributor-name">tonidy</span>
+          <span class="contributor-handle">@tonidy</span>
+        </a>
+        <a href="https://github.com/cdervis" target="_blank" rel="noopener" class="contributor-item" title="cdervis · 2 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/198066854?v=4)"></div>
+          <span class="contributor-name">cdervis</span>
+          <span class="contributor-handle">@cdervis</span>
+        </a>
+        <a href="https://github.com/ghunteranderson" target="_blank" rel="noopener" class="contributor-item" title="ghunteranderson · 2 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/10344028?v=4)"></div>
+          <span class="contributor-name">ghunteranderson</span>
+          <span class="contributor-handle">@ghunteranderson</span>
+        </a>
+        <a href="https://github.com/chocolatecake777" target="_blank" rel="noopener" class="contributor-item" title="chocolatecake777 · 2 contributions">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/285001473?v=4)"></div>
+          <span class="contributor-name">chocolatecake777</span>
+          <span class="contributor-handle">@chocolatecake777</span>
+        </a>
+        <a href="https://github.com/MSOB7YY" target="_blank" rel="noopener" class="contributor-item" title="MSOB7YY · 1 contribution">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/85245079?v=4)"></div>
+          <span class="contributor-name">MSOB7YY</span>
+          <span class="contributor-handle">@MSOB7YY</span>
+        </a>
+        <a href="https://github.com/w666" target="_blank" rel="noopener" class="contributor-item" title="w666 · 1 contribution">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/2047943?v=4)"></div>
+          <span class="contributor-name">w666</span>
+          <span class="contributor-handle">@w666</span>
+        </a>
+        <a href="https://github.com/eeshsaxena" target="_blank" rel="noopener" class="contributor-item" title="eeshsaxena · 1 contribution">
+          <div class="contributor-avatar" style="background-image:url(https://avatars.githubusercontent.com/u/139802361?v=4)"></div>
+          <span class="contributor-name">eeshsaxena</span>
+          <span class="contributor-handle">@eeshsaxena</span>
+        </a>
+      </div>
+      <div class="contributors-footer">
+        <span>Want to contribute? Check out our <a href="https://github.com/docmd-io/docmd" target="_blank" rel="noopener">GitHub repository</a></span>
+        <span>·</span>
+        <span>Support the project on <a href="https://github.com/sponsors/mgks" target="_blank" rel="noopener">GitHub Sponsors</a></span>
       </div>
     </div>
   </div>
 </section>
-<section class="deploy-section">
+<section class="sponsors-section" aria-label="Community sponsors">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag" data-i18n="deploy.tag">Deployment</div>
-      <h2 class="section-title" data-i18n="deploy.title">Deploy anywhere in seconds</h2>
-      <p class="section-sub" data-i18n="deploy.sub">Static HTML files that run on any hosting platform. No server runtime needed.</p>
-    </div>
-    <div class="deploy-grid">
-      <div class="deploy-card">
-        <h3 data-i18n="deploy.card1.title">GitHub Pages Template</h3>
-        <p data-i18n="deploy.card1.desc">Create a pre-configured documentation repository with automated GitHub Actions in one click.</p>
-        <a href="https://github.com/docmd-io/docmd-template/generate" target="_blank" rel="noopener" class="btn-secondary" data-i18n="deploy.card1.cta">Use GitHub Template →</a>
-      </div>
-      <div class="deploy-card">
-        <h3 data-i18n="deploy.card2.title">Docker &amp; Nginx Config</h3>
-        <p data-i18n="deploy.card2.desc">Generate a Dockerfile and Nginx configuration for your documentation site in one command.</p>
-        <div class="bento-code-box">$ docmd deploy --docker</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="ask-section">
-  <div class="container">
-    <h2 class="section-title" data-i18n="ask.title">Write documentation with your favourite AI</h2>
-    <p class="section-sub" style="margin-bottom:24px;" data-i18n="ask.sub">Provide docmd context directly to Claude, ChatGPT, Gemini, or DeepSeek.</p>
-    <div class="ask-links">
-      <a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Claude</a>
-      <a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">ChatGPT</a>
-      <a href="https://gemini.google.com/app?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">Gemini</a>
-      <a href="https://chat.deepseek.com/?q=Read%20https%3A%2F%2Fdocs.docmd.io%2Fllms.txt%20then%20help%20me%20write%20documentation%20using%20docmd." target="_blank" rel="noopener" class="ask-link">DeepSeek</a>
-      <a href="https://github.com/docmd-io/docmd-skills" target="_blank" rel="noopener" class="ask-link" data-i18n="ask.skills">Agent Skills (SKILL.md)</a>
-    </div>
+    <h3 data-i18n="sponsors.title">Community Sponsors</h3>
+    <div id="sponsors-grid" class="sponsors-grid"></div>
   </div>
 </section>
 <section class="faq-section" aria-label="Frequently asked questions">
@@ -517,8 +576,8 @@ Zero config required. Just run `npx @docmd/core dev`!
       <div class="faq-answer" data-i18n-html="faq.a1">docmd is an open-source documentation compiler. You give it a folder of Markdown files, run one command, and it produces a website, search index, AI context, and knowledge formats — all together, no configuration needed.</div>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q2">How is docmd different from Docusaurus, MkDocs, or VitePress?</summary>
-      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, and no framework knowledge. One command produces 8 outputs — website, search index, llms.txt, OKF bundles, sitemap, SEO meta, MCP server, and Cloud Relay. No other tool does this.</div>
+      <summary data-i18n="faq.q2">How is docmd different from Docusaurus, MkDocs, or Mintlify?</summary>
+      <div class="faq-answer" data-i18n-html="faq.a2">docmd requires no configuration, no React, no Vue, and no framework knowledge. One command produces website, local vector search, llms.txt, OKF bundles, sitemap, SEO meta, and MCP server. The output is pure static HTML that works even offline via file://.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="faq.q3">Do I need React or any front-end framework?</summary>
@@ -543,12 +602,6 @@ Zero config required. Just run `npx @docmd/core dev`!
       <a href="https://docs.docmd.io" class="btn-primary" data-i18n="cta.docs">Read Documentation</a>
       <a href="https://github.com/docmd-io/docmd" class="btn-secondary" target="_blank" rel="noopener" data-i18n="cta.github">Star on GitHub</a>
     </div>
-  </div>
-</section>
-<section class="sponsors-section" aria-label="Community sponsors">
-  <div class="container">
-    <h3 data-i18n="sponsors.title">Community Sponsors</h3>
-    <div id="sponsors-grid" class="sponsors-grid"></div>
   </div>
 </section>
 </main>

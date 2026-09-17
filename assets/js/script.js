@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavDropdown();
   initLangSwitcher();
   loadSponsors();
+  loadContributors();
   fetchLatestVersion();
   initLazyVideos();
   initHeroTabs();
@@ -201,6 +202,53 @@ async function loadSponsors() {
       ${addSponsorBtn}
     `;
   }
+}
+
+/* --- Contributors Loader (Live from GitHub API or local JSON) --- */
+async function loadContributors() {
+  const grid = document.getElementById('contributors-grid');
+  if (!grid) return;
+
+  function renderList(list) {
+    if (!list || !list.length) return;
+    grid.innerHTML = list.map(c => `
+      <a href="${c.url || ('https://github.com/' + c.login)}" target="_blank" rel="noopener" class="contributor-item" title="${c.login} · ${c.contributions || 1} contributions">
+        <div class="contributor-avatar" style="background-image:url(${c.avatarUrl || ('https://github.com/' + c.login + '.png?size=96')})"></div>
+        <span class="contributor-name">${c.login}</span>
+        <span class="contributor-handle">@${c.login}</span>
+      </a>
+    `).join('');
+  }
+
+  try {
+    const res = await fetch('/assets/contributors.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        renderList(data);
+        return;
+      }
+    }
+  } catch (e) {}
+
+  // Fallback to live public GitHub API
+  try {
+    const res = await fetch('https://api.github.com/repos/docmd-io/docmd/contributors?per_page=100');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const filtered = data
+          .filter(c => c.type !== 'Bot' && !c.login.includes('[bot]'))
+          .map(c => ({
+            login: c.login,
+            avatarUrl: c.avatar_url,
+            url: c.html_url,
+            contributions: c.contributions
+          }));
+        renderList(filtered);
+      }
+    }
+  } catch (e) {}
 }
 
 /* --- Copy Command helper --- */
