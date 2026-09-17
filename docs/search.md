@@ -1,6 +1,6 @@
 ---
-title: "docmd Search — In-Browser Semantic Vector Search"
-description: "Offline semantic search for any documentation site. Understands meaning, runs entirely in the browser, and never sends data to the cloud."
+title: "docmd Search — Client-Side Vector & Keyword Search"
+description: "Client-side vector and keyword search compiled at build time into local index files. Fast in-browser search with zero cloud dependencies."
 titleAppend: false
 noStyle: true
 keywords: 

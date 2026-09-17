@@ -345,7 +345,7 @@ Zero config required. Just run `npx @docmd/core dev`!
     </div>
   </div>
 </section>
-<section class="cloud-relay-section" aria-label="Docmd Cloud Relay">
+<section class="cloud-relay-section" aria-label="docmd Cloud Relay">
   <div class="container">
     <div class="cloud-relay-card">
       <div class="relay-card-left">
@@ -353,7 +353,7 @@ Zero config required. Just run `npx @docmd/core dev`!
           <span class="relay-badge-pulse"></span>
           <span>Free Platform Service</span>
         </div>
-        <h2 class="relay-title">Power your docs with <span class="gradient-text">Docmd Cloud Relay</span></h2>
+        <h2 class="relay-title">Power your docs with <span class="gradient-text">docmd Cloud Relay</span></h2>
         <p class="relay-desc">Connect your documentation to our free serverless cloud relay in seconds. Enjoy instant AI search proxies, secure API key management, and real-time query telemetry — with zero infrastructure to maintain.</p>
         <ul class="relay-points">
           <li>
@@ -371,7 +371,7 @@ Zero config required. Just run `npx @docmd/core dev`!
         </ul>
         <div class="relay-actions">
           <a href="https://cloud.docmd.io" target="_blank" rel="noopener" class="btn-primary">Connect Free on Cloud Relay →</a>
-          <a href="https://docs.docmd.io/guides/ai/ai-assistant/" class="btn-secondary">Read Cloud Guide</a>
+          <a href="https://docs.docmd.io/guides/ai/ai-assistant/" class="btn-secondary">Read Cloud Docs</a>
         </div>
       </div>
       <div class="relay-card-right">
@@ -380,13 +380,11 @@ Zero config required. Just run `npx @docmd/core dev`!
             <span>docmd.config.json</span>
             <span>json</span>
           </div>
-          <pre class="relay-code-body"><code><span class="tok-comment">// 1-click cloud relay integration</span>
-{
+          <pre class="relay-code-body"><code>{
   <span class="tok-key">"plugins"</span>: {
     <span class="tok-key">"ai"</span>: {
       <span class="tok-key">"assistant"</span>: <span class="tok-bool">true</span>,
-      <span class="tok-key">"projectId"</span>: <span class="tok-str">"docmd_live_project"</span>,
-      <span class="tok-key">"relay"</span>: <span class="tok-str">"https://cloud.docmd.io"</span>
+      <span class="tok-key">"projectId"</span>: <span class="tok-str">"docmd_proj_abc123"</span>
     }
   }
 }</code></pre>

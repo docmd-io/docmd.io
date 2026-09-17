@@ -1,6 +1,6 @@
 ---
-title: "docmd Assistant — Context-Aware AI Chat for Documentation"
-description: "AI assistant that reads your documentation and answers questions in context. Works with 100+ models, any website, and keeps your API keys secure."
+title: "docmd Assistant — Offline & Cloud AI Documentation Assistant"
+description: "Documentation AI assistant supporting offline embeddings and cloud relay. Context-aware AI answers, BYOK security, and universal framework integration."
 titleAppend: false
 noStyle: true
 keywords: 

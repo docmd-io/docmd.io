@@ -1757,6 +1757,37 @@ main > .sponsors-section::before {
     align-items: center;
 }
 
+.relay-actions .btn-primary,
+.relay-actions .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--r-btn);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 42px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 0;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    width: auto;
+}
+
+.relay-actions .btn-secondary {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.relay-actions .btn-secondary:hover {
+    border-color: var(--border-hover);
+    background: var(--surface-hover);
+}
+
 .relay-code-box {
     background: var(--surface-card);
     border: 1px solid var(--border);
