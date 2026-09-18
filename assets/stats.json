@@ -1,0 +1,43 @@
+{
+  "updatedAt": "2026-09-18T23:43:12.380Z",
+  "docmd": {
+    "version": "0.9.5",
+    "downloads": 3004226,
+    "formatted": "3M+"
+  },
+  "search": {
+    "version": "0.1.5",
+    "downloads": 186365,
+    "formatted": "186k+"
+  },
+  "assistant": {
+    "version": "0.1.18",
+    "downloads": 48820,
+    "formatted": "49k+"
+  },
+  "packages": {
+    "@docmd/core": 181703,
+    "@docmd/api": 132160,
+    "@docmd/themes": 173074,
+    "@docmd/parser": 182721,
+    "@docmd/tui": 135007,
+    "@docmd/ui": 175794,
+    "@docmd/utils": 66040,
+    "@docmd/engine-rust": 65804,
+    "@docmd/live": 176457,
+    "@docmd/plugin-search": 179698,
+    "@docmd/plugin-ai": 23793,
+    "@docmd/plugin-llms": 177886,
+    "@docmd/plugin-sitemap": 179506,
+    "@docmd/plugin-seo": 180640,
+    "@docmd/plugin-git": 74873,
+    "@docmd/plugin-math": 134991,
+    "@docmd/plugin-mermaid": 176516,
+    "@docmd/plugin-analytics": 177860,
+    "@docmd/plugin-installer": 170541,
+    "@docmd/plugin-openapi": 70766,
+    "@docmd/plugin-pwa": 136702,
+    "docmd-search": 6667,
+    "docmd-assistant": 25027
+  }
+}

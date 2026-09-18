@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "docmd dev",
     "audit:i18n": "node scripts/audit-i18n.js",
-    "prebuild": "node scripts/fetch-sponsors.js && node scripts/fetch-contributors.js",
+    "prebuild": "node scripts/fetch-sponsors.js && node scripts/fetch-contributors.js && node scripts/fetch-stats.js",
     "build": "docmd build && node scripts/rewrite-links.js",
     "preview": "npx serve site"
   },

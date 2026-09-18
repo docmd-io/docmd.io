@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initLangSwitcher();
   loadSponsors();
   loadContributors();
-  fetchLatestVersion();
   initLazyVideos();
   initHeroTabs();
   initFeatureTabs();
@@ -332,119 +331,6 @@ window.copyCodeBlock = function (btn, copiedText = 'Copied!') {
   btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>${copiedText}</span>`;
   setTimeout(() => { btn.innerHTML = orig; }, 2000);
 };
-
-/* --- Version & Live NPM Stats Fetcher --- */
-function formatInstalls(num) {
-  if (!num || num < 1) return '';
-  if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M+';
-  if (num >= 100000) return Math.round(num / 1000) + 'k+';
-  if (num >= 10000) return Math.round(num / 1000) + 'k+';
-  if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k+';
-  return num + '+';
-}
-
-async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, defaultPkgPrefix) {
-  const versionEl = document.getElementById(versionElId);
-  const dlEl = document.getElementById(dlElId);
-  if (!versionEl && !dlEl) return;
-
-  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const cacheKey = `npm_stats_${primaryPkg}`;
-
-  // 0. Check localStorage cache (valid for 24h) to avoid rate limits and repeated requests
-  try {
-    const cached = localStorage.getItem(cacheKey);
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      if (Date.now() - parsed.ts < 86400000) {
-        if (parsed.ver && versionEl) {
-          const verNumEl = versionEl.querySelector('.badge-ver-num');
-          if (verNumEl) verNumEl.textContent = 'v' + parsed.ver;
-          else versionEl.textContent = `${defaultPkgPrefix} v${parsed.ver}`;
-        }
-        if (parsed.dl && dlEl) {
-          const formatted = formatInstalls(parsed.dl);
-          if (formatted) {
-            const textEl = dlEl.querySelector('.badge-dl-text');
-            if (textEl) textEl.textContent = formatted;
-            else dlEl.innerHTML = `<span class="badge-dl-text">${formatted}</span><span class="badge-dl-label">installs</span>`;
-          }
-        }
-        return;
-      }
-    }
-  } catch (e) {}
-
-  let latestVer = null;
-  let totalDl = 0;
-
-  // 1. Fetch latest version from npm registry
-  if (versionEl) {
-    try {
-      const res = await fetch(`https://registry.npmjs.org/${primaryPkg}/latest`);
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.version) {
-          latestVer = data.version;
-          const verNumEl = versionEl.querySelector('.badge-ver-num');
-          if (verNumEl) {
-            verNumEl.textContent = 'v' + data.version;
-          } else {
-            versionEl.textContent = `${defaultPkgPrefix} v${data.version}`;
-          }
-        }
-      }
-    } catch (e) {}
-  }
-
-  // 2. Fetch total installs across packages (skipped on localhost to prevent 429 Too Many Requests)
-  if (dlEl && !isLocal) {
-    try {
-      const allPkgs = relatedPkgs || [primaryPkg];
-      const fetches = allPkgs.map(pkg =>
-        fetch(`https://api.npmjs.org/downloads/point/2020-01-01:2099-12-31/${pkg}`)
-          .then(r => r.ok ? r.json() : null)
-          .catch(() => null)
-      );
-      const results = await Promise.all(fetches);
-      for (const r of results) {
-        if (r && r.downloads) totalDl += r.downloads;
-      }
-
-      if (totalDl > 0) {
-        const formatted = formatInstalls(totalDl);
-        const textEl = dlEl.querySelector('.badge-dl-text');
-        if (textEl) {
-          textEl.textContent = formatted;
-        } else {
-          dlEl.innerHTML = `<span class="badge-dl-text">${formatted}</span><span class="badge-dl-label">installs</span>`;
-        }
-      }
-    } catch (e) {}
-  }
-
-  // Save to cache
-  try {
-    if (latestVer || totalDl > 0) {
-      localStorage.setItem(cacheKey, JSON.stringify({
-        ts: Date.now(),
-        ver: latestVer,
-        dl: totalDl > 0 ? totalDl : undefined
-      }));
-    }
-  } catch (e) {}
-}
-
-async function fetchLatestVersion() {
-  // Only execute requests for elements that exist on the active page
-  if (document.getElementById('npm-version') || document.getElementById('npm-downloads')) {
-    fetchPackageStats('@docmd/core', ['@docmd/core'], 'npm-version', 'npm-downloads', 'docmd');
-  } else if (document.getElementById('npm-version-search') || document.getElementById('npm-downloads-search')) {
-    fetchPackageStats('docmd-search', ['docmd-search', '@docmd/plugin-search'], 'npm-version-search', 'npm-downloads-search', 'docmd-search');
-  } else if (document.getElementById('npm-version-assistant') || document.getElementById('npm-downloads-assistant')) {
-    fetchPackageStats('docmd-assistant', ['docmd-assistant', '@docmd/plugin-ai'], 'npm-version-assistant', 'npm-downloads-assistant', 'docmd-assistant');
-  }
-}
 
 /* --- Lazy Video Loader --- */
 function initLazyVideos() {

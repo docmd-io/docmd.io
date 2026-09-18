@@ -120,7 +120,7 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd-assistant" target="_blank" rel="noopener" class="hero-badge assistant-badge">
       <span class="badge-dot" style="background:var(--assistant-accent);"></span>
-      <span class="badge-version" id="npm-version-assistant"><span class="badge-pkg-name">docmd-assistant</span><span class="badge-ver-num">v0.1.0</span></span>
+      <span class="badge-version" id="npm-version-assistant"><span class="badge-pkg-name">docmd-assistant</span><span class="badge-ver-num">v0.1.18</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads-assistant">
         <span class="badge-dl-text">49k+</span>

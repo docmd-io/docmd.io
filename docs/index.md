@@ -175,10 +175,10 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.6</span></span>
+      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.5</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads">
-        <span class="badge-dl-text">182k+</span>
+        <span class="badge-dl-text">3M+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>
