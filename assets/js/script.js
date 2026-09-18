@@ -324,12 +324,12 @@ window.copySnippet = function (btn) {
   setTimeout(() => { btn.innerHTML = orig; }, 2000);
 };
 
-window.copyCodeBlock = function (btn) {
+window.copyCodeBlock = function (btn, copiedText = 'Copied!') {
   const codeBox = btn.closest('.assistant-code-block')?.querySelector('pre');
   if (!codeBox) return;
   navigator.clipboard.writeText(codeBox.textContent);
   const orig = btn.innerHTML;
-  btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Copied!</span>`;
+  btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>${copiedText}</span>`;
   setTimeout(() => { btn.innerHTML = orig; }, 2000);
 };
 
@@ -348,13 +348,44 @@ async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, d
   const dlEl = document.getElementById(dlElId);
   if (!versionEl && !dlEl) return;
 
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const cacheKey = `npm_stats_${primaryPkg}`;
+
+  // 0. Check localStorage cache (valid for 24h) to avoid rate limits and repeated requests
+  try {
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.ts < 86400000) {
+        if (parsed.ver && versionEl) {
+          const verNumEl = versionEl.querySelector('.badge-ver-num');
+          if (verNumEl) verNumEl.textContent = 'v' + parsed.ver;
+          else versionEl.textContent = `${defaultPkgPrefix} v${parsed.ver}`;
+        }
+        if (parsed.dl && dlEl) {
+          const formatted = formatInstalls(parsed.dl);
+          if (formatted) {
+            const textEl = dlEl.querySelector('.badge-dl-text');
+            if (textEl) textEl.textContent = formatted;
+            else dlEl.innerHTML = `<span class="badge-dl-text">${formatted}</span><span class="badge-dl-label">installs</span>`;
+          }
+        }
+        return;
+      }
+    }
+  } catch (e) {}
+
+  let latestVer = null;
+  let totalDl = 0;
+
   // 1. Fetch latest version from npm registry
   if (versionEl) {
     try {
       const res = await fetch(`https://registry.npmjs.org/${primaryPkg}/latest`);
       if (res.ok) {
         const data = await res.json();
-        if (data.version) {
+        if (data && data.version) {
+          latestVer = data.version;
           const verNumEl = versionEl.querySelector('.badge-ver-num');
           if (verNumEl) {
             verNumEl.textContent = 'v' + data.version;
@@ -366,8 +397,8 @@ async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, d
     } catch (e) {}
   }
 
-  // 2. Fetch total installs across all related packages (all-time sum)
-  if (dlEl) {
+  // 2. Fetch total installs across packages (skipped on localhost to prevent 429 Too Many Requests)
+  if (dlEl && !isLocal) {
     try {
       const allPkgs = relatedPkgs || [primaryPkg];
       const fetches = allPkgs.map(pkg =>
@@ -376,7 +407,6 @@ async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, d
           .catch(() => null)
       );
       const results = await Promise.all(fetches);
-      let totalDl = 0;
       for (const r of results) {
         if (r && r.downloads) totalDl += r.downloads;
       }
@@ -392,26 +422,28 @@ async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, d
       }
     } catch (e) {}
   }
+
+  // Save to cache
+  try {
+    if (latestVer || totalDl > 0) {
+      localStorage.setItem(cacheKey, JSON.stringify({
+        ts: Date.now(),
+        ver: latestVer,
+        dl: totalDl > 0 ? totalDl : undefined
+      }));
+    }
+  } catch (e) {}
 }
 
 async function fetchLatestVersion() {
-  // Homepage: aggregate all @docmd/* ecosystem packages
-  const docmdEcosystem = [
-    '@docmd/core', '@docmd/api', '@docmd/themes', '@docmd/parser', '@docmd/tui',
-    '@docmd/ui', '@docmd/utils', '@docmd/engine-rust', '@docmd/live',
-    '@docmd/plugin-search', '@docmd/plugin-ai', '@docmd/plugin-llms',
-    '@docmd/plugin-sitemap', '@docmd/plugin-seo', '@docmd/plugin-git',
-    '@docmd/plugin-math', '@docmd/plugin-mermaid', '@docmd/plugin-analytics',
-    '@docmd/plugin-installer', '@docmd/plugin-openapi', '@docmd/plugin-pwa',
-    'docmd-search', 'docmd-assistant'
-  ];
-  fetchPackageStats('@docmd/core', docmdEcosystem, 'npm-version', 'npm-downloads', 'docmd');
-
-  // Search page: docmd-search + @docmd/plugin-search
-  fetchPackageStats('docmd-search', ['docmd-search', '@docmd/plugin-search'], 'npm-version-search', 'npm-downloads-search', 'docmd-search');
-
-  // Assistant page: docmd-assistant + @docmd/plugin-ai
-  fetchPackageStats('docmd-assistant', ['docmd-assistant', '@docmd/plugin-ai'], 'npm-version-assistant', 'npm-downloads-assistant', 'docmd-assistant');
+  // Only execute requests for elements that exist on the active page
+  if (document.getElementById('npm-version') || document.getElementById('npm-downloads')) {
+    fetchPackageStats('@docmd/core', ['@docmd/core'], 'npm-version', 'npm-downloads', 'docmd');
+  } else if (document.getElementById('npm-version-search') || document.getElementById('npm-downloads-search')) {
+    fetchPackageStats('docmd-search', ['docmd-search', '@docmd/plugin-search'], 'npm-version-search', 'npm-downloads-search', 'docmd-search');
+  } else if (document.getElementById('npm-version-assistant') || document.getElementById('npm-downloads-assistant')) {
+    fetchPackageStats('docmd-assistant', ['docmd-assistant', '@docmd/plugin-ai'], 'npm-version-assistant', 'npm-downloads-assistant', 'docmd-assistant');
+  }
 }
 
 /* --- Lazy Video Loader --- */
@@ -833,6 +865,76 @@ const SEARCH_SCENARIOS = {
           endScore: 94
         }
       ]
+    },
+    {
+      id: 'theme',
+      query: 'anpassbare dunkle theme farben',
+      stats: 'Dichter 384-Dim Vektor · 3 Treffer in 0,4 ms · 100% Client-seitiger Vektor',
+      matchLabel: 'Übereinstimmung',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'Eigene CSS-Variablen & Farbtokens',
+          path: '/de/theming/available-themes',
+          body: 'Überschreiben Sie CSS-Variablen in <mark class="search-highlight">custom.css</mark>, um Dark-Mode-Paletten, Oberflächenkontraste und Marken<mark class="search-highlight">farben</mark> anzupassen.',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'Dark-Mode Syntaxhervorhebung',
+          path: '/de/theming/code-blocks',
+          body: 'Wählen Sie aus über 40 mitgelieferten Prism- und Shiki-Themes mit automatischer Anpassung an Hell- und <mark class="search-highlight">Dunkelmodus</mark>.'
+          ,startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'Dynamischer Theme-Umschalter',
+          path: '/de/content/theming-api',
+          body: 'Flimmerfreies clientseitiges Umschalten des Themes mit automatischer Systemerkennung und manueller Speicherung.',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'offline wasm vektoreinbettungen',
+      stats: 'Quantisierter Int8-Vektor · 3 Treffer in 0,2 ms · Keine Netzwerkaufrufe',
+      matchLabel: 'Übereinstimmung',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: 'Browser-Suchlaufzeit (<3KB)',
+          path: '/de/plugins/search/architecture',
+          body: 'Leichtgewichtige <mark class="search-highlight">Client-Suchlaufzeit</mark> führt Integer-Vektormathematik direkt im Browser ohne externe Abhängigkeiten aus.',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'Vektorquantisierung beim Build',
+          path: '/de/plugins/search/indexing',
+          body: 'Berechnet <mark class="search-highlight">Vektoreinbettungen</mark> während der Kompilierung vor und packt Indizes in kompakte Offline-JSON-Dateien.',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'Hybrider BM25 + Kosinus-Re-Ranker',
+          path: '/de/plugins/search/ranking',
+          body: 'Kombiniert exakte lexikalische Schlüsselwortsuche mit dichten Vektoren für sofortige, fehlertolerante Relevanz.',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
+        }
+      ]
     }
   ],
   es: [
@@ -868,6 +970,76 @@ const SEARCH_SCENARIOS = {
           startScore: 61,
           midScore: 78,
           endScore: 94
+        }
+      ]
+    },
+    {
+      id: 'theme',
+      query: 'colores personalizados tema oscuro',
+      stats: 'Vector Denso 384-Dim · 3 coincidencias en 0,4 ms · Vector 100% en Cliente',
+      matchLabel: 'coincidencia',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'Variables CSS Personalizadas y Tokens',
+          path: '/es/theming/available-themes',
+          body: 'Sobrescribe variables CSS en <mark class="search-highlight">custom.css</mark> para configurar temas oscuros, contrastes y <mark class="search-highlight">colores</mark> de marca.',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'Resaltado de Sintaxis en Modo Oscuro',
+          path: '/es/theming/code-blocks',
+          body: 'Elige entre más de 40 temas integrados de Prism y Shiki con adaptación automática a modo claro y <mark class="search-highlight">oscuro</mark>.',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'Selector Dinámico de Temas',
+          path: '/es/content/theming-api',
+          body: 'Cambio de tema sin parpadeos en el navegador con detección automática del sistema y persistencia manual.',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'incrustaciones vectoriales wasm offline',
+      stats: 'Vector Cuantizado Int8 · 3 coincidencias en 0,2 ms · Cero Llamadas de Red',
+      matchLabel: 'coincidencia',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: 'Motor de Búsqueda para Navegador (<3KB)',
+          path: '/es/plugins/search/architecture',
+          body: 'Ligero <mark class="search-highlight">motor de búsqueda en cliente</mark> ejecuta operaciones matemáticas vectoriales directamente en el navegador sin dependencias.',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'Cuantización Vectorial en Compilación',
+          path: '/es/plugins/search/indexing',
+          body: 'Precalcula <mark class="search-highlight">incrustaciones</mark> de texto durante la compilación empaquetando todo el índice en archivos JSON sin conexión.',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'Reordenador Híbrido BM25 + Coseno',
+          path: '/es/plugins/search/ranking',
+          body: 'Combina coincidencia léxica exacta con vectores densos para una relevancia instantánea tolerante a erratas.',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
         }
       ]
     }
@@ -907,6 +1079,76 @@ const SEARCH_SCENARIOS = {
           endScore: 94
         }
       ]
+    },
+    {
+      id: 'theme',
+      query: 'カスタム ダークテーマ カラー',
+      stats: '384次元 高密度ベクトル · 0.4ms で 3 件一致 · 100% クライアントサイドベクトル',
+      matchLabel: '一致',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'カスタム CSS 変数とカラートークン',
+          path: '/ja/theming/available-themes',
+          body: '<mark class="search-highlight">custom.css</mark> の CSS 変数を上書きして、ダークモード配色、コントラスト、ブランド<mark class="search-highlight">カラー</mark>を設定します。',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'ダークモード コード構文ハイライト',
+          path: '/ja/theming/code-blocks',
+          body: '40種類以上の組み込み Prism および Shiki テーマから選択でき、ライト・<mark class="search-highlight">ダークモード</mark>へ自動適応します。',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'ちらつきのない動的テーマ切り替え',
+          path: '/ja/content/theming-api',
+          body: 'OS の外観設定の自動検出と手動切り替えの永続化により、完全クライアントサイドで即座にテーマを切り替えます。',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'オフライン wasm ベクトル埋め込み',
+      stats: 'Int8 量子化ベクトル · 0.2ms で 3 件一致 · ネットワーク通信ゼロ',
+      matchLabel: '一致',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: '超軽量ブラウザ検索エンジン (<3KB)',
+          path: '/ja/plugins/search/architecture',
+          body: '3KB 未満の軽量<mark class="search-highlight">クライアント検索ランタイム</mark>が、外部依存関係なしでブラウザ内で直接ベクトル計算を実行します。',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'ビルド時ベクトル量子化圧縮',
+          path: '/ja/plugins/search/indexing',
+          body: 'ビルド時にドキュメントテキストの<mark class="search-highlight">ベクトル埋め込み</mark>を事前計算し、コンパクトなオフライン JSON ファイルにパッケージ化します。',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'ハイブリッド BM25 + コサイン リランカー',
+          path: '/ja/plugins/search/ranking',
+          body: '完全一致キーワード検索と意味理解ベクトル検索を組み合わせ、タイポに強い即時の一致精度を提供します。',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
+        }
+      ]
     }
   ],
   fr: [
@@ -944,6 +1186,76 @@ const SEARCH_SCENARIOS = {
           endScore: 94
         }
       ]
+    },
+    {
+      id: 'theme',
+      query: 'couleurs theme sombre personnalisees',
+      stats: 'Vecteur Dense 384-Dim · 3 résultats en 0,4 ms · Vecteur 100% Côté Client',
+      matchLabel: 'correspondance',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'Variables CSS Personnalisées & Tokens',
+          path: '/fr/theming/available-themes',
+          body: 'Surchargez les variables CSS dans <mark class="search-highlight">custom.css</mark> pour ajuster les palettes sombres, les contrastes et les <mark class="search-highlight">couleurs</mark> de marque.',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'Coloration Syntaxique Mode Sombre',
+          path: '/fr/theming/code-blocks',
+          body: 'Choisissez parmi plus de 40 thèmes Prism et Shiki avec adaptation automatique aux modes clair et <mark class="search-highlight">sombre</mark>.',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'Sélecteur de Thème Dynamique',
+          path: '/fr/content/theming-api',
+          body: 'Changement de thème côté client sans scintillement avec détection automatique du système et sauvegarde du choix.',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'plongements vectoriels wasm hors ligne',
+      stats: 'Vecteur Quantifié Int8 · 3 résultats en 0,2 ms · Zéro Appel Réseau',
+      matchLabel: 'correspondance',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: 'Moteur de Recherche Navigateur (<3 Ko)',
+          path: '/fr/plugins/search/architecture',
+          body: 'Un <mark class="search-highlight">moteur de recherche client</mark> ultra-léger exécute les calculs vectoriels directement dans le navigateur sans dépendance.',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'Quantification Vectorielle à la Compilation',
+          path: '/fr/plugins/search/indexing',
+          body: 'Précalcule les <mark class="search-highlight">plongements</mark> lors de la compilation et assemble l\'index dans des fichiers JSON hors ligne compacts.',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'Reclassement Hybride BM25 + Cosinus',
+          path: '/fr/plugins/search/ranking',
+          body: 'Combine la recherche par mot-clé exacte et les vecteurs denses pour une pertinence instantanée tolérante aux fautes de frappe.',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
+        }
+      ]
     }
   ],
   ru: [
@@ -979,6 +1291,76 @@ const SEARCH_SCENARIOS = {
           startScore: 61,
           midScore: 78,
           endScore: 94
+        }
+      ]
+    },
+    {
+      id: 'theme',
+      query: 'пользовательские цвета темной темы',
+      stats: 'Плотный 384-мерный вектор · 3 совпадения за 0,4 мс · 100% Векторный клиентский поиск',
+      matchLabel: 'совпадение',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'Пользовательские переменные CSS и токены',
+          path: '/ru/theming/available-themes',
+          body: 'Переопределяйте переменные CSS в <mark class="search-highlight">custom.css</mark> для настройки тёмных палитр, контраста и фирменных <mark class="search-highlight">цветов</mark>.',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'Подсветка синтаксиса в тёмной теме',
+          path: '/ru/theming/code-blocks',
+          body: 'Выбирайте из более чем 40 встроенных тем Prism и Shiki с автоматической адаптацией к светлой и <mark class="search-highlight">тёмной теме</mark>.',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'Динамический переключатель темы',
+          path: '/ru/content/theming-api',
+          body: 'Мгновенное переключение темы на клиенте без мерцания с автоматическим определением темы ОС и сохранением настроек.',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'офлайн wasm векторные эмбеддинги',
+      stats: 'Квантованный Int8 вектор · 3 совпадения за 0,2 мс · Ноль сетевых запросов',
+      matchLabel: 'совпадение',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: 'Браузерный поисковый движок (<3КБ)',
+          path: '/ru/plugins/search/architecture',
+          body: 'Легковесный <mark class="search-highlight">клиентский поисковый движок</mark> вычисляет векторные операции прямо в браузере без внешних зависимостей.',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'Квантование векторов при сборке',
+          path: '/ru/plugins/search/indexing',
+          body: 'Предварительно вычисляет <mark class="search-highlight">эмбеддинги</mark> фрагментов текста при сборке и упаковывает индекс в компактные офлайн JSON-файлы.',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'Гибридный реранкер BM25 + Косинус',
+          path: '/ru/plugins/search/ranking',
+          body: 'Объединяет точный лексический поиск по ключевым словам и плотные смысловые векторы для мгновенных результатов.',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
         }
       ]
     }
@@ -1143,25 +1525,66 @@ function initSearchSandbox() {
   }, 2800);
 }
 
-function initAssistantSandbox() {
-  const card = document.getElementById('assistant-chat-card');
-  if (!card) return;
+/* --- AI Assistant Interactive Live Preview Scenarios --- */
+const ASSISTANT_LABELS = {
+  en: {
+    searching: 'Searching "{query}" in docs...',
+    reading: 'Reading {doc}...',
+    sources: 'Sources:',
+    copy: 'Copy',
+    copied: 'Copied!'
+  },
+  de: {
+    searching: 'Suche "{query}" in der Dokumentation...',
+    reading: 'Lese {doc}...',
+    sources: 'Quellen:',
+    copy: 'Kopieren',
+    copied: 'Kopiert!'
+  },
+  zh: {
+    searching: '正在文档中检索 "{query}"...',
+    reading: '正在读取 {doc}...',
+    sources: '参考文档:',
+    copy: '复制',
+    copied: '已复制!'
+  },
+  es: {
+    searching: 'Buscando "{query}" en la documentación...',
+    reading: 'Leyendo {doc}...',
+    sources: 'Fuentes:',
+    copy: 'Copiar',
+    copied: '¡Copiado!'
+  },
+  ja: {
+    searching: 'ドキュメント内で "{query}" を検索中...',
+    reading: '{doc} を読み込み中...',
+    sources: '参照ソース:',
+    copy: 'コピー',
+    copied: 'コピー完了!'
+  },
+  fr: {
+    searching: 'Recherche de "{query}" dans la documentation...',
+    reading: 'Lecture de {doc}...',
+    sources: 'Sources :',
+    copy: 'Copier',
+    copied: 'Copié !'
+  },
+  ru: {
+    searching: 'Поиск "{query}" в документации...',
+    reading: 'Чтение {doc}...',
+    sources: 'Источники:',
+    copy: 'Копировать',
+    copied: 'Скопировано!'
+  }
+};
 
-  const promptTextEl = document.getElementById('assistant-prompt-text');
-  const shortcutBtn = document.querySelector('.assistant-prompt-submit') || document.querySelector('.assistant-prompt-shortcut');
-  const retrievalBar = document.getElementById('assistant-retrieval-bar');
-  const retrievalText = document.getElementById('assistant-retrieval-text');
-  const bubbleContent = document.getElementById('assistant-bubble-content');
-  const citationsBar = document.getElementById('assistant-citations-bar');
-
-  if (!promptTextEl || !bubbleContent) return;
-
-  const scenarios = [
+const ASSISTANT_SCENARIOS = {
+  en: [
     {
       query: 'How do I run docmd-assistant completely offline with a local model?',
       searchQuery: 'offline local model',
       readingDoc: '/guides/ai/ai-assistant.md',
-      introText: 'Configure DocmdAssistantEngine to connect directly to your local Ollama instance. Both vector embeddings and inference compute locally with zero cloud API keys or telemetry.',
+      introText: 'Configure DocmdAssistantEngine to connect directly to your local Ollama instance. Both embeddings and responses compute locally with zero cloud API keys or telemetry.',
       codeBlock: {
         lang: 'TYPESCRIPT',
         code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
@@ -1199,7 +1622,289 @@ function initAssistantSandbox() {
         { name: '/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
       ]
     }
-  ];
+  ],
+  de: [
+    {
+      query: 'Wie führe ich docmd-assistant vollständig offline mit einem lokalen Modell aus?',
+      searchQuery: 'offline lokales Modell',
+      readingDoc: '/de/guides/ai/ai-assistant.md',
+      introText: 'Konfigurieren Sie die DocmdAssistantEngine für eine direkte Verbindung zu Ihrer lokalen Ollama-Instanz. Vektoreinbettungen und Inferenz werden lokal berechnet – ohne Cloud-API-Schlüssel oder Telemetrie.',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'Null Netzwerktelemetrie und keinerlei externe Token-Gebühren.',
+      citations: [
+        { name: '/de/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/de/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: 'Kann der Assistent bestimmte Markdown-Überschriften zitieren und Halluzinationen verhindern?',
+      searchQuery: 'AST-Chunks Zitierregeln',
+      readingDoc: '/de/architecture/search-rag.md',
+      introText: 'Ja. docmd kompiliert Ihre Dokumentation in typisierte AST-Chunks mit exakten Überschriften-Ankern. Die Engine ruft passende Abschnitte per hybridem BM25 und Vektorsuche ab und erzwingt strikte Zitiereinschränkungen.',
+      codeBlock: null,
+      outroText: 'Unbelegte Behauptungen und erfundene APIs werden vor der Antwortgenerierung verworfen.',
+      citations: [
+        { name: '/de/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/de/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: 'Wie werden Team-API-Schlüssel im Produktiveinsatz geschützt?',
+      searchQuery: 'KMS-Umschlagverschlüsselung',
+      readingDoc: '/de/security/kms-envelope.md',
+      introText: 'Provider-Anmeldedaten werden im Ruhezustand mit hardwarebasierten AES-256-GCM KMS-Umschlägen verschlüsselt. Klartextschlüssel verbleiben ausschließlich im gesicherten Serverspeicher und gelangen niemals in den Browser.',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'Clientsitzungen erhalten kurzlebige, signierte Streaming-Tokens über SSE.',
+      citations: [
+        { name: '/de/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/de/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ],
+  zh: [
+    {
+      query: '如何使用本地大模型完全离线运行 docmd-assistant？',
+      searchQuery: '离线 本地模型',
+      readingDoc: '/zh/guides/ai/ai-assistant.md',
+      introText: '配置 DocmdAssistantEngine 直接连接到您的本地 Ollama 实例。向量嵌入与大模型推理均在本地离线计算，无需任何云端 API 密钥或遥测数据外发。',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: '零网络遥测上传，零外部模型调用费用。',
+      citations: [
+        { name: '/zh/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/zh/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: '助手能否精确引用 Markdown 标题并杜绝模型幻觉？',
+      searchQuery: 'AST 文档切片 引用规则',
+      readingDoc: '/zh/architecture/search-rag.md',
+      introText: '可以。docmd 会将您的文档编译为带有精确标题锚点的类型化 AST 语法树切块。检索系统通过混合 BM25 与向量算法精准召回，严格约束大模型仅根据文档事实回答。',
+      codeBlock: null,
+      outroText: '未经文档证实的推断和臆造的 API 在生成前会被严格拦截过滤。'
+      ,citations: [
+        { name: '/zh/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/zh/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: '在生产环境中团队 API 密钥如何获得安全保护？',
+      searchQuery: 'KMS 信封加密',
+      readingDoc: '/zh/security/kms-envelope.md',
+      introText: '大模型提供商密钥使用 AES-256-GCM 硬件 KMS 信封加密落盘存储。明文密钥仅在受保护的服务器内存执行期间解密，绝不会泄漏或暴露给客户端浏览器。',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: '客户端会话仅通过 SSE 获得受保护的短期签名流式传输令牌。',
+      citations: [
+        { name: '/zh/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/zh/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ],
+  es: [
+    {
+      query: '¿Cómo ejecuto docmd-assistant completamente fuera de línea con un modelo local?',
+      searchQuery: 'modelo local fuera de línea',
+      readingDoc: '/es/guides/ai/ai-assistant.md',
+      introText: 'Configure DocmdAssistantEngine para conectarse directamente a su instancia local de Ollama. Las incrustaciones vectoriales y la inferencia se computan localmente sin claves API en la nube ni telemetría.',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'Cero telemetría de red y sin tarifas de tokens externas.',
+      citations: [
+        { name: '/es/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/es/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: '¿Puede el asistente citar encabezados Markdown específicos y evitar alucinaciones?',
+      searchQuery: 'fragmentos AST reglas de citación',
+      readingDoc: '/es/architecture/search-rag.md',
+      introText: 'Sí. docmd compila su documentación en fragmentos AST tipados con anclajes exactos en los encabezados. El motor recupera secciones coincidentes mediante búsqueda híbrida BM25 y vectorial, aplicando estrictos límites de citación.',
+      codeBlock: null,
+      outroText: 'Las afirmaciones no verificadas y las API inventadas se descartan antes de generar respuestas.',
+      citations: [
+        { name: '/es/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/es/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: '¿Cómo se protegen las claves API del equipo en implementaciones de producción?',
+      searchQuery: 'cifrado de sobre KMS',
+      readingDoc: '/es/security/kms-envelope.md',
+      introText: 'Las credenciales del proveedor se cifran en reposo con sobres KMS de hardware AES-256-GCM. Las claves en texto plano solo se descifran en la memoria segura del servidor y nunca se exponen al navegador.',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'Las sesiones del cliente reciben tokens de transmisión firmados y temporales mediante SSE.',
+      citations: [
+        { name: '/es/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/es/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ],
+  ja: [
+    {
+      query: 'ローカルモデルを使用して docmd-assistant を完全にオフラインで実行するにはどうすればよいですか？',
+      searchQuery: 'オフライン ローカルモデル',
+      readingDoc: '/ja/guides/ai/ai-assistant.md',
+      introText: 'DocmdAssistantEngine を設定してローカルの Ollama インスタンスに直接接続します。ベクトル埋め込みと推論の両方がローカルで実行され、クラウド API キーや外部テレメトリは一切不要です。',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'ネットワークテレメトリ送信ゼロ、外部トークン課金ゼロ。',
+      citations: [
+        { name: '/ja/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/ja/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: 'アシスタントは特定の Markdown 見出しを引用し、ハルシネーションを防ぐことができますか？',
+      searchQuery: 'ASTチャンク 引用ルール',
+      readingDoc: '/ja/architecture/search-rag.md',
+      introText: 'はい。docmd はドキュメントを正確な見出しアンカー付きの型付き AST チャンクにコンパイルします。エンジンはハイブリッド BM25 とベクトル検索で関連セクションを取得し、引用根拠を厳密に強制します。'
+      ,codeBlock: null,
+      outroText: '未検証の主張や架空の API 生成は、回答生成前に厳密に除外されます。',
+      citations: [
+        { name: '/ja/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/ja/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: '本番環境でのチーム API キーはどのように保護されますか？',
+      searchQuery: 'KMS エンベロープ暗号化',
+      readingDoc: '/ja/security/kms-envelope.md',
+      introText: 'プロバイダークレデンシャルはハードウェア KMS による AES-256-GCM エンベロープ暗号化で保存されます。平文キーはリクエスト実行中に保護されたサーバーメモリ内でのみ復号され、ブラウザには一切公開されません。',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'クライアントセッションは SSE 経由で一時的な署名付きストリーミングトークンのみを受信します。',
+      citations: [
+        { name: '/ja/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/ja/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ],
+  fr: [
+    {
+      query: 'Comment exécuter docmd-assistant complètement hors ligne avec un modèle local ?',
+      searchQuery: 'modèle local hors ligne',
+      readingDoc: '/fr/guides/ai/ai-assistant.md',
+      introText: 'Configurez DocmdAssistantEngine pour vous connecter directement à votre instance locale Ollama. Les plongements vectoriels et l\'inférence sont calculés localement, sans clés API cloud ni télémétrie.',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'Zéro télémétrie réseau et aucun coût de jetons externes.',
+      citations: [
+        { name: '/fr/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/fr/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: 'L\'assistant peut-il citer des titres Markdown spécifiques et éviter les hallucinations ?',
+      searchQuery: 'blocs AST règles de citation',
+      readingDoc: '/fr/architecture/search-rag.md',
+      introText: 'Oui. docmd compile votre documentation en fragments AST typés avec des ancres de titres exactes. Le moteur récupère les sections correspondantes via une recherche hybride BM25 et vectorielle, en appliquant des limites de citation strictes.',
+      codeBlock: null,
+      outroText: 'Les affirmations non vérifiées et les API inventées sont rejetées avant la génération de la réponse.',
+      citations: [
+        { name: '/fr/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/fr/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: 'Comment les clés API d\'équipe sont-elles protégées en production ?',
+      searchQuery: 'chiffrement d\'enveloppe KMS',
+      readingDoc: '/fr/security/kms-envelope.md',
+      introText: 'Les identifiants sont chiffrés au repos avec des enveloppes KMS matérielles AES-256-GCM. Les clés en clair ne sont déchiffrées que dans la mémoire sécurisée du serveur et ne sont jamais exposées au navigateur client.',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'Les sessions clientes reçoivent des jetons de streaming signés et éphémères via SSE.',
+      citations: [
+        { name: '/fr/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/fr/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ],
+  ru: [
+    {
+      query: 'Как запустить docmd-assistant полностью автономно с локальной моделью?',
+      searchQuery: 'автономная локальная модель',
+      readingDoc: '/ru/guides/ai/ai-assistant.md',
+      introText: 'Настройте DocmdAssistantEngine для прямого подключения к локальному экземпляру Ollama. Векторные эмбеддинги и инференс выполняются локально без облачных API-ключей и телеметрии.',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'Ноль сетевой телеметрии и никаких внешних расходов на токены.',
+      citations: [
+        { name: '/ru/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/ru/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: 'Может ли ассистент цитировать заголовки Markdown и предотвращать галлюцинации?',
+      searchQuery: 'AST фрагменты правила цитирования',
+      readingDoc: '/ru/architecture/search-rag.md',
+      introText: 'Да. docmd компилирует документацию в типизированные фрагменты AST с точными якорями заголовков. Движок извлекает релевантные разделы с помощью гибридного BM25 и векторного поиска, строго соблюдая границы цитирования.',
+      codeBlock: null,
+      outroText: 'Неподтверждённые утверждения и вымышленные API отсекаются до генерации ответа.',
+      citations: [
+        { name: '/ru/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/ru/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: 'Как защищены командные API-ключи в продакшене?',
+      searchQuery: 'конвертное шифрование KMS',
+      readingDoc: '/ru/security/kms-envelope.md',
+      introText: 'Учётные данные провайдеров шифруются в покое с использованием аппаратных KMS-конвертов AES-256-GCM. Незашифрованные ключи расшифровываются исключительно в защищённой памяти сервера и никогда не попадают в браузер.',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'Клиентские сессии получают временные подписанные потоковые токены через SSE.',
+      citations: [
+        { name: '/ru/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/ru/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ]
+};
+
+function initAssistantSandbox() {
+  const card = document.getElementById('assistant-chat-card');
+  if (!card) return;
+
+  const promptTextEl = document.getElementById('assistant-prompt-text');
+  const shortcutBtn = document.querySelector('.assistant-prompt-submit') || document.querySelector('.assistant-prompt-shortcut');
+  const retrievalBar = document.getElementById('assistant-retrieval-bar');
+  const retrievalText = document.getElementById('assistant-retrieval-text');
+  const bubbleContent = document.getElementById('assistant-bubble-content');
+  const citationsBar = document.getElementById('assistant-citations-bar');
+
+  if (!promptTextEl || !bubbleContent) return;
+
+  const locale = getAppLocale();
+  const scenarios = ASSISTANT_SCENARIOS[locale] || ASSISTANT_SCENARIOS.en;
+  const labels = ASSISTANT_LABELS[locale] || ASSISTANT_LABELS.en;
 
   let currentIndex = 0;
   let isPaused = false;
@@ -1223,13 +1928,14 @@ function initAssistantSandbox() {
 
   async function typeString(targetEl, text, speedMs, ticket) {
     targetEl.textContent = '';
-    for (let i = 0; i < text.length; i++) {
+    const chars = Array.from(text);
+    for (let i = 0; i < chars.length; i++) {
       if (ticket !== activeTicket) return false;
       if (isPaused) {
         const ok = await waitWhilePaused(ticket);
         if (!ok) return false;
       }
-      targetEl.textContent += text[i];
+      targetEl.textContent += chars[i];
       await sleep(speedMs);
     }
     return true;
@@ -1245,15 +1951,21 @@ function initAssistantSandbox() {
     p.appendChild(cursor);
     parentEl.appendChild(p);
 
-    const words = text.split(' ');
-    for (let i = 0; i < words.length; i++) {
+    // Natural token streaming: character-by-character for CJK, word-by-word for western languages
+    const isCJK = locale === 'zh' || locale === 'ja';
+    const tokens = isCJK
+      ? (text.match(/[\u4e00-\u9fa5\u3040-\u30ff\u3400-\u4dbf]|[a-zA-Z0-9_]+|[^\s\w]/g) || Array.from(text))
+      : text.split(' ');
+    const joiner = isCJK ? '' : ' ';
+
+    for (let i = 0; i < tokens.length; i++) {
       if (ticket !== activeTicket) return false;
       if (isPaused) {
         const ok = await waitWhilePaused(ticket);
         if (!ok) return false;
       }
-      textNode.textContent += (i > 0 ? ' ' : '') + words[i];
-      await sleep(24);
+      textNode.textContent += (i > 0 && joiner ? joiner : '') + tokens[i];
+      await sleep(isCJK ? 20 : 28);
     }
     cursor.remove();
     return true;
@@ -1280,14 +1992,14 @@ function initAssistantSandbox() {
     if (shortcutBtn) shortcutBtn.classList.remove('active');
     if (ticket !== activeTicket) return;
 
-    // 4. Fake Retrieval Steps
+    // 4. Localized Retrieval Steps
     if (retrievalBar && retrievalText) {
-      retrievalText.textContent = `Searching "${scenario.searchQuery}" in docs...`;
+      retrievalText.textContent = labels.searching.replace('{query}', scenario.searchQuery);
       retrievalBar.classList.remove('hidden');
       await sleep(750);
       if (ticket !== activeTicket) return;
 
-      retrievalText.textContent = `Reading ${scenario.readingDoc}...`;
+      retrievalText.textContent = labels.reading.replace('{doc}', scenario.readingDoc);
       await sleep(650);
       if (ticket !== activeTicket) return;
 
@@ -1312,9 +2024,9 @@ function initAssistantSandbox() {
       codeBlockEl.innerHTML = `
         <div class="assistant-code-header">
           <span class="assistant-code-lang">${scenario.codeBlock.lang}</span>
-          <button class="assistant-code-copy" type="button" onclick="copyCodeBlock(this)" aria-label="Copy code">
+          <button class="assistant-code-copy" type="button" onclick="copyCodeBlock(this, '${labels.copied}')" aria-label="Copy code">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            <span>Copy</span>
+            <span>${labels.copy}</span>
           </button>
         </div>
         <pre class="assistant-code-pre"><code>${scenario.codeBlock.code}</code></pre>
@@ -1332,9 +2044,9 @@ function initAssistantSandbox() {
       bubbleContent.appendChild(outroP);
     }
 
-    // 8. Citations
+    // 8. Localized Citations
     if (citationsBar && scenario.citations) {
-      citationsBar.innerHTML = `<span class="assistant-citations-label">Sources:</span>` +
+      citationsBar.innerHTML = `<span class="assistant-citations-label">${labels.sources}</span> ` +
         scenario.citations.map(c => `<a href="${c.url}" target="_blank" rel="noopener" class="assistant-citation-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ${c.name}</a>`).join(' ');
       citationsBar.classList.remove('hidden');
     }
@@ -1350,8 +2062,11 @@ function initAssistantSandbox() {
     runCycle();
   }
 
-  // Start initial cycle
-  setTimeout(runCycle, 800);
+  // Allow initial static slide (already rendered in active locale) to be read before animating to slide 2
+  setTimeout(() => {
+    currentIndex = 1;
+    runCycle();
+  }, 3800);
 }
 
 /* --- Developer Integration Code Tabs --- */
