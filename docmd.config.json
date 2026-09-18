@@ -38,7 +38,7 @@
   },
   "plugins": {
     "seo": {
-      "defaultDescription": "Open-source documentation compiler. One Markdown source, one command — generates website, search, AI context, agent protocols, and knowledge formats together.",
+      "defaultDescription": "Open-source documentation compiler. One Markdown source, one command – generates website, search, AI context, agent protocols, and knowledge formats together.",
       "breadcrumbs": true,
       "organization": {
         "name": "docmd",

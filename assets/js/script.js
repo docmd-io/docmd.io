@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroTabs();
   initFeatureTabs();
   initSearchDemo();
+  initVectorFieldCanvas();
+  initSearchSandbox();
+  initAssistantSandbox();
+  initAssistantCodeTabs();
+  initCodeWindowCopy();
 });
 
 /* --- Nav Dropdown (compact screens) --- */
@@ -59,19 +64,42 @@ function initTheme() {
 }
 
 /* --- Language Switcher --- */
+function getAppLocale() {
+  const pathname = window.location.pathname;
+  const segments = pathname.split('/').filter(Boolean);
+  const knownLocales = ['de', 'zh', 'es', 'ja', 'fr', 'ru'];
+  if (segments.length > 0 && knownLocales.includes(segments[0])) {
+    return segments[0];
+  }
+  return 'en';
+}
+
 function initLangSwitcher() {
   const toggle = document.getElementById('lang-toggle');
   const dropdown = document.getElementById('lang-dropdown');
   if (!toggle || !dropdown) return;
 
-  const pathSegment = window.location.pathname.split('/').filter(Boolean)[0] || '';
-  const langOptions = Array.from(dropdown.querySelectorAll('.lang-option'));
-  const currentLocale = langOptions.some(btn => btn.dataset.lang === pathSegment)
-    ? pathSegment
-    : 'en';
+  const pathname = window.location.pathname;
+  const segments = pathname.split('/').filter(Boolean);
+  const knownLocales = ['de', 'zh', 'es', 'ja', 'fr', 'ru'];
+
+  let currentLocale = 'en';
+  let cleanSegments = [...segments];
+  if (segments.length > 0 && knownLocales.includes(segments[0])) {
+    currentLocale = segments[0];
+    cleanSegments.shift();
+  }
+  const cleanRoute = '/' + (cleanSegments.length ? cleanSegments.join('/') + '/' : '');
 
   dropdown.querySelectorAll('.lang-option').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === currentLocale);
+    const lang = btn.dataset.lang;
+    btn.classList.toggle('active', lang === currentLocale);
+    const targetHref = lang === 'en' ? cleanRoute : `/${lang}${cleanRoute}`;
+    btn.setAttribute('href', targetHref);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = targetHref;
+    });
   });
 
   toggle.addEventListener('click', (e) => {
@@ -286,46 +314,104 @@ window.copyCmd = function (btn) {
   }, 2000);
 };
 
-/* --- Version Fetcher --- */
+/* --- Copy Code Snippet helper --- */
+window.copySnippet = function (btn) {
+  const codeBox = btn.closest('.dev-code-window')?.querySelector('pre');
+  if (!codeBox) return;
+  navigator.clipboard.writeText(codeBox.textContent);
+  const orig = btn.innerHTML;
+  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copied!`;
+  setTimeout(() => { btn.innerHTML = orig; }, 2000);
+};
+
+window.copyCodeBlock = function (btn) {
+  const codeBox = btn.closest('.assistant-code-block')?.querySelector('pre');
+  if (!codeBox) return;
+  navigator.clipboard.writeText(codeBox.textContent);
+  const orig = btn.innerHTML;
+  btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Copied!</span>`;
+  setTimeout(() => { btn.innerHTML = orig; }, 2000);
+};
+
+/* --- Version & Live NPM Stats Fetcher --- */
+function formatInstalls(num) {
+  if (!num || num < 1) return '';
+  if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M+';
+  if (num >= 100000) return Math.round(num / 1000) + 'k+';
+  if (num >= 10000) return Math.round(num / 1000) + 'k+';
+  if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k+';
+  return num + '+';
+}
+
+async function fetchPackageStats(primaryPkg, relatedPkgs, versionElId, dlElId, defaultPkgPrefix) {
+  const versionEl = document.getElementById(versionElId);
+  const dlEl = document.getElementById(dlElId);
+  if (!versionEl && !dlEl) return;
+
+  // 1. Fetch latest version from npm registry
+  if (versionEl) {
+    try {
+      const res = await fetch(`https://registry.npmjs.org/${primaryPkg}/latest`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.version) {
+          const verNumEl = versionEl.querySelector('.badge-ver-num');
+          if (verNumEl) {
+            verNumEl.textContent = 'v' + data.version;
+          } else {
+            versionEl.textContent = `${defaultPkgPrefix} v${data.version}`;
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  // 2. Fetch total installs across all related packages (all-time sum)
+  if (dlEl) {
+    try {
+      const allPkgs = relatedPkgs || [primaryPkg];
+      const fetches = allPkgs.map(pkg =>
+        fetch(`https://api.npmjs.org/downloads/point/2020-01-01:2099-12-31/${pkg}`)
+          .then(r => r.ok ? r.json() : null)
+          .catch(() => null)
+      );
+      const results = await Promise.all(fetches);
+      let totalDl = 0;
+      for (const r of results) {
+        if (r && r.downloads) totalDl += r.downloads;
+      }
+
+      if (totalDl > 0) {
+        const formatted = formatInstalls(totalDl);
+        const textEl = dlEl.querySelector('.badge-dl-text');
+        if (textEl) {
+          textEl.textContent = formatted;
+        } else {
+          dlEl.innerHTML = `<span class="badge-dl-text">${formatted}</span><span class="badge-dl-label">installs</span>`;
+        }
+      }
+    } catch (e) {}
+  }
+}
+
 async function fetchLatestVersion() {
-  const badge = document.getElementById('npm-version');
-  if (badge) {
-    try {
-      const res = await fetch('https://registry.npmjs.org/@docmd/core/latest');
-      if (res.ok) {
-        const data = await res.json();
-        if (data.version) {
-          badge.innerText = 'docmd v' + data.version;
-        }
-      }
-    } catch (e) {}
-  }
+  // Homepage: aggregate all @docmd/* ecosystem packages
+  const docmdEcosystem = [
+    '@docmd/core', '@docmd/api', '@docmd/themes', '@docmd/parser', '@docmd/tui',
+    '@docmd/ui', '@docmd/utils', '@docmd/engine-rust', '@docmd/live',
+    '@docmd/plugin-search', '@docmd/plugin-ai', '@docmd/plugin-llms',
+    '@docmd/plugin-sitemap', '@docmd/plugin-seo', '@docmd/plugin-git',
+    '@docmd/plugin-math', '@docmd/plugin-mermaid', '@docmd/plugin-analytics',
+    '@docmd/plugin-installer', '@docmd/plugin-openapi', '@docmd/plugin-pwa',
+    'docmd-search', 'docmd-assistant'
+  ];
+  fetchPackageStats('@docmd/core', docmdEcosystem, 'npm-version', 'npm-downloads', 'docmd');
 
-  const searchBadge = document.getElementById('npm-version-search');
-  if (searchBadge) {
-    try {
-      const res = await fetch('https://registry.npmjs.org/docmd-search/latest');
-      if (res.ok) {
-        const data = await res.json();
-        if (data.version) {
-          searchBadge.innerText = 'docmd-search v' + data.version;
-        }
-      }
-    } catch (e) {}
-  }
+  // Search page: docmd-search + @docmd/plugin-search
+  fetchPackageStats('docmd-search', ['docmd-search', '@docmd/plugin-search'], 'npm-version-search', 'npm-downloads-search', 'docmd-search');
 
-  const assistantBadge = document.getElementById('npm-version-assistant');
-  if (assistantBadge) {
-    try {
-      const res = await fetch('https://registry.npmjs.org/docmd-assistant/latest');
-      if (res.ok) {
-        const data = await res.json();
-        if (data.version) {
-          assistantBadge.innerText = 'docmd-assistant v' + data.version;
-        }
-      }
-    } catch (e) {}
-  }
+  // Assistant page: docmd-assistant + @docmd/plugin-ai
+  fetchPackageStats('docmd-assistant', ['docmd-assistant', '@docmd/plugin-ai'], 'npm-version-assistant', 'npm-downloads-assistant', 'docmd-assistant');
 }
 
 /* --- Lazy Video Loader --- */
@@ -353,4 +439,1009 @@ function initLazyVideos() {
       v.play().catch(() => {});
     });
   }
+}
+
+/* --- Semantic Vector Field Canvas (Organic Floating Nodes) --- */
+function initVectorFieldCanvas() {
+  const canvas = document.getElementById('search-vector-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    const parent = canvas.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    ctx.scale(dpr, dpr);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  // Philosophical representation of semantic vector space:
+  // Document concepts floating as embedded vectors in continuous latent space,
+  // drifting smoothly with gentle Brownian wandering and soft, elegant luminescence.
+  const DOT_COUNT = 38;
+  const lightColors = [
+    { r: 124, g: 58, b: 237 }, // Rich violet
+    { r: 139, g: 92, b: 246 }, // Brand violet
+    { r: 109, g: 40, b: 217 }, // Deep violet
+    { r: 99, g: 102, b: 241 },  // Periwinkle indigo
+    { r: 168, g: 85, b: 247 }  // Soft purple
+  ];
+
+  const darkColors = [
+    { r: 192, g: 132, b: 252 }, // Luminous violet
+    { r: 216, g: 180, b: 254 }, // Bright lavender
+    { r: 168, g: 85, b: 247 }, // Soft purple
+    { r: 165, g: 180, b: 252 }, // Periwinkle
+    { r: 232, g: 121, b: 249 }  // Soft fuchsia violet
+  ];
+
+  const dots = [];
+  for (let i = 0; i < DOT_COUNT; i++) {
+    dots.push({
+      x: Math.random() * (width || 1200),
+      y: Math.random() * (height || 600),
+      radius: 2.0 + Math.random() * 2.2,
+      baseAlpha: 0.36 + Math.random() * 0.16,
+      pulseSpeed: 0.008 + Math.random() * 0.014,
+      pulseOffset: Math.random() * Math.PI * 2,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.18,
+      colorIndex: Math.floor(Math.random() * lightColors.length)
+    });
+  }
+
+  let time = 0;
+
+  function render() {
+    time += 0.011;
+    ctx.clearRect(0, 0, width, height);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const activePalette = isDark ? darkColors : lightColors;
+
+    // 1. Draw subtle semantic proximity links between nearby vector nodes
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 85) {
+          const lineAlpha = (1 - dist / 85) * (isDark ? 0.22 : 0.16);
+          const col = activePalette[dots[i].colorIndex];
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.strokeStyle = `rgba(${col.r}, ${col.g}, ${col.b}, ${lineAlpha})`;
+          ctx.lineWidth = 0.85;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // 2. Render organic wandering vector nodes
+    for (let i = 0; i < dots.length; i++) {
+      const d = dots[i];
+      const col = activePalette[d.colorIndex];
+
+      // Organic wandering in latent vector space
+      d.x += d.vx + Math.sin(time + d.pulseOffset) * 0.10;
+      d.y += d.vy + Math.cos(time + d.pulseOffset * 1.25) * 0.10;
+
+      // Soft wrap edges
+      if (d.x < -24) d.x = width + 24;
+      else if (d.x > width + 24) d.x = -24;
+      if (d.y < -24) d.y = height + 24;
+      else if (d.y > height + 24) d.y = -24;
+
+      // Breathing luminescence with clearly visible core
+      const currentAlpha = d.baseAlpha + Math.sin(time * 1.3 + d.pulseOffset) * 0.06;
+      const alpha = Math.max(0.24, Math.min(isDark ? 0.65 : 0.58, currentAlpha));
+
+      // Draw soft ambient halo
+      const grad = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.radius * 3.2);
+      grad.addColorStop(0, `rgba(${col.r}, ${col.g}, ${col.b}, ${alpha * (isDark ? 0.40 : 0.32)})`);
+      grad.addColorStop(0.5, `rgba(${col.r}, ${col.g}, ${col.b}, ${alpha * 0.12})`);
+      grad.addColorStop(1, `rgba(${col.r}, ${col.g}, ${col.b}, 0)`);
+
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.radius * 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Draw visible, defined core
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+      const coreAlpha = Math.min(isDark ? 0.88 : 0.76, alpha + (isDark ? 0.22 : 0.18));
+      ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, ${coreAlpha})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  // Start rendering immediately so motion is continuous
+  render();
+
+  // Smoothly fade in once page loads and animation is running
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      canvas.classList.add('is-visible');
+    }, 150);
+  });
+}
+
+/* --- Search Interactive Live Palette with Human Typing & Auto-Sorting --- */
+const SEARCH_SCENARIOS = {
+  en: [
+    {
+      id: 'auth',
+      query: 'authentication secure tokens',
+      stats: 'Cosine Similarity · 3 matches in 0.3ms · 100% Client-Side Vector',
+      matchLabel: 'match',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'User Authentication & Sessions',
+          path: '/getting-started/security',
+          body: 'Configure how your application handles <mark class="search-highlight">user login</mark>, secure cookies, token generation, and stateless session verification.',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth & Single Sign-On (SSO)',
+          path: '/plugins/auth-providers',
+          body: 'Authenticate documentation access through GitHub, Google, and enterprise <mark class="search-highlight">OAuth</mark> SAML providers.',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'Route Guards & Security Tokens',
+          path: '/configuration/routing',
+          body: 'Define private directories, verify cryptographic <mark class="search-highlight">tokens</mark>, and prevent unauthenticated access to protected paths.',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    },
+    {
+      id: 'theme',
+      query: 'custom dark theme colors',
+      stats: 'Dense 384-Dim Vector · 3 matches in 0.4ms · 100% Client-Side Vector',
+      matchLabel: 'match',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: 'Custom CSS Variables & Color Tokens',
+          path: '/theming/available-themes',
+          body: 'Override CSS variables in <mark class="search-highlight">custom.css</mark> to configure dark mode palettes, surface contrasts, and brand <mark class="search-highlight">colors</mark>.',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: 'Dark Mode Syntax Highlighting',
+          path: '/theming/code-blocks',
+          body: 'Choose from 40+ pre-bundled Prism and Shiki themes with automatic light and <mark class="search-highlight">dark mode</mark> adaptation.',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: 'Dynamic Theme Switcher & Toggle',
+          path: '/content/theming-api',
+          body: 'Zero-flicker client-side theme switching with automatic system appearance detection and manual toggle persistence.',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: 'offline wasm vector embeddings',
+      stats: 'Quantized Int8 Vector · 3 matches in 0.2ms · Zero Network Calls',
+      matchLabel: 'match',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: 'Browser Search Runtime (<3KB)',
+          path: '/plugins/search/architecture',
+          body: 'Lightweight <mark class="search-highlight">client search runtime</mark> executes integer vector math directly in the browser with zero external dependencies.',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: 'Build-Time Vector Quantization',
+          path: '/plugins/search/indexing',
+          body: 'Pre-computes document chunk <mark class="search-highlight">embeddings</mark> during compilation, packing whole indices into compact offline JSON chunks.',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: 'Hybrid BM25 + Cosine Re-ranker',
+          path: '/plugins/search/ranking',
+          body: 'Combines exact lexical keyword matching with meaning-aware dense vectors for instant, typo-tolerant relevance.',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
+        }
+      ]
+    }
+  ],
+  zh: [
+    {
+      id: 'auth',
+      query: '用户安全认证与鉴权令牌',
+      stats: '余弦相似度 · 0.3ms 完成 3 项匹配 · 100% 客户端纯前端向量',
+      matchLabel: '匹配度',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: '用户认证与会话管理',
+          path: '/zh/getting-started/security',
+          body: '配置应用如何处理<mark class="search-highlight">用户登录</mark>、安全 Cookie、令牌生成及无状态会话安全校验。',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth 与单点登录 (SSO)',
+          path: '/zh/plugins/auth-providers',
+          body: '通过 GitHub、Google 以及企业级 <mark class="search-highlight">OAuth</mark> SAML 提供商实现文档访问权限认证。',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: '路由守卫与安全令牌',
+          path: '/zh/configuration/routing',
+          body: '定义私有目录，校验密码学<mark class="search-highlight">令牌</mark>，阻止未经授权访问受保护路径。',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    },
+    {
+      id: 'theme',
+      query: '自定义暗黑主题颜色变量',
+      stats: '稠密 384 维向量 · 0.4ms 完成 3 项匹配 · 100% 客户端向量检索',
+      matchLabel: '匹配度',
+      cards: [
+        {
+          id: 'theme-colors',
+          title: '自定义 CSS 变量与色彩设计令牌',
+          path: '/zh/theming/available-themes',
+          body: '在 <mark class="search-highlight">custom.css</mark> 中覆盖 CSS 变量，定制深色模式配色、表面对比度与品牌<mark class="search-highlight">颜色</mark>。',
+          startScore: 70,
+          midScore: 92,
+          endScore: 99
+        },
+        {
+          id: 'syntax-schemes',
+          title: '代码语法高亮方案',
+          path: '/zh/theming/code-blocks',
+          body: '从 40 多款内置 Prism 与 Shiki 主题中自由选择，支持随明暗主题无缝自适应切换。',
+          startScore: 65,
+          midScore: 86,
+          endScore: 93
+        },
+        {
+          id: 'theme-switch',
+          title: '无闪烁动态主题切换器',
+          path: '/zh/content/theming-api',
+          body: '零闪烁纯客户端主题即时切换，支持操作系统外观自动跟随与手动模式持久化存储。',
+          startScore: 86,
+          midScore: 83,
+          endScore: 88
+        }
+      ]
+    },
+    {
+      id: 'wasm',
+      query: '离线 wasm 向量嵌入计算',
+      stats: 'Int8 量化向量 · 0.2ms 完成检索 · 零网络请求调用',
+      matchLabel: '匹配度',
+      cards: [
+        {
+          id: 'wasm-runtime',
+          title: '超轻量浏览器搜索运行时 (<3KB)',
+          path: '/zh/plugins/search/architecture',
+          body: '体积小于 3KB 的轻量<mark class="search-highlight">客户端搜索运行时</mark>，直接在浏览器中高效运行整型向量数学运算。',
+          startScore: 72,
+          midScore: 93,
+          endScore: 99
+        },
+        {
+          id: 'build-quant',
+          title: '构建期向量量化压缩',
+          path: '/zh/plugins/search/indexing',
+          body: '在编译期间预先计算文档文本块的<mark class="search-highlight">向量嵌入</mark>，并将整个索引压缩打包为离线 JSON 分块。',
+          startScore: 84,
+          midScore: 86,
+          endScore: 96
+        },
+        {
+          id: 'hybrid-rank',
+          title: '混合 BM25 + 余弦相似度重排器',
+          path: '/zh/plugins/search/ranking',
+          body: '完美结合精确关键词词法匹配与语义感知稠密向量，实现毫秒级容错的精准搜索体验。',
+          startScore: 68,
+          midScore: 79,
+          endScore: 89
+        }
+      ]
+    }
+  ],
+  de: [
+    {
+      id: 'auth',
+      query: 'authentifizierung sichere tokens',
+      stats: 'Kosinus-Ähnlichkeit · 3 Treffer in 0,3 ms · 100% Client-seitiger Vektor',
+      matchLabel: 'Übereinstimmung',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'Benutzerauthentifizierung & Sitzungen',
+          path: '/de/getting-started/security',
+          body: 'Konfigurieren Sie, wie Ihre Anwendung <mark class="search-highlight">Benutzer-Logins</mark>, sichere Cookies, Token-Generierung und zustandslose Sitzungsverifizierung handhabt.',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth & Single Sign-On (SSO)',
+          path: '/de/plugins/auth-providers',
+          body: 'Authentifizieren Sie Dokumentationszugriffe über GitHub, Google und unternehmensweite <mark class="search-highlight">OAuth</mark>-SAML-Anbieter.',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'Routenschutz & Private Dokumente',
+          path: '/de/configuration/routing',
+          body: 'Definieren Sie geschützte Verzeichnisse, verifizieren Sie kryptografische <mark class="search-highlight">Tokens</mark> und verhindern Sie unbefugten Zugriff.',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    }
+  ],
+  es: [
+    {
+      id: 'auth',
+      query: 'autenticacion tokens seguros',
+      stats: 'Similitud Coseno · 3 coincidencias en 0,3 ms · Vector 100% en Cliente',
+      matchLabel: 'coincidencia',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'Autenticación de Usuarios y Sesiones',
+          path: '/es/getting-started/security',
+          body: 'Configura cómo gestiona tu aplicación el <mark class="search-highlight">inicio de sesión</mark>, cookies seguras, tokens y verificación de sesiones sin estado.',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth y Single Sign-On (SSO)',
+          path: '/es/plugins/auth-providers',
+          body: 'Autentica el acceso a la documentación mediante GitHub, Google y proveedores empresariales <mark class="search-highlight">OAuth</mark> SAML.',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'Protección de Rutas y Tokens',
+          path: '/es/configuration/routing',
+          body: 'Define directorios privados, verifica <mark class="search-highlight">tokens</mark> criptográficos y evita accesos no autenticados.',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    }
+  ],
+  ja: [
+    {
+      id: 'auth',
+      query: 'ユーザー認証 セキュアトークン',
+      stats: 'コサイン類似度 · 0.3ms で 3 件一致 · 100% クライアントサイドベクトル',
+      matchLabel: '一致',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'ユーザー認証とセッション管理',
+          path: '/ja/getting-started/security',
+          body: 'アプリケーションが<mark class="search-highlight">ユーザーログイン</mark>、セキュアクッキー、トークン生成、ステートレスセッション検証を処理する方法を設定します。',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth とシングルサインオン (SSO)',
+          path: '/ja/plugins/auth-providers',
+          body: 'GitHub、Google、および企業向け <mark class="search-highlight">OAuth</mark> SAML プロバイダーを介してドキュメントアクセスを認証します。',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'ルート保護とセキュリティトークン',
+          path: '/ja/configuration/routing',
+          body: 'プライベートディレクトリを定義し、暗号化<mark class="search-highlight">トークン</mark>を検証して保護されたパスへのアクセスを制御します。',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    }
+  ],
+  fr: [
+    {
+      id: 'auth',
+      query: 'authentification tokens securises',
+      stats: 'Similarité Cosinus · 3 résultats en 0,3 ms · Vecteur 100% Côté Client',
+      matchLabel: 'correspondance',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'Authentification des Utilisateurs & Sessions',
+          path: '/fr/getting-started/security',
+          body: 'Configurez la gestion des <mark class="search-highlight">connexions utilisateurs</mark>, des cookies sécurisés, des tokens et de la validation de session sans état.',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth & Authentification Unique (SSO)',
+          path: '/fr/plugins/auth-providers',
+          body: 'Authentifiez l\'accès à la documentation via GitHub, Google et les fournisseurs d\'entreprise <mark class="search-highlight">OAuth</mark> SAML.',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'Gardes de Route & Tokens de Sécurité',
+          path: '/fr/configuration/routing',
+          body: 'Définissez des répertoires privés, vérifiez les <mark class="search-highlight">tokens</mark> cryptographiques et empêchez les accès non autorisés.',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    }
+  ],
+  ru: [
+    {
+      id: 'auth',
+      query: 'аутентификация токены безопасности',
+      stats: 'Косинусное сходство · 3 совпадения за 0,3 мс · 100% Векторный клиентский поиск',
+      matchLabel: 'совпадение',
+      cards: [
+        {
+          id: 'auth-sessions',
+          title: 'Аутентификация пользователей и сессии',
+          path: '/ru/getting-started/security',
+          body: 'Настройте обработку <mark class="search-highlight">входа пользователей</mark>, безопасных cookies, генерации токенов и проверки сессий без сохранения состояния.',
+          startScore: 74,
+          midScore: 91,
+          endScore: 99
+        },
+        {
+          id: 'oauth-sso',
+          title: 'OAuth и единый вход (SSO)',
+          path: '/ru/plugins/auth-providers',
+          body: 'Аутентифицируйте доступ к документации через GitHub, Google и корпоративные <mark class="search-highlight">OAuth</mark> SAML-провайдеры.',
+          startScore: 88,
+          midScore: 84,
+          endScore: 87
+        },
+        {
+          id: 'route-guards',
+          title: 'Защита маршрутов и приватные документы',
+          path: '/ru/configuration/routing',
+          body: 'Определяйте закрытые директории, проверяйте криптографические <mark class="search-highlight">токены</mark> и блокируйте доступ к защищенным путям.',
+          startScore: 61,
+          midScore: 78,
+          endScore: 94
+        }
+      ]
+    }
+  ]
+};
+
+function initSearchSandbox() {
+  const palette = document.querySelector('.search-live-palette');
+  if (!palette) return;
+
+  const queryEl = palette.querySelector('#live-search-query');
+  const resultsEl = palette.querySelector('#live-search-results');
+  const statsEl = palette.querySelector('#live-search-stats');
+
+  const locale = getAppLocale();
+  const scenarios = SEARCH_SCENARIOS[locale] || SEARCH_SCENARIOS.en;
+
+  function buildScenarioDom(scenario) {
+    if (!resultsEl) return;
+    const matchLabel = scenario.matchLabel || 'match';
+    resultsEl.innerHTML = scenario.cards.map((item, idx) => `
+      <div class="palette-result-card ${idx === 0 ? 'is-top-match' : ''}" data-card-id="${item.id}" role="listitem">
+        <div class="palette-result-header">
+          <div class="palette-result-title-group">
+            <div class="palette-result-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="palette-result-title">${item.title}</div>
+              <div class="palette-result-path">${item.path}</div>
+            </div>
+          </div>
+          <span class="palette-score-badge high-score">
+            <span class="score-num">--%</span> ${matchLabel}
+          </span>
+        </div>
+        <div class="palette-result-body">${item.body}</div>
+      </div>
+    `).join('');
+
+    scenario.cardNodes = Array.from(resultsEl.querySelectorAll('.palette-result-card')).map((el, idx) => ({
+      el,
+      meta: scenario.cards[idx],
+      currentScore: scenario.cards[idx].startScore
+    }));
+  }
+
+  function updateAndSortCards(scenario, progress) {
+    if (!scenario.cardNodes || !resultsEl) return;
+
+    scenario.cardNodes.forEach(item => {
+      let score;
+      if (progress <= 0.5) {
+        const p = progress / 0.5;
+        score = Math.round(item.meta.startScore + (item.meta.midScore - item.meta.startScore) * p);
+      } else {
+        const p = (progress - 0.5) / 0.5;
+        score = Math.round(item.meta.midScore + (item.meta.endScore - item.meta.midScore) * p);
+      }
+      item.currentScore = Math.min(100, Math.max(35, score));
+
+      const badge = item.el.querySelector('.palette-score-badge');
+      if (badge) {
+        badge.classList.toggle('high-score', item.currentScore >= 90);
+        const scoreNum = badge.querySelector('.score-num');
+        if (scoreNum) scoreNum.textContent = `${item.currentScore}%`;
+      }
+    });
+
+    // Sort descending by currentScore
+    const sorted = [...scenario.cardNodes].sort((a, b) => b.currentScore - a.currentScore);
+
+    // Re-append existing DOM nodes in sorted order
+    let orderChanged = false;
+    sorted.forEach((item, index) => {
+      if (resultsEl.children[index] !== item.el) {
+        orderChanged = true;
+      }
+    });
+
+    if (orderChanged) {
+      sorted.forEach(item => resultsEl.appendChild(item.el));
+    }
+
+    // Ensure is-top-match highlight follows top result
+    sorted.forEach((item, index) => {
+      item.el.classList.toggle('is-top-match', index === 0);
+    });
+  }
+
+  let currentScenarioIdx = 0;
+  let isDeleting = false;
+  let charIdx = 0;
+  let isPaused = false;
+  let timeoutId = null;
+
+  function tick() {
+    if (isPaused) {
+      timeoutId = setTimeout(tick, 200);
+      return;
+    }
+
+    const currentScenario = scenarios[currentScenarioIdx];
+    const fullQuery = currentScenario.query;
+
+    if (!isDeleting) {
+      charIdx++;
+      if (queryEl) queryEl.textContent = fullQuery.slice(0, charIdx);
+
+      const progress = fullQuery.length > 0 ? charIdx / fullQuery.length : 0;
+      updateAndSortCards(currentScenario, progress);
+
+      if (charIdx === fullQuery.length) {
+        // Full query typed! Show finalized stats
+        if (statsEl) statsEl.textContent = currentScenario.stats;
+
+        // Pause before deleting
+        timeoutId = setTimeout(() => {
+          isDeleting = true;
+          tick();
+        }, 4200);
+        return;
+      }
+
+      // Varied typing cadence
+      const delay = 40 + Math.random() * 35;
+      timeoutId = setTimeout(tick, delay);
+    } else {
+      // Deleting phase
+      charIdx -= 2;
+      if (charIdx < 0) charIdx = 0;
+      if (queryEl) queryEl.textContent = fullQuery.slice(0, charIdx);
+
+      const progress = fullQuery.length > 0 ? charIdx / fullQuery.length : 0;
+      updateAndSortCards(currentScenario, progress);
+
+      if (charIdx === 0) {
+        // Move to next scenario
+        isDeleting = false;
+        currentScenarioIdx = (currentScenarioIdx + 1) % scenarios.length;
+        const nextScenario = scenarios[currentScenarioIdx];
+
+        // Setup DOM for next scenario
+        buildScenarioDom(nextScenario);
+        if (statsEl) statsEl.textContent = nextScenario.stats;
+
+        timeoutId = setTimeout(tick, 450);
+        return;
+      }
+
+      timeoutId = setTimeout(tick, 30 + Math.random() * 10);
+    }
+  }
+
+  palette.addEventListener('mouseenter', () => { isPaused = true; });
+  palette.addEventListener('mouseleave', () => { isPaused = false; });
+
+  // Initial pause on the first fully-rendered query before deleting
+  timeoutId = setTimeout(() => {
+    isDeleting = true;
+    tick();
+  }, 2800);
+}
+
+function initAssistantSandbox() {
+  const card = document.getElementById('assistant-chat-card');
+  if (!card) return;
+
+  const promptTextEl = document.getElementById('assistant-prompt-text');
+  const shortcutBtn = document.querySelector('.assistant-prompt-submit') || document.querySelector('.assistant-prompt-shortcut');
+  const retrievalBar = document.getElementById('assistant-retrieval-bar');
+  const retrievalText = document.getElementById('assistant-retrieval-text');
+  const bubbleContent = document.getElementById('assistant-bubble-content');
+  const citationsBar = document.getElementById('assistant-citations-bar');
+
+  if (!promptTextEl || !bubbleContent) return;
+
+  const scenarios = [
+    {
+      query: 'How do I run docmd-assistant completely offline with a local model?',
+      searchQuery: 'offline local model',
+      readingDoc: '/guides/ai/ai-assistant.md',
+      introText: 'Configure DocmdAssistantEngine to connect directly to your local Ollama instance. Both vector embeddings and inference compute locally with zero cloud API keys or telemetry.',
+      codeBlock: {
+        lang: 'TYPESCRIPT',
+        code: `<span class="tok-kw">import</span> { DocmdAssistantEngine } <span class="tok-kw">from</span> <span class="tok-str">'docmd-assistant'</span>;\n\n<span class="tok-kw">const</span> engine = <span class="tok-kw">new</span> <span class="tok-cls">DocmdAssistantEngine</span>({\n  provider: <span class="tok-str">'ollama'</span>,\n  model: <span class="tok-str">'llama3.2'</span>,\n  baseUrl: <span class="tok-str">'http://localhost:11434'</span>\n});`
+      },
+      outroText: 'Zero network telemetry and zero external token fees.',
+      citations: [
+        { name: '/guides/ai/ai-assistant.md', url: 'https://docs.docmd.io/guides/ai/ai-assistant/' },
+        { name: '/plugins/usage/', url: 'https://docs.docmd.io/plugins/usage/' }
+      ]
+    },
+    {
+      query: 'Can the assistant cite specific Markdown headings and prevent hallucinations?',
+      searchQuery: 'AST chunks citation rules',
+      readingDoc: '/architecture/search-rag.md',
+      introText: 'Yes. docmd compiles your documentation into typed AST chunks with exact heading anchors. The engine retrieves matching sections via hybrid BM25 and vector search, strictly enforcing citation bounds.',
+      codeBlock: null,
+      outroText: 'Unverified claims and hallucinated APIs are rejected before generating responses.',
+      citations: [
+        { name: '/architecture/search-rag.md', url: 'https://docs.docmd.io/architecture/search-rag/' },
+        { name: '/guides/content/search.md', url: 'https://docs.docmd.io/guides/content/search/' }
+      ]
+    },
+    {
+      query: 'How are team API keys protected in production deployments?',
+      searchQuery: 'KMS envelope encryption',
+      readingDoc: '/security/kms-envelope.md',
+      introText: 'Provider credentials are encrypted at rest with AES-256-GCM hardware KMS envelopes. Plaintext keys are decrypted only in secure server memory during request execution and never exposed to the client browser.',
+      codeBlock: {
+        lang: 'JSON · docmd.config.json',
+        code: `{\n  <span class="tok-prop">"assistant"</span>: {\n    <span class="tok-prop">"kms"</span>: { <span class="tok-prop">"provider"</span>: <span class="tok-str">"aws-kms"</span>, <span class="tok-prop">"keyId"</span>: <span class="tok-str">"alias/docmd-keys"</span> },\n    <span class="tok-prop">"relay"</span>: { <span class="tok-prop">"endpoint"</span>: <span class="tok-str">"/api/assistant/relay"</span> }\n  }\n}`
+      },
+      outroText: 'Client sessions receive transient signed streaming tokens over SSE.',
+      citations: [
+        { name: '/security/kms-envelope.md', url: 'https://docs.docmd.io/security/kms-envelope/' },
+        { name: '/configuration/security.md', url: 'https://docs.docmd.io/configuration/overview/' }
+      ]
+    }
+  ];
+
+  let currentIndex = 0;
+  let isPaused = false;
+  let activeTicket = 0;
+
+  const previewBox = document.querySelector('.assistant-live-preview') || card;
+  previewBox.addEventListener('mouseenter', () => { isPaused = true; });
+  previewBox.addEventListener('mouseleave', () => { isPaused = false; });
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function waitWhilePaused(ticket) {
+    while (isPaused) {
+      if (ticket !== activeTicket) return false;
+      await sleep(200);
+    }
+    return ticket === activeTicket;
+  }
+
+  async function typeString(targetEl, text, speedMs, ticket) {
+    targetEl.textContent = '';
+    for (let i = 0; i < text.length; i++) {
+      if (ticket !== activeTicket) return false;
+      if (isPaused) {
+        const ok = await waitWhilePaused(ticket);
+        if (!ok) return false;
+      }
+      targetEl.textContent += text[i];
+      await sleep(speedMs);
+    }
+    return true;
+  }
+
+  async function streamTextParagraph(parentEl, text, ticket) {
+    const p = document.createElement('p');
+    p.className = 'assistant-bubble-text';
+    const textNode = document.createTextNode('');
+    const cursor = document.createElement('span');
+    cursor.className = 'assistant-stream-cursor';
+    p.appendChild(textNode);
+    p.appendChild(cursor);
+    parentEl.appendChild(p);
+
+    const words = text.split(' ');
+    for (let i = 0; i < words.length; i++) {
+      if (ticket !== activeTicket) return false;
+      if (isPaused) {
+        const ok = await waitWhilePaused(ticket);
+        if (!ok) return false;
+      }
+      textNode.textContent += (i > 0 ? ' ' : '') + words[i];
+      await sleep(24);
+    }
+    cursor.remove();
+    return true;
+  }
+
+  async function runCycle() {
+    const ticket = ++activeTicket;
+    const scenario = scenarios[currentIndex];
+
+    // 1. Reset prompt and retrieval bar
+    promptTextEl.textContent = '';
+    if (retrievalBar) retrievalBar.classList.add('hidden');
+
+    // 2. Type question
+    const typed = await typeString(promptTextEl, scenario.query, 24, ticket);
+    if (!typed) return;
+
+    await sleep(350);
+    if (ticket !== activeTicket) return;
+
+    // 3. Simulate enter press
+    if (shortcutBtn) shortcutBtn.classList.add('active');
+    await sleep(180);
+    if (shortcutBtn) shortcutBtn.classList.remove('active');
+    if (ticket !== activeTicket) return;
+
+    // 4. Fake Retrieval Steps
+    if (retrievalBar && retrievalText) {
+      retrievalText.textContent = `Searching "${scenario.searchQuery}" in docs...`;
+      retrievalBar.classList.remove('hidden');
+      await sleep(750);
+      if (ticket !== activeTicket) return;
+
+      retrievalText.textContent = `Reading ${scenario.readingDoc}...`;
+      await sleep(650);
+      if (ticket !== activeTicket) return;
+
+      retrievalBar.classList.add('hidden');
+      await sleep(150);
+    }
+
+    // 5. Stream Response
+    bubbleContent.innerHTML = '';
+    if (citationsBar) citationsBar.classList.add('hidden');
+
+    const streamed = await streamTextParagraph(bubbleContent, scenario.introText, ticket);
+    if (!streamed) return;
+
+    // 6. Optional Code Block
+    if (scenario.codeBlock) {
+      await sleep(200);
+      if (ticket !== activeTicket) return;
+
+      const codeBlockEl = document.createElement('div');
+      codeBlockEl.className = 'assistant-code-block';
+      codeBlockEl.innerHTML = `
+        <div class="assistant-code-header">
+          <span class="assistant-code-lang">${scenario.codeBlock.lang}</span>
+          <button class="assistant-code-copy" type="button" onclick="copyCodeBlock(this)" aria-label="Copy code">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <pre class="assistant-code-pre"><code>${scenario.codeBlock.code}</code></pre>
+      `;
+      bubbleContent.appendChild(codeBlockEl);
+    }
+
+    // 7. Optional Outro Text
+    if (scenario.outroText) {
+      await sleep(150);
+      if (ticket !== activeTicket) return;
+      const outroP = document.createElement('p');
+      outroP.className = 'assistant-bubble-text';
+      outroP.textContent = scenario.outroText;
+      bubbleContent.appendChild(outroP);
+    }
+
+    // 8. Citations
+    if (citationsBar && scenario.citations) {
+      citationsBar.innerHTML = `<span class="assistant-citations-label">Sources:</span>` +
+        scenario.citations.map(c => `<a href="${c.url}" target="_blank" rel="noopener" class="assistant-citation-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ${c.name}</a>`).join(' ');
+      citationsBar.classList.remove('hidden');
+    }
+
+    // 9. Read time pause before next cycle
+    await sleep(4600);
+    if (ticket !== activeTicket) return;
+    await waitWhilePaused(ticket);
+    if (ticket !== activeTicket) return;
+
+    // Advance to next scenario
+    currentIndex = (currentIndex + 1) % scenarios.length;
+    runCycle();
+  }
+
+  // Start initial cycle
+  setTimeout(runCycle, 800);
+}
+
+/* --- Developer Integration Code Tabs --- */
+function initAssistantCodeTabs() {
+  const featCards = document.querySelectorAll('.assistant-dev-section .api-feat-card');
+  const panes = document.querySelectorAll('.dev-code-body .dev-code-pane');
+  if (!panes.length) return;
+
+  const fileMap = {
+    'tab-plugin': 'docmd.config.json',
+    'tab-node': 'assistant-engine.ts',
+    'tab-tools': 'register-tools.ts',
+    'tab-config': 'docmd.config.json',
+    'tab-engine': 'register-tools.ts'
+  };
+
+  function activateTab(tabTarget) {
+    let targetFile = '';
+    featCards.forEach(c => {
+      const isMatch = c.getAttribute('data-tab') === tabTarget;
+      c.classList.toggle('active', isMatch);
+      if (isMatch) {
+        targetFile = c.getAttribute('data-file') || c.querySelector('h4')?.textContent.trim();
+      }
+    });
+    panes.forEach(p => {
+      const isMatch = p.id === tabTarget;
+      p.classList.toggle('active', isMatch);
+      if (isMatch && !targetFile) {
+        targetFile = p.getAttribute('data-file');
+      }
+    });
+
+    const finalTitle = targetFile || fileMap[tabTarget] || 'docmd.config.json';
+    const titleEls = document.querySelectorAll('.assistant-dev-section .dev-code-title, #assistant-active-file');
+    titleEls.forEach(el => {
+      el.textContent = finalTitle;
+    });
+  }
+
+  featCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const tabTarget = card.getAttribute('data-tab');
+      if (tabTarget) activateTab(tabTarget);
+    });
+  });
+
+  window.switchAssistantTab = activateTab;
+}
+
+/* --- Developer Code Window Copy Handler --- */
+function initCodeWindowCopy() {
+  document.querySelectorAll('.dev-code-window .btn-copy-code').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const windowFrame = btn.closest('.dev-code-window');
+      if (!windowFrame) return;
+
+      const pre = windowFrame.querySelector('.dev-code-pane.active pre') || windowFrame.querySelector('pre');
+      if (!pre) return;
+
+      const codeText = pre.innerText || pre.textContent;
+
+      try {
+        await navigator.clipboard.writeText(codeText.trim());
+        const originalHtml = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalHtml;
+        }, 2000);
+      } catch (err) {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = codeText.trim();
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const originalHtml = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalHtml;
+        }, 2000);
+      }
+    });
+  });
 }

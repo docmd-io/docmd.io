@@ -1,5 +1,5 @@
 ---
-title: "docmd Search — Client-Side Vector & Keyword Search"
+title: "docmd Search – Client-Side Vector and Keyword Search"
 description: "Client-side vector and keyword search compiled at build time into local index files. Fast in-browser search with zero cloud dependencies."
 titleAppend: false
 noStyle: true
@@ -39,26 +39,36 @@ customHead: |
     </div>
     <div class="nav-center">
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
-      <a href="/search/" class="nav-link" style="color:var(--search-accent); font-weight:600;" data-i18n="nav.search">Semantic Search</a>
+      <a href="/search/" class="nav-link active active-search" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+      <span class="nav-divider"></span>
     </div>
     <button class="nav-dropdown-toggle" aria-label="Toggle menu">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="nav-dropdown-menu">
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
-      <a href="/search/" class="nav-link" style="color:var(--search-accent); font-weight:600;" data-i18n="nav.search">Semantic Search</a>
+      <a href="/search/" class="nav-link active active-search" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link" data-i18n="nav.cloud" target="_blank">Cloud</a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
+      <span class="nav-divider"></span>
+      <a href="https://github.com/sponsors/docmd-io" class="nav-link nav-link-sponsor" target="_blank" rel="noopener">
+        <svg class="nav-sponsor-heart" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span data-i18n="nav.sponsor">Sponsor</span>
+      </a>
     </div>
     <div class="nav-right">
+      <a href="https://github.com/sponsors/docmd-io" class="nav-sponsor-btn" target="_blank" rel="noopener" aria-label="Sponsor docmd on GitHub">
+        <svg class="nav-sponsor-heart" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span class="nav-sponsor-text" data-i18n="nav.sponsor">Sponsor</span>
+      </a>
       <a href="https://github.com/docmd-io/docmd" class="icon-btn" aria-label="GitHub" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
       </a>
@@ -103,21 +113,22 @@ customHead: |
     </div>
   </div>
 </nav>
-<main>
+<main class="search-page">
 <header class="hero search-hero">
+  <div class="search-hero-glow"></div>
   <div class="search-bg-grid">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="120" cy="80" r="3.5" class="vector-node v-node-1" />
-      <circle cx="380" cy="240" r="4.5" class="vector-node v-node-2" />
-      <circle cx="680" cy="120" r="4.0" class="vector-node v-node-3" />
-      <circle cx="980" cy="300" r="3.5" class="vector-node v-node-4" />
-      <circle cx="1280" cy="160" r="4.5" class="vector-node v-node-1" />
-    </svg>
+    <canvas id="search-vector-canvas" class="search-vector-canvas"></canvas>
   </div>
   <div class="container">
-    <a href="https://www.npmjs.com/package/docmd-search" target="_blank" rel="noopener" class="hero-badge search-badge">
+    <a href="https://github.com/docmd-io/docmd-search" target="_blank" rel="noopener" class="hero-badge search-badge">
       <span class="badge-dot" style="background:var(--search-accent);"></span>
-      <span id="npm-version-search">docmd-search v0.1.1</span> <span data-i18n="hero.badge">is now available →</span>
+      <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.5</span></span>
+      <span class="badge-divider" aria-hidden="true"></span>
+      <span class="badge-downloads" id="npm-downloads-search">
+        <span class="badge-dl-text">186k+</span>
+        <span class="badge-dl-label">installs</span>
+      </span>
+      <span class="badge-arrow" aria-hidden="true">→</span>
     </a>
     <h1 data-i18n="search.hero.title">Search that understands meaning.<br>Runs in the browser. <span class="gradient-text-search">Completely private.</span></h1>
     <p class="hero-sub" data-i18n="search.hero.sub">Offline semantic search for any documentation site. Understands meaning, runs entirely in the browser, and never sends data to the cloud.</p>
@@ -139,53 +150,89 @@ customHead: |
       </span>
       <span class="metric-badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-1px; margin-right:4px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span data-i18n="search.hero.metric.vector">Quantized Index</span>
+        <span data-i18n="search.hero.metric.vector">Quantised Index</span>
       </span>
       <span class="metric-badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-1px; margin-right:4px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         <span data-i18n="search.hero.metric.cost">Zero Cloud Costs</span>
       </span>
     </div>
-    <div class="demo-sandbox">
-      <div class="sandbox-header">
-        <div class="sandbox-dots">
-          <span class="sandbox-dot" style="background:#ef4444"></span>
-          <span class="sandbox-dot" style="background:#f59e0b"></span>
-          <span class="sandbox-dot" style="background:#10b981"></span>
+    <div class="search-live-palette" role="region" aria-label="Interactive Search Preview">
+      <div class="palette-input-wrap">
+        <div class="palette-search-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
         </div>
-        <div class="sandbox-title" data-i18n="search.sandbox.title">docmd-search sandbox</div>
-        <div style="width: 42px"></div>
+        <div class="palette-input-box">
+          <span class="palette-query-text" id="live-search-query" data-i18n="search.preview.q1">user authentication</span>
+          <span class="palette-cursor" aria-hidden="true"></span>
+        </div>
+        <div class="palette-shortcut-badge" title="Keyboard shortcut">
+          <kbd>⌘</kbd><kbd>K</kbd>
+        </div>
       </div>
-      <div class="sandbox-search-bar">
-        <div class="sandbox-search-icon" style="color:var(--search-accent)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+
+      <div class="palette-results-list" id="live-search-results" role="list">
+        <div class="palette-result-card is-top-match" data-card-id="card-0" role="listitem">
+          <div class="palette-result-header">
+            <div class="palette-result-title-group">
+              <div class="palette-result-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <div class="palette-result-title" data-i18n="search.preview.card1.title">User Authentication &amp; Sessions</div>
+                <div class="palette-result-path">/getting-started/security</div>
+              </div>
+            </div>
+            <span class="palette-score-badge high-score">
+              <span class="score-num">98%</span> <span data-i18n="search.preview.match">match</span>
+            </span>
+          </div>
+          <div class="palette-result-body" data-i18n-html="search.preview.card1.body">Configure how your application handles user login, secure cookies, token generation, and stateless session verification.</div>
         </div>
-        <div class="sandbox-input-simulate" data-i18n="search.sandbox.query">authentication</div>
+        <div class="palette-result-card" data-card-id="card-1" role="listitem">
+          <div class="palette-result-header">
+            <div class="palette-result-title-group">
+              <div class="palette-result-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <div class="palette-result-title" data-i18n="search.preview.card2.title">OAuth &amp; Single Sign-On (SSO)</div>
+                <div class="palette-result-path">/plugins/auth-providers</div>
+              </div>
+            </div>
+            <span class="palette-score-badge high-score">
+              <span class="score-num">92%</span> <span data-i18n="search.preview.match">match</span>
+            </span>
+          </div>
+          <div class="palette-result-body" data-i18n-html="search.preview.card2.body">Authenticate documentation access through GitHub, Google, and enterprise OAuth SAML providers.</div>
+        </div>
+        <div class="palette-result-card" data-card-id="card-2" role="listitem">
+          <div class="palette-result-header">
+            <div class="palette-result-title-group">
+              <div class="palette-result-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <div class="palette-result-title" data-i18n="search.preview.card3.title">Route Guards &amp; Private Docs</div>
+                <div class="palette-result-path">/configuration/routing</div>
+              </div>
+            </div>
+            <span class="palette-score-badge">
+              <span class="score-num">86%</span> <span data-i18n="search.preview.match">match</span>
+            </span>
+          </div>
+          <div class="palette-result-body" data-i18n-html="search.preview.card3.body">Define private directories and redirect configurations for unauthenticated guest sessions trying to access protected paths.</div>
+        </div>
       </div>
-      <div class="sandbox-results">
-        <div class="sandbox-card">
-          <div class="sandbox-card-header">
-            <div>
-              <div class="sandbox-card-title" data-i18n="search.sandbox.card1.title">User Authentication &amp; Sessions</div>
-              <span class="sandbox-card-path">/getting-started/security</span>
-            </div>
-            <span class="sandbox-score high" data-i18n="search.sandbox.card1.match">98% match</span>
-          </div>
-          <div class="sandbox-card-body" data-i18n-html="search.sandbox.card1.body">
-            Configure how your application handles <span class="sandbox-card-highlight">user login</span>, secure cookies, token generation, and stateless session verification.
-          </div>
+
+      <div class="palette-footer">
+        <div class="palette-footer-nav">
+          <span class="palette-key-tip"><kbd>↑</kbd><kbd>↓</kbd> <span data-i18n="search.preview.nav.navigate">Navigate</span></span>
+          <span class="palette-key-tip"><kbd>↵</kbd> <span data-i18n="search.preview.nav.select">Select</span></span>
+          <span class="palette-key-tip"><kbd>ESC</kbd> <span data-i18n="search.preview.nav.clear">Clear</span></span>
         </div>
-        <div class="sandbox-card">
-          <div class="sandbox-card-header">
-            <div>
-              <div class="sandbox-card-title" data-i18n="search.sandbox.card2.title">Configuring Custom Secure Routes</div>
-              <span class="sandbox-card-path">/configuration/routing</span>
-            </div>
-            <span class="sandbox-score" data-i18n="search.sandbox.card2.match">89% match</span>
-          </div>
-          <div class="sandbox-card-body" data-i18n-html="search.sandbox.card2.body">
-            Define private directories and redirect configurations for unauthenticated guest sessions trying to access <span class="sandbox-card-highlight">signin</span> paths.
-          </div>
+        <div class="palette-footer-stats" id="live-search-stats" data-i18n="search.preview.stats1">
+          Cosine Similarity · 3 matches in 0.3ms · 100% Client-Side Vector
         </div>
       </div>
     </div>
@@ -199,7 +246,7 @@ customHead: |
       <p class="section-sub" data-i18n="search.features.sub">Smart search for static documentation, with no servers or third-party services required.</p>
     </div>
     <div class="bento-grid">
-      <div class="bento-card tint-pink">
+      <div class="bento-card">
         <div>
           <div class="bento-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -207,9 +254,9 @@ customHead: |
           <h3 data-i18n="search.feature.local.title">Runs Locally in the Browser</h3>
           <p data-i18n="search.feature.local.desc">Uses lightweight AI models that execute directly in the browser. No data ever leaves your users' devices.</p>
         </div>
-        <div class="bento-code-box">ONNX Wasm Runtime — 100% Offline</div>
+        <div class="bento-code-box" data-i18n="search.feature.local.badge">Int8 Quantised Vectors · Zero Telemetry · &lt;3 KB Client</div>
       </div>
-      <div class="bento-card tint-purple">
+      <div class="bento-card">
         <div>
           <div class="bento-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
@@ -217,9 +264,9 @@ customHead: |
           <h3 data-i18n="search.feature.semantic.title">Understands What You Mean</h3>
           <p data-i18n="search.feature.semantic.desc">Goes beyond exact keyword matching. Searching for 'authentication' also finds results about 'sign-in', 'login', and 'sessions'.</p>
         </div>
-        <div class="bento-code-box">Cosine Similarity Matching</div>
+        <div class="bento-code-box" data-i18n="search.feature.semantic.badge">Dense 384-Dim Embeddings · Cosine Similarity Re-ranker</div>
       </div>
-      <div class="bento-card tint-emerald">
+      <div class="bento-card">
         <div>
           <div class="bento-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l6 6"/></svg>
@@ -227,94 +274,224 @@ customHead: |
           <h3 data-i18n="search.feature.hybrid.title">Hybrid Keyword + Semantic</h3>
           <p data-i18n="search.feature.hybrid.desc">Combines fast keyword matching with meaning-aware similarity scoring for the most relevant results, instantly.</p>
         </div>
-        <div class="bento-code-box">BM25 + Cosine Re-ranker</div>
+        <div class="bento-code-box" data-i18n="search.feature.hybrid.badge">BM25 Lexical + Cosine Vector Fusion · Typo-Tolerant</div>
       </div>
     </div>
   </div>
 </section>
-<section class="built-for" style="padding: 56px 0 30px;">
+<section class="search-compare-section" aria-label="Comparison">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.compare.tag">Comparison</div>
+      <h2 class="section-title" data-i18n="search.compare.title">How docmd-search compares</h2>
+      <p class="section-sub" data-i18n="search.compare.sub">Client-side AI vector search vs traditional cloud APIs and static keyword engines.</p>
+    </div>
+    <div class="compare-table-wrap">
+      <table class="search-compare-table">
+        <thead>
+          <tr>
+            <th class="col-feature" data-i18n="search.compare.col.feature">Capability</th>
+            <th class="col-highlight" data-i18n="search.compare.col.docmd">docmd Search</th>
+            <th data-i18n="search.compare.col.algolia">Algolia / Cloud Search</th>
+            <th data-i18n="search.compare.col.pagefind">Pagefind / Lunr</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="feat-name" data-i18n="search.compare.row1.name">Semantic Understanding</div>
+              <div class="feat-desc" data-i18n="search.compare.row1.desc">Finds concepts by meaning, not just exact keyword strings</div>
+            </td>
+            <td class="col-highlight"><span class="badge-pill success" data-i18n="search.compare.val.vector">Dense Vector AI</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.paidadd">NeuralSearch (Enterprise)</span></td>
+            <td><span class="badge-pill alert" data-i18n="search.compare.val.none">Keyword / Lexical Only</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feat-name" data-i18n="search.compare.row2.name">Infrastructure &amp; Monthly Bill</div>
+              <div class="feat-desc" data-i18n="search.compare.row2.desc">Ongoing hosting, vector DB, or API query subscription costs</div>
+            </td>
+            <td class="col-highlight"><span class="badge-pill success" data-i18n="search.compare.val.free">$0 / Forever Free</span></td>
+            <td><span class="badge-pill alert" data-i18n="search.compare.val.expensive">Usage-Based / $$$ Contract</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.free">$0 / Forever Free</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feat-name" data-i18n="search.compare.row3.name">Offline &amp; Air-Gapped Operation</div>
+              <div class="feat-desc" data-i18n="search.compare.row3.desc">Runs on intranets, offline PWA, local dev without internet</div>
+            </td>
+            <td class="col-highlight"><span class="badge-pill success" data-i18n="search.compare.val.offline">100% Offline</span></td>
+            <td><span class="badge-pill alert" data-i18n="search.compare.val.internet">Requires Internet</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.offline">100% Offline</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feat-name" data-i18n="search.compare.row4.name">User Privacy &amp; Data Residency</div>
+              <div class="feat-desc" data-i18n="search.compare.row4.desc">Where queries are processed and logged</div>
+            </td>
+            <td class="col-highlight"><span class="badge-pill success" data-i18n="search.compare.val.private">Zero Data Sent</span></td>
+            <td><span class="badge-pill alert" data-i18n="search.compare.val.logged">Queries Logged to Cloud</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.private">Zero Data Sent</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feat-name" data-i18n="search.compare.row5.name">Search Latency</div>
+              <div class="feat-desc" data-i18n="search.compare.row5.desc">Response speed per typed keystroke</div>
+            </td>
+            <td class="col-highlight"><span class="badge-pill success" data-i18n="search.compare.val.subms">&lt; 1ms (In-Memory)</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.network">50–250ms (Network)</span></td>
+            <td><span class="badge-pill neutral" data-i18n="search.compare.val.fast">&lt; 5ms (In-Memory)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="search-models-section" aria-label="Embeddings and Models">
   <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.tag.embeddings">Embeddings</div>
       <h2 class="section-title" data-i18n="search.models.title">Choose your search model</h2>
       <p class="section-sub" data-i18n="search.models.sub">Pick the model that fits your documentation size and language requirements.</p>
     </div>
-    <div style="max-width: 860px; margin: 0 auto; text-align: left; overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.875rem;">
+    <div class="model-table-container">
+      <table class="model-spec-table">
         <thead>
-          <tr style="border-bottom: 2px solid var(--border); color: var(--text-4); font-weight: 600;">
-            <th style="padding: 14px 12px; text-align: left;" data-i18n="search.models.th.model">Model</th>
-            <th style="padding: 14px 12px; text-align: center;" data-i18n="search.models.th.dimensions">Dimensions</th>
-            <th style="padding: 14px 12px; text-align: center;" data-i18n="search.models.th.size">Size</th>
-            <th style="padding: 14px 12px; text-align: left;" data-i18n="search.models.th.languages">Languages</th>
-            <th style="padding: 14px 12px; text-align: left;" data-i18n="search.models.th.bestfor">Best For</th>
+          <tr>
+            <th style="text-align: left;" data-i18n="search.models.th.model">Model</th>
+            <th style="text-align: center;" data-i18n="search.models.th.dimensions">Dimensions</th>
+            <th style="text-align: center;" data-i18n="search.models.th.size">Size</th>
+            <th style="text-align: left;" data-i18n="search.models.th.languages">Languages</th>
+            <th style="text-align: left;" data-i18n="search.models.th.bestfor">Best For</th>
           </tr>
         </thead>
-        <tbody style="color: var(--text-2);">
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 14px 12px; font-weight: 600; color: var(--text);">MiniLM L6 v2 ★</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">~23 MB</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row1.lang">English only</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row1.best">Fast, general English docs</td>
+        <tbody>
+          <tr class="recommended-row">
+            <td style="font-weight: 600; color: var(--text);">
+              MiniLM L6 v2 <span class="badge-pill highlight" style="margin-left:6px;" data-i18n="search.models.badge.recommended">Recommended ★</span>
+            </td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">~23 MB</td>
+            <td data-i18n="search.models.row1.lang">English only</td>
+            <td data-i18n="search.models.row1.best">Fast, general English docs</td>
           </tr>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 14px 12px; font-weight: 600; color: var(--text);">Multilingual MiniLM L12</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">~118 MB</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row2.lang">50+ languages</td>
-            <td style="padding: 14px 12px; font-weight: 600; color: var(--search-accent);" data-i18n="search.models.row2.best">i18n documentation</td>
+          <tr>
+            <td style="font-weight: 600; color: var(--text);">Multilingual MiniLM L12</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">~118 MB</td>
+            <td data-i18n="search.models.row2.lang">50+ languages</td>
+            <td style="font-weight: 600; color: var(--search-accent);" data-i18n="search.models.row2.best">i18n documentation</td>
           </tr>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 14px 12px; font-weight: 600; color: var(--text);">Multilingual E5 Small</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">~118 MB</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row3.lang">100+ languages</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row3.best">Wide language coverage</td>
+          <tr>
+            <td style="font-weight: 600; color: var(--text);">Multilingual E5 Small</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">384</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">~118 MB</td>
+            <td data-i18n="search.models.row3.lang">100+ languages</td>
+            <td data-i18n="search.models.row3.best">Wide language coverage</td>
           </tr>
-          <tr style="border-bottom: 1px solid var(--border);">
-            <td style="padding: 14px 12px; font-weight: 600; color: var(--text);">Multilingual MPNet Base</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">768</td>
-            <td style="padding: 14px 12px; text-align: center; font-family: var(--mono); font-size: 0.8rem;">~270 MB</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row4.lang">50+ languages</td>
-            <td style="padding: 14px 12px;" data-i18n="search.models.row4.best">Best multilingual quality</td>
+          <tr>
+            <td style="font-weight: 600; color: var(--text);">Multilingual MPNet Base</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">768</td>
+            <td style="text-align: center; font-family: var(--mono); font-size: 0.8rem;">~270 MB</td>
+            <td data-i18n="search.models.row4.lang">50+ languages</td>
+            <td data-i18n="search.models.row4.best">Best multilingual quality</td>
           </tr>
         </tbody>
       </table>
-      <div style="border: 1px solid var(--border); border-left: 4px solid var(--search-accent); border-radius: var(--r-sm); padding: 16px 18px; background: var(--surface);">
-        <p style="margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-2);" data-i18n="search.models.alert">
-          <strong>💡 Multilingual documentation:</strong> If your documentation website contains multiple languages (such as English, Chinese, German, Spanish, etc.), select a multilingual model using <code>docmd-search --settings</code>. The default model is English-only and will produce poor search relevance for other languages.
-        </p>
-      </div>
+    </div>
+    <div class="model-alert-box">
+      <p style="margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-2);" data-i18n-html="search.models.alert">Multilingual documentation: If your documentation website contains multiple languages (such as English, Chinese, German, Spanish, etc.), select a multilingual model using docmd-search --settings. The default model is English-only and will produce poor search relevance for other languages.</p>
     </div>
   </div>
 </section>
-<section class="built-for" style="padding: 56px 0 30px;">
-  <div class="container" style="max-width: 860px; text-align: left;">
+<section class="search-dev-section" aria-label="Developer API">
+  <div class="container">
     <div class="section-header">
       <div class="section-tag" style="color:var(--search-accent);" data-i18n="search.tag.api">Developer API</div>
       <h2 class="section-title" data-i18n="search.api.title">Use it anywhere: the client API</h2>
-      <p class="section-sub" data-i18n="search.api.desc1">A lightweight client runtime (under 5 KB) that runs entirely in the browser. Build custom search UIs for any website or application.</p>
+      <p class="section-sub" data-i18n="search.api.desc1">A lightweight client runtime (&lt;3 KB gzipped) that runs entirely in the browser. Build custom search UIs for any website or application.</p>
     </div>
-    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; overflow-x: auto; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
+    <div class="dev-api-layout">
+      <div class="dev-api-features">
+        <div class="api-feat-card">
+          <div class="api-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="search.api.f1.title">Under 3 KB Gzipped</h4>
+            <p data-i18n="search.api.f1.desc">Pure lightweight JavaScript. No WASM, no model downloads, zero third-party dependencies.</p>
+          </div>
+        </div>
+        <div class="api-feat-card">
+          <div class="api-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="search.api.f2.title">Progressive Batch Streaming</h4>
+            <p data-i18n="search.api.f2.desc">Batch 0 loads instantly for immediate search while remaining chunks stream in background.</p>
+          </div>
+        </div>
+        <div class="api-feat-card">
+          <div class="api-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6Z"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="search.api.f3.title">Framework Agnostic</h4>
+            <p data-i18n="search.api.f3.desc">Drop into React, Vue, Next.js, Astro, or static HTML. Full TypeScript definitions included.</p>
+          </div>
+        </div>
+        <div class="api-feat-card">
+          <div class="api-feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="search.api.f4.title">100% Local Privacy</h4>
+            <p data-i18n="search.api.f4.desc">Evaluates queries in device memory with zero telemetry. Fully compliant with strict GDPR policies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="dev-api-code-col">
+        <div class="dev-code-window">
+          <div class="dev-code-header">
+            <div class="dev-code-dots">
+              <span class="dev-code-dot red"></span>
+              <span class="dev-code-dot yellow"></span>
+              <span class="dev-code-dot green"></span>
+            </div>
+            <div class="dev-code-title">search-client.ts</div>
+            <button class="btn-copy-code" type="button" aria-label="Copy code" onclick="copySnippet(this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              Copy
+            </button>
+          </div>
+          <div class="dev-code-body">
 <pre style="margin: 0; font-family: var(--mono); font-size: 0.8rem; color: var(--text);">
-<span style="color: var(--search-accent);">import</span> * <span style="color: var(--search-accent);">as</span> Search <span style="color: var(--search-accent);">from</span> <span style="color: var(--search-accent-hover);">'@docmd/plugin-search/client'</span>;
+<span style="color: var(--search-accent);">import</span> { load, search } <span style="color: var(--search-accent);">from</span> <span style="color: var(--search-accent-hover);">'docmd-search/client'</span>;
 
-<span style="color: var(--text-4);">
-// 1. Initialise and load index folder.
-// Batch 0 is loaded instantly for sub-millisecond search startup,
-// while remaining chunk batches load progressively in background.</span>
-<span style="color: var(--search-accent);">await</span> Search.<span style="color: var(--indigo);">load</span>(<span style="color: var(--search-accent);">'/.docmd-search'</span>, (loaded, total) => {
+<span style="color: var(--text-4);">// 1. Initialise index (batch 000 loads instantly, rest stream in background)</span>
+<span style="color: var(--search-accent);">await</span> <span style="color: var(--indigo);">load</span>(<span style="color: var(--search-accent);">'/_docmd-search'</span>, (loaded, total) => {
   console.log(<span style="color: var(--search-accent);">`Loaded batch ${loaded}/${total}`</span>);
 });
 
-<span style="color: var(--text-4);">
-// 2. Query search using hybrid vector + keyword matching.</span>
-<span style="color: var(--search-accent);">const</span> results = Search.<span style="color: var(--indigo);">search</span>(<span style="color: var(--search-accent);">'authentication secure routes'</span>, <span style="color: #f59e0b;">10</span>);
+<span style="color: var(--text-4);">// 2. Query search with hybrid vector + keyword scoring (&lt;1ms)</span>
+<span style="color: var(--search-accent);">const</span> results = <span style="color: var(--indigo);">search</span>(<span style="color: var(--search-accent);">'authentication secure routes'</span>, <span style="color: #f59e0b;">5</span>);
 results.forEach(({ score, chunk }) => {
-  console.log(<span style="color: var(--search-accent);">`[${(score * 100).toFixed(0)}%] ${chunk.file}#${chunk.heading || ''}`</span>);
-  console.log(chunk.text);
+  console.log(<span style="color: var(--search-accent);">`[${Math.round(score * 100)}%] ${chunk.file}#${chunk.heading || ''}`</span>);
 });</pre>
+          </div>
+          <div class="dev-code-output">
+            <div class="output-label" data-i18n="search.api.console.title">Console Output</div>
+            <div class="output-line"><span class="out-dim">[0.3ms]</span> <span class="out-score">[98%]</span> /getting-started/security#authentication</div>
+            <div class="output-line"><span class="out-dim">[0.4ms]</span> <span class="out-score">[92%]</span> /plugins/auth-providers#oauth-sso</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dev-config-note">
+      <div class="config-note-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </div>
+      <div class="config-note-text" data-i18n-html="search.api.config_note">Using docmd? Enable semantic search directly in docmd.config.json under plugins.search.semantic = true – no custom JavaScript required.</div>
     </div>
   </div>
 </section>
@@ -324,29 +501,48 @@ results.forEach(({ score, chunk }) => {
     <p class="section-sub" style="margin-bottom:28px; text-align:center;" data-i18n="search.faq.sub">Common questions about docmd-search and offline semantic search.</p>
     <details class="faq-item">
       <summary data-i18n="search.faq.q1">Does it run entirely in the browser?</summary>
-      <div class="faq-answer" data-i18n-html="search.faq.a1">Yes. All search happens directly in your users' browsers. No cloud infrastructure, no search API, and no data ever leaves the device.<br/><br/><a href="https://docs.docmd.io/search/">Read the full documentation →</a></div>
+      <div class="faq-answer" data-i18n-html="search.faq.a1">Yes. All search happens directly in your users' browsers. No cloud infrastructure, no search API, and no data ever leaves the device.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="search.faq.q2">Do users need to download AI models?</summary>
-      <div class="faq-answer" data-i18n-html="search.faq.a2">No. The AI models are only used at build time on your machine to generate pre-computed search indices. Users' browsers only download the resulting index files — small, compressed JSON chunks.<br/><br/><a href="https://docs.docmd.io/search/how-it-works/">Learn how offline search works →</a></div>
+      <div class="faq-answer" data-i18n-html="search.faq.a2">No. The AI models are only used at build time on your machine to generate pre-computed search indices. Users' browsers only download the resulting index files – small, compressed JSON chunks.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="search.faq.q3">Does it work with multiple languages?</summary>
-      <div class="faq-answer" data-i18n-html="search.faq.a3">Yes. For multilingual documentation, choose a multilingual model such as <code>paraphrase-multilingual-MiniLM-L12-v2</code>, which supports over 50 languages. The default model is English-only.<br/><br/><a href="https://docs.docmd.io/search/configuration/">Configure multilingual search →</a></div>
+      <div class="faq-answer" data-i18n-html="search.faq.a3">Yes. For multilingual documentation, choose a multilingual model such as paraphrase-multilingual-MiniLM-L12-v2, which supports over 50 languages. The default model is English-only.</div>
     </details>
     <details class="faq-item">
       <summary data-i18n="search.faq.q4">What is the confidence score badge?</summary>
-      <div class="faq-answer" data-i18n-html="search.faq.a4">When enabled, the <code>showConfidence</code> setting displays a percentage badge next to each search result showing how closely it matches the query. This helps users quickly judge which results are most relevant.<br/><br/><a href="https://docs.docmd.io/search/browser-client/">Read about browser client settings →</a></div>
+      <div class="faq-answer" data-i18n-html="search.faq.a4">When enabled, the showConfidence setting displays a percentage badge next to each search result showing how closely it matches the query. This helps users quickly judge which results are most relevant.</div>
     </details>
   </div>
 </section>
-<section class="cta-section" aria-label="Get started">
+<section class="cta-section cta-section-with-sponsor" aria-label="Get started">
   <div class="container">
-    <h2 data-i18n="cta.title">Add smart search to your docs</h2>
-    <p class="section-sub" style="margin-bottom:20px;" data-i18n="cta.desc">Open source, works with any documentation site. One install, zero cloud bills.</p>
-    <div class="cta-actions">
-      <a href="https://docs.docmd.io/search/" class="btn-primary" style="background:var(--search-accent); color:#fff;" data-i18n="cta.docs">Read Documentation</a>
-      <a href="https://github.com/docmd-io/docmd-search" class="btn-secondary" target="_blank" rel="noopener" data-i18n="cta.github">Star on GitHub</a>
+    <div class="cta-card search-cta-card">
+      <h2 data-i18n="cta.title">Add smart search to your docs</h2>
+      <p class="section-sub" style="margin-bottom:24px;" data-i18n="cta.desc">Open source, works with any documentation site. One install, zero cloud bills.</p>
+      <div class="cta-actions">
+        <a href="https://docs.docmd.io/search/" class="btn-primary" style="background:var(--search-accent); color:#fff;" data-i18n="cta.docs">Read Documentation</a>
+        <a href="https://github.com/docmd-io/docmd-search" class="btn-secondary" target="_blank" rel="noopener" data-i18n="cta.github">Star on GitHub</a>
+      </div>
+    </div>
+
+    <!-- GitHub Sponsor Highlight Card -->
+    <div class="sponsor-callout-card">
+      <div class="sponsor-callout-left">
+        <div class="sponsor-callout-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div>
+          <h3 class="sponsor-callout-title" data-i18n="sponsor.card.title">Support docmd on GitHub Sponsors</h3>
+          <p class="sponsor-callout-desc" data-i18n="sponsor.card.desc">docmd is 100% free and open source. Sponsoring directly sustains development and free public relay infrastructure.</p>
+        </div>
+      </div>
+      <a href="https://github.com/sponsors/docmd-io" target="_blank" rel="noopener" class="btn-sponsor" data-i18n="sponsor.card.cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Sponsor on GitHub →
+      </a>
     </div>
   </div>
 </section>
@@ -367,17 +563,22 @@ results.forEach(({ score, chunk }) => {
       <a href="https://docs.docmd.io/getting-started/installation/" data-i18n="footer.installation">Installation</a>
       <a href="https://docs.docmd.io/configuration/overview/" data-i18n="footer.configuration">Configuration</a>
       <a href="https://docs.docmd.io/reference/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
+      <a href="/search/" data-i18n="footer.search">docmd Search</a>
+      <a href="/assistant/" data-i18n="footer.assistant">docmd Assistant</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.features">Features</h4>
       <a href="https://docs.docmd.io/content/containers/" data-i18n="footer.containers">UI Containers</a>
       <a href="https://docs.docmd.io/theming/available-themes/" data-i18n="footer.theming">Theming</a>
       <a href="https://docs.docmd.io/plugins/usage/" data-i18n="footer.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/content/markdown-syntax/" data-i18n="footer.syntax">Markdown Syntax</a>
+      <a href="https://docs.docmd.io/guides/ai/overview/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
-      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
+      <a href="https://github.com/sponsors/docmd-io" target="_blank" rel="noopener" data-i18n="footer.sponsor">Sponsor</a>
+      <a href="https://cloud.docmd.io" data-i18n="footer.cloud">Cloud Relay</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

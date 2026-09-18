@@ -12,7 +12,7 @@ const nonDefaultLocales = locales.filter(id => id !== defaultLocale);
  *
  * In stringMode, translations are already baked into the HTML at build time.
  * The client-side script conflicts by re-applying translations (and worse,
- * uses localStorage to bleed locale preferences across pages — e.g. visiting
+ * uses localStorage to bleed locale preferences across pages – e.g. visiting
  * /zh/ then going back to / would show Chinese on the English page).
  *
  * We remove:
@@ -59,9 +59,9 @@ function rewriteDocsLinks(html, locale) {
 function rewriteLocalLinks(html, locale) {
     if (locale === 'en') return html;
     return html
-        .replace(/href="\/assistant\/" class="nav-link"/g, `href="/${locale}/assistant/" class="nav-link"`)
-        .replace(/href="\/search\/" class="nav-link"/g, `href="/${locale}/search/" class="nav-link"`)
-        .replace(/href="\/" class="nav-logo"/g, `href="/${locale}/" class="nav-logo"`);
+        .replace(/href="\/assistant\/"(\s+class="nav-link[^"]*")/g, `href="/${locale}/assistant/"$1`)
+        .replace(/href="\/search\/"(\s+class="nav-link[^"]*")/g, `href="/${locale}/search/"$1`)
+        .replace(/href="\/"(\s+class="nav-logo[^"]*")/g, `href="/${locale}/"$1`);
 }
 
 /**
@@ -93,14 +93,29 @@ function getCleanPagePath(relativePath) {
  * Also dynamically sets the 'active' class for currentLocale.
  */
 function fixLangSwitcherLinks(html, cleanPagePath, currentLocale) {
-    return html.replace(/<a class="lang-option\b([^"]*)" href="[^"]*" data-lang="([^"]+)"/g, (match, classes, lang) => {
-        let classList = classes.replace(/\bactive\b/g, '').replace(/\s+/g, ' ').trim();
-        if (lang === currentLocale) {
-            classList = classList ? `${classList} active` : 'active';
-        }
-        const classAttr = classList ? `class="lang-option ${classList}"` : 'class="lang-option"';
+    return html.replace(/<a\b([^>]*?\bclass=["'][^"']*?\blang-option\b[^"']*?["'][^>]*?)>/gi, (match, attrs) => {
+        const langMatch = attrs.match(/\bdata-lang=["']([^"']+)["']/i);
+        if (!langMatch) return match;
+        const lang = langMatch[1];
         const targetHref = lang === defaultLocale ? cleanPagePath : `/${lang}${cleanPagePath}`;
-        return `<a ${classAttr} href="${targetHref}" data-lang="${lang}"`;
+
+        // Update or add active class
+        let newAttrs = attrs.replace(/\bclass=["']([^"']+)["']/i, (cMatch, cls) => {
+            let classList = cls.replace(/\bactive\b/g, '').replace(/\s+/g, ' ').trim();
+            if (lang === currentLocale) {
+                classList = classList ? `${classList} active` : 'active';
+            }
+            return `class="${classList}"`;
+        });
+
+        // Update href to clean absolute path
+        if (/\bhref=["'][^"']*["']/i.test(newAttrs)) {
+            newAttrs = newAttrs.replace(/\bhref=["'][^"']*["']/i, `href="${targetHref}"`);
+        } else {
+            newAttrs += ` href="${targetHref}"`;
+        }
+
+        return `<a ${newAttrs.trim()}>`;
     });
 }
 
