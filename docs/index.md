@@ -586,7 +586,7 @@ customHead: |
         <span class="manifesto-badge-dot"></span>
         <span data-i18n="oss.manifesto.badge">OPEN SOURCE COMMITMENT</span>
       </div>
-      <blockquote class="manifesto-quote" data-i18n="oss.manifesto.quote">“Your documentation is the intellectual heart of your project. It belongs as plain Markdown files in your Git repository – permanent, version-controlled, auditable, and free forever. docmd will always be 100% MIT licensed with zero paywalled compiler features.”</blockquote>
+      <blockquote class="manifesto-quote" data-i18n="oss.manifesto.quote">“Your documentation is the intellectual heart of your project. It belongs in plain Markdown files in your Git repository - portable, version-controlled and auditable. The docmd compiler and official core plugins are MIT licensed and will remain free to use, with no paywalled compiler features.”</blockquote>
       <div class="manifesto-signoff" data-i18n="oss.manifesto.signoff">The docmd Open Source Manifesto</div>
     </div>
     <div class="tenets-grid">
@@ -694,7 +694,7 @@ customHead: |
         </div>
         <div class="sponsors-wrapper">
           <div id="sponsors-grid" class="sponsors-grid"></div>
-          <p class="sponsors-note" data-i18n="community.sponsors.note">Help keep docmd 100% free and open source. All sponsor funds directly support ongoing compiler performance, agent protocol standards, and serverless relay infrastructure.</p>
+          <p class="sponsors-note" data-i18n="community.sponsors.note">Help keep docmd compiler free and open source. All sponsor funds directly support ongoing compiler performance, agent protocol standards, and serverless relay infrastructure.</p>
         </div>
       </div>
     </div>
