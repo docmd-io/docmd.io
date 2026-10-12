@@ -24,10 +24,21 @@ function scanFile(filePath) {
   }
 }
 
-const docFiles = fs.readdirSync(DOCS_DIR).filter(f => f.endsWith('.md'));
-for (const f of docFiles) {
-  scanFile(path.join(DOCS_DIR, f));
+function scanDir(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      scanDir(fullPath);
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      docFiles.push(fullPath);
+      scanFile(fullPath);
+    }
+  }
 }
+
+const docFiles = [];
+scanDir(DOCS_DIR);
 
 console.log(`\n🔍 Found ${usedKeys.size} distinct i18n keys referenced across ${docFiles.length} documentation pages.`);
 

@@ -1,0 +1,673 @@
+{
+  "$schema": "./plugins.schema.json",
+  "_comment": "Canonical plugin catalogue for docmd.io. The marketplace page and every per-plugin detail page are generated from this file. To list a new plugin: add an entry below and open a PR. Keys: slug, name, kind ('core' | 'optional'), tagline, description, icon (inline SVG, 24x24 viewBox), tags, capabilities, permissions, repo, npmPackage, install (core: null; optional: the docmd add command), version.",
+  "plugins": [
+    {
+      "slug": "ai",
+      "kind": "builtin",
+      "name": {
+        "en": "AI Chat",
+        "de": "AI-Chat",
+        "es": "Chat de IA",
+        "fr": "Chat IA",
+        "ja": "AIチャット",
+        "ru": "AI-чат",
+        "zh": "AI 聊天"
+      },
+      "tagline": {
+        "en": "Interactive AI chat grounded in your docs.",
+        "de": "Interaktiver KI-Chat auf Basis Ihrer Dokumentation.",
+        "es": "Chat de IA interactivo basado en su documentación.",
+        "fr": "Chat IA interactif basé sur votre documentation.",
+        "ja": "ドキュメントに基づくインタラクティブなAIチャット。",
+        "ru": "Интерактивный AI-чат на основе вашей документации.",
+        "zh": "基于您的文档的交互式 AI 聊天。"
+      },
+      "description": {
+        "en": "Adds an in-page chat assistant powered by docmd-assistant. Supports 100+ LLM providers with BYOK keys, local Ollama, and the free docmd Cloud relay. Retrieval is built at compile time from your markdown, so answers cite the actual pages.",
+        "de": "Fügt einen In-Page-Chat-Assistenten hinzu, der von docmd-assistant angetrieben wird. Unterstützt über 100 LLM-Anbieter mit eigenen Schlüsseln (BYOK), lokales Ollama und das kostenlose docmd Cloud Relay. Der Suchindex wird zur Kompilierzeit aus Ihrem Markdown erstellt, sodass Antworten direkt auf die Dokumentationsseiten verweisen.",
+        "es": "Añade un asistente de chat integrado impulsado por docmd-assistant. Admite más de 100 proveedores de LLM con claves propias (BYOK), Ollama local y el relay gratuito de docmd Cloud. El índice de recuperación se genera en tiempo de compilación a partir de su markdown, por lo que las respuestas citan las páginas reales.",
+        "fr": "Ajoute un assistant de chat intégré propulsé par docmd-assistant. Prend en charge plus de 100 fournisseurs de LLM (BYOK), Ollama en local et le relais gratuit docmd Cloud. L'index de recherche est généré lors de la compilation depuis votre markdown, citant directement les pages correspondantes.",
+        "ja": "docmd-assistant を利用したページ内チャットアシスタントを追加します。BYOKキーによる100以上のLLMプロバイダー、ローカルOllama、無料の docmd Cloud リレーに対応。マークダウンからコンパイル時に検索インデックスを生成するため、回答は実際のページを引用します。",
+        "ru": "Добавляет встроенный AI-ассистент на базе docmd-assistant. Поддерживает 100+ LLM-провайдеров (BYOK), локальный Ollama и бесплатный docmd Cloud Relay. Индекс для поиска строится на этапе компиляции, ответы ссылаются на реальные страницы.",
+        "zh": "通过 docmd-assistant 添加页面内 AI 助手。支持 100 余个 LLM 提供商（BYOK）、本地 Ollama 及免费 docmd Cloud 中继。检索索引在编译期构建，回答均引用实际页面。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z\"/></svg>",
+      "tags": [
+        "chat",
+        "ai",
+        "rag"
+      ],
+      "capabilities": [
+        "init",
+        "body",
+        "assets",
+        "actions",
+        "translations",
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": true,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/ai",
+      "npmPackage": "@docmd/plugin-ai",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "git",
+      "kind": "builtin",
+      "name": {
+        "en": "Git",
+        "de": "Git",
+        "es": "Git",
+        "fr": "Git",
+        "ja": "Git",
+        "ru": "Git",
+        "zh": "Git"
+      },
+      "tagline": {
+        "en": "Last-updated timestamps and commit history from git.",
+        "de": "Zuletzt-aktualisiert-Zeitstempel und Commit-Historie aus Git.",
+        "es": "Marcas de tiempo de última actualización e historial de commits desde git.",
+        "fr": "Horodatage de dernière mise à jour et historique des commits depuis git.",
+        "ja": "Gitからの最終更新日時とコミット履歴。",
+        "ru": "Временные метки последнего обновления и история коммитов из git.",
+        "zh": "来自 git 的最后更新时间戳与提交历史。"
+      },
+      "description": {
+        "en": "Reads git metadata at build time and injects per-page last-modified dates and an optional commit history widget. No runtime dependencies, no background processes.",
+        "de": "Liest Git-Metadaten zur Build-Zeit aus und fügt seitenweise Aktualisierungsdaten sowie ein optionales Commit-Historie-Widget ein. Keine Laufzeitabhängigkeiten, keine Hintergrundprozesse.",
+        "es": "Lee metadatos de git en tiempo de compilación e inyecta fechas de última modificación por página y un widget opcional de historial de commits. Sin dependencias en tiempo de ejecución ni procesos en segundo plano.",
+        "fr": "Lit les métadonnées git lors du build et injecte les dates de dernière modification par page ainsi qu'un widget optionnel d'historique des commits. Aucune dépendance d'exécution, aucun processus en arrière-plan.",
+        "ja": "ビルド時にGitメタデータを読み取り、ページごとの最終更新日時とオプションのコミット履歴ウィジェットを挿入します。ランタイム依存関係やバックグラウンドプロセスは不要です。",
+        "ru": "Считывает метаданные git во время сборки и внедряет даты последнего изменения страниц и опциональный виджет истории коммитов. Без зависимостей времени выполнения и фоновых процессов.",
+        "zh": "在构建时读取 git 元数据，为每个页面注入最后修改日期和可选的提交历史组件。无运行时依赖，无后台进程。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"18\" r=\"3\"/><circle cx=\"6\" cy=\"6\" r=\"3\"/><path d=\"M6 21V9a9 9 0 0 0 9 9\"/></svg>",
+      "tags": [
+        "git",
+        "history",
+        "metadata"
+      ],
+      "capabilities": [
+        "init",
+        "body"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": true
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/git",
+      "npmPackage": "@docmd/plugin-git",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "search",
+      "kind": "builtin",
+      "name": {
+        "en": "Search",
+        "de": "Suche",
+        "es": "Búsqueda",
+        "fr": "Recherche",
+        "ja": "検索",
+        "ru": "Поиск",
+        "zh": "搜索"
+      },
+      "tagline": {
+        "en": "Full-text search with MiniSearch, built at compile time.",
+        "de": "Volltextsuche mit MiniSearch, zur Kompilierzeit erstellt.",
+        "es": "Búsqueda de texto completo con MiniSearch, creada en tiempo de compilación.",
+        "fr": "Recherche plein texte avec MiniSearch, générée lors de la compilation.",
+        "ja": "コンパイル時に構築されるMiniSearchによる全文検索。",
+        "ru": "Полнотекстовый поиск на MiniSearch, собранный на этапе компиляции.",
+        "zh": "编译时构建的 MiniSearch 全文搜索。"
+      },
+      "description": {
+        "en": "Generates a static JSON index of every page heading and paragraph at build time, and delivers instant, zero-dependency client-side search in under 15 kB. No servers, no external APIs.",
+        "de": "Erstellt beim Build einen statischen JSON-Index aller Überschriften und Absätze und liefert eine sofortige, abhängigkeitsfreie clientseitige Suche unter 15 kB. Keine Server, keine externen APIs.",
+        "es": "Genera un índice JSON estático de cada título y párrafo en tiempo de compilación y ofrece una búsqueda instantánea en el cliente sin dependencias en menos de 15 kB. Sin servidores ni APIs externas.",
+        "fr": "Génère un index JSON statique de chaque titre et paragraphe lors du build, offrant une recherche côté client instantanée et sans dépendance en moins de 15 ko. Sans serveur ni API externe.",
+        "ja": "ビルド時に各見出しと段落の静的JSONインデックスを生成し、15 kB未満で依存関係のない高速なクライアントサイド検索を提供します。サーバーや外部APIは不要です。",
+        "ru": "Создает статический JSON-индекс каждого заголовка и абзаца во время сборки, обеспечивая мгновенный поиск на стороне клиента размером менее 15 КБ. Без серверов и внешних API.",
+        "zh": "在构建时为每个页面的标题和段落生成静态 JSON 索引，以小于 15 kB 的极小体积提供即时、零依赖的客户端搜索。无需服务器或外部 API。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>",
+      "tags": [
+        "search",
+        "index",
+        "client-side"
+      ],
+      "capabilities": [
+        "init",
+        "body",
+        "assets",
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": true,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/search",
+      "npmPackage": "@docmd/plugin-search",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "seo",
+      "kind": "builtin",
+      "name": {
+        "en": "SEO",
+        "de": "SEO",
+        "es": "SEO",
+        "fr": "SEO",
+        "ja": "SEO",
+        "ru": "SEO",
+        "zh": "SEO"
+      },
+      "tagline": {
+        "en": "Meta tags, Open Graph, Twitter cards, JSON-LD.",
+        "de": "Meta-Tags, Open Graph, Twitter-Karten, JSON-LD.",
+        "es": "Metaetiquetas, Open Graph, tarjetas de Twitter, JSON-LD.",
+        "fr": "Balises meta, Open Graph, cartes Twitter, JSON-LD.",
+        "ja": "メタタグ、Open Graph、Twitterカード、JSON-LD。",
+        "ru": "Meta-теги, Open Graph, Twitter-карточки, JSON-LD.",
+        "zh": "Meta 标签、Open Graph、Twitter 卡片、JSON-LD。"
+      },
+      "description": {
+        "en": "Reads frontmatter from every page and emits the corresponding meta tags, canonical links, OpenGraph preview cards, Twitter cards, and structured JSON-LD data for search crawlers.",
+        "de": "Liest das Frontmatter jeder Seite und generiert entsprechende Meta-Tags, kanonische Links, OpenGraph-Vorschaukarten, Twitter-Karten und strukturierte JSON-LD-Daten für Suchmaschinen.",
+        "es": "Lee el frontmatter de cada página y emite las metaetiquetas correspondientes, enlaces canónicos, tarjetas OpenGraph, tarjetas de Twitter y datos estructurados JSON-LD para motores de búsqueda.",
+        "fr": "Lit le frontmatter de chaque page et génère les balises meta correspondantes, liens canoniques, cartes OpenGraph, cartes Twitter et données structurées JSON-LD pour les moteurs de recherche.",
+        "ja": "各ページのフロントマターを読み取り、対応するメタタグ、カノニカルリンク、OpenGraphプレビューカード、Twitterカード、検索エンジン向け構造化JSON-LDデータを出力します。",
+        "ru": "Считывает frontmatter каждой страницы и генерирует соответствующие meta-теги, канонические ссылки, карточки OpenGraph, Twitter-карточки и структурированные данные JSON-LD для поисковых систем.",
+        "zh": "读取每页的 frontmatter 并输出相应的元标签、规范链接、OpenGraph 预览卡片、Twitter 卡片以及供搜索引擎使用的结构化 JSON-LD 数据。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\"/></svg>",
+      "tags": [
+        "seo",
+        "meta",
+        "opengraph"
+      ],
+      "capabilities": [
+        "head",
+        "body"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/seo",
+      "npmPackage": "@docmd/plugin-seo",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "sitemap",
+      "kind": "builtin",
+      "name": {
+        "en": "Sitemap",
+        "de": "Sitemap",
+        "es": "Sitemap",
+        "fr": "Plan du site",
+        "ja": "サイトマップ",
+        "ru": "Карта сайта",
+        "zh": "站点地图"
+      },
+      "tagline": {
+        "en": "sitemap.xml and robots.txt at the site root.",
+        "de": "sitemap.xml und robots.txt im Stammverzeichnis.",
+        "es": "sitemap.xml y robots.txt en la raíz del sitio.",
+        "fr": "sitemap.xml et robots.txt à la racine du site.",
+        "ja": "サイトルートの sitemap.xml と robots.txt。",
+        "ru": "sitemap.xml и robots.txt в корне сайта.",
+        "zh": "在站点根目录生成 sitemap.xml 和 robots.txt。"
+      },
+      "description": {
+        "en": "Walks the rendered output and writes a standards-compliant sitemap.xml and robots.txt. Respects page-level noindex frontmatter and uses canonical URLs configured in docmd.config.json.",
+        "de": "Durchsucht die gerenderte Ausgabe und erstellt eine standards-konforme sitemap.xml und robots.txt. Berücksichtigt Frontmatter-Regeln wie noindex und verwendet konfigurierte kanonische URLs.",
+        "es": "Recorre la salida renderizada y escribe un sitemap.xml y robots.txt conformes a los estándares. Respeta la configuración noindex del frontmatter y utiliza las URL canónicas configuradas.",
+        "fr": "Parcourt le site généré et crée un sitemap.xml et robots.txt conformes aux standards. Respecte le frontmatter noindex et utilise les URL canoniques configurées.",
+        "ja": "レンダリングされた出力を巡回し、標準準拠の sitemap.xml と robots.txt を作成します。ページ単位の noindex 設定を尊重し、設定されたカノニカルURLを使用します。",
+        "ru": "Сканирует сгенерированный сайт и создает соответствующие стандартам sitemap.xml и robots.txt. Учитывает директиву noindex во frontmatter и использует канонические URL из конфигурации.",
+        "zh": "遍历渲染输出并生成符合标准的 sitemap.xml 和 robots.txt。遵循页面级 noindex frontmatter，并使用 docmd.config.json 中配置的规范 URL。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"/><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"/></svg>",
+      "tags": [
+        "sitemap",
+        "seo",
+        "xml"
+      ],
+      "capabilities": [
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": true,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/sitemap",
+      "npmPackage": "@docmd/plugin-sitemap",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "mermaid",
+      "kind": "builtin",
+      "name": {
+        "en": "Mermaid",
+        "de": "Mermaid",
+        "es": "Mermaid",
+        "fr": "Mermaid",
+        "ja": "Mermaid",
+        "ru": "Mermaid",
+        "zh": "Mermaid"
+      },
+      "tagline": {
+        "en": "Render Mermaid.js diagrams from fenced code blocks.",
+        "de": "Mermaid.js-Diagramme aus Codeblöcken rendern.",
+        "es": "Renderizar diagramas de Mermaid.js a partir de bloques de código.",
+        "fr": "Rendre des diagrammes Mermaid.js depuis des blocs de code.",
+        "ja": "コードブロックから Mermaid.js ダイアグラムを描画。",
+        "ru": "Рендеринг Mermaid.js-диаграмм из блоков кода.",
+        "zh": "从代码块渲染 Mermaid.js 图表。"
+      },
+      "description": {
+        "en": "Parses ```mermaid blocks during markdown rendering and emits responsive SVG diagrams. Supports flowcharts, sequence diagrams, class diagrams, state diagrams, ER diagrams, and Git graphs.",
+        "de": "Parst ```mermaid-Blöcke während des Markdown-Renderings und gibt responsive SVG-Diagramme aus. Unterstützt Flussdiagramme, Sequenzdiagramme, Klassendiagramme, Zustandsdiagramme, ER-Diagramme und Git-Graphen.",
+        "es": "Analiza bloques ```mermaid durante el procesamiento de markdown y genera diagramas SVG adaptables. Admite diagramas de flujo, de secuencia, de clases, de estados, ER y gráficos de Git.",
+        "fr": "Analyse les blocs ```mermaid pendant le rendu markdown et produit des diagrammes SVG réactifs. Prend en charge les organigrammes, diagrammes de séquence, de classes, d'états, diagrammes ER et graphes Git.",
+        "ja": "マークダウン描画時に ```mermaid ブロックを解析し、レスポンシブなSVG図を出力します。フローチャート、シーケンス図、クラス図、状態遷移図、ER図、Gitグラフをサポート。",
+        "ru": "Обрабатывает блоки ```mermaid при рендеринге markdown и генерирует адаптивные SVG-диаграммы. Поддерживает блок-схемы, диаграммы последовательностей, классов, состояний, ER-диаграммы и Git-графы.",
+        "zh": "在 Markdown 渲染期间解析 ```mermaid 代码块并输出响应式 SVG 图表。支持流程图、时序图、类图、状态图、ER 图以及 Git 图。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><line x1=\"8.59\" y1=\"13.51\" x2=\"15.42\" y2=\"17.49\"/><line x1=\"15.41\" y1=\"6.51\" x2=\"8.59\" y2=\"10.49\"/></svg>",
+      "tags": [
+        "diagrams",
+        "mermaid",
+        "markdown"
+      ],
+      "capabilities": [
+        "markdown",
+        "assets"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/mermaid",
+      "npmPackage": "@docmd/plugin-mermaid",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "llms",
+      "kind": "builtin",
+      "name": {
+        "en": "LLMs",
+        "de": "LLMs",
+        "es": "LLMs",
+        "fr": "LLMs",
+        "ja": "LLMs",
+        "ru": "LLMs",
+        "zh": "LLMs"
+      },
+      "tagline": {
+        "en": "llms.txt and llms-full.txt context files for AI agents.",
+        "de": "llms.txt und llms-full.txt Kontextdateien für KI-Agenten.",
+        "es": "Archivos de contexto llms.txt y llms-full.txt para agentes de IA.",
+        "fr": "Fichiers de contexte llms.txt et llms-full.txt pour agents IA.",
+        "ja": "AIエージェント向けの llms.txt および llms-full.txt コンテキストファイル。",
+        "ru": "Контекстные файлы llms.txt и llms-full.txt для AI-агентов.",
+        "zh": "为 AI 智能体生成 llms.txt 和 llms-full.txt 上下文文件。"
+      },
+      "description": {
+        "en": "Generates the llms.txt specification files (concise index plus full aggregated text) so AI assistants like ChatGPT, Claude, and Cursor can ingest your documentation in a single HTTP request.",
+        "de": "Erstellt die llms.txt-Spezifikationsdateien (kompakter Index plus aggregierter Volltext), damit KI-Assistenten wie ChatGPT, Claude und Cursor Ihre Dokumentation in einer einzigen HTTP-Anfrage erfassen können.",
+        "es": "Genera los archivos de especificación llms.txt (índice conciso más texto completo agregado) para que asistentes de IA como ChatGPT, Claude y Cursor puedan asimilar su documentación en una sola petición HTTP.",
+        "fr": "Génère les fichiers de spécification llms.txt (index concis et texte complet agrégé) permettant aux assistants IA comme ChatGPT, Claude et Cursor d'ingérer votre documentation en une seule requête HTTP.",
+        "ja": "ChatGPT、Claude、CursorなどのAIアシスタントが単一のHTTPリクエストでドキュメントを取り込めるよう、llms.txt仕様ファイル（簡潔なインデックスと集約された全文）を生成します。",
+        "ru": "Генерирует файлы спецификации llms.txt (краткий индекс и полный агрегированный текст), позволяя AI-ассистентам вроде ChatGPT, Claude и Cursor загружать документацию за один HTTP-запрос.",
+        "zh": "生成 llms.txt 规范文件（简洁索引及完整聚合文本），使 ChatGPT、Claude 和 Cursor 等 AI 助手能够通过单个 HTTP 请求读取您的完整文档。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/><polyline points=\"10 9 9 9 8 9\"/></svg>",
+      "tags": [
+        "ai",
+        "llm",
+        "context"
+      ],
+      "capabilities": [
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": true,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/llms",
+      "npmPackage": "@docmd/plugin-llms",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "okf",
+      "kind": "builtin",
+      "name": {
+        "en": "OKF",
+        "de": "OKF",
+        "es": "OKF",
+        "fr": "OKF",
+        "ja": "OKF",
+        "ru": "OKF",
+        "zh": "OKF"
+      },
+      "tagline": {
+        "en": "Open Knowledge Format bundle for AI agent consumption.",
+        "de": "Open Knowledge Format Bundle für KI-Agenten.",
+        "es": "Paquete Open Knowledge Format para consumo de agentes de IA.",
+        "fr": "Paquet Open Knowledge Format pour agents IA.",
+        "ja": "AIエージェント向けの Open Knowledge Format バンドル。",
+        "ru": "Пакет Open Knowledge Format для AI-агентов.",
+        "zh": "面向 AI 智能体的开放知识格式包。"
+      },
+      "description": {
+        "en": "Emits an OKF bundle (site/okf/) containing a structured representation of the doc hierarchy, semantic anchors, cross-references, and code snippets designed for deterministic ingestion by LLM pipelines.",
+        "de": "Gibt ein OKF-Bundle (site/okf/) aus, das eine strukturierte Darstellung der Dokumentenhierarchie, semantischer Anker, Querverweise und Code-Snippets enthält, optimiert für deterministische LLM-Pipelines.",
+        "es": "Emite un paquete OKF (site/okf/) que contiene una representación estructurada de la jerarquía de documentos, anclas semánticas, referencias cruzadas y fragmentos de código para pipelines de LLM.",
+        "fr": "Produit un paquet OKF (site/okf/) contenant une représentation structurée de la hiérarchie des documents, ancres sémantiques, références croisées et extraits de code pour les pipelines LLM.",
+        "ja": "LLMパイプラインによる確定的取り込みのために設計された、ドキュメント構造、セマンティックアンカー、相互参照、コードスニペットのOKFバンドル (site/okf/) を出力します。",
+        "ru": "Создает пакет OKF (site/okf/), содержащий структурированное представление иерархии документации, семантических якорей, перекрестных ссылок и фрагментов кода для LLM-пайплайнов.",
+        "zh": "输出 OKF 包（site/okf/），包含文档层级、语义锚点、交叉引用和代码片段的结构化表示，专为 LLM 管道的确定性摄取而设计。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></svg>",
+      "tags": [
+        "ai",
+        "agents",
+        "knowledge"
+      ],
+      "capabilities": [
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": true,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/okf",
+      "npmPackage": "@docmd/plugin-okf",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "analytics",
+      "kind": "builtin",
+      "name": {
+        "en": "Analytics",
+        "de": "Analytics",
+        "es": "Analítica",
+        "fr": "Analytique",
+        "ja": "アナリティクス",
+        "ru": "Аналитика",
+        "zh": "分析"
+      },
+      "tagline": {
+        "en": "Inject analytics scripts without editing templates.",
+        "de": "Analytics-Skripte einbinden, ohne Vorlagen zu bearbeiten.",
+        "es": "Inyectar scripts de análisis sin editar plantillas.",
+        "fr": "Injecter des scripts d'analyse sans modifier les modèles.",
+        "ja": "テンプレートを編集せずにアナリティクススクリプトを注入。",
+        "ru": "Внедрение скриптов аналитики без правки шаблонов.",
+        "zh": "无需编辑模板即可注入分析脚本。"
+      },
+      "description": {
+        "en": "Adds Google Analytics v4, Plausible, Umami, or any custom snippet into rendered HTML. Configured entirely in docmd.config.json, with automatic consent management and privacy-friendly defaults.",
+        "de": "Fügt Google Analytics v4, Plausible, Umami oder eigene Snippets in gerendertes HTML ein. Vollständig in docmd.config.json konfiguriert, mit automatischer Zustimmungsverwaltung und datenschutzfreundlichen Voreinstellungen.",
+        "es": "Inserta Google Analytics v4, Plausible, Umami o cualquier fragmento personalizado en el HTML. Configurado en docmd.config.json, con gestión automática de consentimiento y privacidad por defecto.",
+        "fr": "Intègre Google Analytics v4, Plausible, Umami ou tout extrait personnalisé dans le HTML. Entièrement configuré dans docmd.config.json, avec gestion du consentement et respect de la vie privée.",
+        "ja": "Google Analytics v4、Plausible、Umami、またはカスタムスニペットをレンダリングされたHTMLに挿入します。docmd.config.json で設定可能で、同意管理とプライバシー配慮の初期設定を備えています。",
+        "ru": "Внедряет Google Analytics v4, Plausible, Umami или произвольный код в сгенерированный HTML. Полностью настраивается в docmd.config.json, с управлением согласием и защитой приватности.",
+        "zh": "将 Google Analytics v4、Plausible、Umami 或任何自定义代码片段注入到渲染的 HTML 中。完全在 docmd.config.json 中配置，带有自动同意管理和注重隐私的默认设置。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/></svg>",
+      "tags": [
+        "analytics",
+        "tracking",
+        "metrics"
+      ],
+      "capabilities": [
+        "head",
+        "body"
+      ],
+      "permissions": {
+        "readsProject": false,
+        "writesSite": false,
+        "network": true,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/analytics",
+      "npmPackage": "@docmd/plugin-analytics",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "openapi",
+      "kind": "builtin",
+      "name": {
+        "en": "OpenAPI",
+        "de": "OpenAPI",
+        "es": "OpenAPI",
+        "fr": "OpenAPI",
+        "ja": "OpenAPI",
+        "ru": "OpenAPI",
+        "zh": "OpenAPI"
+      },
+      "tagline": {
+        "en": "Render OpenAPI 3 and Swagger specs as browsable docs.",
+        "de": "OpenAPI 3- und Swagger-Spezifikationen als interaktive Dokumentation rendern.",
+        "es": "Renderizar especificaciones de OpenAPI 3 y Swagger como documentación interactiva.",
+        "fr": "Rendre les spécifications OpenAPI 3 et Swagger en documentation interactive.",
+        "ja": "OpenAPI 3 および Swagger 仕様をインタラクティブなドキュメントとして描画。",
+        "ru": "Рендеринг OpenAPI 3 и Swagger-спецификаций в виде документации.",
+        "zh": "将 OpenAPI 3 和 Swagger 规范渲染为可浏览的文档。"
+      },
+      "description": {
+        "en": "Embed any OpenAPI 3 or Swagger JSON/YAML spec via a fenced code block or external URL. Generates interactive API reference pages with endpoint try-it-out consoles and schema explorers.",
+        "de": "Binden Sie beliebige OpenAPI 3- oder Swagger-JSON/YAML-Spezifikationen über Codeblöcke oder externe URLs ein. Erstellt interaktive API-Referenzen mit Testkonsole und Schema-Explorer.",
+        "es": "Incruste cualquier especificación OpenAPI 3 o Swagger JSON/YAML mediante un bloque de código o URL externa. Genera páginas de referencia de API interactivas con consolas de prueba y exploradores de esquema.",
+        "fr": "Intégrez toute spécification OpenAPI 3 ou Swagger JSON/YAML via un bloc de code ou une URL externe. Génère une référence d'API interactive avec console d'essai et explorateur de schéma.",
+        "ja": "コードブロックまたは外部URL経由でOpenAPI 3またはSwaggerのJSON/YAML仕様を埋め込みます。エンドポイント試行コンソールとスキーマエクスプローラーを備えた対話型APIリファレンスを生成します。",
+        "ru": "Встраивайте спецификации OpenAPI 3 или Swagger JSON/YAML через блоки кода или внешние URL. Создает интерактивные страницы API с консолью тестирования эндпоинтов и просмотром схем.",
+        "zh": "通过代码块或外部 URL 嵌入任何 OpenAPI 3 或 Swagger JSON/YAML 规范。生成带有接口调试控制台和模式资源管理器的高交互性 API 参考页面。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"/><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"/></svg>",
+      "tags": [
+        "api",
+        "openapi",
+        "swagger"
+      ],
+      "capabilities": [
+        "markdown",
+        "body",
+        "assets"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/openapi",
+      "npmPackage": "@docmd/plugin-openapi",
+      "install": null,
+      "version": "0.9.7"
+    },
+    {
+      "slug": "math",
+      "kind": "installable",
+      "name": {
+        "en": "Math",
+        "de": "Mathe",
+        "es": "Matemáticas",
+        "fr": "Maths",
+        "ja": "数学",
+        "ru": "Математика",
+        "zh": "数学"
+      },
+      "tagline": {
+        "en": "KaTeX-rendered math from $...$ and $$...$$ blocks.",
+        "de": "KaTeX-gerenderte Formeln aus $...$ und $$...$$ Blöcken.",
+        "es": "Matemáticas renderizadas con KaTeX a partir de bloques $...$ y $$...$$.",
+        "fr": "Formules mathématiques rendues avec KaTeX depuis des blocs $...$ et $$...$$.",
+        "ja": "$...$ および $$...$$ ブロックから KaTeX でレンダリングされた数式。",
+        "ru": "KaTeX-рендеринг формул из блоков $...$ и $$...$$.",
+        "zh": "通过 $...$ 和 $$...$$ 块用 KaTeX 渲染数学公式。"
+      },
+      "description": {
+        "en": "Adds LaTeX-style math support via KaTeX. Inline $...$ and display $$...$$ blocks render at build time, so the client only needs a small CSS file plus the KaTeX font.",
+        "de": "Fügt Unterstützung für LaTeX-Mathematik über KaTeX hinzu. Inline- ($...$) und Block-Formeln ($$...$$) werden beim Build gerendert, sodass der Client nur eine kleine CSS-Datei und KaTeX-Schriftarten benötigt.",
+        "es": "Añade compatibilidad matemática estilo LaTeX mediante KaTeX. Las fórmulas en línea ($...$) y en bloque ($$...$$) se procesan durante la compilación, por lo que el cliente solo requiere un pequeño archivo CSS y la fuente KaTeX.",
+        "fr": "Ajoute la prise en charge des formules LaTeX via KaTeX. Les formules en ligne ($...$) et en bloc ($$...$$) sont générées lors du build, ne nécessitant côté client qu'un léger fichier CSS et la police KaTeX.",
+        "ja": "KaTeXによるLaTeX形式の数式サポートを追加します。インライン（$...$）およびディスプレイ（$$...$$）ブロックはビルド時に描画されるため、クライアントに必要なのは小さなCSSファイルとKaTeXフォントのみです。",
+        "ru": "Добавляет поддержку математических выражений в стиле LaTeX через KaTeX. Формулы в строке ($...$) и блоками ($$...$$) рендерятся при сборке, клиенту нужен лишь небольшой CSS-файл и шрифты.",
+        "zh": "通过 KaTeX 添加 LaTeX 风格的数学支持。内联和块级公式在构建时渲染，客户端仅需一个小型 CSS 文件和 KaTeX 字体。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 7V4H6l6 8-6 8h12v-3\"/></svg>",
+      "tags": [
+        "latex",
+        "katex",
+        "math"
+      ],
+      "capabilities": [
+        "markdown",
+        "assets"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/math",
+      "npmPackage": "@docmd/plugin-math",
+      "install": "docmd add math",
+      "version": "0.9.7"
+    },
+    {
+      "slug": "pwa",
+      "kind": "installable",
+      "name": {
+        "en": "PWA",
+        "de": "PWA",
+        "es": "PWA",
+        "fr": "PWA",
+        "ja": "PWA",
+        "ru": "PWA",
+        "zh": "PWA"
+      },
+      "tagline": {
+        "en": "Service worker, manifest, and offline caching.",
+        "de": "Service Worker, Manifest und Offline-Caching.",
+        "es": "Service worker, manifiesto y almacenamiento en caché sin conexión.",
+        "fr": "Service worker, manifeste et mise en cache hors ligne.",
+        "ja": "Service Worker、マニフェスト、オフラインキャッシュ。",
+        "ru": "Service worker, манифест и офлайн-кэширование.",
+        "zh": "Service Worker、清单文件及离线缓存。"
+      },
+      "description": {
+        "en": "Generates a web app manifest, registers a service worker that caches assets and rendered pages using a stale-while-revalidate strategy, and adds full offline installation support.",
+        "de": "Erstellt ein Web-App-Manifest, registriert einen Service Worker für Caching mit Stale-While-Revalidate-Strategie und bietet vollständige Offline-Installationsunterstützung.",
+        "es": "Genera un manifiesto de aplicación web, registra un service worker que almacena en caché recursos y páginas mediante stale-while-revalidate, y añade soporte completo para instalación sin conexión.",
+        "fr": "Génère un manifeste d'application web, enregistre un service worker avec mise en cache stale-while-revalidate, et ajoute la prise en charge complète de l'installation hors ligne.",
+        "ja": "ウェブアプリマニフェストを生成し、stale-while-revalidate戦略でアセットとページをキャッシュするService Workerを登録して、完全なオフラインインストールに対応します。",
+        "ru": "Генерирует манифест веб-приложения, регистрирует service worker, кэширующий ресурсы и страницы по стратегии stale-while-revalidate, и обеспечивает полную поддержку работы в офлайне.",
+        "zh": "生成 Web 应用清单，注册使用 stale-while-revalidate 策略缓存资源和已渲染页面的 Service Worker，并提供完整的离线安装支持。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"14\" height=\"20\" x=\"5\" y=\"2\" rx=\"2\" ry=\"2\"/><path d=\"M12 18h.01\"/></svg>",
+      "tags": [
+        "pwa",
+        "offline",
+        "service-worker"
+      ],
+      "capabilities": [
+        "assets",
+        "post-build"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": true,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/pwa",
+      "npmPackage": "@docmd/plugin-pwa",
+      "install": "docmd add pwa",
+      "version": "0.9.7"
+    },
+    {
+      "slug": "threads",
+      "kind": "installable",
+      "name": {
+        "en": "Threads",
+        "de": "Threads",
+        "es": "Hilos",
+        "fr": "Discussions",
+        "ja": "スレッド",
+        "ru": "Обсуждения",
+        "zh": "讨论"
+      },
+      "tagline": {
+        "en": "Inline discussion comments stored as Markdown.",
+        "de": "Inline-Diskussionskommentare, gespeichert als Markdown.",
+        "es": "Comentarios de discusión integrados guardados como Markdown.",
+        "fr": "Commentaires de discussion intégrés stockés sous forme de Markdown.",
+        "ja": "Markdownとして保存されるインラインディスカッションコメント。",
+        "ru": "Встроенные обсуждения, хранящиеся в Markdown.",
+        "zh": "以 Markdown 存储的内联讨论评论。"
+      },
+      "description": {
+        "en": "Adds a comment thread to any page. Comments are stored as Markdown files in the repo (or backed by GitHub Discussions), so they are version-controlled alongside your documentation.",
+        "de": "Fügt jeder Seite einen Diskussionsstrang hinzu. Kommentare werden als Markdown-Dateien im Repository gespeichert (oder über GitHub Discussions gesichert) und unterliegen der Versionskontrolle.",
+        "es": "Añade un hilo de comentarios a cualquier página. Los comentarios se guardan como archivos Markdown en el repositorio (o respaldados por GitHub Discussions), manteniendo el control de versiones.",
+        "fr": "Ajoute un fil de commentaires à chaque page. Les commentaires sont stockés sous forme de fichiers Markdown dans le dépôt (ou via GitHub Discussions), garantissant un suivi de version.",
+        "ja": "任意のページにコメントスレッドを追加します。コメントはリポジトリ内のMarkdownファイルとして保存され（またはGitHub Discussionsと連携）、ドキュメントと共にバージョン管理されます。",
+        "ru": "Добавляет ветку комментариев на любую страницу. Комментарии хранятся в репозитории как файлы Markdown (или синхронизируются с GitHub Discussions) и версионируются вместе с документацией.",
+        "zh": "在任何页面添加评论讨论区。评论作为 Markdown 文件存储在代码库中（或由 GitHub Discussions 支持），与文档共同进行版本控制。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>",
+      "tags": [
+        "comments",
+        "community",
+        "live"
+      ],
+      "capabilities": [
+        "body",
+        "actions"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": true,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/threads",
+      "npmPackage": "@docmd/plugin-threads",
+      "install": "docmd add threads",
+      "version": "0.9.7"
+    }
+  ]
+}

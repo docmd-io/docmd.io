@@ -1,0 +1,164 @@
+name: 🔌 Add Plugin to Marketplace
+description: Submit a new plugin to be listed in the docmd plugin marketplace
+title: "[Add Plugin]: "
+labels: ["add-plugin", "marketplace"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Submit a Plugin to the docmd Marketplace 🔌
+
+        Thank you for submitting a plugin to the **docmd Marketplace**! Please fill out the details below.
+        
+        Once verified, you can either submit a pull request adding the entry to `data/plugins.json` to close this issue, or our team can add the plugin to the marketplace on your behalf once authorization is confirmed.
+
+  - type: input
+    id: name
+    attributes:
+      label: Plugin Display Name
+      description: User-facing name of the plugin (e.g. "Algolia Search", "KaTeX Math").
+      placeholder: e.g. Algolia Search
+    validations:
+      required: true
+
+  - type: input
+    id: slug
+    attributes:
+      label: Plugin Slug
+      description: URL identifier on docmd.io/plugins/<slug>/ (lowercase letters, numbers, and hyphens only).
+      placeholder: e.g. algolia
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Plugin Type (Kind)
+      description: Is this an installable community plugin or a core/built-in candidate?
+      options:
+        - installable (Community / external npm package)
+        - builtin (Candidate for docmd core built-ins)
+    validations:
+      required: true
+
+  - type: input
+    id: npm_package
+    attributes:
+      label: npm Package Name
+      description: The published npm package name (e.g. `@docmd/plugin-algolia` or `docmd-plugin-algolia`).
+      placeholder: e.g. @docmd/plugin-algolia
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: Public Git repository where the source code is hosted.
+      placeholder: https://github.com/username/docmd-plugin-algolia
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Current Version
+      description: Latest semver release of the package.
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: tagline
+    attributes:
+      label: Short Tagline
+      description: A concise 1-sentence description displayed on the marketplace card (max 100 characters).
+      placeholder: e.g. Fast, typo-tolerant full-text search powered by Algolia.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Full Description
+      description: Detailed overview of what the plugin does, why users need it, and how it works.
+      placeholder: e.g. Adds an in-page search bar and compile-time index generator for Algolia...
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for filtering in the marketplace (e.g. `search, indexing, algolia`).
+      placeholder: search, indexing, algolia
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: capabilities
+    attributes:
+      label: Capabilities / Lifecycle Hooks
+      description: Select all docmd lifecycle hooks this plugin registers or uses:
+      options:
+        - label: "init — runs during plugin initialization"
+        - label: "head — injects scripts or stylesheets into HTML <head>"
+        - label: "body — injects elements into the page <body>"
+        - label: "assets — copies static assets to site/ directory"
+        - label: "actions — exposes CLI or build actions"
+        - label: "translations — registers custom i18n dictionary keys"
+        - label: "post-build — executes after site compilation completes"
+
+  - type: checkboxes
+    id: permissions
+    attributes:
+      label: Permissions & Runtime Behavior
+      description: Declare the runtime behavior of this plugin during a build (displayed on your marketplace detail page):
+      options:
+        - label: "Reads project files (`readsProject`)"
+        - label: "Writes to site/ directory (`writesSite`)"
+        - label: "Makes network requests (`network`)"
+        - label: "Runs subprocesses (`subprocess`)"
+
+  - type: textarea
+    id: config_example
+    attributes:
+      label: Configuration Example
+      description: Minimal configuration example for `docmd.config.js` or `docmd.json`.
+      render: javascript
+      placeholder: |
+        module.exports = {
+          plugins: [
+            ['docmd-plugin-algolia', {
+              appId: 'YOUR_APP_ID',
+              apiKey: 'YOUR_SEARCH_KEY',
+              indexName: 'my_docs'
+            }]
+          ]
+        };
+    validations:
+      required: false
+
+  - type: textarea
+    id: icon
+    attributes:
+      label: Icon (SVG or description)
+      description: Inline SVG markup (24x24 viewBox, stroke="currentColor", fill="none") or a description / icon name.
+      placeholder: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">...</svg>'
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verification & Authorization Checklist
+      description: Please confirm the following requirements:
+      options:
+        - label: "I am the author/maintainer of this plugin, or I have confirmed authorization to submit it."
+          required: true
+        - label: "The plugin is published under an OSI-approved open source license (MIT, Apache 2.0, BSD, etc.)."
+          required: true
+        - label: "The package is published on npm and the repository is publicly accessible."
+          required: true
+        - label: "I understand that once verified, I can submit a PR adding it to `data/plugins.json` or request the docmd team to add it."
+          required: true

@@ -72,6 +72,7 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="/plugins/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
@@ -85,6 +86,7 @@ customHead: |
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="nav-dropdown-menu">
+      <a href="/plugins/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
@@ -175,10 +177,10 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.5</span></span>
+      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.7</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads">
-        <span class="badge-dl-text">3M+</span>
+        <span class="badge-dl-text">4M+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>
@@ -346,10 +348,10 @@ customHead: |
         <p data-i18n="plugins.item.mermaid.desc">Flowcharts, sequence diagrams, and architecture maps from Markdown.</p>
       </div>
     </div>
-    <div class="plugins-mobile-wrap">
-      <a href="https://docs.docmd.io/plugins/" target="_blank" rel="noopener" class="plugins-mobile-cta">
-        <span data-i18n="plugins.mobile.cta">Explore all 8 modular plugins</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="plugins-explore-wrap">
+      <a href="/plugins/" class="plugins-explore-btn">
+        <span data-i18n="plugins.explore.cta">Explore Plugin Marketplace</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;vertical-align:-2px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -766,9 +768,9 @@ customHead: |
       <h4 data-i18n="footer.features">Features</h4>
       <a href="https://docs.docmd.io/content/containers/" data-i18n="footer.containers">UI Containers</a>
       <a href="https://docs.docmd.io/theming/available-themes/" data-i18n="footer.theming">Theming</a>
-      <a href="https://docs.docmd.io/plugins/usage/" data-i18n="footer.plugins">Plugins</a>
+      <a href="/plugins/" data-i18n="footer.plugins">Plugins</a>
       <a href="https://docs.docmd.io/content/markdown-syntax/" data-i18n="footer.syntax">Markdown Syntax</a>
-      <a href="https://docs.docmd.io/guides/ai/overview/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
+      <a href="https://docs.docmd.io/guides/ai/mcp-and-agent-skills/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>

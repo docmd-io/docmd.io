@@ -61,6 +61,9 @@ function rewriteLocalLinks(html, locale) {
     return html
         .replace(/href="\/assistant\/"(\s+class="nav-link[^"]*")/g, `href="/${locale}/assistant/"$1`)
         .replace(/href="\/search\/"(\s+class="nav-link[^"]*")/g, `href="/${locale}/search/"$1`)
+        .replace(/href="\/plugins\/"(\s+class="nav-link[^"]*")/g, `href="/${locale}/plugins/"$1`)
+        .replace(/href="\/plugins\/"(\s+class="plugins-explore-btn[^"]*")/g, `href="/${locale}/plugins/"$1`)
+        .replace(/href="\/plugins\/([a-z0-9-]+)\/"/g, `href="/${locale}/plugins/$1/"`)
         .replace(/href="\/"(\s+class="nav-logo[^"]*")/g, `href="/${locale}/"$1`);
 }
 
@@ -171,6 +174,19 @@ function cleanI18nTranslations(html, locale) {
     // Run 2 passes to ensure sibling/nested data-i18n tags are cleanly resolved
     let result = html.replace(regex, replaceFn);
     result = result.replace(regex, replaceFn);
+
+    // data-i18n-{attr} attribute replacement (e.g. data-i18n-placeholder)
+    result = result.replace(/(<[^>]+)\sdata-i18n-(?!html)([a-zA-Z][\w-]*)="([^"]+)"([^>]*>)/g, (match, before, targetAttr, key, after) => {
+        if (dict[key] !== undefined) {
+            const attrRegex = new RegExp(`(${targetAttr})="[^"]*"`);
+            const fullTag = before + ' data-i18n-' + targetAttr + '="' + key + '"' + after;
+            if (attrRegex.test(fullTag)) {
+                return fullTag.replace(attrRegex, `$1="${dict[key]}"`);
+            }
+        }
+        return match;
+    });
+
     return result;
 }
 

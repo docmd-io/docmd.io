@@ -166,18 +166,22 @@ customHead: |
       <a href="https://docs.docmd.io/getting-started/installation/" data-i18n="footer.installation">Installation</a>
       <a href="https://docs.docmd.io/configuration/overview/" data-i18n="footer.configuration">Configuration</a>
       <a href="https://docs.docmd.io/reference/cli-commands/" data-i18n="footer.cli">CLI Reference</a>
+      <a href="/search/" data-i18n="footer.search">docmd Search</a>
+      <a href="/assistant/" data-i18n="footer.assistant">docmd Assistant</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.features">Features</h4>
       <a href="https://docs.docmd.io/content/containers/" data-i18n="footer.containers">UI Containers</a>
       <a href="https://docs.docmd.io/theming/available-themes/" data-i18n="footer.theming">Theming</a>
-      <a href="https://docs.docmd.io/plugins/usage/" data-i18n="footer.plugins">Plugins</a>
+      <a href="/plugins/" data-i18n="footer.plugins">Plugins</a>
+      <a href="https://docs.docmd.io/content/markdown-syntax/" data-i18n="footer.syntax">Markdown Syntax</a>
+      <a href="https://docs.docmd.io/guides/ai/mcp-and-agent-skills/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
       <a href="https://github.com/sponsors/docmd-io" target="_blank" rel="noopener" data-i18n="footer.sponsor">Sponsor</a>
-      <a href="https://cloud.docmd.io" data-i18n="nav.cloud">Cloud</a>
+      <a href="https://cloud.docmd.io" data-i18n="footer.cloud">Cloud Relay</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initAssistantSandbox();
   initAssistantCodeTabs();
   initCodeWindowCopy();
+  initMarketplace();
+  initPluginInstall();
 });
 
 /* --- Nav Dropdown (compact screens) --- */
@@ -2043,6 +2045,96 @@ function initCodeWindowCopy() {
           btn.innerHTML = originalHtml;
         }, 2000);
       }
+    });
+  });
+}
+
+/* --- Marketplace filters (plugin listing page) --- */
+function initMarketplace() {
+  const grid = document.getElementById('mp-grid');
+  if (!grid) return;
+
+  const cards = Array.from(grid.querySelectorAll('.mp-card'));
+  const searchInput = document.getElementById('mp-search-input');
+  const clearBtn = document.getElementById('mp-clear');
+  const countEl = document.getElementById('mp-count');
+  const emptyEl = document.getElementById('mp-empty');
+
+  const state = {
+    query: '',
+    kinds: new Set(),
+    tags: new Set(),
+  };
+
+  function applyFilters() {
+    let visible = 0;
+    const q = state.query.trim().toLowerCase();
+
+    cards.forEach(card => {
+      const titleText = card.querySelector('.mp-card-title')?.textContent || '';
+      const descText = card.querySelector('.mp-card-desc')?.textContent || '';
+      const name = (card.dataset.name + ' ' + titleText).toLowerCase();
+      const desc = (card.dataset.desc + ' ' + descText).toLowerCase();
+      const kind = card.dataset.kind || '';
+      const tags = (card.dataset.tags || '').split(',').filter(Boolean);
+
+      const matchQuery = !q || name.includes(q) || desc.includes(q) || tags.some(t => t.includes(q));
+      const matchKind = state.kinds.size === 0 || state.kinds.has(kind);
+      const matchTags = state.tags.size === 0 || tags.some(t => state.tags.has(t));
+
+      const visible_ = matchQuery && matchKind && matchTags;
+      card.style.display = visible_ ? '' : 'none';
+      if (visible_) visible++;
+    });
+
+    if (countEl) countEl.textContent = String(visible);
+    if (emptyEl) emptyEl.style.display = visible === 0 ? '' : 'none';
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      state.query = e.target.value;
+      applyFilters();
+    });
+  }
+
+  document.querySelectorAll('.mp-filter-option input[type="checkbox"]').forEach(input => {
+    input.addEventListener('change', e => {
+      const group = e.target.dataset.group; // 'kind' or 'tag'
+      const value = e.target.value;
+      const set = group === 'kind' ? state.kinds : state.tags;
+      if (e.target.checked) set.add(value); else set.delete(value);
+      applyFilters();
+    });
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      state.query = '';
+      state.kinds.clear();
+      state.tags.clear();
+      if (searchInput) searchInput.value = '';
+      document.querySelectorAll('.mp-filter-option input[type="checkbox"]').forEach(i => { i.checked = false; });
+      applyFilters();
+    });
+  }
+
+  applyFilters();
+}
+
+/* --- Plugin detail page: install code copy --- */
+function initPluginInstall() {
+  document.querySelectorAll('[data-copy-target]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.copyTarget);
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.innerText.trim());
+        const original = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Copied';
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = original; }, 1600);
+      } catch (err) { /* clipboard unavailable */ }
     });
   });
 }

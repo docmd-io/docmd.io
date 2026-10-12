@@ -38,6 +38,7 @@ customHead: |
       </a>
     </div>
     <div class="nav-center">
+      <a href="/plugins/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link active active-search" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
@@ -51,6 +52,7 @@ customHead: |
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="nav-dropdown-menu">
+      <a href="/plugins/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link active active-search" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
@@ -122,10 +124,10 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd-search" target="_blank" rel="noopener" class="hero-badge search-badge">
       <span class="badge-dot" style="background:var(--search-accent);"></span>
-      <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.5</span></span>
+      <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.6</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads-search">
-        <span class="badge-dl-text">186k+</span>
+        <span class="badge-dl-text">244k+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>
@@ -570,9 +572,9 @@ results.forEach(({ score, chunk }) => {
       <h4 data-i18n="footer.features">Features</h4>
       <a href="https://docs.docmd.io/content/containers/" data-i18n="footer.containers">UI Containers</a>
       <a href="https://docs.docmd.io/theming/available-themes/" data-i18n="footer.theming">Theming</a>
-      <a href="https://docs.docmd.io/plugins/usage/" data-i18n="footer.plugins">Plugins</a>
+      <a href="/plugins/" data-i18n="footer.plugins">Plugins</a>
       <a href="https://docs.docmd.io/content/markdown-syntax/" data-i18n="footer.syntax">Markdown Syntax</a>
-      <a href="https://docs.docmd.io/guides/ai/overview/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
+      <a href="https://docs.docmd.io/guides/ai/mcp-and-agent-skills/" data-i18n="footer.skills">Agent Skills &amp; MCP</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>

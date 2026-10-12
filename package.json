@@ -5,11 +5,15 @@
   "scripts": {
     "dev": "docmd dev",
     "audit:i18n": "node scripts/audit-i18n.js",
-    "prebuild": "node scripts/fetch-sponsors.js && node scripts/fetch-contributors.js && node scripts/fetch-stats.js",
+    "plugins:build": "node scripts/generate-plugins.js",
+    "plugins:watch": "node scripts/generate-plugins.js --watch",
+    "prebuild": "node scripts/fetch-sponsors.js && node scripts/fetch-contributors.js && node scripts/fetch-stats.js && node scripts/generate-plugins.js",
+    "predev": "node scripts/generate-plugins.js",
     "build": "docmd build && node scripts/rewrite-links.js",
+    "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('docs/plugins')) fs.rmSync('docs/plugins', {recursive:true, force:true});\"",
     "preview": "npx serve site"
   },
   "dependencies": {
-    "@docmd/core": "^0.9.5"
+    "@docmd/core": "^0.9.7"
   }
 }
