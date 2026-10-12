@@ -102,9 +102,9 @@ body:
       description: Select all docmd lifecycle hooks this plugin registers or uses:
       options:
         - label: "init — runs during plugin initialization"
-        - label: "head — injects scripts or stylesheets into HTML <head>"
-        - label: "body — injects elements into the page <body>"
-        - label: "assets — copies static assets to site/ directory"
+        - label: "head — injects scripts or stylesheets into HTML head"
+        - label: "body — injects elements into the page body"
+        - label: "assets — copies static assets to the site directory"
         - label: "actions — exposes CLI or build actions"
         - label: "translations — registers custom i18n dictionary keys"
         - label: "post-build — executes after site compilation completes"
@@ -113,12 +113,12 @@ body:
     id: permissions
     attributes:
       label: Permissions & Runtime Behavior
-      description: Declare the runtime behavior of this plugin during a build (displayed on your marketplace detail page):
+      description: Declare the runtime behavior of this plugin during a build (displayed on your marketplace detail page).
       options:
-        - label: "Reads project files (`readsProject`)"
-        - label: "Writes to site/ directory (`writesSite`)"
-        - label: "Makes network requests (`network`)"
-        - label: "Runs subprocesses (`subprocess`)"
+        - label: "Reads project files (readsProject)"
+        - label: "Writes to the site directory (writesSite)"
+        - label: "Makes network requests (network)"
+        - label: "Runs subprocesses (subprocess)"
 
   - type: textarea
     id: config_example
