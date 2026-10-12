@@ -118,7 +118,7 @@ customHead: |
     <h1 data-i18n-html="marketplace.title">Plugin <span class="gradient-text">marketplace.</span></h1>
     <p class="hero-sub" data-i18n="marketplace.sub">Every official plugin for docmd, in one place. Built-ins ship with the core. Installable plugins add with one command. Filter by tag or capability, then click through for install instructions and the full permission table.</p>
     <div class="mp-hero-actions">
-      <a class="mp-btn mp-btn-primary mp-hero-add-btn" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener">
+      <a class="btn-primary mp-hero-add-btn" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
       </a>
@@ -193,7 +193,7 @@ customHead: |
       <button id="mp-clear" class="mp-clear" type="button" data-i18n="marketplace.filter.clear">Clear filters</button>
 
       <div class="mp-filter-group" style="margin-top:auto;">
-        <a class="mp-btn mp-btn-primary mp-sidebar-add" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-bottom:12px;">
+        <a class="btn-primary mp-sidebar-add" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
         </a>
