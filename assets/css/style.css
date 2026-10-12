@@ -6330,12 +6330,12 @@ button {
     --mp-card-border: #e2e8f0;
     --mp-card-border-hover: #cbd5e1;
     --mp-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-    --mp-card-shadow-hover: 0 10px 25px -3px rgba(109, 74, 255, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+    --mp-card-shadow-hover: 0 10px 24px -6px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
 
-    --mp-accent: #6d4aff;
-    --mp-accent-hover: #5833eb;
-    --mp-accent-soft: rgba(109, 74, 255, 0.08);
-    --mp-accent-border: rgba(109, 74, 255, 0.22);
+    --mp-accent: var(--accent, #0284c7);
+    --mp-accent-hover: var(--accent-hover, #0369a1);
+    --mp-accent-soft: var(--accent-soft, rgba(2, 132, 199, 0.08));
+    --mp-accent-border: var(--accent-border, rgba(2, 132, 199, 0.22));
 
     /* Built-in pill: crisp high-contrast emerald green on light */
     --mp-success: #047857;
@@ -6367,7 +6367,7 @@ button {
     --mp-filter-hover: #f1f5f9;
     --mp-input-bg: #ffffff;
     --mp-input-border: #cbd5e1;
-    --mp-input-focus: #6d4aff;
+    --mp-input-focus: var(--mp-accent);
 
     --mp-radius: 14px;
     --mp-radius-sm: 8px;
@@ -6380,12 +6380,12 @@ button {
     --mp-card-border: #e2e8f0;
     --mp-card-border-hover: #cbd5e1;
     --mp-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-    --mp-card-shadow-hover: 0 10px 25px -3px rgba(109, 74, 255, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+    --mp-card-shadow-hover: 0 10px 24px -6px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
 
-    --mp-accent: #6d4aff;
-    --mp-accent-hover: #5833eb;
-    --mp-accent-soft: rgba(109, 74, 255, 0.08);
-    --mp-accent-border: rgba(109, 74, 255, 0.22);
+    --mp-accent: var(--accent, #0284c7);
+    --mp-accent-hover: var(--accent-hover, #0369a1);
+    --mp-accent-soft: var(--accent-soft, rgba(2, 132, 199, 0.08));
+    --mp-accent-border: var(--accent-border, rgba(2, 132, 199, 0.22));
 
     --mp-success: #047857;
     --mp-success-soft: rgba(16, 185, 129, 0.12);
@@ -6412,7 +6412,7 @@ button {
     --mp-filter-hover: #f1f5f9;
     --mp-input-bg: #ffffff;
     --mp-input-border: #cbd5e1;
-    --mp-input-focus: #6d4aff;
+    --mp-input-focus: var(--mp-accent);
 }
 
 [data-theme="dark"] {
@@ -6420,14 +6420,14 @@ button {
     --mp-card: rgba(255, 255, 255, 0.028);
     --mp-card-bg-subtle: rgba(255, 255, 255, 0.02);
     --mp-card-border: rgba(255, 255, 255, 0.07);
-    --mp-card-border-hover: rgba(139, 92, 246, 0.35);
+    --mp-card-border-hover: rgba(56, 189, 248, 0.35);
     --mp-card-shadow: none;
-    --mp-card-shadow-hover: 0 8px 24px -4px rgba(124, 92, 255, 0.22);
+    --mp-card-shadow-hover: 0 10px 24px -6px rgba(14, 165, 233, 0.16);
 
-    --mp-accent: #7c5cff;
-    --mp-accent-hover: #6c4cef;
-    --mp-accent-soft: rgba(124, 92, 255, 0.14);
-    --mp-accent-border: rgba(124, 92, 255, 0.28);
+    --mp-accent: var(--accent, #0ea5e9);
+    --mp-accent-hover: var(--accent-hover, #38bdf8);
+    --mp-accent-soft: var(--accent-soft, rgba(14, 165, 233, 0.12));
+    --mp-accent-border: var(--accent-border, rgba(14, 165, 233, 0.24));
 
     --mp-success: #34d399;
     --mp-success-soft: rgba(52, 211, 153, 0.14);
@@ -6489,32 +6489,57 @@ button {
 }
 
 .mp-hero-add-btn {
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .mp-hero-add-btn:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
     opacity: 0.92;
 }
 
+[data-theme="dark"] .mp-hero-add-btn {
+    box-shadow: none;
+}
+
+[data-theme="dark"] .mp-hero-add-btn:hover {
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
+}
+
 .mp-sidebar-add {
+    display: flex;
     width: 100%;
     height: 38px;
     min-height: 38px;
     padding: 0 14px;
     font-size: 0.82rem;
     font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     border-radius: var(--r-btn);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     justify-content: center;
 }
 
 .mp-sidebar-add:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
     opacity: 0.92;
+}
+
+[data-theme="dark"] .mp-sidebar-add {
+    box-shadow: none;
+}
+
+[data-theme="dark"] .mp-sidebar-add:hover {
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
+}
+
+.mp-sidebar-info {
+    margin: 14px 0 0 0;
+    padding: 0;
+    font-size: 0.75rem;
+    color: var(--mp-text-muted);
+    line-height: 1.55;
 }
 
 .mp-hero-stats {
@@ -6721,6 +6746,7 @@ button {
     justify-content: center;
     background: var(--mp-accent-soft);
     color: var(--mp-accent);
+    border: 1px solid var(--mp-accent-border);
     flex-shrink: 0;
 }
 
@@ -6847,6 +6873,7 @@ button {
     justify-content: center;
     background: var(--mp-accent-soft);
     color: var(--mp-accent);
+    border: 1px solid var(--mp-accent-border);
     flex-shrink: 0;
 }
 
@@ -7020,8 +7047,24 @@ button {
 .mp-btn-row {
     display: flex;
     gap: 8px;
-    margin-top: 12px;
+    margin-top: 14px;
     flex-wrap: wrap;
+}
+
+.mp-detail-btn {
+    height: 38px;
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.82rem;
+    flex: 1;
+}
+
+.mp-copy-btn {
+    height: 34px;
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+    margin-top: 4px;
 }
 
 .mp-btn {
