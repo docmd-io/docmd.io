@@ -1,4 +1,4 @@
-name: 🔌 Submit Plugin to Marketplace
+name: "\U0001F50C Submit Plugin to Marketplace"
 description: Propose a new plugin to be listed in the docmd marketplace catalogue
 title: "[Submit Plugin]: "
 labels: ["plugin-submission", "marketplace"]
@@ -6,17 +6,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Submit a Plugin to the docmd Marketplace 🔌
+        ### Submit a Plugin to the docmd Marketplace
 
-        Thank you for contributing to the **docmd Marketplace** ecosystem! Please provide the plugin specifications below.
-        
-        Once reviewed and verified, you can either submit a pull request updating `data/plugins.json` or our team can list the plugin on your behalf once authorization and package integrity are confirmed.
+        Thank you for contributing to the **docmd Marketplace** ecosystem! Please fill in the details below.
+
+        Once reviewed, you can either open a pull request updating `data/plugins.json` or our team can list the plugin on your behalf once authorization and package integrity are confirmed.
 
   - type: input
     id: name
     attributes:
       label: Plugin Display Name
-      description: The canonical user-facing name of the plugin (e.g., "Algolia Search", "KaTeX Math").
+      description: The canonical user-facing name of the plugin.
       placeholder: e.g. Algolia Search
     validations:
       required: true
@@ -25,7 +25,7 @@ body:
     id: slug
     attributes:
       label: Plugin Slug
-      description: URL identifier on docmd.io/plugins/<slug>/ (lowercase letters, numbers, and hyphens only).
+      description: URL-safe identifier used on docmd.io/plugins/ (lowercase letters, numbers, and hyphens only).
       placeholder: e.g. algolia
     validations:
       required: true
@@ -33,7 +33,7 @@ body:
   - type: dropdown
     id: kind
     attributes:
-      label: Plugin Type (Kind)
+      label: Plugin Type
       description: Specify whether this is an installable community plugin or a built-in core candidate.
       options:
         - installable (Community / external npm package)
@@ -45,7 +45,7 @@ body:
     id: npm_package
     attributes:
       label: npm Package Name
-      description: The published npm package name (e.g. `@docmd/plugin-algolia` or `docmd-plugin-algolia`).
+      description: The published npm package name (e.g. @docmd/plugin-algolia or docmd-plugin-algolia).
       placeholder: e.g. @docmd/plugin-algolia
     validations:
       required: true
@@ -72,7 +72,7 @@ body:
     id: tagline
     attributes:
       label: Short Tagline
-      description: A concise 1-sentence summary displayed on the marketplace card (max 100 characters).
+      description: A concise one-sentence summary displayed on the marketplace card (max 100 characters).
       placeholder: e.g. Fast, typo-tolerant full-text search powered by Algolia.
     validations:
       required: true
@@ -90,7 +90,7 @@ body:
     id: tags
     attributes:
       label: Tags
-      description: Comma-separated keywords for filtering in the marketplace (e.g. `search, indexing, algolia`).
+      description: Comma-separated keywords for filtering in the marketplace.
       placeholder: search, indexing, algolia
     validations:
       required: true
@@ -99,10 +99,10 @@ body:
     id: capabilities
     attributes:
       label: Capabilities / Lifecycle Hooks
-      description: Select all docmd lifecycle hooks this plugin registers or uses:
+      description: Select all docmd lifecycle hooks this plugin registers or uses.
       options:
         - label: "init — runs during plugin initialization"
-        - label: "head — injects scripts or stylesheets into HTML head"
+        - label: "head — injects scripts or stylesheets into the HTML head"
         - label: "body — injects elements into the page body"
         - label: "assets — copies static assets to the site directory"
         - label: "actions — exposes CLI or build actions"
@@ -112,8 +112,8 @@ body:
   - type: checkboxes
     id: permissions
     attributes:
-      label: Permissions & Runtime Behavior
-      description: Declare the runtime behavior of this plugin during a build (displayed on your marketplace detail page).
+      label: Permissions and Runtime Behavior
+      description: Declare the runtime behavior of this plugin during a build.
       options:
         - label: "Reads project files (readsProject)"
         - label: "Writes to the site directory (writesSite)"
@@ -124,7 +124,7 @@ body:
     id: config_example
     attributes:
       label: Configuration Example
-      description: Minimal configuration example for `docmd.config.js` or `docmd.json`.
+      description: Minimal configuration example for docmd.config.js or docmd.json.
       render: javascript
       placeholder: |
         module.exports = {
@@ -142,23 +142,23 @@ body:
   - type: textarea
     id: icon
     attributes:
-      label: Icon (SVG or description)
-      description: Inline SVG markup (24x24 viewBox, stroke="currentColor", fill="none") or a description / icon name.
-      placeholder: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">...</svg>'
+      label: Icon
+      description: Paste inline SVG markup (24x24 viewBox, stroke=currentColor, fill=none) or describe the icon you would like used.
+      placeholder: Paste SVG markup here, or describe the icon (e.g. "a magnifying glass")
     validations:
       required: false
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: Verification & Authorization Checklist
-      description: Please confirm the following requirements:
+      label: Verification and Authorization Checklist
+      description: Please confirm the following before submitting.
       options:
-        - label: "I am the author/maintainer of this plugin, or I have confirmed authorization to submit it."
+        - label: I am the author or maintainer of this plugin, or I have confirmed authorization to submit it.
           required: true
-        - label: "The plugin is published under an OSI-approved open source license (MIT, Apache 2.0, BSD, etc.)."
+        - label: The plugin is published under an OSI-approved open source license (MIT, Apache 2.0, BSD, etc.).
           required: true
-        - label: "The package is published on npm and the repository is publicly accessible."
+        - label: The package is published on npm and the repository is publicly accessible.
           required: true
-        - label: "I understand that once verified, I can submit a PR adding it to `data/plugins.json` or request the docmd team to list it."
+        - label: I understand that once verified, I can submit a PR to add it to data/plugins.json or request the docmd team to list it.
           required: true
