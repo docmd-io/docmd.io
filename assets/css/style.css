@@ -7036,7 +7036,6 @@ button {
     background: var(--mp-filter-hover);
     color: var(--mp-text-primary);
 }
-}
 
 .mp-btn-primary {
     background: var(--mp-accent);
