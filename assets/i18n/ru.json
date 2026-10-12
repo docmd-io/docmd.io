@@ -482,7 +482,7 @@
   "marketplace.filter.showing": "Показано",
   "marketplace.filter.of": "из",
   "marketplace.filter.contribute": "Хотите добавить свой плагин? Создайте PR с добавлением в <code>data/plugins.json</code>.",
-  "marketplace.addPlugin": "Добавить плагин",
+  "marketplace.submitPlugin": "Отправить плагин",
   "marketplace.filter.empty": "Нет плагинов, соответствующих выбранным фильтрам.",
   "marketplace.core": "Встроенный",
   "marketplace.detail.allPlugins": "Все плагины",

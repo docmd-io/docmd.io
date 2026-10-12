@@ -482,7 +482,7 @@
   "marketplace.filter.showing": "表示中",
   "marketplace.filter.of": "/",
   "marketplace.filter.contribute": "プラグインを掲載したいですか？<code>data/plugins.json</code> に追加してPRを作成してください。",
-  "marketplace.addPlugin": "プラグインを追加",
+  "marketplace.submitPlugin": "プラグインを申請",
   "marketplace.filter.empty": "現在のフィルターに一致するプラグインはありません。",
   "marketplace.core": "ビルトイン",
   "marketplace.detail.allPlugins": "すべてのプラグイン",

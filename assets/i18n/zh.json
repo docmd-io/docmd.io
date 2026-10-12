@@ -482,7 +482,7 @@
   "marketplace.filter.showing": "显示",
   "marketplace.filter.of": "共",
   "marketplace.filter.contribute": "想展示您的插件？提交 PR 将其添加到 <code>data/plugins.json</code>。",
-  "marketplace.addPlugin": "添加插件",
+  "marketplace.submitPlugin": "提交插件",
   "marketplace.filter.empty": "没有符合当前筛选条件的插件。",
   "marketplace.core": "内置",
   "marketplace.detail.allPlugins": "所有插件",

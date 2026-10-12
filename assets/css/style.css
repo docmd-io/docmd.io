@@ -6324,30 +6324,137 @@ button {
    ========================================================================= */
 
 :root {
-    --mp-bg: var(--bg, #0e1014);
-    --mp-card: rgba(255, 255, 255, 0.025);
-    --mp-card-border: rgba(255, 255, 255, 0.06);
-    --mp-card-border-hover: rgba(255, 255, 255, 0.14);
-    --mp-accent: #7c5cff;
-    --mp-accent-soft: rgba(124, 92, 255, 0.12);
-    --mp-success: #34d399;
-    --mp-success-soft: rgba(52, 211, 153, 0.12);
-    --mp-warn: #fbbf24;
-    --mp-warn-soft: rgba(251, 191, 36, 0.12);
-    --mp-danger: #f87171;
-    --mp-danger-soft: rgba(248, 113, 113, 0.12);
-    --mp-text-dim: rgba(255, 255, 255, 0.55);
-    --mp-text-muted: rgba(255, 255, 255, 0.4);
+    --mp-bg: var(--bg, #ffffff);
+    --mp-card: #ffffff;
+    --mp-card-bg-subtle: #f8fafc;
+    --mp-card-border: #e2e8f0;
+    --mp-card-border-hover: #cbd5e1;
+    --mp-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --mp-card-shadow-hover: 0 10px 25px -3px rgba(109, 74, 255, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+
+    --mp-accent: #6d4aff;
+    --mp-accent-hover: #5833eb;
+    --mp-accent-soft: rgba(109, 74, 255, 0.08);
+    --mp-accent-border: rgba(109, 74, 255, 0.22);
+
+    /* Built-in pill: crisp high-contrast emerald green on light */
+    --mp-success: #047857;
+    --mp-success-soft: rgba(16, 185, 129, 0.12);
+    --mp-success-border: rgba(16, 185, 129, 0.3);
+
+    /* Installable pill: crisp high-contrast amber on light */
+    --mp-warn: #b45309;
+    --mp-warn-soft: rgba(245, 158, 11, 0.12);
+    --mp-warn-border: rgba(245, 158, 11, 0.3);
+
+    --mp-danger: #dc2626;
+    --mp-danger-soft: rgba(239, 68, 68, 0.12);
+
+    /* Typography colors for light appearance */
+    --mp-text-primary: #0f172a;
+    --mp-text-dim: #475569;
+    --mp-text-muted: #64748b;
+    --mp-text-faint: #94a3b8;
+
+    /* Tag & chip styles */
+    --mp-tag-bg: #f1f5f9;
+    --mp-tag-text: #475569;
+    --mp-tag-border: #e2e8f0;
+
+    /* Sidebar specific */
+    --mp-sidebar-bg: #ffffff;
+    --mp-sidebar-border: #e2e8f0;
+    --mp-filter-hover: #f1f5f9;
+    --mp-input-bg: #ffffff;
+    --mp-input-border: #cbd5e1;
+    --mp-input-focus: #6d4aff;
+
     --mp-radius: 14px;
     --mp-radius-sm: 8px;
 }
 
 [data-theme="light"] {
-    --mp-card: rgba(0, 0, 0, 0.025);
-    --mp-card-border: rgba(0, 0, 0, 0.08);
-    --mp-card-border-hover: rgba(0, 0, 0, 0.16);
-    --mp-text-dim: rgba(0, 0, 0, 0.6);
-    --mp-text-muted: rgba(0, 0, 0, 0.45);
+    --mp-bg: #ffffff;
+    --mp-card: #ffffff;
+    --mp-card-bg-subtle: #f8fafc;
+    --mp-card-border: #e2e8f0;
+    --mp-card-border-hover: #cbd5e1;
+    --mp-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --mp-card-shadow-hover: 0 10px 25px -3px rgba(109, 74, 255, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+
+    --mp-accent: #6d4aff;
+    --mp-accent-hover: #5833eb;
+    --mp-accent-soft: rgba(109, 74, 255, 0.08);
+    --mp-accent-border: rgba(109, 74, 255, 0.22);
+
+    --mp-success: #047857;
+    --mp-success-soft: rgba(16, 185, 129, 0.12);
+    --mp-success-border: rgba(16, 185, 129, 0.3);
+
+    --mp-warn: #b45309;
+    --mp-warn-soft: rgba(245, 158, 11, 0.12);
+    --mp-warn-border: rgba(245, 158, 11, 0.3);
+
+    --mp-danger: #dc2626;
+    --mp-danger-soft: rgba(239, 68, 68, 0.12);
+
+    --mp-text-primary: #0f172a;
+    --mp-text-dim: #475569;
+    --mp-text-muted: #64748b;
+    --mp-text-faint: #94a3b8;
+
+    --mp-tag-bg: #f1f5f9;
+    --mp-tag-text: #475569;
+    --mp-tag-border: #e2e8f0;
+
+    --mp-sidebar-bg: #ffffff;
+    --mp-sidebar-border: #e2e8f0;
+    --mp-filter-hover: #f1f5f9;
+    --mp-input-bg: #ffffff;
+    --mp-input-border: #cbd5e1;
+    --mp-input-focus: #6d4aff;
+}
+
+[data-theme="dark"] {
+    --mp-bg: var(--bg, #090c12);
+    --mp-card: rgba(255, 255, 255, 0.028);
+    --mp-card-bg-subtle: rgba(255, 255, 255, 0.02);
+    --mp-card-border: rgba(255, 255, 255, 0.07);
+    --mp-card-border-hover: rgba(139, 92, 246, 0.35);
+    --mp-card-shadow: none;
+    --mp-card-shadow-hover: 0 8px 24px -4px rgba(124, 92, 255, 0.22);
+
+    --mp-accent: #7c5cff;
+    --mp-accent-hover: #6c4cef;
+    --mp-accent-soft: rgba(124, 92, 255, 0.14);
+    --mp-accent-border: rgba(124, 92, 255, 0.28);
+
+    --mp-success: #34d399;
+    --mp-success-soft: rgba(52, 211, 153, 0.14);
+    --mp-success-border: rgba(52, 211, 153, 0.28);
+
+    --mp-warn: #fbbf24;
+    --mp-warn-soft: rgba(251, 191, 36, 0.14);
+    --mp-warn-border: rgba(251, 191, 36, 0.28);
+
+    --mp-danger: #f87171;
+    --mp-danger-soft: rgba(248, 113, 113, 0.14);
+
+    --mp-text-primary: #f8fafc;
+    --mp-text-dim: rgba(255, 255, 255, 0.65);
+    --mp-text-muted: rgba(255, 255, 255, 0.45);
+    --mp-text-faint: rgba(255, 255, 255, 0.3);
+
+    --mp-tag-bg: rgba(255, 255, 255, 0.05);
+    --mp-tag-text: rgba(255, 255, 255, 0.7);
+    --mp-tag-border: transparent;
+
+    --mp-sidebar-bg: var(--mp-card);
+    --mp-sidebar-border: var(--mp-card-border);
+    --mp-filter-hover: rgba(255, 255, 255, 0.04);
+    --mp-input-bg: rgba(255, 255, 255, 0.035);
+    --mp-input-border: var(--mp-card-border);
+    --mp-input-focus: var(--mp-accent);
 }
 
 /* Hero (compact, marketplace tone) */
@@ -6363,14 +6470,15 @@ button {
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin: 0 0 14px;
+    color: var(--mp-text-primary);
 }
-
 
 .mp-hero .hero-sub {
     max-width: 620px;
     font-size: 1.05rem;
     color: var(--mp-text-dim);
     margin: 0 0 20px;
+    line-height: 1.6;
 }
 
 .mp-hero-actions {
@@ -6381,23 +6489,23 @@ button {
 }
 
 .mp-hero-add-btn {
-    padding: 8px 16px;
+    padding: 9px 18px;
     font-size: 0.88rem;
     font-weight: 500;
-    box-shadow: 0 2px 10px rgba(124, 92, 255, 0.28);
+    box-shadow: 0 2px 10px rgba(109, 74, 255, 0.28);
 }
 
 .mp-hero-add-btn:hover {
-    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.45);
+    box-shadow: 0 4px 16px rgba(109, 74, 255, 0.45);
     transform: translateY(-1px);
 }
 
 .mp-sidebar-add {
-    box-shadow: 0 2px 8px rgba(124, 92, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(109, 74, 255, 0.2);
 }
 
 .mp-sidebar-add:hover {
-    box-shadow: 0 4px 14px rgba(124, 92, 255, 0.35);
+    box-shadow: 0 4px 14px rgba(109, 74, 255, 0.35);
     transform: translateY(-1px);
 }
 
@@ -6410,7 +6518,7 @@ button {
 }
 
 .mp-hero-stats strong {
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
     font-weight: 600;
 }
 
@@ -6430,9 +6538,10 @@ button {
     flex-direction: column;
     gap: 22px;
     padding: 20px;
-    background: var(--mp-card);
-    border: 1px solid var(--mp-card-border);
+    background: var(--mp-sidebar-bg);
+    border: 1px solid var(--mp-sidebar-border);
     border-radius: var(--mp-radius);
+    box-shadow: var(--mp-card-shadow);
     max-height: calc(100vh - 120px);
     overflow-y: auto;
 }
@@ -6441,8 +6550,8 @@ button {
 .mp-sidebar::-webkit-scrollbar-thumb { background: var(--mp-card-border); border-radius: 3px; }
 
 .mp-filter-group h3 {
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--mp-text-muted);
@@ -6466,14 +6575,15 @@ button {
     border-radius: var(--mp-radius-sm);
     cursor: pointer;
     font-size: 0.85rem;
-    color: var(--text-secondary, rgba(255,255,255,0.75));
+    color: var(--mp-text-dim);
     transition: background 0.12s ease, color 0.12s ease;
     user-select: none;
+    font-weight: 500;
 }
 
 .mp-filter-option:hover {
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--text-primary, #fff);
+    background: var(--mp-filter-hover);
+    color: var(--mp-text-primary);
 }
 
 .mp-filter-option input[type="checkbox"] {
@@ -6481,9 +6591,9 @@ button {
     -webkit-appearance: none;
     width: 15px;
     height: 15px;
-    border: 1px solid var(--mp-card-border-hover);
+    border: 1.5px solid var(--mp-input-border);
     border-radius: 4px;
-    background: transparent;
+    background: var(--mp-input-bg);
     cursor: pointer;
     position: relative;
     flex-shrink: 0;
@@ -6502,8 +6612,12 @@ button {
 
 .mp-filter-count {
     margin-left: auto;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     color: var(--mp-text-muted);
+    background: var(--mp-tag-bg);
+    padding: 1px 7px;
+    border-radius: 999px;
     font-variant-numeric: tabular-nums;
 }
 
@@ -6514,18 +6628,23 @@ button {
 .mp-search input {
     width: 100%;
     padding: 9px 12px 9px 32px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--mp-card-border);
+    background: var(--mp-input-bg);
+    border: 1px solid var(--mp-input-border);
     border-radius: var(--mp-radius-sm);
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
     font-size: 0.85rem;
     font-family: inherit;
-    transition: border-color 0.12s ease;
+    transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.mp-search input::placeholder {
+    color: var(--mp-text-faint);
 }
 
 .mp-search input:focus {
     outline: none;
-    border-color: var(--mp-accent);
+    border-color: var(--mp-input-focus);
+    box-shadow: 0 0 0 3px var(--mp-accent-soft);
 }
 
 .mp-search-icon {
@@ -6538,7 +6657,7 @@ button {
 }
 
 .mp-clear {
-    background: none;
+    background: var(--mp-card);
     border: 1px solid var(--mp-card-border);
     color: var(--mp-text-dim);
     padding: 6px 10px;
@@ -6547,11 +6666,13 @@ button {
     cursor: pointer;
     transition: all 0.12s ease;
     font-family: inherit;
+    font-weight: 500;
 }
 
 .mp-clear:hover {
     border-color: var(--mp-card-border-hover);
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
+    background: var(--mp-filter-hover);
 }
 
 /* Grid of cards */
@@ -6565,13 +6686,14 @@ button {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 18px;
+    padding: 20px;
     background: var(--mp-card);
     border: 1px solid var(--mp-card-border);
     border-radius: var(--mp-radius);
+    box-shadow: var(--mp-card-shadow);
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+    transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
     position: relative;
     overflow: hidden;
 }
@@ -6579,7 +6701,7 @@ button {
 .mp-card:hover {
     border-color: var(--mp-card-border-hover);
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.035);
+    box-shadow: var(--mp-card-shadow-hover);
 }
 
 .mp-card-icon {
@@ -6617,33 +6739,39 @@ button {
     font-weight: 600;
     letter-spacing: -0.01em;
     margin: 0;
+    color: var(--mp-text-primary);
 }
 
 .mp-card-kind {
-    font-size: 0.62rem;
-    font-weight: 600;
+    font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 2px 7px;
+    padding: 2.5px 8px;
     border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
 }
 
 .mp-card-kind-core,
 .mp-card-kind-builtin {
     color: var(--mp-success);
     background: var(--mp-success-soft);
+    border: 1px solid var(--mp-success-border);
 }
 
 .mp-card-kind-optional,
 .mp-card-kind-installable {
     color: var(--mp-warn);
     background: var(--mp-warn-soft);
+    border: 1px solid var(--mp-warn-border);
 }
 
 .mp-card-desc {
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     color: var(--mp-text-dim);
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0;
     flex: 1;
 }
@@ -6655,11 +6783,12 @@ button {
 }
 
 .mp-tag {
-    font-size: 0.7rem;
-    padding: 3px 8px;
+    font-size: 0.72rem;
+    padding: 3px 9px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--mp-text-dim);
+    background: var(--mp-tag-bg);
+    color: var(--mp-tag-text);
+    border: 1px solid var(--mp-tag-border);
     font-weight: 500;
 }
 
@@ -6685,10 +6814,11 @@ button {
     font-size: 0.85rem;
     margin-bottom: 24px;
     transition: color 0.12s ease;
+    font-weight: 500;
 }
 
 .mp-detail-back:hover {
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
 }
 
 .mp-detail-hero {
@@ -6722,6 +6852,7 @@ button {
     font-weight: 700;
     letter-spacing: -0.02em;
     margin: 0 0 8px;
+    color: var(--mp-text-primary);
 }
 
 .mp-detail-hero p {
@@ -6729,6 +6860,7 @@ button {
     font-size: 1rem;
     margin: 0 0 12px;
     max-width: 720px;
+    line-height: 1.6;
 }
 
 .mp-detail-meta {
@@ -6753,6 +6885,7 @@ button {
     font-weight: 600;
     letter-spacing: -0.01em;
     margin: 0 0 14px;
+    color: var(--mp-text-primary);
 }
 
 .mp-detail-section p {
@@ -6762,19 +6895,38 @@ button {
 }
 
 .mp-code {
-    background: rgba(0, 0, 0, 0.4);
+    background: #0f172a;
     border: 1px solid var(--mp-card-border);
     border-radius: var(--mp-radius-sm);
     padding: 14px 16px;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 0.82rem;
-    color: #e5e7eb;
+    color: #e2e8f0;
     overflow-x: auto;
     margin: 0 0 12px;
 }
 
+[data-theme="light"] .mp-code {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    color: #0f172a;
+}
+
 .mp-code .tok-cmd { color: var(--mp-accent); }
 .mp-code .tok-cmt { color: var(--mp-text-muted); font-style: italic; }
+
+.mp-cap {
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 3px 4px 3px 0;
+    border-radius: 6px;
+    background: var(--mp-accent-soft);
+    color: var(--mp-accent);
+    border: 1px solid var(--mp-accent-border);
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+}
 
 .mp-perm-table {
     width: 100%;
@@ -6790,20 +6942,21 @@ button {
 }
 
 .mp-perm-table th {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--mp-text-muted);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .mp-perm-table td:first-child {
     font-weight: 500;
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
 }
 
 .mp-perm-yes {
     color: var(--mp-success);
+    font-weight: 600;
 }
 
 .mp-perm-no {
@@ -6814,18 +6967,19 @@ button {
     position: sticky;
     top: 96px;
     padding: 20px;
-    background: var(--mp-card);
-    border: 1px solid var(--mp-card-border);
+    background: var(--mp-sidebar-bg);
+    border: 1px solid var(--mp-sidebar-border);
     border-radius: var(--mp-radius);
+    box-shadow: var(--mp-card-shadow);
 }
 
 .mp-detail-aside h3 {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--mp-text-muted);
     margin: 0 0 10px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .mp-detail-aside dl {
@@ -6839,13 +6993,14 @@ button {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-top: 10px;
+    font-weight: 600;
 }
 
 .mp-detail-aside dt:first-child { margin-top: 0; }
 
 .mp-detail-aside dd {
     margin: 4px 0 0;
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
 }
 
 .mp-detail-aside dd code {
@@ -6871,13 +7026,16 @@ button {
     text-decoration: none;
     font-weight: 500;
     border: 1px solid var(--mp-card-border);
-    color: var(--text-primary, #fff);
+    color: var(--mp-text-primary);
+    background: var(--mp-card);
     transition: all 0.12s ease;
 }
 
 .mp-btn:hover {
     border-color: var(--mp-card-border-hover);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--mp-filter-hover);
+    color: var(--mp-text-primary);
+}
 }
 
 .mp-btn-primary {

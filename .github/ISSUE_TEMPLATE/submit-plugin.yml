@@ -1,22 +1,22 @@
-name: 🔌 Add Plugin to Marketplace
-description: Submit a new plugin to be listed in the docmd plugin marketplace
-title: "[Add Plugin]: "
-labels: ["add-plugin", "marketplace"]
+name: 🔌 Submit Plugin to Marketplace
+description: Propose a new plugin to be listed in the docmd marketplace catalogue
+title: "[Submit Plugin]: "
+labels: ["plugin-submission", "marketplace"]
 body:
   - type: markdown
     attributes:
       value: |
         ### Submit a Plugin to the docmd Marketplace 🔌
 
-        Thank you for submitting a plugin to the **docmd Marketplace**! Please fill out the details below.
+        Thank you for contributing to the **docmd Marketplace** ecosystem! Please provide the plugin specifications below.
         
-        Once verified, you can either submit a pull request adding the entry to `data/plugins.json` to close this issue, or our team can add the plugin to the marketplace on your behalf once authorization is confirmed.
+        Once reviewed and verified, you can either submit a pull request updating `data/plugins.json` or our team can list the plugin on your behalf once authorization and package integrity are confirmed.
 
   - type: input
     id: name
     attributes:
       label: Plugin Display Name
-      description: User-facing name of the plugin (e.g. "Algolia Search", "KaTeX Math").
+      description: The canonical user-facing name of the plugin (e.g., "Algolia Search", "KaTeX Math").
       placeholder: e.g. Algolia Search
     validations:
       required: true
@@ -34,7 +34,7 @@ body:
     id: kind
     attributes:
       label: Plugin Type (Kind)
-      description: Is this an installable community plugin or a core/built-in candidate?
+      description: Specify whether this is an installable community plugin or a built-in core candidate.
       options:
         - installable (Community / external npm package)
         - builtin (Candidate for docmd core built-ins)
@@ -72,7 +72,7 @@ body:
     id: tagline
     attributes:
       label: Short Tagline
-      description: A concise 1-sentence description displayed on the marketplace card (max 100 characters).
+      description: A concise 1-sentence summary displayed on the marketplace card (max 100 characters).
       placeholder: e.g. Fast, typo-tolerant full-text search powered by Algolia.
     validations:
       required: true
@@ -90,7 +90,7 @@ body:
     id: tags
     attributes:
       label: Tags
-      description: Comma-separated tags for filtering in the marketplace (e.g. `search, indexing, algolia`).
+      description: Comma-separated keywords for filtering in the marketplace (e.g. `search, indexing, algolia`).
       placeholder: search, indexing, algolia
     validations:
       required: true
@@ -160,5 +160,5 @@ body:
           required: true
         - label: "The package is published on npm and the repository is publicly accessible."
           required: true
-        - label: "I understand that once verified, I can submit a PR adding it to `data/plugins.json` or request the docmd team to add it."
+        - label: "I understand that once verified, I can submit a PR adding it to `data/plugins.json` or request the docmd team to list it."
           required: true

@@ -482,7 +482,7 @@
   "marketplace.filter.showing": "Zeige",
   "marketplace.filter.of": "von",
   "marketplace.filter.contribute": "Möchten Sie Ihr Plugin listen? Öffnen Sie einen PR und fügen Sie es zu <code>data/plugins.json</code> hinzu.",
-  "marketplace.addPlugin": "Plugin hinzufügen",
+  "marketplace.submitPlugin": "Plugin einreichen",
   "marketplace.filter.empty": "Keine Plugins entsprechen den aktuellen Filtern.",
   "marketplace.core": "Integriert",
   "marketplace.detail.allPlugins": "Alle Plugins",

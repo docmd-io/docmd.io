@@ -620,9 +620,9 @@ ${navBlock.replace('<a href="/plugins/" class="nav-link"', '<a href="/plugins/" 
     <h1 data-i18n-html="marketplace.title">Plugin <span class="gradient-text">marketplace.</span></h1>
     <p class="hero-sub" data-i18n="marketplace.sub">Every official plugin for docmd, in one place. Built-ins ship with the core. Installable plugins add with one command. Filter by tag or capability, then click through for install instructions and the full permission table.</p>
     <div class="mp-hero-actions">
-      <a class="mp-btn mp-btn-primary mp-hero-add-btn" href="https://github.com/docmd-io/docmd.io/issues/new?template=add-plugin.yml" target="_blank" rel="noopener">
+      <a class="mp-btn mp-btn-primary mp-hero-add-btn" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-        <span data-i18n="marketplace.addPlugin">Add Plugin</span>
+        <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
       </a>
     </div>
     <div class="mp-hero-stats">
@@ -660,14 +660,14 @@ ${tagFilters}
       <button id="mp-clear" class="mp-clear" type="button" data-i18n="marketplace.filter.clear">Clear filters</button>
 
       <div class="mp-filter-group" style="margin-top:auto;">
-        <a class="mp-btn mp-btn-primary mp-sidebar-add" href="https://github.com/docmd-io/docmd.io/issues/new?template=add-plugin.yml" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-bottom:12px;">
+        <a class="mp-btn mp-btn-primary mp-sidebar-add" href="https://github.com/docmd-io/docmd.io/issues/new?template=submit-plugin.yml" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-bottom:12px;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          <span data-i18n="marketplace.addPlugin">Add Plugin</span>
+          <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
         </a>
         <p style="font-size:0.75rem;color:var(--mp-text-muted);margin:0;line-height:1.5;">
-          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--text-primary,#fff);">${plugins.length}</strong> <span data-i18n="marketplace.filter.of">of</span> ${plugins.length}.
+          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--mp-text-primary);">${plugins.length}</strong> <span data-i18n="marketplace.filter.of">of</span> ${plugins.length}.
           <br/><br/>
-          <span data-i18n-html="marketplace.filter.contribute">Want to list your plugin? Click &ldquo;Add Plugin&rdquo; above or open a PR adding it to <code>data/plugins.json</code>.</span>
+          <span data-i18n-html="marketplace.filter.contribute">Want to list your plugin? Click &ldquo;Submit Plugin&rdquo; above or open a PR adding it to <code>data/plugins.json</code>.</span>
         </p>
       </div>
     </aside>
