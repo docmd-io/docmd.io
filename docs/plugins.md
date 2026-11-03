@@ -20,7 +20,7 @@ customHead: |
   <link rel="manifest" href="/assets/manifest.json">
   <meta property="og:site_name" content="docmd">
   <meta property="og:title" content="docmd Plugins Marketplace">
-  <meta property="og:description" content="Browse 13 official docmd plugins. Search, filter by tag, view capabilities and permissions.">
+  <meta property="og:description" content="Browse 14 official docmd plugins. Search, filter by tag, view capabilities and permissions.">
 ---
 
 <nav class="nav" aria-label="Main navigation">
@@ -124,8 +124,8 @@ customHead: |
       </a>
     </div>
     <div class="mp-hero-stats">
-      <span data-i18n-html="marketplace.stats.plugins"><strong>13</strong> plugins</span>
-      <span data-i18n-html="marketplace.stats.tags"><strong>36</strong> tags</span>
+      <span data-i18n-html="marketplace.stats.plugins"><strong>14</strong> plugins</span>
+      <span data-i18n-html="marketplace.stats.tags"><strong>40</strong> tags</span>
     </div>
   </div>
 </header>
@@ -143,7 +143,7 @@ customHead: |
       <div class="mp-filter-group">
         <h3 data-i18n="marketplace.filter.type">Type</h3>
         <ul class="mp-filter-list">
-          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="builtin"/> <span data-i18n="marketplace.filter.builtin">Built-in</span><span class="mp-filter-count">10</span></label></li>
+          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="builtin"/> <span data-i18n="marketplace.filter.builtin">Built-in</span><span class="mp-filter-count">11</span></label></li>
           <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="installable"/> <span data-i18n="marketplace.filter.installable">Installable</span><span class="mp-filter-count">3</span></label></li>
         </ul>
       </div>
@@ -157,6 +157,7 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="api"/> api<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="chat"/> chat<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="client-side"/> client-side<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="code"/> code<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="comments"/> comments<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="community"/> community<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="context"/> context<span class="mp-filter-count">1</span></label></li>
@@ -164,10 +165,11 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="git"/> git<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="history"/> history<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="index"/> index<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="interactive"/> interactive<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="katex"/> katex<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="knowledge"/> knowledge<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="latex"/> latex<span class="mp-filter-count">1</span></label></li>
-            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="live"/> live<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="live"/> live<span class="mp-filter-count">2</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="llm"/> llm<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="markdown"/> markdown<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="math"/> math<span class="mp-filter-count">1</span></label></li>
@@ -178,6 +180,8 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="offline"/> offline<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="openapi"/> openapi<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="opengraph"/> opengraph<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="playground"/> playground<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="preview"/> preview<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="pwa"/> pwa<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="rag"/> rag<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="search"/> search<span class="mp-filter-count">1</span></label></li>
@@ -198,7 +202,7 @@ customHead: |
           <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
         </a>
         <p class="mp-sidebar-info">
-          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--mp-text-primary);">13</strong> <span data-i18n="marketplace.filter.of">of</span> 13.
+          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--mp-text-primary);">14</strong> <span data-i18n="marketplace.filter.of">of</span> 14.
           <br/><br/>
           <span data-i18n-html="marketplace.filter.contribute">Want to list your plugin? Click &ldquo;Submit Plugin&rdquo; above or open a PR adding it to <code>data/plugins.json</code>.</span>
         </p>
@@ -348,6 +352,17 @@ customHead: |
         </div>
         <p class="mp-card-desc" data-i18n="marketplace.plugin.threads.tagline">Inline discussion comments stored as Markdown.</p>
         <div class="mp-card-tags"><span class="mp-tag">comments</span><span class="mp-tag">community</span><span class="mp-tag">live</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/playground/" data-name="Playground" data-desc="Interactive JavaScript runtime and live HTML component previews." data-kind="builtin" data-tags="playground,interactive,code,live,preview">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.playground.name">Playground</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.playground.tagline">Interactive JavaScript runtime and live HTML component previews.</p>
+        <div class="mp-card-tags"><span class="mp-tag">playground</span><span class="mp-tag">interactive</span><span class="mp-tag">code</span><span class="mp-tag">live</span></div>
       </a>
       <div id="mp-empty" class="mp-empty" style="display:none;" data-i18n="marketplace.filter.empty">No plugins match the current filters.</div>
     </div>

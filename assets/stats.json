@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-10-12T08:32:31.961Z",
+  "updatedAt": "2026-11-03T09:20:48.873Z",
   "docmd": {
-    "version": "0.9.7",
-    "downloads": 4002254,
-    "formatted": "4M+"
+    "version": "0.9.8",
+    "downloads": 4767561,
+    "formatted": "4.8M+"
   },
   "search": {
     "version": "0.1.6",
-    "downloads": 243859,
-    "formatted": "244k+"
+    "downloads": 282872,
+    "formatted": "283k+"
   },
   "assistant": {
-    "version": "0.1.18",
-    "downloads": 114812,
-    "formatted": "115k+"
+    "version": "0.1.20",
+    "downloads": 172321,
+    "formatted": "172k+"
   },
   "packages": {
-    "@docmd/core": 234062,
-    "@docmd/api": 182612,
-    "@docmd/themes": 226178,
-    "@docmd/parser": 232054,
-    "@docmd/tui": 179412,
-    "@docmd/ui": 227683,
-    "@docmd/utils": 104295,
-    "@docmd/engine-rust": 105942,
-    "@docmd/live": 224836,
-    "@docmd/plugin-search": 230566,
-    "@docmd/plugin-ai": 58155,
-    "@docmd/plugin-llms": 226994,
-    "@docmd/plugin-sitemap": 228472,
-    "@docmd/plugin-seo": 229554,
-    "@docmd/plugin-git": 116773,
-    "@docmd/plugin-math": 181807,
-    "@docmd/plugin-mermaid": 227062,
-    "@docmd/plugin-analytics": 228249,
-    "@docmd/plugin-installer": 220169,
-    "@docmd/plugin-openapi": 115417,
-    "@docmd/plugin-pwa": 152012,
-    "docmd-search": 13293,
-    "docmd-assistant": 56657
+    "@docmd/core": 272450,
+    "@docmd/api": 220455,
+    "@docmd/themes": 266102,
+    "@docmd/parser": 269872,
+    "@docmd/tui": 219252,
+    "@docmd/ui": 266666,
+    "@docmd/utils": 133554,
+    "@docmd/engine-rust": 136383,
+    "@docmd/live": 265974,
+    "@docmd/plugin-search": 268235,
+    "@docmd/plugin-ai": 85510,
+    "@docmd/plugin-llms": 264481,
+    "@docmd/plugin-sitemap": 265865,
+    "@docmd/plugin-seo": 266164,
+    "@docmd/plugin-git": 147326,
+    "@docmd/plugin-math": 218687,
+    "@docmd/plugin-mermaid": 266703,
+    "@docmd/plugin-analytics": 265880,
+    "@docmd/plugin-installer": 257633,
+    "@docmd/plugin-openapi": 146833,
+    "@docmd/plugin-pwa": 162088,
+    "docmd-search": 14637,
+    "docmd-assistant": 86811
   }
 }

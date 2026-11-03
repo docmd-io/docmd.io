@@ -668,6 +668,59 @@
       "npmPackage": "@docmd/plugin-threads",
       "install": "docmd add threads",
       "version": "0.9.7"
+    },
+    {
+      "slug": "playground",
+      "kind": "builtin",
+      "name": {
+        "en": "Playground",
+        "de": "Playground",
+        "es": "Playground",
+        "fr": "Playground",
+        "ja": "プレイグラウンド",
+        "ru": "Playground",
+        "zh": "代码演练场 (Playground)"
+      },
+      "tagline": {
+        "en": "Interactive JavaScript runtime and live HTML component previews.",
+        "de": "Interaktive JavaScript-Laufzeit und Live-HTML-Komponentenvorschau.",
+        "es": "Entorno interactivo de JavaScript y previsualización de componentes HTML en vivo.",
+        "fr": "Environnement interactif JavaScript et aperçu de composants HTML en direct.",
+        "ja": "インタラクティブなJavaScript実行環境とHTMLコンポーネントのリアルタイムプレビュー。",
+        "ru": "Интерактивная среда выполнения JavaScript и живой просмотр HTML-компонентов.",
+        "zh": "交互式 JavaScript 运行时与实时 HTML 组件预览。"
+      },
+      "description": {
+        "en": "Embed runnable JavaScript environments, live HTML component previews, tabbed Live/Code toggles, and active codebase scripts using ::: playground. Features real-time console interception and client-side reactivity with zero external dependencies.",
+        "de": "Binden Sie ausführbare JavaScript-Umgebungen, interaktive HTML-Komponentenvorschauen, umschaltbare Live/Code-Reiter und echte Codebase-Skripte mit ::: playground ein. Mit Echtzeit-Konsolenabfangung und Reaktivität ohne externe Frameworks.",
+        "es": "Integre entornos ejecutables de JavaScript, previsualizaciones de componentes HTML en vivo, pestañas interactivas Live/Code y scripts del repositorio con ::: playground. Incluye intercepción de consola y reactividad sin dependencias externas.",
+        "fr": "Intégrez des environnements d'exécution JavaScript, des aperçus de composants HTML en direct, des onglets interactifs Live/Code et des scripts de référentiel avec ::: playground. Interception de la console et réactivité sans dépendance externe.",
+        "ja": "::: playground を使用して、実行可能なJavaScript環境、HTMLコンポーネントプレビュー、Live/Codeタブ切替、リポジトリ内スクリプトの直接埋め込みを実現。リアルタイムコンソール捕捉とクライアントリアクティビティを外部依存なしで提供します。",
+        "ru": "Встраивайте исполняемые среды JavaScript, живой просмотр HTML-компонентов, переключение Live/Code и скрипты из репозитория с помощью ::: playground. Перехват консоли в реальном времени и реактивность без внешних зависимостей.",
+        "zh": "通过 ::: playground 容器嵌入可运行的 JavaScript 交互环境、实时 HTML 组件预览、Live/Code 视图切换以及代码库源文件。提供实时控制台输出拦截与客户端响应式联动，零外部框架依赖。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"6 3 20 12 6 21 6 3\"/></svg>",
+      "tags": [
+        "playground",
+        "interactive",
+        "code",
+        "live",
+        "preview"
+      ],
+      "capabilities": [
+        "markdown",
+        "assets"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/playground",
+      "npmPackage": "@docmd/plugin-playground",
+      "install": null,
+      "version": "0.9.9"
     }
   ]
 }

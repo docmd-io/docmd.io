@@ -177,10 +177,10 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd" target="_blank" rel="noopener" class="hero-badge">
       <span class="badge-dot"></span>
-      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.7</span></span>
+      <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.8</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads">
-        <span class="badge-dl-text">4M+</span>
+        <span class="badge-dl-text">4.8M+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>
@@ -288,6 +288,18 @@ customHead: |
         <div>
           <div class="bento-header">
             <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c0-1.5 1-2 2-2s2 .5 2 2v2c0 1.5 1 2 2 2s-1 .5-1 2v2c0 1.5-1 2-2 2s-2-.5-2-2"/><path d="M20 7c0-1.5-1-2-2-2s-2 .5-2 2v2c0 1.5-1 2-2 2s1 .5 1 2v2c0 1.5 1 2 2 2s2-.5 2-2"/></svg>
+            </div>
+            <h3 data-i18n="bento.card5.title">Variables &amp; Runtime Personalisation</h3>
+          </div>
+          <p data-i18n="bento.card5.desc">Interpolate environment keys, git commits, build versions, and reactive client variables like API keys and user tokens with zero runtime overhead.</p>
+        </div>
+        <div class="bento-code-box"><span style="color:var(--accent);">Welcome</span> {{ user.name | "Developer" }} – v{{ docmd.version }}</div>
+      </div>
+      <div class="bento-card col-span-2">
+        <div>
+          <div class="bento-header">
+            <div class="bento-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
             <h3 data-i18n="bento.card4.title">Rich Content from Plain Markdown</h3>
@@ -295,6 +307,18 @@ customHead: |
           <p data-i18n="bento.card4.desc">Write callouts, tabbed code blocks, warning boxes, cards, and diagrams using simple Markdown syntax. No HTML or JSX needed.</p>
         </div>
         <div class="bento-code-box">::: callout info<br>Native Markdown callouts &amp; tabs!<br>:::</div>
+      </div>
+      <div class="bento-card">
+        <div>
+          <div class="bento-header">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            </div>
+            <h3 data-i18n="bento.card6.title">Interactive Code Sandboxes</h3>
+          </div>
+          <p data-i18n="bento.card6.desc">Embed runnable JavaScript sandboxes and live HTML component previews directly in Markdown with instant console output.</p>
+        </div>
+        <div class="bento-code-box">::: playground live<br>&lt;button class="btn"&gt;Run&lt;/button&gt;<br>:::</div>
       </div>
     </div>
   </div>
@@ -307,6 +331,11 @@ customHead: |
       <p class="section-sub" data-i18n="plugins.sub">Each plugin works out of the box with zero configuration. Enable only what you need.</p>
     </div>
     <div class="plugins-grid">
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-playground</span>
+        <h4 data-i18n="plugins.item.playground.title">Interactive Playground</h4>
+        <p data-i18n="plugins.item.playground.desc">Runnable JavaScript sandboxes and live HTML component previews.</p>
+      </div>
       <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-search</span>
         <h4 data-i18n="plugins.item.search.title">Offline Vector Search</h4>
@@ -338,14 +367,29 @@ customHead: |
         <p data-i18n="plugins.item.seo.desc">Sitemaps, meta tags, and structured data for search engine visibility.</p>
       </div>
       <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-mermaid</span>
+        <h4 data-i18n="plugins.item.mermaid.title">Mermaid Diagrams</h4>
+        <p data-i18n="plugins.item.mermaid.desc">Flowcharts, sequence diagrams, and architecture maps from Markdown.</p>
+      </div>
+      <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-math</span>
         <h4 data-i18n="plugins.item.math.title">KaTeX Maths</h4>
         <p data-i18n="plugins.item.math.desc">Render LaTeX mathematical expressions with lightweight KaTeX.</p>
       </div>
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-mermaid</span>
-        <h4 data-i18n="plugins.item.mermaid.title">Mermaid Diagrams</h4>
-        <p data-i18n="plugins.item.mermaid.desc">Flowcharts, sequence diagrams, and architecture maps from Markdown.</p>
+        <span class="plugin-badge">@docmd/plugin-git</span>
+        <h4 data-i18n="plugins.item.git.title">Git History &amp; Edits</h4>
+        <p data-i18n="plugins.item.git.desc">Page edit links, contributor metadata, and last-modified timestamps.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-okf</span>
+        <h4 data-i18n="plugins.item.okf.title">Open Knowledge Format</h4>
+        <p data-i18n="plugins.item.okf.desc">Deterministic knowledge bundles structured for LLM ingestion.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-pwa</span>
+        <h4 data-i18n="plugins.item.pwa.title">PWA &amp; Offline Cache</h4>
+        <p data-i18n="plugins.item.pwa.desc">Service worker and web app manifest for instant offline navigation.</p>
       </div>
     </div>
     <div class="plugins-explore-wrap">
