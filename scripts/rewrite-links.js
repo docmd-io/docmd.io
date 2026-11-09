@@ -217,3 +217,10 @@ if (fs.existsSync(runtimeFile)) {
     fs.unlinkSync(runtimeFile);
     console.log(`[rewrite-links] Deleted orphaned assets/js/docmd-i18n-strings.js`);
 }
+
+// --- Copy static root assets from public/ into site/ (temporary fallback until @docmd/core 0.9.10 is released) ---
+const publicDir = path.join(__dirname, '../public');
+if (fs.existsSync(publicDir)) {
+    fs.cpSync(publicDir, siteDir, { recursive: true });
+    console.log(`[build:static] Copied public/ root assets to site/ (CNAME, funding.json, .well-known)`);
+}

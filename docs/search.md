@@ -124,10 +124,10 @@ customHead: |
   <div class="container">
     <a href="https://github.com/docmd-io/docmd-search" target="_blank" rel="noopener" class="hero-badge search-badge">
       <span class="badge-dot" style="background:var(--search-accent);"></span>
-      <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.6</span></span>
+      <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.7</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads-search">
-        <span class="badge-dl-text">283k+</span>
+        <span class="badge-dl-text">316k+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>

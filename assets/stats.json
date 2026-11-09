@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-11-03T09:20:48.873Z",
+  "updatedAt": "2026-11-09T09:35:11.087Z",
   "docmd": {
-    "version": "0.9.8",
-    "downloads": 4767561,
-    "formatted": "4.8M+"
+    "version": "0.9.9",
+    "downloads": 5398965,
+    "formatted": "5.4M+"
   },
   "search": {
-    "version": "0.1.6",
-    "downloads": 282872,
-    "formatted": "283k+"
+    "version": "0.1.7",
+    "downloads": 315758,
+    "formatted": "316k+"
   },
   "assistant": {
-    "version": "0.1.20",
-    "downloads": 172321,
-    "formatted": "172k+"
+    "version": "0.1.21",
+    "downloads": 213408,
+    "formatted": "213k+"
   },
   "packages": {
-    "@docmd/core": 272450,
-    "@docmd/api": 220455,
-    "@docmd/themes": 266102,
-    "@docmd/parser": 269872,
-    "@docmd/tui": 219252,
-    "@docmd/ui": 266666,
-    "@docmd/utils": 133554,
-    "@docmd/engine-rust": 136383,
-    "@docmd/live": 265974,
-    "@docmd/plugin-search": 268235,
-    "@docmd/plugin-ai": 85510,
-    "@docmd/plugin-llms": 264481,
-    "@docmd/plugin-sitemap": 265865,
-    "@docmd/plugin-seo": 266164,
-    "@docmd/plugin-git": 147326,
-    "@docmd/plugin-math": 218687,
-    "@docmd/plugin-mermaid": 266703,
-    "@docmd/plugin-analytics": 265880,
-    "@docmd/plugin-installer": 257633,
-    "@docmd/plugin-openapi": 146833,
-    "@docmd/plugin-pwa": 162088,
-    "docmd-search": 14637,
-    "docmd-assistant": 86811
+    "@docmd/core": 305067,
+    "@docmd/api": 252716,
+    "@docmd/themes": 298301,
+    "@docmd/parser": 302511,
+    "@docmd/tui": 251514,
+    "@docmd/ui": 298776,
+    "@docmd/utils": 156153,
+    "@docmd/engine-rust": 159942,
+    "@docmd/live": 298185,
+    "@docmd/plugin-search": 300318,
+    "@docmd/plugin-ai": 106046,
+    "@docmd/plugin-llms": 296764,
+    "@docmd/plugin-sitemap": 298041,
+    "@docmd/plugin-seo": 298371,
+    "@docmd/plugin-git": 171599,
+    "@docmd/plugin-math": 250688,
+    "@docmd/plugin-mermaid": 298981,
+    "@docmd/plugin-analytics": 298111,
+    "@docmd/plugin-installer": 289615,
+    "@docmd/plugin-openapi": 170942,
+    "@docmd/plugin-pwa": 173522,
+    "docmd-search": 15440,
+    "docmd-assistant": 107362
   }
 }
