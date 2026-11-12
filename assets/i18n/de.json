@@ -471,8 +471,8 @@
   "search.preview.stats1": "Kosinus-Ähnlichkeit · 3 Treffer in 0,3 ms · 100% Client-seitiger Vektor",
   "marketplace.title": "Plugin-<span class=\"gradient-text\">Marketplace.</span>",
   "marketplace.sub": "Alle offiziellen Plugins für docmd an einem Ort. Integrierte Funktionen werden mit dem Core ausgeliefert. Installierbare Plugins lassen sich mit einem Befehl hinzufügen. Nach Tag oder Funktion filtern, um Installationsanleitungen und Berechtigungen anzuzeigen.",
-  "marketplace.stats.plugins": "<strong>14</strong> Plugins",
-  "marketplace.stats.tags": "<strong>40</strong> Tags",
+  "marketplace.stats.plugins": "<strong>16</strong> Plugins",
+  "marketplace.stats.tags": "<strong>47</strong> Tags",
   "marketplace.search.placeholder": "Plugins durchsuchen…",
   "marketplace.filter.type": "Typ",
   "marketplace.filter.core": "Integriert",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "Open Knowledge Format",
   "plugins.item.okf.desc": "Strukturierte Wissenspakete für die deterministische LLM-Verarbeitung.",
   "plugins.item.pwa.title": "PWA & Offline-Cache",
-  "plugins.item.pwa.desc": "Service Worker und Web-App-Manifest für sofortige Offline-Navigation."
+  "plugins.item.pwa.desc": "Service Worker und Web-App-Manifest für sofortige Offline-Navigation.",
+  "marketplace.plugin.mdx.name": "MDX-Komponenten",
+  "marketplace.plugin.mdx.tagline": "Interaktive MDX- und JSX-Komponenten ohne Client-Overhead.",
+  "marketplace.plugin.mdx.desc": "Verfassen Sie Dokumentationen mit JSX-Komponenten (<Callout>, <Card>, <Tabs>) und dynamischen Ausdrücken neben Markdown. Angetrieben von lite-mdx kompiliert es zur Build-Zeit direkt in statisches HTML und zugängliche docmd-Container.",
+  "marketplace.plugin.iconify.name": "Iconify-Icons",
+  "marketplace.plugin.iconify.tagline": "Über 200.000+ Open-Source-Icons in docmd-Containern.",
+  "marketplace.plugin.iconify.desc": "Integrieren Sie über 200.000+ Vektor-Icons aus beliebten Sammlungen wie Material Design, Carbon, Tabler, FontAwesome, Lucide und Solar. Bindet SVGs zur Build-Zeit für optimale Performance inline ein."
 }

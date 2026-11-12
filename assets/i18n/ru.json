@@ -471,8 +471,8 @@
   "search.preview.stats1": "Косинусное сходство · 3 совпадения за 0,3 мс · 100% Векторный клиентский поиск",
   "marketplace.title": "Маркетплейс <span class=\"gradient-text\">плагинов.</span>",
   "marketplace.sub": "Все официальные плагины для docmd в одном месте. Встроенные поставляются с ядром. Устанавливаемые плагины добавляются одной командой. Фильтруйте по тегам и возможностям для просмотра инструкций и таблицы разрешений.",
-  "marketplace.stats.plugins": "<strong>14</strong> плагинов",
-  "marketplace.stats.tags": "<strong>40</strong> тегов",
+  "marketplace.stats.plugins": "<strong>16</strong> плагинов",
+  "marketplace.stats.tags": "<strong>47</strong> тегов",
   "marketplace.search.placeholder": "Поиск плагинов…",
   "marketplace.filter.type": "Тип",
   "marketplace.filter.core": "Встроенный",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "Open Knowledge Format",
   "plugins.item.okf.desc": "Структурированные пакеты знаний для детерминированного анализа большими языковыми моделями.",
   "plugins.item.pwa.title": "PWA и Офлайн-Кэш",
-  "plugins.item.pwa.desc": "Service Worker и манифест веб-приложения для мгновенной офлайн-навигации."
+  "plugins.item.pwa.desc": "Service Worker и манифест веб-приложения для мгновенной офлайн-навигации.",
+  "marketplace.plugin.mdx.name": "MDX-компоненты",
+  "marketplace.plugin.mdx.tagline": "Интерактивные компоненты MDX и JSX с нулевой нагрузкой на клиент.",
+  "marketplace.plugin.mdx.desc": "Создавайте документацию с использованием компонентов JSX (<Callout>, <Card>, <Tabs>) и динамических выражений наряду с Markdown. На базе lite-mdx компилирует всё в статический HTML во время сборки.",
+  "marketplace.plugin.iconify.name": "Иконки Iconify",
+  "marketplace.plugin.iconify.tagline": "Более 200 000+ открытых иконок в контейнерах docmd.",
+  "marketplace.plugin.iconify.desc": "Интегрируйте более 200 000 векторных иконок из популярных наборов: Material Design, Carbon, Tabler, FontAwesome, Lucide и Solar. Встраивает SVG при сборке для максимальной скорости."
 }

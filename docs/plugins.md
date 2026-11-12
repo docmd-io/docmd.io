@@ -20,7 +20,7 @@ customHead: |
   <link rel="manifest" href="/assets/manifest.json">
   <meta property="og:site_name" content="docmd">
   <meta property="og:title" content="docmd Plugins Marketplace">
-  <meta property="og:description" content="Browse 14 official docmd plugins. Search, filter by tag, view capabilities and permissions.">
+  <meta property="og:description" content="Browse 16 official docmd plugins. Search, filter by tag, view capabilities and permissions.">
 ---
 
 <nav class="nav" aria-label="Main navigation">
@@ -124,8 +124,8 @@ customHead: |
       </a>
     </div>
     <div class="mp-hero-stats">
-      <span data-i18n-html="marketplace.stats.plugins"><strong>14</strong> plugins</span>
-      <span data-i18n-html="marketplace.stats.tags"><strong>40</strong> tags</span>
+      <span data-i18n-html="marketplace.stats.plugins"><strong>16</strong> plugins</span>
+      <span data-i18n-html="marketplace.stats.tags"><strong>47</strong> tags</span>
     </div>
   </div>
 </header>
@@ -143,8 +143,8 @@ customHead: |
       <div class="mp-filter-group">
         <h3 data-i18n="marketplace.filter.type">Type</h3>
         <ul class="mp-filter-list">
-          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="builtin"/> <span data-i18n="marketplace.filter.builtin">Built-in</span><span class="mp-filter-count">11</span></label></li>
-          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="installable"/> <span data-i18n="marketplace.filter.installable">Installable</span><span class="mp-filter-count">3</span></label></li>
+          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="builtin"/> <span data-i18n="marketplace.filter.builtin">Built-in</span><span class="mp-filter-count">12</span></label></li>
+          <li><label class="mp-filter-option"><input type="checkbox" data-group="kind" value="installable"/> <span data-i18n="marketplace.filter.installable">Installable</span><span class="mp-filter-count">4</span></label></li>
         </ul>
       </div>
 
@@ -160,12 +160,17 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="code"/> code<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="comments"/> comments<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="community"/> community<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="components"/> components<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="containers"/> containers<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="context"/> context<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="diagrams"/> diagrams<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="git"/> git<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="history"/> history<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="iconify"/> iconify<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="icons"/> icons<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="index"/> index<span class="mp-filter-count">1</span></label></li>
-            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="interactive"/> interactive<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="interactive"/> interactive<span class="mp-filter-count">2</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="jsx"/> jsx<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="katex"/> katex<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="knowledge"/> knowledge<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="latex"/> latex<span class="mp-filter-count">1</span></label></li>
@@ -173,6 +178,7 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="llm"/> llm<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="markdown"/> markdown<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="math"/> math<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="mdx"/> mdx<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="mermaid"/> mermaid<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="meta"/> meta<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="metadata"/> metadata<span class="mp-filter-count">1</span></label></li>
@@ -188,6 +194,7 @@ customHead: |
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="seo"/> seo<span class="mp-filter-count">2</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="service-worker"/> service-worker<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="sitemap"/> sitemap<span class="mp-filter-count">1</span></label></li>
+            <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="svg"/> svg<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="swagger"/> swagger<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="tracking"/> tracking<span class="mp-filter-count">1</span></label></li>
             <li><label class="mp-filter-option"><input type="checkbox" data-group="tag" value="xml"/> xml<span class="mp-filter-count">1</span></label></li>
@@ -202,7 +209,7 @@ customHead: |
           <span data-i18n="marketplace.submitPlugin">Submit Plugin</span>
         </a>
         <p class="mp-sidebar-info">
-          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--mp-text-primary);">14</strong> <span data-i18n="marketplace.filter.of">of</span> 14.
+          <span data-i18n="marketplace.filter.showing">Showing</span> <strong id="mp-count" style="color:var(--mp-text-primary);">16</strong> <span data-i18n="marketplace.filter.of">of</span> 16.
           <br/><br/>
           <span data-i18n-html="marketplace.filter.contribute">Want to list your plugin? Click &ldquo;Submit Plugin&rdquo; above or open a PR adding it to <code>data/plugins.json</code>.</span>
         </p>
@@ -363,6 +370,28 @@ customHead: |
         </div>
         <p class="mp-card-desc" data-i18n="marketplace.plugin.playground.tagline">Interactive JavaScript runtime and live HTML component previews.</p>
         <div class="mp-card-tags"><span class="mp-tag">playground</span><span class="mp-tag">interactive</span><span class="mp-tag">code</span><span class="mp-tag">live</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/mdx/" data-name="MDX Components" data-desc="Interactive MDX and JSX components with zero client overhead." data-kind="builtin" data-tags="mdx,jsx,components,interactive">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.mdx.name">MDX Components</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.mdx.tagline">Interactive MDX and JSX components with zero client overhead.</p>
+        <div class="mp-card-tags"><span class="mp-tag">mdx</span><span class="mp-tag">jsx</span><span class="mp-tag">components</span><span class="mp-tag">interactive</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/iconify/" data-name="Iconify Icons" data-desc="Over 200,000+ open-source icons in docmd containers." data-kind="installable" data-tags="icons,iconify,svg,containers">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.iconify.name">Iconify Icons</h3>
+            
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.iconify.tagline">Over 200,000+ open-source icons in docmd containers.</p>
+        <div class="mp-card-tags"><span class="mp-tag">icons</span><span class="mp-tag">iconify</span><span class="mp-tag">svg</span><span class="mp-tag">containers</span></div>
       </a>
       <div id="mp-empty" class="mp-empty" style="display:none;" data-i18n="marketplace.filter.empty">No plugins match the current filters.</div>
     </div>

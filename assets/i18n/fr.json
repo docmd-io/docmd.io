@@ -471,8 +471,8 @@
   "search.preview.stats1": "Similarité Cosinus · 3 résultats en 0,3 ms · Vecteur 100% Côté Client",
   "marketplace.title": "Marketplace des <span class=\"gradient-text\">plugins.</span>",
   "marketplace.sub": "Tous les plugins officiels pour docmd en un seul endroit. Les plugins intégrés sont fournis avec le core. Les plugins installables s'ajoutent en une commande. Filtrez par tag ou capacité pour afficher les détails et permissions.",
-  "marketplace.stats.plugins": "<strong>14</strong> plugins",
-  "marketplace.stats.tags": "<strong>40</strong> tags",
+  "marketplace.stats.plugins": "<strong>16</strong> plugins",
+  "marketplace.stats.tags": "<strong>47</strong> tags",
   "marketplace.search.placeholder": "Rechercher des plugins…",
   "marketplace.filter.type": "Type",
   "marketplace.filter.core": "Intégré",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "Format de Connaissance Ouvert",
   "plugins.item.okf.desc": "Packs de connaissances structurés pour une ingestion déterministe par les LLM.",
   "plugins.item.pwa.title": "PWA & Cache Hors-Ligne",
-  "plugins.item.pwa.desc": "Service worker et manifeste d'application web pour une navigation hors ligne instantanée."
+  "plugins.item.pwa.desc": "Service worker et manifeste d'application web pour une navigation hors ligne instantanée.",
+  "marketplace.plugin.mdx.name": "Composants MDX",
+  "marketplace.plugin.mdx.tagline": "Composants MDX et JSX interactifs sans surcoût côté client.",
+  "marketplace.plugin.mdx.desc": "Rédigez votre documentation avec des composants JSX (<Callout>, <Card>, <Tabs>) et des expressions dynamiques au côté du Markdown. Propulsé par lite-mdx, compile directement en HTML statique lors du build.",
+  "marketplace.plugin.iconify.name": "Icônes Iconify",
+  "marketplace.plugin.iconify.tagline": "Plus de 200 000 icônes open source dans les conteneurs docmd.",
+  "marketplace.plugin.iconify.desc": "Intégrez plus de 200 000 icônes vectorielles issues de packs populaires (Material Design, Carbon, Tabler, FontAwesome, Lucide, Solar). Intègre les SVG en ligne au build pour des performances optimales."
 }

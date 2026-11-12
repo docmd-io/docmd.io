@@ -471,8 +471,8 @@
   "search.preview.stats1": "Cosine Similarity · 3 matches in 0.3ms · 100% Client-Side Vector",
   "marketplace.title": "Plugin <span class=\"gradient-text\">marketplace.</span>",
   "marketplace.sub": "Every official plugin for docmd, in one place. Built-ins ship with the core. Installable plugins add with one command. Filter by tag or capability, then click through for install instructions and the full permission table.",
-  "marketplace.stats.plugins": "<strong>14</strong> plugins",
-  "marketplace.stats.tags": "<strong>40</strong> tags",
+  "marketplace.stats.plugins": "<strong>16</strong> plugins",
+  "marketplace.stats.tags": "<strong>47</strong> tags",
   "marketplace.search.placeholder": "Search plugins…",
   "marketplace.filter.type": "Type",
   "marketplace.filter.core": "Built-in",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "Open Knowledge Format",
   "plugins.item.okf.desc": "Deterministic knowledge bundles structured for LLM ingestion.",
   "plugins.item.pwa.title": "PWA & Offline Cache",
-  "plugins.item.pwa.desc": "Service worker and web app manifest for instant offline navigation."
+  "plugins.item.pwa.desc": "Service worker and web app manifest for instant offline navigation.",
+  "marketplace.plugin.mdx.name": "MDX Components",
+  "marketplace.plugin.mdx.tagline": "Interactive MDX and JSX components with zero client overhead.",
+  "marketplace.plugin.mdx.desc": "Author documentation using JSX components (<Callout>, <Card>, <Tabs>) and dynamic expressions alongside Markdown. Powered by lite-mdx, compiles directly to static HTML and accessible docmd containers at build time.",
+  "marketplace.plugin.iconify.name": "Iconify Icons",
+  "marketplace.plugin.iconify.tagline": "Over 200,000+ open-source icons in docmd containers.",
+  "marketplace.plugin.iconify.desc": "Integrate over 200,000+ vector icons from popular icon sets including Material Design, Carbon, Tabler, FontAwesome, Lucide, and Solar. Inlines SVGs at build time for optimal performance."
 }

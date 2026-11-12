@@ -2,7 +2,7 @@ const fs = require('fs');
 const https = require('https');
 const path = require('path');
 
-const USERNAME = 'mgks';
+const ORG_NAME = 'docmd-io';
 const TOKEN = process.env.SPONSORS_TOKEN || process.env.GITHUB_TOKEN;
 
 const outPath = path.join(__dirname, '../assets/sponsors.json');
@@ -19,7 +19,7 @@ if (!TOKEN) {
 const query = JSON.stringify({
   query: `
     {
-      user(login: "${USERNAME}") {
+      organization(login: "${ORG_NAME}") {
         sponsorshipsAsMaintainer(first: 100) {
           nodes {
             sponsorEntity {
@@ -53,7 +53,7 @@ const req = https.request({
         throw new Error(parsed.errors[0].message);
       }
       
-      const sponsors = parsed.data.user.sponsorshipsAsMaintainer.nodes.map(n => n.sponsorEntity);
+      const sponsors = (parsed.data.organization?.sponsorshipsAsMaintainer?.nodes || []).map(n => n.sponsorEntity);
       
       // Ensure directory exists
       const dir = path.dirname(outPath);
@@ -62,7 +62,7 @@ const req = https.request({
       }
 
       fs.writeFileSync(outPath, JSON.stringify(sponsors, null, 2));
-      console.log(`✅ Successfully fetched ${sponsors.length} sponsors for ${USERNAME}.`);
+      console.log(`✅ Successfully fetched ${sponsors.length} sponsors for ${ORG_NAME}.`);
     } catch(e) {
       console.error('❌ Failed parsing sponsors:', e.message);
       if (fs.existsSync(path.dirname(outPath))) {

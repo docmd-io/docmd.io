@@ -721,6 +721,112 @@
       "npmPackage": "@docmd/plugin-playground",
       "install": null,
       "version": "0.9.9"
+    },
+    {
+      "slug": "mdx",
+      "kind": "builtin",
+      "name": {
+        "en": "MDX Components",
+        "de": "MDX-Komponenten",
+        "es": "Componentes MDX",
+        "fr": "Composants MDX",
+        "ja": "MDXコンポーネント",
+        "ru": "MDX-компоненты",
+        "zh": "MDX 组件"
+      },
+      "tagline": {
+        "en": "Interactive MDX and JSX components with zero client overhead.",
+        "de": "Interaktive MDX- und JSX-Komponenten ohne Client-Overhead.",
+        "es": "Componentes MDX y JSX interactivos sin sobrecarga en el cliente.",
+        "fr": "Composants MDX et JSX interactifs sans surcoût côté client.",
+        "ja": "クライアントオーバーヘッドゼロのインタラクティブなMDXおよびJSXコンポーネント。",
+        "ru": "Интерактивные компоненты MDX и JSX с нулевой нагрузкой на клиент.",
+        "zh": "交互式 MDX 与 JSX 组件，客户端零运行时开销。"
+      },
+      "description": {
+        "en": "Author documentation using JSX components (<Callout>, <Card>, <Tabs>) and dynamic expressions alongside Markdown. Powered by lite-mdx, compiles directly to static HTML and accessible docmd containers at build time.",
+        "de": "Verfassen Sie Dokumentationen mit JSX-Komponenten (<Callout>, <Card>, <Tabs>) und dynamischen Ausdrücken neben Markdown. Angetrieben von lite-mdx kompiliert es zur Build-Zeit direkt in statisches HTML und zugängliche docmd-Container.",
+        "es": "Redacte documentación utilizando componentes JSX (<Callout>, <Card>, <Tabs>) y expresiones dinámicas junto con Markdown. Impulsado por lite-mdx, compila directamente a HTML estático y contenedores docmd accesibles.",
+        "fr": "Rédigez votre documentation avec des composants JSX (<Callout>, <Card>, <Tabs>) et des expressions dynamiques au côté du Markdown. Propulsé par lite-mdx, compile directement en HTML statique lors du build.",
+        "ja": "Markdownと並行してJSXコンポーネント（<Callout>、<Card>、<Tabs>）や動的式を使用してドキュメントを記述。lite-mdxにより、ビルド時に静的HTMLおよびアクセシブルなdocmdコンテナに直接コンパイルされます。",
+        "ru": "Создавайте документацию с использованием компонентов JSX (<Callout>, <Card>, <Tabs>) и динамических выражений наряду с Markdown. На базе lite-mdx компилирует всё в статический HTML во время сборки.",
+        "zh": "支持在 Markdown 中使用 JSX 组件（<Callout>、<Card>、<Tabs>）以及动态表达式。基于 lite-mdx 驱动，在构建期直接编译为静态 HTML 与无障碍 docmd 原生容器。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m18 16 4-4-4-4\"/><path d=\"m6 8-4 4 4 4\"/><path d=\"m14.5 4-5 16\"/></svg>",
+      "tags": [
+        "mdx",
+        "jsx",
+        "components",
+        "interactive"
+      ],
+      "capabilities": [
+        "build",
+        "markdown",
+        "doctor"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": false,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/mdx",
+      "npmPackage": "@docmd/plugin-mdx",
+      "install": null,
+      "version": "0.9.9"
+    },
+    {
+      "slug": "iconify",
+      "kind": "installable",
+      "name": {
+        "en": "Iconify Icons",
+        "de": "Iconify-Icons",
+        "es": "Iconos de Iconify",
+        "fr": "Icônes Iconify",
+        "ja": "Iconifyアイコン",
+        "ru": "Иконки Iconify",
+        "zh": "Iconify 图标"
+      },
+      "tagline": {
+        "en": "Over 200,000+ open-source icons in docmd containers.",
+        "de": "Über 200.000+ Open-Source-Icons in docmd-Containern.",
+        "es": "Más de 200.000 iconos de código abierto en contenedores docmd.",
+        "fr": "Plus de 200 000 icônes open source dans les conteneurs docmd.",
+        "ja": "docmdコンテナで20万以上のオープンソースアイコンを利用可能。",
+        "ru": "Более 200 000+ открытых иконок в контейнерах docmd.",
+        "zh": "在 docmd 容器中直接使用超过 200,000+ 开源矢量图标。"
+      },
+      "description": {
+        "en": "Integrate over 200,000+ vector icons from popular icon sets including Material Design, Carbon, Tabler, FontAwesome, Lucide, and Solar. Inlines SVGs at build time for optimal performance.",
+        "de": "Integrieren Sie über 200.000+ Vektor-Icons aus beliebten Sammlungen wie Material Design, Carbon, Tabler, FontAwesome, Lucide und Solar. Bindet SVGs zur Build-Zeit für optimale Performance inline ein.",
+        "es": "Integre más de 200.000 iconos vectoriales de colecciones populares como Material Design, Carbon, Tabler, FontAwesome, Lucide y Solar. Incrusta SVGs directamente en la compilación.",
+        "fr": "Intégrez plus de 200 000 icônes vectorielles issues de packs populaires (Material Design, Carbon, Tabler, FontAwesome, Lucide, Solar). Intègre les SVG en ligne au build pour des performances optimales.",
+        "ja": "Material Design、Carbon、Tabler、FontAwesome、Lucide、Solarを含む人気コレクションから20万以上のベクターアイコンを統合。ビルド時にSVGをインライン化して最高のパフォーマンスを実現。",
+        "ru": "Интегрируйте более 200 000 векторных иконок из популярных наборов: Material Design, Carbon, Tabler, FontAwesome, Lucide и Solar. Встраивает SVG при сборке для максимальной скорости.",
+        "zh": "在 docmd 容器中集成来自 Material Design、Carbon、Tabler、FontAwesome、Lucide 和 Solar 等热门集合的 200,000+ 矢量图标。构建时内联 SVG，无任何客户端加载惩罚。"
+      },
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m4.93 4.93 4.24 4.24\"/><path d=\"m14.83 9.17 4.24-4.24\"/><path d=\"m14.83 14.83 4.24 4.24\"/><path d=\"m9.17 14.83-4.24 4.24\"/></svg>",
+      "tags": [
+        "icons",
+        "iconify",
+        "svg",
+        "containers"
+      ],
+      "capabilities": [
+        "markdown",
+        "init",
+        "doctor"
+      ],
+      "permissions": {
+        "readsProject": true,
+        "writesSite": false,
+        "network": true,
+        "subprocess": false
+      },
+      "repo": "https://github.com/docmd-io/docmd/tree/main/packages/plugins/iconify",
+      "npmPackage": "@docmd/plugin-iconify",
+      "install": "docmd add iconify",
+      "version": "0.9.9"
     }
   ]
 }

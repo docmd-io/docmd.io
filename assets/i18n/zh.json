@@ -471,8 +471,8 @@
   "search.preview.stats1": "余弦相似度 · 0.3ms 完成 3 项匹配 · 100% 客户端向量检索",
   "marketplace.title": "插件<span class=\"gradient-text\">市场。</span>",
   "marketplace.sub": "docmd 的所有官方插件汇聚于此。内置插件随核心分发，可安装插件一键添加。支持按标签或功能筛选，点击查看安装说明与完整权限表。",
-  "marketplace.stats.plugins": "<strong>14</strong> 个插件",
-  "marketplace.stats.tags": "<strong>40</strong> 个标签",
+  "marketplace.stats.plugins": "<strong>16</strong> 个插件",
+  "marketplace.stats.tags": "<strong>47</strong> 个标签",
   "marketplace.search.placeholder": "搜索插件…",
   "marketplace.filter.type": "类型",
   "marketplace.filter.core": "内置",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "开放知识格式 (OKF)",
   "plugins.item.okf.desc": "面向大模型 (LLM) 推理管线确定性解析的结构化知识包。",
   "plugins.item.pwa.title": "PWA 与离线缓存",
-  "plugins.item.pwa.desc": "内置 Service Worker 与应用清单，带来极致流畅的离线访问体验。"
+  "plugins.item.pwa.desc": "内置 Service Worker 与应用清单，带来极致流畅的离线访问体验。",
+  "marketplace.plugin.mdx.name": "MDX 组件",
+  "marketplace.plugin.mdx.tagline": "交互式 MDX 与 JSX 组件，客户端零运行时开销。",
+  "marketplace.plugin.mdx.desc": "支持在 Markdown 中使用 JSX 组件（<Callout>、<Card>、<Tabs>）以及动态表达式。基于 lite-mdx 驱动，在构建期直接编译为静态 HTML 与无障碍 docmd 原生容器。",
+  "marketplace.plugin.iconify.name": "Iconify 图标",
+  "marketplace.plugin.iconify.tagline": "在 docmd 容器中直接使用超过 200,000+ 开源矢量图标。",
+  "marketplace.plugin.iconify.desc": "在 docmd 容器中集成来自 Material Design、Carbon、Tabler、FontAwesome、Lucide 和 Solar 等热门集合的 200,000+ 矢量图标。构建时内联 SVG，无任何客户端加载惩罚。"
 }

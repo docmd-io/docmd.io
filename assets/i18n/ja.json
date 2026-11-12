@@ -471,8 +471,8 @@
   "search.preview.stats1": "コサイン類似度 · 0.3ms で 3 件一致 · 100% クライアントサイドベクトル",
   "marketplace.title": "プラグイン<span class=\"gradient-text\">マーケットプレイス。</span>",
   "marketplace.sub": "docmd のすべての公式プラグインを一箇所に。ビルトインはコアに同梱され、インストール可能なプラグインは1つのコマンドで追加できます。タグや機能で絞り込み、インストール手順や権限一覧を確認できます。",
-  "marketplace.stats.plugins": "<strong>14</strong> プラグイン",
-  "marketplace.stats.tags": "<strong>40</strong> タグ",
+  "marketplace.stats.plugins": "<strong>16</strong> プラグイン",
+  "marketplace.stats.tags": "<strong>47</strong> タグ",
   "marketplace.search.placeholder": "プラグインを検索…",
   "marketplace.filter.type": "タイプ",
   "marketplace.filter.core": "ビルトイン",
@@ -564,5 +564,11 @@
   "plugins.item.okf.title": "オープンナレッジフォーマット (OKF)",
   "plugins.item.okf.desc": "LLMパイプラインによる確定的な取り込みのために構造化された知識バンドル。",
   "plugins.item.pwa.title": "PWAとオフラインキャッシュ",
-  "plugins.item.pwa.desc": "即時のオフラインナビゲーションを実現するService WorkerとWebアプリマニフェスト。"
+  "plugins.item.pwa.desc": "即時のオフラインナビゲーションを実現するService WorkerとWebアプリマニフェスト。",
+  "marketplace.plugin.mdx.name": "MDXコンポーネント",
+  "marketplace.plugin.mdx.tagline": "クライアントオーバーヘッドゼロのインタラクティブなMDXおよびJSXコンポーネント。",
+  "marketplace.plugin.mdx.desc": "Markdownと並行してJSXコンポーネント（<Callout>、<Card>、<Tabs>）や動的式を使用してドキュメントを記述。lite-mdxにより、ビルド時に静的HTMLおよびアクセシブルなdocmdコンテナに直接コンパイルされます。",
+  "marketplace.plugin.iconify.name": "Iconifyアイコン",
+  "marketplace.plugin.iconify.tagline": "docmdコンテナで20万以上のオープンソースアイコンを利用可能。",
+  "marketplace.plugin.iconify.desc": "Material Design、Carbon、Tabler、FontAwesome、Lucide、Solarを含む人気コレクションから20万以上のベクターアイコンを統合。ビルド時にSVGをインライン化して最高のパフォーマンスを実現。"
 }
