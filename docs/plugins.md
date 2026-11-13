@@ -217,6 +217,28 @@ customHead: |
     </aside>
 
     <div class="mp-grid" id="mp-grid">
+      <a class="mp-card" href="/plugins/search/" data-name="Search" data-desc="Full-text search with MiniSearch, built at compile time." data-kind="builtin" data-tags="search,index,client-side">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.search.name">Search</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.search.tagline">Full-text search with MiniSearch, built at compile time.</p>
+        <div class="mp-card-tags"><span class="mp-tag">search</span><span class="mp-tag">index</span><span class="mp-tag">client-side</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/mdx/" data-name="MDX Components" data-desc="Interactive MDX and JSX components with zero client overhead." data-kind="builtin" data-tags="mdx,jsx,components,interactive">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.mdx.name">MDX Components</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.mdx.tagline">Interactive MDX and JSX components with zero client overhead.</p>
+        <div class="mp-card-tags"><span class="mp-tag">mdx</span><span class="mp-tag">jsx</span><span class="mp-tag">components</span><span class="mp-tag">interactive</span></div>
+      </a>
       <a class="mp-card" href="/plugins/ai/" data-name="AI Chat" data-desc="Interactive AI chat grounded in your docs." data-kind="builtin" data-tags="chat,ai,rag">
         <div class="mp-card-head">
           <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
@@ -228,6 +250,39 @@ customHead: |
         <p class="mp-card-desc" data-i18n="marketplace.plugin.ai.tagline">Interactive AI chat grounded in your docs.</p>
         <div class="mp-card-tags"><span class="mp-tag">chat</span><span class="mp-tag">ai</span><span class="mp-tag">rag</span></div>
       </a>
+      <a class="mp-card" href="/plugins/openapi/" data-name="OpenAPI" data-desc="Render OpenAPI 3 and Swagger specs as browsable docs." data-kind="builtin" data-tags="api,openapi,swagger">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.openapi.name">OpenAPI</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.openapi.tagline">Render OpenAPI 3 and Swagger specs as browsable docs.</p>
+        <div class="mp-card-tags"><span class="mp-tag">api</span><span class="mp-tag">openapi</span><span class="mp-tag">swagger</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/playground/" data-name="Playground" data-desc="Interactive JavaScript runtime and live HTML component previews." data-kind="builtin" data-tags="playground,interactive,code,live,preview">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.playground.name">Playground</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.playground.tagline">Interactive JavaScript runtime and live HTML component previews.</p>
+        <div class="mp-card-tags"><span class="mp-tag">playground</span><span class="mp-tag">interactive</span><span class="mp-tag">code</span><span class="mp-tag">live</span></div>
+      </a>
+      <a class="mp-card" href="/plugins/mermaid/" data-name="Mermaid" data-desc="Render Mermaid.js diagrams from fenced code blocks." data-kind="builtin" data-tags="diagrams,mermaid,markdown">
+        <div class="mp-card-head">
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+          <div class="mp-card-title-row">
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.mermaid.name">Mermaid</h3>
+            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+          </div>
+        </div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.mermaid.tagline">Render Mermaid.js diagrams from fenced code blocks.</p>
+        <div class="mp-card-tags"><span class="mp-tag">diagrams</span><span class="mp-tag">mermaid</span><span class="mp-tag">markdown</span></div>
+      </a>
       <a class="mp-card" href="/plugins/git/" data-name="Git" data-desc="Last-updated timestamps and commit history from git." data-kind="builtin" data-tags="git,history,metadata">
         <div class="mp-card-head">
           <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg></div>
@@ -238,17 +293,6 @@ customHead: |
         </div>
         <p class="mp-card-desc" data-i18n="marketplace.plugin.git.tagline">Last-updated timestamps and commit history from git.</p>
         <div class="mp-card-tags"><span class="mp-tag">git</span><span class="mp-tag">history</span><span class="mp-tag">metadata</span></div>
-      </a>
-      <a class="mp-card" href="/plugins/search/" data-name="Search" data-desc="Full-text search with MiniSearch, built at compile time." data-kind="builtin" data-tags="search,index,client-side">
-        <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.search.name">Search</h3>
-            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
-          </div>
-        </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.search.tagline">Full-text search with MiniSearch, built at compile time.</p>
-        <div class="mp-card-tags"><span class="mp-tag">search</span><span class="mp-tag">index</span><span class="mp-tag">client-side</span></div>
       </a>
       <a class="mp-card" href="/plugins/seo/" data-name="SEO" data-desc="Meta tags, Open Graph, Twitter cards, JSON-LD." data-kind="builtin" data-tags="seo,meta,opengraph">
         <div class="mp-card-head">
@@ -272,16 +316,16 @@ customHead: |
         <p class="mp-card-desc" data-i18n="marketplace.plugin.sitemap.tagline">sitemap.xml and robots.txt at the site root.</p>
         <div class="mp-card-tags"><span class="mp-tag">sitemap</span><span class="mp-tag">seo</span><span class="mp-tag">xml</span></div>
       </a>
-      <a class="mp-card" href="/plugins/mermaid/" data-name="Mermaid" data-desc="Render Mermaid.js diagrams from fenced code blocks." data-kind="builtin" data-tags="diagrams,mermaid,markdown">
+      <a class="mp-card" href="/plugins/analytics/" data-name="Analytics" data-desc="Inject analytics scripts without editing templates." data-kind="builtin" data-tags="analytics,tracking,metrics">
         <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.mermaid.name">Mermaid</h3>
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.analytics.name">Analytics</h3>
             <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
           </div>
         </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.mermaid.tagline">Render Mermaid.js diagrams from fenced code blocks.</p>
-        <div class="mp-card-tags"><span class="mp-tag">diagrams</span><span class="mp-tag">mermaid</span><span class="mp-tag">markdown</span></div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.analytics.tagline">Inject analytics scripts without editing templates.</p>
+        <div class="mp-card-tags"><span class="mp-tag">analytics</span><span class="mp-tag">tracking</span><span class="mp-tag">metrics</span></div>
       </a>
       <a class="mp-card" href="/plugins/llms/" data-name="LLMs" data-desc="llms.txt and llms-full.txt context files for AI agents." data-kind="builtin" data-tags="ai,llm,context">
         <div class="mp-card-head">
@@ -305,27 +349,16 @@ customHead: |
         <p class="mp-card-desc" data-i18n="marketplace.plugin.okf.tagline">Open Knowledge Format bundle for AI agent consumption.</p>
         <div class="mp-card-tags"><span class="mp-tag">ai</span><span class="mp-tag">agents</span><span class="mp-tag">knowledge</span></div>
       </a>
-      <a class="mp-card" href="/plugins/analytics/" data-name="Analytics" data-desc="Inject analytics scripts without editing templates." data-kind="builtin" data-tags="analytics,tracking,metrics">
+      <a class="mp-card" href="/plugins/iconify/" data-name="Iconify Icons" data-desc="Over 200,000+ open-source icons in docmd containers." data-kind="installable" data-tags="icons,iconify,svg,containers">
         <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div>
           <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.analytics.name">Analytics</h3>
-            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
+            <h3 class="mp-card-title" data-i18n="marketplace.plugin.iconify.name">Iconify Icons</h3>
+            
           </div>
         </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.analytics.tagline">Inject analytics scripts without editing templates.</p>
-        <div class="mp-card-tags"><span class="mp-tag">analytics</span><span class="mp-tag">tracking</span><span class="mp-tag">metrics</span></div>
-      </a>
-      <a class="mp-card" href="/plugins/openapi/" data-name="OpenAPI" data-desc="Render OpenAPI 3 and Swagger specs as browsable docs." data-kind="builtin" data-tags="api,openapi,swagger">
-        <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-          <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.openapi.name">OpenAPI</h3>
-            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
-          </div>
-        </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.openapi.tagline">Render OpenAPI 3 and Swagger specs as browsable docs.</p>
-        <div class="mp-card-tags"><span class="mp-tag">api</span><span class="mp-tag">openapi</span><span class="mp-tag">swagger</span></div>
+        <p class="mp-card-desc" data-i18n="marketplace.plugin.iconify.tagline">Over 200,000+ open-source icons in docmd containers.</p>
+        <div class="mp-card-tags"><span class="mp-tag">icons</span><span class="mp-tag">iconify</span><span class="mp-tag">svg</span><span class="mp-tag">containers</span></div>
       </a>
       <a class="mp-card" href="/plugins/math/" data-name="Math" data-desc="KaTeX-rendered math from $...$ and $$...$$ blocks." data-kind="installable" data-tags="latex,katex,math">
         <div class="mp-card-head">
@@ -359,39 +392,6 @@ customHead: |
         </div>
         <p class="mp-card-desc" data-i18n="marketplace.plugin.threads.tagline">Inline discussion comments stored as Markdown.</p>
         <div class="mp-card-tags"><span class="mp-tag">comments</span><span class="mp-tag">community</span><span class="mp-tag">live</span></div>
-      </a>
-      <a class="mp-card" href="/plugins/playground/" data-name="Playground" data-desc="Interactive JavaScript runtime and live HTML component previews." data-kind="builtin" data-tags="playground,interactive,code,live,preview">
-        <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
-          <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.playground.name">Playground</h3>
-            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
-          </div>
-        </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.playground.tagline">Interactive JavaScript runtime and live HTML component previews.</p>
-        <div class="mp-card-tags"><span class="mp-tag">playground</span><span class="mp-tag">interactive</span><span class="mp-tag">code</span><span class="mp-tag">live</span></div>
-      </a>
-      <a class="mp-card" href="/plugins/mdx/" data-name="MDX Components" data-desc="Interactive MDX and JSX components with zero client overhead." data-kind="builtin" data-tags="mdx,jsx,components,interactive">
-        <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
-          <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.mdx.name">MDX Components</h3>
-            <span class="mp-card-kind mp-card-kind-builtin" data-i18n="marketplace.filter.builtin">Built-in</span>
-          </div>
-        </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.mdx.tagline">Interactive MDX and JSX components with zero client overhead.</p>
-        <div class="mp-card-tags"><span class="mp-tag">mdx</span><span class="mp-tag">jsx</span><span class="mp-tag">components</span><span class="mp-tag">interactive</span></div>
-      </a>
-      <a class="mp-card" href="/plugins/iconify/" data-name="Iconify Icons" data-desc="Over 200,000+ open-source icons in docmd containers." data-kind="installable" data-tags="icons,iconify,svg,containers">
-        <div class="mp-card-head">
-          <div class="mp-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div>
-          <div class="mp-card-title-row">
-            <h3 class="mp-card-title" data-i18n="marketplace.plugin.iconify.name">Iconify Icons</h3>
-            
-          </div>
-        </div>
-        <p class="mp-card-desc" data-i18n="marketplace.plugin.iconify.tagline">Over 200,000+ open-source icons in docmd containers.</p>
-        <div class="mp-card-tags"><span class="mp-tag">icons</span><span class="mp-tag">iconify</span><span class="mp-tag">svg</span><span class="mp-tag">containers</span></div>
       </a>
       <div id="mp-empty" class="mp-empty" style="display:none;" data-i18n="marketplace.filter.empty">No plugins match the current filters.</div>
     </div>

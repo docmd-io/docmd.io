@@ -127,7 +127,7 @@ customHead: |
       <span class="badge-version" id="npm-version-search"><span class="badge-pkg-name">docmd-search</span><span class="badge-ver-num">v0.1.7</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads-search">
-        <span class="badge-dl-text">316k+</span>
+        <span class="badge-dl-text">339k+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>

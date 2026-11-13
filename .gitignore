@@ -141,5 +141,4 @@ stylelintcach
 site
 genctx.config.json
 genctx.context.md
-docs/plugins/
 .DS_Store

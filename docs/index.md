@@ -180,7 +180,7 @@ customHead: |
       <span class="badge-version" id="npm-version"><span class="badge-pkg-name">docmd</span><span class="badge-ver-num">v0.9.9</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads">
-        <span class="badge-dl-text">5.4M+</span>
+        <span class="badge-dl-text">5.9M+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>
@@ -288,6 +288,18 @@ customHead: |
         <div>
           <div class="bento-header">
             <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </div>
+            <h3 data-i18n="bento.card.mdx.title">Native MDX &amp; Interactive JSX</h3>
+          </div>
+          <p data-i18n="bento.card.mdx.desc">Author documentation with JSX components (&lt;Callout&gt;, &lt;Card&gt;, &lt;Tabs&gt;) and dynamic expressions alongside Markdown. Powered by lite-mdx, compiled to static HTML at build time with zero client overhead.</p>
+        </div>
+        <div class="bento-code-box">&lt;Callout type="tip"&gt;Interactive JSX &amp; expressions&lt;/Callout&gt;</div>
+      </div>
+      <div class="bento-card col-span-2">
+        <div>
+          <div class="bento-header">
+            <div class="bento-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c0-1.5 1-2 2-2s2 .5 2 2v2c0 1.5 1 2 2 2s-1 .5-1 2v2c0 1.5-1 2-2 2s-2-.5-2-2"/><path d="M20 7c0-1.5-1-2-2-2s-2 .5-2 2v2c0 1.5-1 2-2 2s1 .5 1 2v2c0 1.5 1 2 2 2s2-.5 2-2"/></svg>
             </div>
             <h3 data-i18n="bento.card5.title">Variables &amp; Runtime Personalisation</h3>
@@ -296,7 +308,7 @@ customHead: |
         </div>
         <div class="bento-code-box"><span style="color:var(--accent);">Welcome</span> {{ user.name | "Developer" }} – v{{ docmd.version }}</div>
       </div>
-      <div class="bento-card col-span-2">
+      <div class="bento-card">
         <div>
           <div class="bento-header">
             <div class="bento-icon">
@@ -304,7 +316,7 @@ customHead: |
             </div>
             <h3 data-i18n="bento.card4.title">Rich Content from Plain Markdown</h3>
           </div>
-          <p data-i18n="bento.card4.desc">Write callouts, tabbed code blocks, warning boxes, cards, and diagrams using simple Markdown syntax. No HTML or JSX needed.</p>
+          <p data-i18n="bento.card4.desc">Prefer standard syntax? Write callouts, tabbed code blocks, warning boxes, cards, and diagrams without any HTML or setup.</p>
         </div>
         <div class="bento-code-box">::: callout info<br>Native Markdown callouts &amp; tabs!<br>:::</div>
       </div>
@@ -320,6 +332,18 @@ customHead: |
         </div>
         <div class="bento-code-box">::: playground live<br>&lt;button class="btn"&gt;Run&lt;/button&gt;<br>:::</div>
       </div>
+      <div class="bento-card col-span-2">
+        <div>
+          <div class="bento-header">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6h-8z"/></svg>
+            </div>
+            <h3 data-i18n="bento.card.iconify.title">100k+ On-Demand Dynamic Icons</h3>
+          </div>
+          <p data-i18n="bento.card.iconify.desc">Embed icons from Material, Carbon, Lucide, FontAwesome and 100+ open icon sets with @docmd/plugin-iconify. SVGs inlined on demand during build with zero client bundle bloat.</p>
+        </div>
+        <div class="bento-code-box">icon="iconify:mdi:rocket-launch" &amp; icon="iconify:carbon:security"</div>
+      </div>
     </div>
   </div>
 </section>
@@ -332,19 +356,14 @@ customHead: |
     </div>
     <div class="plugins-grid">
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-playground</span>
-        <h4 data-i18n="plugins.item.playground.title">Interactive Playground</h4>
-        <p data-i18n="plugins.item.playground.desc">Runnable JavaScript sandboxes and live HTML component previews.</p>
-      </div>
-      <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-search</span>
         <h4 data-i18n="plugins.item.search.title">Offline Vector Search</h4>
         <p data-i18n="plugins.item.search.desc">Semantic and keyword search that runs entirely in the browser.</p>
       </div>
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-mcp</span>
-        <h4 data-i18n="plugins.item.mcp.title">MCP Server</h4>
-        <p data-i18n="plugins.item.mcp.desc">Let AI coding assistants search and read your docs directly.</p>
+        <span class="plugin-badge">@docmd/plugin-mdx</span>
+        <h4 data-i18n="plugins.item.mdx.title">Native MDX &amp; JSX</h4>
+        <p data-i18n="plugins.item.mdx.desc">Interactive JSX components and dynamic expressions with zero client runtime.</p>
       </div>
       <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-ai</span>
@@ -352,19 +371,14 @@ customHead: |
         <p data-i18n="plugins.item.ai.desc">AI assistant that answers questions using your documentation as context.</p>
       </div>
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-llms</span>
-        <h4 data-i18n="plugins.item.llms.title">AI Context Generator</h4>
-        <p data-i18n-html="plugins.item.llms.desc">Auto-generate llms.txt, llms-full.txt, and SKILL.md for AI tools.</p>
-      </div>
-      <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-openapi</span>
         <h4 data-i18n="plugins.item.openapi.title">OpenAPI &amp; Swagger Docs</h4>
         <p data-i18n="plugins.item.openapi.desc">Generate interactive API reference pages from OpenAPI spec files.</p>
       </div>
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-seo</span>
-        <h4 data-i18n="plugins.item.seo.title">SEO &amp; Schema JSON-LD</h4>
-        <p data-i18n="plugins.item.seo.desc">Sitemaps, meta tags, and structured data for search engine visibility.</p>
+        <span class="plugin-badge">@docmd/plugin-playground</span>
+        <h4 data-i18n="plugins.item.playground.title">Interactive Playground</h4>
+        <p data-i18n="plugins.item.playground.desc">Runnable JavaScript sandboxes and live HTML component previews.</p>
       </div>
       <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-mermaid</span>
@@ -372,14 +386,29 @@ customHead: |
         <p data-i18n="plugins.item.mermaid.desc">Flowcharts, sequence diagrams, and architecture maps from Markdown.</p>
       </div>
       <div class="plugin-card">
-        <span class="plugin-badge">@docmd/plugin-math</span>
-        <h4 data-i18n="plugins.item.math.title">KaTeX Maths</h4>
-        <p data-i18n="plugins.item.math.desc">Render LaTeX mathematical expressions with lightweight KaTeX.</p>
-      </div>
-      <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-git</span>
         <h4 data-i18n="plugins.item.git.title">Git History &amp; Edits</h4>
         <p data-i18n="plugins.item.git.desc">Page edit links, contributor metadata, and last-modified timestamps.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-seo</span>
+        <h4 data-i18n="plugins.item.seo.title">SEO &amp; Schema JSON-LD</h4>
+        <p data-i18n="plugins.item.seo.desc">Sitemaps, meta tags, and structured data for search engine visibility.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-sitemap</span>
+        <h4 data-i18n="plugins.item.sitemap.title">Dynamic Sitemap</h4>
+        <p data-i18n="plugins.item.sitemap.desc">Automated XML sitemaps keeping search crawlers synchronized.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-analytics</span>
+        <h4 data-i18n="plugins.item.analytics.title">Privacy Telemetry</h4>
+        <p data-i18n="plugins.item.analytics.desc">Privacy-first documentation metrics with Google Analytics 4 integration.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-llms</span>
+        <h4 data-i18n="plugins.item.llms.title">AI Context Generator</h4>
+        <p data-i18n-html="plugins.item.llms.desc">Auto-generate llms.txt, llms-full.txt, and SKILL.md for AI tools.</p>
       </div>
       <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-okf</span>
@@ -387,9 +416,24 @@ customHead: |
         <p data-i18n="plugins.item.okf.desc">Deterministic knowledge bundles structured for LLM ingestion.</p>
       </div>
       <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-iconify</span>
+        <h4 data-i18n="plugins.item.iconify.title">Iconify Dynamic Icons</h4>
+        <p data-i18n="plugins.item.iconify.desc">100,000+ icons from 100+ open-source sets inlined on demand as SVGs.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-math</span>
+        <h4 data-i18n="plugins.item.math.title">KaTeX Maths</h4>
+        <p data-i18n="plugins.item.math.desc">Render LaTeX mathematical expressions with lightweight KaTeX.</p>
+      </div>
+      <div class="plugin-card">
         <span class="plugin-badge">@docmd/plugin-pwa</span>
         <h4 data-i18n="plugins.item.pwa.title">PWA &amp; Offline Cache</h4>
         <p data-i18n="plugins.item.pwa.desc">Service worker and web app manifest for instant offline navigation.</p>
+      </div>
+      <div class="plugin-card">
+        <span class="plugin-badge">@docmd/plugin-threads</span>
+        <h4 data-i18n="plugins.item.threads.title">Collaborative Threads</h4>
+        <p data-i18n="plugins.item.threads.desc">In-page annotations, inline discussions, and reader feedback.</p>
       </div>
     </div>
     <div class="plugins-explore-wrap">

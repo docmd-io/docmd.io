@@ -125,7 +125,7 @@ customHead: |
       <span class="badge-version" id="npm-version-assistant"><span class="badge-pkg-name">docmd-assistant</span><span class="badge-ver-num">v0.1.21</span></span>
       <span class="badge-divider" aria-hidden="true"></span>
       <span class="badge-downloads" id="npm-downloads-assistant">
-        <span class="badge-dl-text">213k+</span>
+        <span class="badge-dl-text">246k+</span>
         <span class="badge-dl-label">installs</span>
       </span>
       <span class="badge-arrow" aria-hidden="true">→</span>

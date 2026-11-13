@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-11-09T09:35:11.087Z",
+  "updatedAt": "2026-11-13T20:35:53.994Z",
   "docmd": {
     "version": "0.9.9",
-    "downloads": 5398965,
-    "formatted": "5.4M+"
+    "downloads": 5850898,
+    "formatted": "5.9M+"
   },
   "search": {
     "version": "0.1.7",
-    "downloads": 315758,
-    "formatted": "316k+"
+    "downloads": 338912,
+    "formatted": "339k+"
   },
   "assistant": {
     "version": "0.1.21",
-    "downloads": 213408,
-    "formatted": "213k+"
+    "downloads": 245822,
+    "formatted": "246k+"
   },
   "packages": {
-    "@docmd/core": 305067,
-    "@docmd/api": 252716,
-    "@docmd/themes": 298301,
-    "@docmd/parser": 302511,
-    "@docmd/tui": 251514,
-    "@docmd/ui": 298776,
-    "@docmd/utils": 156153,
-    "@docmd/engine-rust": 159942,
-    "@docmd/live": 298185,
-    "@docmd/plugin-search": 300318,
-    "@docmd/plugin-ai": 106046,
-    "@docmd/plugin-llms": 296764,
-    "@docmd/plugin-sitemap": 298041,
-    "@docmd/plugin-seo": 298371,
-    "@docmd/plugin-git": 171599,
-    "@docmd/plugin-math": 250688,
-    "@docmd/plugin-mermaid": 298981,
-    "@docmd/plugin-analytics": 298111,
-    "@docmd/plugin-installer": 289615,
-    "@docmd/plugin-openapi": 170942,
-    "@docmd/plugin-pwa": 173522,
-    "docmd-search": 15440,
-    "docmd-assistant": 107362
+    "@docmd/core": 328151,
+    "@docmd/api": 275446,
+    "@docmd/themes": 321194,
+    "@docmd/parser": 325437,
+    "@docmd/tui": 274310,
+    "@docmd/ui": 321756,
+    "@docmd/utils": 172971,
+    "@docmd/engine-rust": 177268,
+    "@docmd/live": 321097,
+    "@docmd/plugin-search": 323319,
+    "@docmd/plugin-ai": 122259,
+    "@docmd/plugin-llms": 319661,
+    "@docmd/plugin-sitemap": 320896,
+    "@docmd/plugin-seo": 321211,
+    "@docmd/plugin-git": 189347,
+    "@docmd/plugin-math": 273394,
+    "@docmd/plugin-mermaid": 321869,
+    "@docmd/plugin-analytics": 321019,
+    "@docmd/plugin-installer": 312387,
+    "@docmd/plugin-openapi": 188664,
+    "@docmd/plugin-pwa": 180086,
+    "docmd-search": 15593,
+    "docmd-assistant": 123563
   }
 }
