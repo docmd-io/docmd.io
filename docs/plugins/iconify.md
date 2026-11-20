@@ -39,7 +39,7 @@ customHead: |
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free Relay</span></a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
@@ -49,11 +49,15 @@ customHead: |
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="nav-dropdown-menu">
+      <a href="https://cloud.docmd.io/#early-access" class="nav-dropdown-waitlist" target="_blank" rel="noopener">
+        <span class="pulse-dot-sm"></span>
+        <span data-i18n="nav.waitlist">Join Cloud Waitlist →</span>
+      </a>
       <a href="/plugins/" class="nav-link" data-i18n="nav.plugins">Plugins</a>
       <a href="/assistant/" class="nav-link" data-i18n="nav.assistant">AI Assistant</a>
       <a href="/search/" class="nav-link" data-i18n="nav.search">Semantic Search</a>
       <a href="https://live.docmd.io" class="nav-link" data-i18n="nav.editor" target="_blank">Live Editor</a>
-      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span><span class="nav-badge-free">Free Relay</span></a>
+      <a href="https://cloud.docmd.io" class="nav-link nav-link--cloud" target="_blank"><span data-i18n="nav.cloud">Cloud</span></a>
       <span class="nav-divider"></span>
       <a href="https://docs.docmd.io/" class="nav-link" data-i18n="nav.docs">Documentation</a>
       <a href="https://docs.docmd.io/comparison/" class="nav-link" data-i18n="nav.compare">Comparison</a>
@@ -64,6 +68,10 @@ customHead: |
       </a>
     </div>
     <div class="nav-right">
+      <a href="https://cloud.docmd.io/#early-access" class="nav-waitlist-btn" target="_blank" rel="noopener" aria-label="Join docmd Cloud Waitlist">
+        <span class="pulse-dot-sm"></span>
+        <span data-i18n="nav.waitlist">Join Waitlist</span>
+      </a>
       <a href="https://github.com/sponsors/docmd-io" class="nav-sponsor-btn" target="_blank" rel="noopener" aria-label="Sponsor docmd on GitHub">
         <svg class="nav-sponsor-heart" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <span class="nav-sponsor-text" data-i18n="nav.sponsor">Sponsor</span>
@@ -258,7 +266,7 @@ customHead: |
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
       <a href="https://github.com/sponsors/docmd-io" target="_blank" rel="noopener" data-i18n="footer.sponsor">Sponsor</a>
-      <a href="https://cloud.docmd.io" data-i18n="footer.cloud">Cloud Relay</a>
+      <a href="https://cloud.docmd.io/#early-access" data-i18n="footer.cloud">Cloud Platform (Waitlist)</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

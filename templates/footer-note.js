@@ -29,7 +29,7 @@ module.exports = `<footer class="footer">
       <h4 data-i18n="footer.ecosystem">Ecosystem</h4>
       <a href="https://github.com/docmd-io/docmd">GitHub</a>
       <a href="https://github.com/sponsors/docmd-io" target="_blank" rel="noopener" data-i18n="footer.sponsor">Sponsor</a>
-      <a href="https://cloud.docmd.io" data-i18n="footer.cloud">Cloud Relay</a>
+      <a href="https://cloud.docmd.io/#early-access" data-i18n="footer.cloud">Cloud Platform (Waitlist)</a>
       <a href="https://live.docmd.io" data-i18n="footer.liveEditor">Live Editor</a>
       <a href="https://github.com/docmd-io/docmd/releases" data-i18n="footer.releases">Releases</a>
       <a href="/terms/" data-i18n="footer.terms">Terms of Service</a>

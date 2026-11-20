@@ -99,37 +99,27 @@ async function main() {
     fetchVersion('docmd-assistant')
   ]);
 
-  let docmdTotal = 0;
-  for (const pkg of docmdEcosystem) {
-    docmdTotal += packageDownloads[pkg] || 0;
-  }
-
-  let searchTotal = 0;
-  for (const pkg of searchSuite) {
-    searchTotal += packageDownloads[pkg] || 0;
-  }
-
-  let assistantTotal = 0;
-  for (const pkg of assistantSuite) {
-    assistantTotal += packageDownloads[pkg] || 0;
-  }
+  // Accurate, ethical per-package download counts (matches npm package links directly)
+  const coreDownloads = packageDownloads['@docmd/core'] || 360635;
+  const searchDownloads = packageDownloads['docmd-search'] || 15872;
+  const assistantDownloads = packageDownloads['docmd-assistant'] || 143417;
 
   const stats = {
     updatedAt: new Date().toISOString(),
     docmd: {
-      version: coreVer || existingStats?.docmd?.version || '0.9.5',
-      downloads: Math.max(docmdTotal, existingStats?.docmd?.downloads || 3004226),
-      formatted: formatInstalls(Math.max(docmdTotal, existingStats?.docmd?.downloads || 3004226))
+      version: coreVer || existingStats?.docmd?.version || '0.10.1',
+      downloads: coreDownloads,
+      formatted: formatInstalls(coreDownloads)
     },
     search: {
-      version: searchVer || existingStats?.search?.version || '0.1.5',
-      downloads: Math.max(searchTotal, existingStats?.search?.downloads || 186365),
-      formatted: formatInstalls(Math.max(searchTotal, existingStats?.search?.downloads || 186365))
+      version: searchVer || existingStats?.search?.version || '0.1.7',
+      downloads: searchDownloads,
+      formatted: formatInstalls(searchDownloads)
     },
     assistant: {
-      version: assistantVer || existingStats?.assistant?.version || '0.1.18',
-      downloads: Math.max(assistantTotal, existingStats?.assistant?.downloads || 48820),
-      formatted: formatInstalls(Math.max(assistantTotal, existingStats?.assistant?.downloads || 48820))
+      version: assistantVer || existingStats?.assistant?.version || '0.1.21',
+      downloads: assistantDownloads,
+      formatted: formatInstalls(assistantDownloads)
     },
     packages: packageDownloads
   };
